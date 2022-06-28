@@ -1,0 +1,2 @@
+include ':serverTank'
+include 'desktop', 'android', 'core'
