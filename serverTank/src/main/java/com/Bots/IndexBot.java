@@ -105,7 +105,6 @@ public class IndexBot extends Thread {
 
             botShoot(tank.getId());
         }
-
     }
 
     //////////////////////////////
@@ -116,30 +115,17 @@ public class IndexBot extends Thread {
                 Map.Entry<Integer, DBBot> entry = entries.next();
                 DBBot tank = entry.getValue();
                 Player p = gs.getLp().getPlayerForId(tank.getId());
+                respaunBot(p);
                 DBBot dbtank = dbBots.get(p.getId());
 
-                /////////
-
-
-                //////////ATACK
-
-                attackBot(tank, deltaTime, p);
-                respaunBot(p);
-                ///////////////////////////
-
-                ///////
-                //Vector2 r =
-                gs.getMainGame().getMapSpace().resolving_conflict_with_objects(p.getPosi(), deltaTime);
-
+                attackBot(tank, deltaTime, p);/// атака бота
+                gs.getMainGame().getMapSpace().resolving_conflict_with_objects(p.getPosi(), deltaTime); /// проверка столкновений с обьектами
                 collisinOtherTanksTrue(p.getPosi(), deltaTime, p.getBody_rotation()); /// calisiion tanks
-                p.getPosi().sub(p.getBody_rotation().cpy().scl(deltaTime * 90));
+
                 // if(MathUtils.randomBoolean(.005f))tank.getValue().getTarget_body_rotation_angle().setAngleDeg(MathUtils.random(-180,180));
-
-                TowerRotationLogic.updateTowerRotation(deltaTime, tank, p, gs.getLp());
+                TowerRotationLogic.updateTowerRotation(deltaTime, tank, p, gs.getLp()); /// поворот башни
+                gs.getMainGame().getMapSpace().returnToSpace(p.getPosi());
                 moveBot(deltaTime, tank, p, gs.getLp());
-                //  p.setRotTower(dbtank.getTarget_angle_rotation_tower().angleDeg());
-
-                //  System.out.println(p.getPosi());
             } catch (ConcurrentModificationException e) {
                 e.printStackTrace();
             }
@@ -149,8 +135,9 @@ public class IndexBot extends Thread {
 
     private void moveBot(float deltaTime, DBBot tank, Player p, ListPlayers lp) {
         rotation_body(deltaTime, tank, p.getBody_rotation()); // поворот туловеща
+        p.getPosi().sub(p.getBody_rotation().cpy().scl(deltaTime * 90)); /// перемещение танка
         // перемещеени вперед
-        gs.getMainGame().getMapSpace().returnToSpace(p.getPosi());
+
 
 
     }
@@ -158,7 +145,7 @@ public class IndexBot extends Thread {
     private void respaunBot(Player p) {
         if (!p.isLive()) {
             if (MathUtils.randomBoolean(0.05f)) {
-                p.setHp(90);
+                p.setHp(100);
                 p.setPosition(MathUtils.random(0, 1000), MathUtils.random(0, 1000));
                 gs.send_PARAMETERS_PLAYER(p);
             }
@@ -177,7 +164,7 @@ public class IndexBot extends Thread {
     private static void rotation_body(float dt, DBBot db_bot, Vector2 rotaton) { // поворот тела
         boolean a = MathUtils.isEqual(rotaton.angleDeg(), db_bot.getTarget_body_rotation_angle().angleDeg(), 4);
         if (MathUtils.randomBoolean(.05f))
-            db_bot.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(50));
+            db_bot.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(180));
         //   System.out.println(rotaton.angleDeg() + "  " + db_bot.getTarget_body_rotation_angle().angleDeg() + "  " + MathUtils.isEqual(db_bot.getTarget_body_rotation_angle().angleDeg(), rotaton.angleDeg()));
         if (!a) {
             if ((rotaton.angleDeg(db_bot.getTarget_body_rotation_angle()) > 180)) {

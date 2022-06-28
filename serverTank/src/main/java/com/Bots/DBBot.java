@@ -26,6 +26,9 @@ public class DBBot {
     private float targetAlign; // целивой угол
 
     private float time_tackt_attack;
+    //////////////////////////////
+    private Vector2 globalTarget;
+    private int nom_strategy;
 
     public DBBot(int id) {
         this.id = id;
@@ -39,6 +42,11 @@ public class DBBot {
         target_tank = 0;
 
         time_tackt_attack = 0;
+        /////////////////////////
+        globalTarget = new Vector2(-1,-1);
+        nom_strategy = 0;
+
+
 
 
     }
