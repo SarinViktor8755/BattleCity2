@@ -30,7 +30,7 @@ public class CameraGame{
 
     public CameraGame(float HIDE_SCREEN,float WHIDE_SCREEN, int sm, int hl,int wl) {
         this.camera = new OrthographicCamera();
-        this.viewport = new FillViewport(HIDE_SCREEN * 3, WHIDE_SCREEN * 3 , camera);
+        this.viewport = new FillViewport(HIDE_SCREEN * 2, WHIDE_SCREEN * 2 , camera);
         floatCamera = false;
         targetPoint = new Vector2();
         this.sizeMap = sm;

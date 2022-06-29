@@ -12,10 +12,7 @@ import main.java.com.Units.ListPlayer.Player;
 
 public class BehaviourBot { // поведение бота - вектор направлениея  - логика принятия решений
 
-    final static float SPEED = 90f;
-    final static float SPEED_ROTATION = 180f;
 
-    final static float SPEED_BULLET = 700;
 
 
 //
