@@ -6,6 +6,7 @@ import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.Network;
 import com.mygdx.tanks2d.Units.Tanks.OpponentsTanks;
 import com.mygdx.tanks2d.Utils.VectorUtils;
+import com.sun.org.apache.bcel.internal.generic.FLOAD;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -103,7 +104,7 @@ public class ListPlayers {
         Network.StockMessOut sm = new Network.StockMessOut();
         Player p = this.players.get(aboutPlayerID);
         try {
-          //  System.out.println(">>>" + p.nikName);
+            //  System.out.println(">>>" + p.nikName);
             sm.textM = p.nikName;
             sm.p1 = aboutPlayerID;
             sm.p2 = p.command;
@@ -171,6 +172,29 @@ public class ListPlayers {
         }
         return null;
 
+    }
+
+    public Vector2 search_for_nearest_tank(float x, float y) {
+        float min_dst = 100_000;
+        Vector2 result = null;
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Player p = entries.next().getValue();
+            if (!p.isLive()) continue;
+            float d = p.getPosi().dst(x, y);
+
+            if (d < min_dst && d != 0) {min_dst = d;
+            result = p.getPosi();
+            }
+        }
+      //  System.out.println(min_dst + " !!!");
+        if (min_dst > 150 || min_dst == 100_000) result = null;
+        return result;
+
+    }
+
+    public Vector2 search_for_nearest_tank(Vector2 p) {
+        return this.search_for_nearest_tank(p.x, p.y);
     }
 
 
