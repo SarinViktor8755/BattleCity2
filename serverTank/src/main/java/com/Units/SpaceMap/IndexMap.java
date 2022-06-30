@@ -143,6 +143,7 @@ public class IndexMap {
     }
 
 
+
     public void resolving_conflict_with_objects(Vector2 pos, float dt) { /// решение коллизии с обьектами
         for (int i = 0; i < allfigure.size(); i++) {
             if (allfigure.get(i) instanceof Rectangle) {

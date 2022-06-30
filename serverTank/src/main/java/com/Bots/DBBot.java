@@ -15,8 +15,11 @@ public class DBBot {
     //////////////////////Target
 
     private Vector2 target_position;
+
     private Vector2 target_body_rotation_angle; // направление тела
     private Vector2 target_angle_rotation_tower; // направление башни
+
+    public static Vector2 etalon_target = new Vector2(-1000,-1000);
 
 
     private Vector2 myPosition; // позиция
@@ -32,10 +35,9 @@ public class DBBot {
 
     public DBBot(int id) {
         this.id = id;
-        target_position = new Vector2(0,0);
-        target_body_rotation_angle  = new Vector2(1,0);
-        target_angle_rotation_tower  = new Vector2(1,0);
-        target_angle_rotation_tower.set(target_body_rotation_angle);
+        target_position = new Vector2(0, 0);
+        target_body_rotation_angle = new Vector2(1, 0);
+        target_angle_rotation_tower = new Vector2(target_body_rotation_angle);
 
         targetAlign = target_angle_rotation_tower.angleDeg();
         nomTarget = null;
@@ -43,13 +45,13 @@ public class DBBot {
 
         time_tackt_attack = 0;
         /////////////////////////
-        globalTarget = new Vector2(-1,-1);
+        globalTarget = new Vector2(500,500);
         nom_strategy = 0;
 
 
-
-
     }
+
+
 
     public int getId() {
         return id;
@@ -58,7 +60,6 @@ public class DBBot {
     public void setId(int id) {
         this.id = id;
     }
-
 
 
     public String getNikName() {
@@ -89,6 +90,10 @@ public class DBBot {
         return target_body_rotation_angle;
     }
 
+    public Vector2 getGlobalTarget() {
+        return globalTarget;
+    }
+
     public void setTarget_body_rotation_angle(Vector2 target_body_rotation_angle) {
         this.target_body_rotation_angle = target_body_rotation_angle;
     }
@@ -105,8 +110,8 @@ public class DBBot {
         } else return false;
     }
 
-    public void updateTackAttack(float dt){
-        this.time_tackt_attack+=dt;
+    public void updateTackAttack(float dt) {
+        this.time_tackt_attack += dt;
     }
 
     public Vector2 getTarget_angle_rotation_tower() {
@@ -120,7 +125,6 @@ public class DBBot {
     public void setTarget_angle_rotation_tower(float angel) {
         this.target_angle_rotation_tower.setAngleDeg(angel);
     }
-
 
 
     public Vector2 getMyPosition() {
@@ -148,11 +152,24 @@ public class DBBot {
     }
 
     public float getTargetAlign() {
-        targetAlign = MathUtils.random(0,350);
+        targetAlign = MathUtils.random(0, 350);
         return targetAlign;
     }
 
     public void setTargetAlign(float targetAlign) {
         this.targetAlign = targetAlign;
+    }
+
+    public void uodate_time_tackt_attack(float dt) {
+        this.time_tackt_attack -= dt;
+    }
+
+    public boolean is_redy_move() {
+        if (this.time_tackt_attack < 0) return true;
+        return false;
+    }
+
+    public void setTime_tackt_attack(float time_tackt_attack) {
+        this.time_tackt_attack = time_tackt_attack;
     }
 }

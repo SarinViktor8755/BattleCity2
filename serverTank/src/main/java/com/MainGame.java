@@ -17,7 +17,7 @@ public class MainGame {
     public final long timer_tread_50 = 25; //ms поток таймер циклов , рассылвает координаты ботов ))
     public final long timer_tread_25 = 15; // таймер поведения ботов - 25
 
-    public static int targetPlayer = 10;
+    public static int targetPlayer = 2;
 
     public MainGame(GameServer gameServer, int targetPlayer) {
         MainGame.targetPlayer = targetPlayer;

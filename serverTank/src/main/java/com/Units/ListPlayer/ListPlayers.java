@@ -30,6 +30,8 @@ public class ListPlayers {
     Vector2 temp1 = new Vector2();
     Vector2 temp2 = new Vector2();
 
+    static final float MAX_DIST = 150 * 150;
+
     public ListPlayers(GameServer gameServer) {
         this.players = new ConcurrentHashMap<>();
         this.playersTokken = new ConcurrentHashMap<>();
@@ -176,19 +178,20 @@ public class ListPlayers {
 
     public Vector2 search_for_nearest_tank(float x, float y) {
         float min_dst = 100_000;
+
         Vector2 result = null;
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
             if (!p.isLive()) continue;
-            float d = p.getPosi().dst(x, y);
+            float d = p.getPosi().dst2(x, y);
 
             if (d < min_dst && d != 0) {min_dst = d;
             result = p.getPosi();
             }
         }
       //  System.out.println(min_dst + " !!!");
-        if (min_dst > 150 || min_dst == 100_000) result = null;
+        if (min_dst > MAX_DIST || min_dst == 100_000) result = null;
         return result;
 
     }
