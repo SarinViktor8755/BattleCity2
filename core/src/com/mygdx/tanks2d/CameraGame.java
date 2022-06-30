@@ -40,7 +40,7 @@ public class CameraGame{
 
     public void moveFloatCameraToPoint(float x , float y, float speed){
         this.targetPoint.set(x,y);
-       // System.out.println("moveFloatCameraToPoint");
+       /// System.out.println("moveFloatCameraToPoint");
         this.camera.position.sub(this.camera.position.cpy().sub(targetPoint.x,targetPoint.y,0).scl(Gdx.graphics.getDeltaTime() * speed));
         fixBounds();
     }

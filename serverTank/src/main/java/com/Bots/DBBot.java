@@ -111,7 +111,7 @@ public class DBBot {
     }
 
     public void updateTackAttack(float dt) {
-        this.time_tackt_attack += dt;
+        this.time_tackt_attack -= dt;
     }
 
     public Vector2 getTarget_angle_rotation_tower() {
@@ -161,11 +161,12 @@ public class DBBot {
     }
 
     public void uodate_time_tackt_attack(float dt) {
-        this.time_tackt_attack -= dt;
+        this.time_tackt_attack = time_tackt_attack- dt;
     }
 
     public boolean is_redy_move() {
-        if (this.time_tackt_attack < 0) return true;
+       // System.out.println(time_tackt_attack);
+        if (this.time_tackt_attack > 0) return true;
         return false;
     }
 
