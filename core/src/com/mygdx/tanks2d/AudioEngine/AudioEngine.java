@@ -15,6 +15,7 @@ public class AudioEngine {
     Sound sound;
     Sound track;
     Sound tower;
+    Sound explosion;
 
     private Long idTrack;
     private Long idTower;
@@ -35,6 +36,8 @@ public class AudioEngine {
         sound = mainGaming.getAssetsManagerGame().get("sound/BSB.ogg", Sound.class);
         track = mainGaming.getAssetsManagerGame().get("sound/00708.ogg", Sound.class);
         tower = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
+     //   explosion = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
+
     }
 
     public void pleySoundKickStick() {
@@ -53,6 +56,15 @@ public class AudioEngine {
 
     private static float countVolmeDistantion(Vector2 a,Vector2 b) {
        return countVolmeDistantion(a.x,a.y,b.x,b.y);
+    }
+
+
+    public void pleySoundKickExplosion(float x, float y, float x1, float y1) {
+        float distanc = countVolmeDistantion(x, y, x1, y1);
+        if (distanc <= 0) return;
+        long id = explosion.play();
+        explosion.setPitch(id, MathUtils.random(.95f, 1.1f));
+        explosion.setVolume(id, distanc);
     }
 
     public void pleySoundKickStick(float x, float y, float x1, float y1) {
