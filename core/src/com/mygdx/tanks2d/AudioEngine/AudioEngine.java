@@ -36,7 +36,7 @@ public class AudioEngine {
         sound = mainGaming.getAssetsManagerGame().get("sound/BSB.ogg", Sound.class);
         track = mainGaming.getAssetsManagerGame().get("sound/00708.ogg", Sound.class);
         tower = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
-     //   explosion = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
+        explosion = mainGaming.getAssetsManagerGame().get("sound/explode4.ogg", Sound.class);
 
     }
 
