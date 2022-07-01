@@ -19,7 +19,7 @@ public class DBBot {
     private Vector2 target_body_rotation_angle; // направление тела
     private Vector2 target_angle_rotation_tower; // направление башни
 
-    public static Vector2 etalon_target = new Vector2(-1000,-1000);
+    public static Vector2 etalon_target = new Vector2(-1000, -1000);
 
 
     private Vector2 myPosition; // позиция
@@ -32,8 +32,10 @@ public class DBBot {
     //////////////////////////////
     private Vector2 globalTarget;
     private int nom_strategy;
+    private float time_to_operation;
 
     public DBBot(int id) {
+        time_to_operation = 0;
         this.id = id;
         target_position = new Vector2(0, 0);
         target_body_rotation_angle = new Vector2(1, 0);
@@ -45,12 +47,11 @@ public class DBBot {
 
         time_tackt_attack = 0;
         /////////////////////////
-        globalTarget = new Vector2(500,500);
+        globalTarget = new Vector2(500, 500);
         nom_strategy = 0;
 
 
     }
-
 
 
     public int getId() {
@@ -104,6 +105,7 @@ public class DBBot {
     }
 
     public boolean isRedyToAttac() {
+        System.out.println(time_tackt_attack);
         if (this.time_tackt_attack >= 1f) {
             time_tackt_attack = 0;
             return true;
@@ -111,7 +113,8 @@ public class DBBot {
     }
 
     public void updateTackAttack(float dt) {
-        this.time_tackt_attack -= dt;
+        this.time_tackt_attack += dt;
+        this.time_to_operation -= dt;
     }
 
     public Vector2 getTarget_angle_rotation_tower() {
@@ -161,16 +164,32 @@ public class DBBot {
     }
 
     public void uodate_time_tackt_attack(float dt) {
-        this.time_tackt_attack = time_tackt_attack- dt;
+        this.time_tackt_attack = time_tackt_attack + dt;
     }
 
     public boolean is_redy_move() {
-       // System.out.println(time_tackt_attack);
+        // System.out.println(time_tackt_attack);
         if (this.time_tackt_attack > 0) return true;
         return false;
     }
 
-    public void setTime_tackt_attack(float time_tackt_attack) {
-        this.time_tackt_attack = time_tackt_attack;
+
+    public float getTime_to_operation() {
+        return time_to_operation;
+    }
+
+    public void setTime_to_operation(float time_to_operation) {
+        this.time_to_operation = time_to_operation;
+    }
+
+    public boolean isFreeForOperation() {
+        if (time_to_operation <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public void update_time_to_operation(float dt) {
+        this.time_to_operation -= dt;
     }
 }
