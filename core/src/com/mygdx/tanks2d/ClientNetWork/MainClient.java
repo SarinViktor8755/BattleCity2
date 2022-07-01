@@ -33,18 +33,14 @@ public class MainClient {
     public MainClient(MainGame mg) {
         this.mg = mg;
         routerSM = new RouterSM(mg);
-//        // pre java 8 lambdas
-//        Thread t = new Thread(new Runnable() {
-//            public void run() {
-//                // your code here ...
-//                System.out.println("111111");
-//            }
-//        });
-//
-//        t.start();
+
 
         client = new Client();
-        client.start();
+//        client.start();
+
+
+            new ClientThread(client);
+
 
 
 
@@ -150,13 +146,14 @@ public class MainClient {
         return this.networkPacketStock;
     }
 
-    public void checkConnect() {
+    public boolean checkConnect() {
+        boolean result = true;
    //     System.out.println(NetworkPacketStock.required_to_send_tooken);
         getNetworkPacketStock().toSendMyNikAndTokken(); // отправка ника и токкена
         if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
 
         if (!getClient().isConnected()) {
-
+            result = false;
             if (MathUtils.randomBoolean(.05f)) {
                 try {
 
@@ -169,6 +166,7 @@ public class MainClient {
                 }
             }
         }
+        return result;
     }
 
 

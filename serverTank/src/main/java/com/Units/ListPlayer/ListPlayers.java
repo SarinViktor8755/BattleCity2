@@ -61,7 +61,7 @@ public class ListPlayers {
     public void addPlayer(int con) {
 
         this.players.put(con, new Player(con));
-        System.out.println(this.players);
+     //   System.out.println(this.players);
     }
 
     public void addPlayer(Player p) { // конструктоор для ботов

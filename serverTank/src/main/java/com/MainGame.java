@@ -2,6 +2,7 @@ package main.java.com;
 
 import com.badlogic.gdx.math.MathUtils;
 
+import main.java.com.MatchOrganization.IndexMath;
 import main.java.com.Units.Bullet.IndexBullets;
 import main.java.com.Units.SpaceMap.IndexMap;
 
@@ -9,10 +10,10 @@ public class MainGame {
     GameServer gameServer;
     IndexBullets bullets;
     IndexMap mapSpace;
+    IndexMath indexMath;
     // IndexBot bot;
 
-    private static float realTimeMath; // время матча
-    private final static float MATH_LENGHT = 1000 * 60 * 2; // время матча
+
 
     public final long timer_tread_50 = 25; //ms поток таймер циклов , рассылвает координаты ботов ))
     public final long timer_tread_25 = 15; // таймер поведения ботов - 25
@@ -22,12 +23,15 @@ public class MainGame {
     public MainGame(GameServer gameServer, int targetPlayer) {
         MainGame.targetPlayer = targetPlayer;
         // this.bot = new IndexBot(this,number_of_bots);
-        realTimeMath = 0;
+
+
         this.gameServer = gameServer;
         this.bullets = new IndexBullets(this.gameServer);
         this.mapSpace = new IndexMap();
         startSecondaryThread_50();
         startSecondaryThread_25();
+
+        indexMath = new IndexMath();
 
 
     }
@@ -79,18 +83,14 @@ public class MainGame {
                         else Thread.sleep(timer_tread_50);
 
                         long deltaTime = GameServer.getDeltaTime();
-                        realTimeMath += deltaTime; // время матча
+                        indexMath.updateMath(deltaTime); // время матча
 
                         //     System.out.print("+");
 
-                        if (!gameServer.isServerLivePlayer()) {
-                            if (MathUtils.randomBoolean(.005f)) realTimeMath = 0;
-                        }
 
 
                         float time = (float) (deltaTime * .001);
                         bullets.updateBulets(deltaTime);
-
                         gameServer.indexBot.updaeteBot(time);
 
 
@@ -107,10 +107,6 @@ public class MainGame {
         }).start();
     }
 
-    private boolean is_end_math() {
-        if (MainGame.realTimeMath > MainGame.MATH_LENGHT) return true;
-        else return false;
-
-    }
+ ///если конец матча
 
 }

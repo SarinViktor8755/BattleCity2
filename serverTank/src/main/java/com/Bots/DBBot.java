@@ -105,7 +105,7 @@ public class DBBot {
     }
 
     public boolean isRedyToAttac() {
-        System.out.println(time_tackt_attack);
+      //  System.out.println(time_tackt_attack);
         if (this.time_tackt_attack >= 1f) {
             time_tackt_attack = 0;
             return true;

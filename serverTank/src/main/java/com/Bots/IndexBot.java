@@ -137,10 +137,11 @@ public class IndexBot extends Thread {
         //isPointInCollision
         boolean r = rotation_body(deltaTime, tank, p.getBody_rotation()); // поворот туловеща
         // tank.getTarget_body_rotation_angle().nor().scl(MathUtils.random(50, 80));
-
+//
         go_to_tarpent_point(p, tank, r); // движение к точки цели
-        go_around_an_obstacle(tank, p); /// обход препядствий
         moving_away_from_tanks(p, tank, r); /// обход других танков
+        go_around_an_obstacle(tank, p); /// обход препядствий
+
 
         p.getPosi().sub(p.getBody_rotation().cpy().scl(deltaTime * 90)); /// перемещение танка
         // перемещеени вперед
@@ -156,17 +157,22 @@ public class IndexBot extends Thread {
         if (!r) return;
         // Vector2 stick = get_vector_from_players_position(tank.getTarget_body_rotation_angle(), p).scl(-1);
         tank.getTarget_body_rotation_angle().set(p.getPosi().cpy().sub(away_tank).scl(-1)).rotateDeg(MathUtils.random(-30, 30));
-        tank.setTime_to_operation(MathUtils.random(3,7));
+        tank.setTime_to_operation(MathUtils.random(2,5));
 
 
     }
 
     private void go_around_an_obstacle(DBBot tank, Player p) { // обход припятсвий
+    //    Vector2 stick = get_vector_from_players_position(p.getBody_rotation(), p).nor().scl(-50);
+        if(MathUtils.randomBoolean(.85f)) return;
+        Vector2 rot = temp_position_vector.set(1, 0).setAngleDeg(tank.getTarget_body_rotation_angle().angleDeg()).scl(MathUtils.random(70,100));
+        Vector2 stick = p.getPosi().cpy().sub(rot);;
 
-        Vector2 stick = get_vector_from_players_position(tank.getTarget_body_rotation_angle(), p).scl(-1);
+
+     //   System.out.println("space: "+!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) + "__calision "+ gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y));
         if (!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) || gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y)) {
-            tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(45, 315));
-            tank.setTime_to_operation(MathUtils.random(2,10));
+            tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(45,315));
+            tank.setTime_to_operation(MathUtils.random(1,4));
         }
 
     }
@@ -176,7 +182,7 @@ public class IndexBot extends Thread {
         if (tank.getGlobalTarget().equals(DBBot.etalon_target)) return;
         if (!tank.is_redy_move()) return;
         if (!a) return;
-        System.out.println("point");
+        // System.out.println("point");
         tank.getTarget_body_rotation_angle().set(p.getPosi().cpy().sub(tank.getGlobalTarget()));
 
     }

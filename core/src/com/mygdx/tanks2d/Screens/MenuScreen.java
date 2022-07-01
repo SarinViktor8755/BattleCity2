@@ -250,7 +250,8 @@ public class MenuScreen implements Screen {
     }
 
     private void upDateScreen() {
-        mainClient.checkConnect(); // проверяет на коннект переподключется
+       mainClient.checkConnect(); // проверяет на коннект переподключется
+
        // System.out.println("!!!" + mainClient.getClient().isConnected() + " ___ isOnLine" + mainGame.getMainClient().isOnLine());
        // mainGame.getMainClient().updateAlphaW();
         mainGame.updateClien();

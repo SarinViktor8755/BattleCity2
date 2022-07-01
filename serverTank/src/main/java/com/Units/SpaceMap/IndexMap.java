@@ -53,7 +53,7 @@ public class IndexMap {
         for (int i = 0; i < arr.length(); i++) {
             ceateObjectmap((JSONObject) arr.get(i));
         }
-        System.out.println("install_map : " + GameServer.getDate());
+          System.out.println("install_map : " + GameServer.getDate());
     }
 
     ////////////////

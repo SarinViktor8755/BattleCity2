@@ -133,7 +133,7 @@ public class Player {
     }
 
     public void setNikName(String nikName) {
-        System.out.println(nikName + "   " + this.id + "!!!!!!!!!!!!!!! setNikName");
+     //   System.out.println(nikName + "   " + this.id + "!!!!!!!!!!!!!!! setNikName");
         this.nikName = nikName;
 
     }

@@ -88,6 +88,7 @@ public class TanksOther { /// много танков )))
             OpponentsTanks ot = listOpponents.get(p.nom);
             /////////////
 
+
             if (!newFrame) { // нет фрейма
                 if (ot.move) {
                     temp.set(ot.getDirection()).clamp(90, 90).scl(Gdx.graphics.getDeltaTime());
@@ -171,9 +172,9 @@ public class TanksOther { /// много танков )))
     public void deathAllPlayers(){
 
         for (Map.Entry<Integer, OpponentsTanks> tanks: listOpponents.entrySet())
-            if(MathUtils.randomBoolean())tanks.getValue().getPosition().set(-1000,-1000); else tanks.getValue().getPosition().set(1000,1000);
+            if(MathUtils.randomBoolean())tanks.getValue().getPosition().set(-1000,-1000);
 
-       // this.listOpponents.clear();
+    //   this.listOpponents.clear();
     }
 
 
