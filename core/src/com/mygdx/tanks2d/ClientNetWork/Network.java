@@ -12,7 +12,7 @@ public class Network {
     //final public static String ip = "omskSarin2020.online";
 
   final  public static String host = "127.0.0.1";
-  //final public static String host = "92.124.144.204";
+    // final public static String host = "92.124.144.204";
 
     static public void register(EndPoint endPoint) {
         Kryo kryo = endPoint.getKryo();

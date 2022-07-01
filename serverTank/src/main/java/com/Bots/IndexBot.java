@@ -102,7 +102,6 @@ public class IndexBot extends Thread {
         if (!dbtank.isRedyToAttac()) return;
             if (dbtank.getNomTarget() == null) return;
             botShoot(tank.getId());
-
     }
 
     //////////////////////////////
