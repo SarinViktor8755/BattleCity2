@@ -87,7 +87,7 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
         if (!p.isLive()) return false;
         // if(MathUtils.randomBoolean(.005f)) return false;
         //   if (p.getPosi().dst2(lp.getPlayerForId(dbBot.getNomTarget()).getPosi()) > TowerRotationLogic.rast_to_target) return false;
-
+        if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) return false;
 
         return true;
     }

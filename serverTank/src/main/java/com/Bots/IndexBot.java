@@ -140,12 +140,27 @@ public class IndexBot extends Thread {
         go_to_tarpent_point(p, tank, r); // движение к точки цели
         moving_away_from_tanks(p, tank, r); /// обход других танков
         go_around_an_obstacle(tank, p); /// обход препядствий
+        updateBaseTarget(p, tank, r); // обовление базовой цели
 
 
         p.getPosi().sub(p.getBody_rotation().cpy().scl(deltaTime * 90)); /// перемещение танка
         // перемещеени вперед
 
 
+    }
+
+    private void updateBaseTarget(Player p, DBBot tank, boolean r) {
+        if(MathUtils.randomBoolean(.9f)) return;
+        try {
+            if (tank.getNomTarget() != null && MathUtils.randomBoolean(.01f)){
+                tank.setGlobalTarget(gs.getLp().getPlayerForId(tank.getNomTarget()).getPosi().cpy());
+            System.out.println("11__");}
+            else{
+                if(MathUtils.randomBoolean(.05f)) return;
+                tank.getGlobalTarget().set(500, 500);
+                System.out.println("222");
+            }
+        }catch (NullPointerException e){e.printStackTrace();}
     }
 
     private void moving_away_from_tanks(Player p, DBBot tank, boolean r) { // уход от других танков

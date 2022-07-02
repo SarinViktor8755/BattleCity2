@@ -30,7 +30,7 @@ public class DBBot {
 
     private float time_tackt_attack;
     //////////////////////////////
-    private Vector2 globalTarget;
+    private Vector2 globalTarget; // шлобальная цель
     private int nom_strategy;
     private float time_to_operation;
 
@@ -77,6 +77,10 @@ public class DBBot {
 
     public void setTimerShoot(float timerShoot) {
         this.timerShoot = timerShoot;
+    }
+
+    public void setGlobalTarget(Vector2 globalTarget) {
+        this.globalTarget = globalTarget;
     }
 
     public Vector2 getTarget_position() {

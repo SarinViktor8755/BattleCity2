@@ -200,5 +200,14 @@ public class ListPlayers {
         return this.search_for_nearest_tank(p.x, p.y);
     }
 
+    public int getCommandForId(int id){ // взять команду по ид ))) не тестировалоась
+        try {
+            return players.get(id).getCommand();
+        }catch (NullPointerException e){
+            return 0;
+        }
+
+    }
+
 
 }
