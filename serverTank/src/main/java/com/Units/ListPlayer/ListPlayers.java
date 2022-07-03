@@ -32,12 +32,18 @@ public class ListPlayers {
 
     static final float MAX_DIST = 150 * 150;
 
+    private int blue_size;
+    private int red_size;
+
     public ListPlayers(GameServer gameServer) {
         this.players = new ConcurrentHashMap<>();
         this.playersTokken = new ConcurrentHashMap<>();
         this.gameServer = gameServer;
 
         System.out.println("install_ListPlayers : " + GameServer.getDate());
+
+        red_size = 0;
+        blue_size = 0;
     }
 
     public Player getPlayerForId(int id) { // почему то вызывается  иногда
@@ -61,7 +67,7 @@ public class ListPlayers {
     public void addPlayer(int con) {
 
         this.players.put(con, new Player(con));
-     //   System.out.println(this.players);
+        //   System.out.println(this.players);
     }
 
     public void addPlayer(Player p) { // конструктоор для ботов
@@ -151,12 +157,18 @@ public class ListPlayers {
 
 
     public Vector2 isCollisionsTanks(Vector2 pos) {
+        red_size = 0; blue_size = 0;
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
+
+            if (tank.getValue().getCommand() == Heading_type.BLUE_COMMAND) blue_size++;
+            else red_size++;
+
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
             if (!tank.getValue().isLive()) continue;
             if (tank.getValue().isCollisionsTanks(pos))
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
         }
+        System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
         return null;
     }
 ///////////////////
@@ -186,11 +198,12 @@ public class ListPlayers {
             if (!p.isLive()) continue;
             float d = p.getPosi().dst2(x, y);
 
-            if (d < min_dst && d != 0) {min_dst = d;
-            result = p.getPosi();
+            if (d < min_dst && d != 0) {
+                min_dst = d;
+                result = p.getPosi();
             }
         }
-      //  System.out.println(min_dst + " !!!");
+        //  System.out.println(min_dst + " !!!");
         if (min_dst > MAX_DIST || min_dst == 100_000) result = null;
         return result;
 
@@ -200,13 +213,22 @@ public class ListPlayers {
         return this.search_for_nearest_tank(p.x, p.y);
     }
 
-    public int getCommandForId(int id){ // взять команду по ид ))) не тестировалоась
+    public int getCommandForId(int id) { // взять команду по ид ))) не тестировалоась
         try {
             return players.get(id).getCommand();
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             return 0;
         }
 
+    }
+
+
+    public int blue_players_size() {
+        return this.blue_size;
+    }
+
+    public int red_players_size() {
+        return this.red_size;
     }
 
 

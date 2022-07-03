@@ -100,8 +100,8 @@ public class IndexBot extends Thread {
         if (!tank.isLive()) return;
 
         if (!dbtank.isRedyToAttac()) return;
-            if (dbtank.getNomTarget() == null) return;
-            botShoot(tank.getId());
+        if (dbtank.getNomTarget() == null) return;
+        botShoot(tank.getId());
     }
 
     //////////////////////////////
@@ -144,7 +144,6 @@ public class IndexBot extends Thread {
         go_around_an_obstacle(tank, p); /// обход препядствий
 
 
-
         p.getPosi().sub(p.getBody_rotation().cpy().scl(deltaTime * 90)); /// перемещение танка
         // перемещеени вперед
 
@@ -152,17 +151,19 @@ public class IndexBot extends Thread {
     }
 
     private void updateBaseTarget(Player p, DBBot tank, boolean r) {
-       // if(MathUtils.randomBoolean(.9f)) return;
+        // if(MathUtils.randomBoolean(.9f)) return;
         try {
-            if (tank.getNomTarget() != null && MathUtils.randomBoolean(.1f)){
-                tank.setGlobalTarget(gs.getLp().getPlayerForId(tank.getNomTarget()).getPosi().cpy().add(MathUtils.random(-150,+150),MathUtils.random(-150,+150)));
-            System.out.println("11__");}
-            else{
-                if(MathUtils.randomBoolean(.05f)) return;
+            if (tank.getNomTarget() != null && MathUtils.randomBoolean(.1f)) {
+                tank.setGlobalTarget(gs.getLp().getPlayerForId(tank.getNomTarget()).getPosi().cpy().add(MathUtils.random(-150, +150), MathUtils.random(-150, +150)));
+                //  System.out.println("11__");
+            } else {
+                if (MathUtils.randomBoolean(.05f)) return;
                 tank.getGlobalTarget().set(500, 500);
-                System.out.println("222");
+                // System.out.println("222");
             }
-        }catch (NullPointerException e){e.printStackTrace();}
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     private void moving_away_from_tanks(Player p, DBBot tank, boolean r) { // уход от других танков
@@ -173,28 +174,29 @@ public class IndexBot extends Thread {
         if (!r) return;
         // Vector2 stick = get_vector_from_players_position(tank.getTarget_body_rotation_angle(), p).scl(-1);
         tank.getTarget_body_rotation_angle().set(p.getPosi().cpy().sub(away_tank).scl(-1)).rotateDeg(MathUtils.random(-30, 30));
-        tank.setTime_to_operation(MathUtils.random(2,5));
+        tank.setTime_to_operation(MathUtils.random(2, 5));
 
 
     }
 
     private void go_around_an_obstacle(DBBot tank, Player p) { // обход припятсвий
-    //    Vector2 stick = get_vector_from_players_position(p.getBody_rotation(), p).nor().scl(-50);
-        if(MathUtils.randomBoolean(.85f)) return;
-        Vector2 rot = temp_position_vector.set(1, 0).setAngleDeg(tank.getTarget_body_rotation_angle().angleDeg()).scl(MathUtils.random(70,100));
-        Vector2 stick = p.getPosi().cpy().sub(rot);;
+        //    Vector2 stick = get_vector_from_players_position(p.getBody_rotation(), p).nor().scl(-50);
+        if (MathUtils.randomBoolean(.85f)) return;
+        Vector2 rot = temp_position_vector.set(1, 0).setAngleDeg(tank.getTarget_body_rotation_angle().angleDeg()).scl(MathUtils.random(70, 100));
+        Vector2 stick = p.getPosi().cpy().sub(rot);
+        ;
 
 
-     //   System.out.println("space: "+!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) + "__calision "+ gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y));
+        //   System.out.println("space: "+!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) + "__calision "+ gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y));
         if (!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) || gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y)) {
-            tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(45,315));
-            tank.setTime_to_operation(MathUtils.random(1,4));
+            tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(45, 315));
+            tank.setTime_to_operation(MathUtils.random(1, 4));
         }
 
     }
 
     private void go_to_tarpent_point(Player p, DBBot tank, boolean a) { // двигаться к целевой точке
-        if(!tank.isFreeForOperation()) return;
+        if (!tank.isFreeForOperation()) return;
         if (tank.getGlobalTarget().equals(DBBot.etalon_target)) return;
         if (!tank.is_redy_move()) return;
         if (!a) return;
@@ -206,7 +208,7 @@ public class IndexBot extends Thread {
 
     private static boolean rotation_body(float dt, DBBot db_bot, Vector2 rotaton) { // поворот тела
         boolean a = MathUtils.isEqual(rotaton.angleDeg(), db_bot.getTarget_body_rotation_angle().angleDeg(), 4);
-      if (!a) {
+        if (!a) {
             if ((rotaton.angleDeg(db_bot.getTarget_body_rotation_angle()) > 180)) {
                 rotaton.rotateDeg(SPEED_ROTATION * dt);
             } else rotaton.rotateDeg(-SPEED_ROTATION * dt);
