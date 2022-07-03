@@ -76,7 +76,7 @@ public class MainClient {
             public void disconnected(Connection connection) {
             }
         });
-     //   System.out.println(client.isConnected() + "!!!!!!!!!!!!!!!1");
+     //   Sytem.out.printlsn(client.isConnected() + "!!!!!!!!!!!!!!!1");
     }
 
     private void startClient() {
@@ -106,7 +106,7 @@ public class MainClient {
             frameUpdates.put(pp.nom, true);
           //  System.out.println(pp.nom);
             if (pp.nom == client.getID()) return;
-            System.out.println("PleyerPositionNom");
+            // System.out.println("PleyerPositionNom");
             try {
                 try {
                     OpponentsTanks t = mg.getGamePlayScreen().getTanksOther().getTankForID(pp.nom);
@@ -125,8 +125,11 @@ public class MainClient {
 
         if (object instanceof Network.StockMessOut) {
         //    System.out.println((Network.StockMessOut) object);
+            try {
             routerSM.routeSM((Network.StockMessOut) object);
-
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
 
         }
 

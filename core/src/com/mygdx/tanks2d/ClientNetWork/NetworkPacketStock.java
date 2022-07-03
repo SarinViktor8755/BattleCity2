@@ -48,7 +48,7 @@ public class NetworkPacketStock {
     }
 
     public void toSendMyNik() {
-        System.out.println("Nik");
+      //  System.out.println("Nik");
         send_package_to_server(Heading_type.MY_NIK, 0, 0, 0, 0, NikName.getNikName());
     }
     public void toSendMyParPlayer(int idPlayer) { // запорс параметра игрока

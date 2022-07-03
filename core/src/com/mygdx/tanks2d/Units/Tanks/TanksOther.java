@@ -110,15 +110,15 @@ public class TanksOther { /// много танков )))
                  temp.set(p.xp, p.yp);
 
                 tRotation.set(p.xp,p.yp).sub(ot.getPosition());
-                System.out.println("!!!! " + tRotation.angleDeg()+ "  _-"+ot.getDirection().angleDeg()
-                +"  " + (tRotation.angleDeg() - ot.getDirection().angleDeg())
-                );
+//                System.out.println("!!!! " + tRotation.angleDeg()+ "  _-"+ot.getDirection().angleDeg()
+//                +"  " + (tRotation.angleDeg() - ot.getDirection().angleDeg())
+//                );
                 float delta = tRotation.angleDeg() - ot.getDirection().angleDeg();
                 if(Math.abs(delta) > 10){
                     delta = MathUtils.map(-360,360,-1,1,delta);
                 }
                 ot.getDirection().setAngleRad(delta);
-                System.out.println(tRotation.hasOppositeDirection(ot.getDirection()));
+              //  System.out.println(tRotation.hasOppositeDirection(ot.getDirection()));
 
                 /// поворот
 //                if (Math.abs(temp.angleDeg() - ot.getDirection().angleDeg()) > 2) {
@@ -138,7 +138,7 @@ public class TanksOther { /// много танков )))
             if (temp.set(p.xp, p.yp).sub(ot.getPosition().cpy()).scl(10).len2() > 50)
                 ot.move = true;
             else ot.move = false;
-            System.out.println("!!!! " + ot.getDirection() + rotation );
+           // System.out.println("!!!! " + ot.getDirection() + rotation );
             ot.getDirection().setAngleDeg(rotation);
             ot.getDirection_tower().setAngleDeg(p.roy_tower);
             if (ot.move)

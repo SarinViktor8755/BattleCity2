@@ -28,23 +28,25 @@ public class RouterSM {
         this.mainGame = mainGame;
     }
 
-    public void routeSM(Network.StockMessOut sm) {
+    public void routeSM (Network.StockMessOut sm) throws NullPointerException{
         System.out.println("-->>> in :: " + sm.tip);
         if (Heading_type.MY_SHOT == sm.tip) {
+            try {
             position.set(sm.p1, sm.p2);
             velocity.set(0, 400);
             velocity.setAngleDeg(sm.p3); /// навправление
-            try {
+
                 mainGame.getGamePlayScreen().playAnimation(position, velocity, (int) sm.p4);
             } catch (NullPointerException e) {
-                //   e.printStackTrace();
+                  e.printStackTrace();
             }
             return;
         }
 
         if (Heading_type.SHELL_RUPTURE == sm.tip) { // РАЗРЫВ СНАРЯДА
-            Vector2 pp = new Vector2(sm.p1, sm.p2);
             try {
+            Vector2 pp = new Vector2(sm.p1, sm.p2);
+
                 // Vector2 v = mainGame.getGamePlayScreen().getBullets().getBullet((int) sm.p3).direction;
                 mainGame.getGamePlayScreen().playExplosion(pp, velocity);
                 System.out.println(sm.p3 + "-------------");
@@ -57,6 +59,7 @@ public class RouterSM {
                 }
             } catch (NullPointerException e) {
                   e.printStackTrace();
+                    return;
             }
             return;
         }
@@ -92,7 +95,8 @@ public class RouterSM {
                 }
 
             } catch (NullPointerException e) {
-                // e.printStackTrace();
+                 e.printStackTrace();
+              //  System.out.println("1");
 //                Tank myTank = mainGame.getGamePlayScreen().getTank();
 //                myTank.setHp((int) sm.p3);
 //                myTank.setCommand((int) sm.p2);
