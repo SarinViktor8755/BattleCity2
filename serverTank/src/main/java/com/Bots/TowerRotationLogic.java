@@ -38,17 +38,18 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
             dbBot.setNomTarget(scanning_the_terrain(dbBot, p, lp)); // поиск цели
         } else {
             capturing_target(dbBot, p, lp);
-            if(!lp.getPlayerForId(dbBot.getNomTarget()).isLive())dbBot.setNomTarget(null);
-            if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) dbBot.setNomTarget(null);
-//
 
+//            if(!lp.getPlayerForId(dbBot.getNomTarget()).isLive())dbBot.setNomTarget(null);
+//            if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) dbBot.setNomTarget(null);
+//
+            ckeck_target(dbBot,p,lp);
         }
         }catch (NullPointerException e){}
        // System.out.println(dbBot.getNomTarget() + "@@" + p.getId());
 
     }
 
-    private static Integer scanning_the_terrain(DBBot dbBot, Player p, ListPlayers lp) { //yfqnb wtkm
+    private static Integer scanning_the_terrain(DBBot dbBot, Player p, ListPlayers lp) { //найти цель
         Integer targetID = lp.targetTankForBotAttack(p.getPosi());
         return targetID;
     }
@@ -78,17 +79,14 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
 
     private static boolean capturing_target(DBBot dbBot, Player p, ListPlayers lp) { //захват целт
         int idTarget = dbBot.getNomTarget();
-        dbBot.setTarget_angle_rotation_tower(returnAngle(lp.getPlayerForId(idTarget).getPosi(), p.getPosi()));
-
+        float align = returnAngle(lp.getPlayerForId(idTarget).getPosi(), p.getPosi());
+        dbBot.setTarget_angle_rotation_tower(align);
         return false;
     }
 
     private static boolean ckeck_target(DBBot dbBot, Player p, ListPlayers lp) { // проверка цели
-        if (!p.isLive()) return false;
-        // if(MathUtils.randomBoolean(.005f)) return false;
-        //   if (p.getPosi().dst2(lp.getPlayerForId(dbBot.getNomTarget()).getPosi()) > TowerRotationLogic.rast_to_target) return false;
-        if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) return false;
-
+        if(!lp.getPlayerForId(dbBot.getNomTarget()).isLive())dbBot.setNomTarget(null);
+        if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) dbBot.setNomTarget(null);
         return true;
     }
 
