@@ -66,7 +66,13 @@ public class IndexBullets {
             if(np!=-1){
                 delBullet(bullet); // /тут ели попали в игрок 1. минусуем хп 2. уничтожаем патрон 3. рассылаем игрока
                 Player player = gameServer.getLp().getPlayerForId(np);
-                player.minusHP(27);
+                gameServer.getLp().getPlayerForId(bullet.getAuthor_bullet()).getCommand();
+                if(gameServer.getLp().getPlayerForId(bullet.getAuthor_bullet()).getCommand() == player.getCommand()) {
+                    System.out.println("frend");
+                    continue;
+                }
+                System.out.println("vrag");
+                player.minusHP(MathUtils.random(17,27));
                 gameServer.send_PARAMETERS_PLAYER(player); // рассылка всем
             }
           //  System.out.println("______________________"+ np);

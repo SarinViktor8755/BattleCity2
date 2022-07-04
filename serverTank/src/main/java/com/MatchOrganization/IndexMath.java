@@ -14,7 +14,7 @@ public class IndexMath {
 
     public void updateMath(float dt,ListPlayers listPlayers) {
         this.realTimeMath += dt;
-        System.out.println(realTimeMath);
+      //  System.out.println(realTimeMath);
         this.listPlayers = listPlayers;
     }
 

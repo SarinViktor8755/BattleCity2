@@ -162,7 +162,7 @@ public class ListPlayers {
             if (tank.getValue().isCollisionsTanks(pos))
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
         }
-        System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
+       // System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
         return null;
     }
 ///////////////////

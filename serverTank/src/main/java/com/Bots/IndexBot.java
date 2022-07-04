@@ -37,7 +37,7 @@ public class IndexBot extends Thread {
     private int countBot; // порядковый номер ботов
 
 
- //   private int sizeBot = 5;
+    //   private int sizeBot = 5;
 
     private TowerRotationLogic tr;
 
@@ -58,7 +58,7 @@ public class IndexBot extends Thread {
 
 
     private void addBot() {
-        Player p = new Player(NOM_ID_BOT,gs.getMainGame().getIndexMath().getCommand());
+        Player p = new Player(NOM_ID_BOT, gs.getMainGame().getIndexMath().getCommand());
 
 //        if (MathUtils.randomBoolean()) p.setCommand(Heading_type.RED_COMMAND);
 //        else p.setCommand(Heading_type.BLUE_COMMAND);
@@ -159,7 +159,8 @@ public class IndexBot extends Thread {
                 //  System.out.println("11__");
             } else {
                 if (MathUtils.randomBoolean(.05f)) return;
-                tank.getGlobalTarget().set(500, 500);
+              //  tank.getGlobalTarget().set(500, 500);
+                if(p.getCommand()== Heading_type.RED_COMMAND){tank.getGlobalTarget().set(10, 10);}else tank.getGlobalTarget().set(1000, 1000);
                 // System.out.println("222");
             }
         } catch (NullPointerException e) {
@@ -221,7 +222,9 @@ public class IndexBot extends Thread {
         if (!p.isLive()) {
             if (MathUtils.randomBoolean(0.05f)) {
                 p.setHp(100);
-                p.setPosition(MathUtils.random(0, 1000), MathUtils.random(0, 1000));
+                if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(1000, 1000);
+                else p.setPosition(10, 10);
+               // p.setPosition(MathUtils.random(0, 1000), MathUtils.random(0, 1000));
                 gs.send_PARAMETERS_PLAYER(p);
             }
         }
