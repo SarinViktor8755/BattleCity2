@@ -11,8 +11,8 @@ public class Player {
     public static final int STATUS_MENU = 1;
     public static final int STATUS_IN_GAME = 2;
 
-    private static int RED_COMMAND = 1;
-    private static int BLUE_COMMAND = 2;
+//    private static int RED_COMMAND = 1;
+//    private static int BLUE_COMMAND = 2;
 
     // общие
     int status = STATUS_MENU;
@@ -26,17 +26,16 @@ public class Player {
 
     String tokken, nikName;
 
-    public Player(int id) {
+    public Player(int id, int command) {
         this.id = id;
         hp = 100;
         death = 1;
-        command = MathUtils.random(1, 2);
-        nikName = "Player no." + this.id;
+        this.command = command;
+        nikName = "Player no." + this.id + " live Player";
         pos = new Vector2();
         body_rotation = new Vector2(1, 1);
 
-        if (MathUtils.randomBoolean()) command = Heading_type.BLUE_COMMAND;
-        else command = Heading_type.RED_COMMAND;
+
     }
 
     public void setPosition(Vector2 p) {
@@ -128,12 +127,12 @@ public class Player {
     }
 
     public String getNikName() {
-       // System.out.println(this);
+        // System.out.println(this);
         return nikName;
     }
 
     public void setNikName(String nikName) {
-     //   System.out.println(nikName + "   " + this.id + "!!!!!!!!!!!!!!! setNikName");
+        //   System.out.println(nikName + "   " + this.id + "!!!!!!!!!!!!!!! setNikName");
         this.nikName = nikName;
 
     }
@@ -155,8 +154,6 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "status=" + status +
-
-
                 ", rotTower=" + rotTower +
                 ", hp=" + hp +
                 ", frags=" + frags +

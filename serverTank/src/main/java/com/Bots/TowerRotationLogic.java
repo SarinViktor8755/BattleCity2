@@ -5,8 +5,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.Units.Tanks.OpponentsTanks;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
@@ -50,12 +48,12 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
     }
 
     private static Integer scanning_the_terrain(DBBot dbBot, Player p, ListPlayers lp) { //найти цель
-        Integer targetID = lp.targetTankForBotAttack(p.getPosi());
+        Integer targetID = lp.targetTankForBotAttack(p.getPosi(),p);
         return targetID;
     }
 
     private static Integer scanning_the_terrain(DBBot dbBot, Player p, ListPlayers lp, Integer idTarget) { // перенайти цель
-        Integer targetID = lp.targetTankForBotAttack(p.getPosi());
+        Integer targetID = lp.targetTankForBotAttack(p.getPosi(), p);
         return targetID;
     }
 

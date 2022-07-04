@@ -22,8 +22,6 @@ public class MainGame {
 
     public MainGame(GameServer gameServer, int targetPlayer) {
         MainGame.targetPlayer = targetPlayer;
-        // this.bot = new IndexBot(this,number_of_bots);
-
 
         this.gameServer = gameServer;
         this.bullets = new IndexBullets(this.gameServer);
@@ -34,6 +32,10 @@ public class MainGame {
         indexMath = new IndexMath();
 
 
+    }
+
+    public IndexMath getIndexMath() {
+        return indexMath;
     }
 
     public IndexBullets getBullets() {
@@ -79,7 +81,7 @@ public class MainGame {
                         else Thread.sleep(timer_tread_50);
 
                         long deltaTime = GameServer.getDeltaTime();
-                        indexMath.updateMath(deltaTime); // время матча
+                        indexMath.updateMath(deltaTime, gameServer.lp); // время матча
 
                         //     System.out.print("+");
 

@@ -78,7 +78,7 @@ public class Tank {
 
         rot = true;
         deltaSled = 0;
-        tr = new TowerRotation(direction, direction_tower, position, gsp.getTanksOther().listOpponents);
+        tr = new TowerRotation(direction, direction_tower, position, gsp.getTanksOther().listOpponents,command);
         targetCoordinat = new Vector2(0, 0);
         deltaSledVec.set(this.getPosition());
 

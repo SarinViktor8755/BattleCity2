@@ -4,17 +4,11 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.Network;
-import com.mygdx.tanks2d.Units.Tanks.OpponentsTanks;
-import com.mygdx.tanks2d.Utils.VectorUtils;
-import com.sun.org.apache.bcel.internal.generic.FLOAD;
 
-import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Timer;
 import java.util.concurrent.ConcurrentHashMap;
 
-import main.java.com.Bots.DBBot;
 import main.java.com.Bots.TowerRotationLogic;
 import main.java.com.GameServer;
 
@@ -48,7 +42,7 @@ public class ListPlayers {
 
     public Player getPlayerForId(int id) { // почему то вызывается  иногда
         Player result = players.get(id);
-        if (result == null) players.put(id, new Player(id));
+        if (result == null) players.put(id, new Player(id,gameServer.getMainGame().getIndexMath().getCommand()));
         return players.get(id);
     }
 
@@ -66,7 +60,7 @@ public class ListPlayers {
 
     public void addPlayer(int con) {
 
-        this.players.put(con, new Player(con));
+        this.players.put(con, new Player(con,gameServer.getMainGame().getIndexMath().getCommand()));
         //   System.out.println(this.players);
     }
 
@@ -87,7 +81,7 @@ public class ListPlayers {
 
     public void updatePosition(int id, Network.PleyerPosition pp) { // записать парметры Игрока
         Player p = players.get(id);
-        if (p == null) players.put(id, new Player(id));
+        if (p == null) players.put(id, new Player(id,gameServer.getMainGame().getIndexMath().getCommand()));
 
         p.setPosition(pp.xp, pp.yp);
         p.setRotTower(pp.roy_tower);
@@ -173,10 +167,11 @@ public class ListPlayers {
     }
 ///////////////////
 
-    public Integer targetTankForBotAttack(Vector2 myPosi) { // найти цель для бота - просто перебор кто первый попадется
+    public Integer targetTankForBotAttack(Vector2 myPosi, Player my) { // найти цель для бота - просто перебор кто первый попадется
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
+            if(my.getCommand()== p.getCommand()) continue;
             float dst = p.getPosi().dst2(myPosi);
             if (dst > TowerRotationLogic.rast_to_target) continue;
             if (dst < 5) continue;

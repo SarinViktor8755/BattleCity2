@@ -34,10 +34,10 @@ public class IndexBot extends Thread {
 
     private Vector2 temp_position_vector;
     private static Vector2 temp_position_vector_static;
-    private int countBot;
+    private int countBot; // порядковый номер ботов
 
 
-    private int sizeBot = 5;
+ //   private int sizeBot = 5;
 
     private TowerRotationLogic tr;
 
@@ -48,7 +48,7 @@ public class IndexBot extends Thread {
 
         this.gs = gameServer;
         this.dbBots = new ConcurrentHashMap<>();
-        this.sizeBot = number_bots;
+        //  this.sizeBot = number_bots;
         this.tr = new TowerRotationLogic();
         // this.botBehavior = new BotBehavior(botList); // поведение бота - тут вся логика  )))
         // this.allPlayers = new HashMap<Integer, TowerRotation>();
@@ -58,10 +58,10 @@ public class IndexBot extends Thread {
 
 
     private void addBot() {
-        Player p = new Player(NOM_ID_BOT);
+        Player p = new Player(NOM_ID_BOT,gs.getMainGame().getIndexMath().getCommand());
 
-        if (MathUtils.randomBoolean()) p.setCommand(Heading_type.RED_COMMAND);
-        else p.setCommand(Heading_type.BLUE_COMMAND);
+//        if (MathUtils.randomBoolean()) p.setCommand(Heading_type.RED_COMMAND);
+//        else p.setCommand(Heading_type.BLUE_COMMAND);
 
         p.setPosition(MathUtils.random(200, 1100), MathUtils.random(200, 1100));
         p.setHp(100);
@@ -74,6 +74,7 @@ public class IndexBot extends Thread {
 
         DBBot bot = new DBBot(p.getId());
         dbBots.put(p.getId(), bot);
+        p.setCommand(gs.getMainGame().getIndexMath().getCommand());
     }
 
 //    public void upateMainPlayerList(ListPlayers listPlayers) { //обносить основй список играков )_)) закидуть ботов в листПлаер
@@ -268,7 +269,9 @@ public class IndexBot extends Thread {
 
 
     private void delBot() {
-
+//        if ((dbBots.size() + lPlayers) > target_plaers){
+//
+//        }
     }
 
 

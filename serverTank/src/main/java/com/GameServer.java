@@ -26,7 +26,7 @@ public class GameServer {
 
     Server server;
     MainGame mainGame;
-    IndexBot indexBot;
+    IndexBot indexBot; // количество играков - по нему боты орентируюься сколько их нужно = для автобаласа
 
 
     static long previousStepTime; // шаг для дельты
@@ -199,6 +199,7 @@ public class GameServer {
 //        if (MathUtils.randomBoolean()) return Heading_type.BLUE_COMMAND;
 //        else return Heading_type.RED_COMMAND;
     }
+
 
 }
 

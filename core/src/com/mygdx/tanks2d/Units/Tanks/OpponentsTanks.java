@@ -51,7 +51,7 @@ public class OpponentsTanks { // ОДИН ТАНК
 
 
         this.nomder = nomder;
-        towerRotation = new TowerRotation(this.direction, this.direction_tower, this.position, listOpponents);
+        towerRotation = new TowerRotation(this.direction, this.direction_tower, this.position, listOpponents,command);
         directionMovementControll = new Vector2(direction);
         this.gsp = gsp;
         hp = 100;
@@ -69,7 +69,7 @@ public class OpponentsTanks { // ОДИН ТАНК
         this.direction_tower = new Vector2(1, 0);
 
         this.nomder = nomder;
-        towerRotation = new TowerRotation(this.direction, this.direction_tower, this.position, gsp.getTanksOther().listOpponents);
+        towerRotation = new TowerRotation(this.direction, this.direction_tower, this.position, gsp.getTanksOther().listOpponents,command);
         directionMovementControll = new Vector2(direction);
         this.gsp = gsp;
         hp = 100;

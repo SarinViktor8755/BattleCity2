@@ -27,7 +27,7 @@ public class TowerRotation { /// поворот любой башни ЛОГИК
 
     final float rast_to_target = 80_000; // растояние обноружения )
 
-    public TowerRotation(Vector2 direction, Vector2 direction_tower, Vector2 pos, HashMap<Integer, OpponentsTanks> listOpponents) {
+    public TowerRotation(Vector2 direction, Vector2 direction_tower, Vector2 pos, HashMap<Integer, OpponentsTanks> listOpponents, int command) {
         this.targetTreet = new HashMap<>();
         this.direction = direction;
         this.direction_tower = direction_tower;
@@ -35,6 +35,7 @@ public class TowerRotation { /// поворот любой башни ЛОГИК
         this.listOpponents = listOpponents;
         this.timerTackt = 0;
         this.rotation = false;
+        this.myCommand = command;
         // this.myCommand  =
     }
 
@@ -82,9 +83,9 @@ public class TowerRotation { /// поворот любой башни ЛОГИК
         targetTreet.clear();
         for (Map.Entry<Integer, OpponentsTanks> tank : listOpponents.entrySet()) {
             if (!tank.getValue().isLive()) continue;
-
+            if (myCommand == tank.getValue().getCommand()) continue;
             float l = tank.getValue().getPosition().cpy().sub(positionMy).len2();
-            if (l < 2) continue; // иключение себя
+            System.out.println("myCommand " + myCommand + "  " + tank.getValue().getCommand());
 
             if (l < rast_to_target) {
                 this.targetTreet.put(returnAngle(tank.getValue().getPosition(), myPosition), tank.getKey());
