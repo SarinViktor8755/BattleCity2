@@ -68,10 +68,10 @@ public class IndexBullets {
                 Player player = gameServer.getLp().getPlayerForId(np);
                 gameServer.getLp().getPlayerForId(bullet.getAuthor_bullet()).getCommand();
                 if(gameServer.getLp().getPlayerForId(bullet.getAuthor_bullet()).getCommand() == player.getCommand()) {
-                    System.out.println("frend");
+                //    System.out.println("frend");
                     continue;
                 }
-                System.out.println("vrag");
+                //System.out.println("vrag");
                 player.minusHP(MathUtils.random(17,27));
                 gameServer.send_PARAMETERS_PLAYER(player); // рассылка всем
             }

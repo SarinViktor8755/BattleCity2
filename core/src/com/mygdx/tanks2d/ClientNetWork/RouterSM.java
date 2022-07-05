@@ -29,7 +29,7 @@ public class RouterSM {
     }
 
     public void routeSM (Network.StockMessOut sm) throws NullPointerException{
-        System.out.println("-->>> in :: " + sm.tip);
+        System.out.println("-->>> in :: " + sm);
         if (Heading_type.MY_SHOT == sm.tip) {
             try {
             position.set(sm.p1, sm.p2);
@@ -66,12 +66,7 @@ public class RouterSM {
 
         if (Heading_type.PARAMETERS_PLAYER == sm.tip) {
             try {
-//                stockMessOut.tip = Heading_type.PARAMETERS_PLAYER; c SERVER
-//                stockMessOut.p1 = aboutPlayer; // ХП
-//                stockMessOut.p2 = Heading_type.RED_COMMAND;// КОМАНДА
-//                stockMessOut.p3 = HP; // номер игрока
-//                stockMessOut.p4 = HP; // номер игрока
-//                stockMessOut.textM = nikName; // ник нейм
+
                 int id = mainGame.getMainClient().getClient().getID();
                 if (id == (int) sm.p1) {
                     saveParametrsMtTank(sm);
@@ -121,7 +116,7 @@ public class RouterSM {
 
     private void saveParametrsMtTank(Network.StockMessOut sm) {
         mainGame.getGamePlayScreen().getTank().setHp((int) sm.p3);
-        mainGame.getGamePlayScreen().getTank().setCommand(Heading_type.RED_COMMAND);
+        mainGame.getGamePlayScreen().getTank().setCommand((int) sm.p4);
         if (!mainGame.getGamePlayScreen().getTank().isLive())
             mainGame.getGamePlayScreen().getPc().addAnimationDeath(mainGame.getGamePlayScreen().getTank().getPosition().x, mainGame.getGamePlayScreen().getTank().getPosition().y);
     }

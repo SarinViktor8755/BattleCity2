@@ -36,7 +36,7 @@ public class Tank {
 
     float deltaSled;
     Vector2 deltaSledVec;
-    Integer command = Heading_type.RED_COMMAND; // по умолчанию 1 синяя команда временно
+    Integer my_Command = 0; // по умолчанию 1 красня команда временно
 
     final float SPEED = 90f;
     final float SPEED_ROTATION = 180f;
@@ -49,7 +49,6 @@ public class Tank {
 //    private int target_tank;
 //    private Integer nomTarget;
 
-
     public Tank(GamePlayScreen gsp) {
         deltaSledVec = new Vector2();
         this.gsp = gsp;
@@ -58,6 +57,9 @@ public class Tank {
         direction_tower = new Vector2(0, 1);
         //targetCoordinat = new Vector2()
         this.sb = gsp.getBatch();
+
+        setCommand(generateCommand());
+       // System.out.println(command +  " !!!-----!!!");
 
         img = gsp.getMainGame().getAssetManager().get("trb1.png");
         //img = gsp.getAssetsManagerGame().get("badlogic.png",Texture.class);
@@ -71,27 +73,25 @@ public class Tank {
         target = gsp.getMainGame().assetManager.get("target.png", Texture.class);
         hp = 100;
 
-
         img.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
         img_1.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
         target.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
 
         rot = true;
         deltaSled = 0;
-        tr = new TowerRotation(direction, direction_tower, position, gsp.getTanksOther().listOpponents,command);
+        tr = new TowerRotation(direction, direction_tower, position, gsp.getTanksOther().listOpponents, getCommand());
         targetCoordinat = new Vector2(0, 0);
         deltaSledVec.set(this.getPosition());
 
         gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
-
     }
 
     public Integer getCommand() {
-        return command;
+        return my_Command;
     }
 
     public void setCommand(Integer command) {
-        this.command = command;
+        this.my_Command = command;
     }
 
     public int getHp() {
@@ -115,8 +115,6 @@ public class Tank {
         }
 
 
-        // System.out.println(targetCoordinat);
-
 ///////////////////////////////////////
         tr.update(Gdx.graphics.getDeltaTime());
 
@@ -126,23 +124,16 @@ public class Tank {
         generatorSmoke();
 
 
-//        if (MathUtils.randomBoolean(.005f))
-//            hp = MathUtils.random(1, 100);
-
         getTargetCamera();
         getTargetCamera(directionMovementControll);
         //  targetDetectionTower();
         if (!inTuch) return;
         raz = Math.abs(direction.angleDeg() - directionMovementControll.angleDeg());
 
-
-        if(isLive())moveMainTank(directionMovementControll);
+        if (isLive()) moveMainTank(directionMovementControll);
         //System.out.println(direction.clamp(SPEED,SPEED).len());
         generatorSled();
-
-
     }
-
 
     private void generatorSled() {
         if (MathUtils.randomBoolean(.4f))
@@ -152,18 +143,20 @@ public class Tank {
             }
     }
 
+    private int generateCommand() {
+        if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
+        else return Heading_type.BLUE_COMMAND;
+    }
+
     private void moveMainTank(Vector2 directionMovementControll) { // движние основного танка
         //System.out.println(direction.len());
         rotation_the_tower(directionMovementControll);
         this.position.add(direction.clamp(SPEED, SPEED).scl(Gdx.graphics.getDeltaTime()));
 
-
         gsp.getGameSpace().checkMapBordersReturnSpaceTank(getPosition());
         collisinRectangleTrue();
         collisinCircleTrue();
         collisinOtherTanksTrue();
-
-        ///////////////////
 
     }
 
@@ -213,9 +206,9 @@ public class Tank {
         else gsp.getAudioEngine().stopSoundOfTower(); // звук башни
         tr.setRotation(false);
         update(directionMovement, inTouch);
-
+        System.out.println("coommand: " + getCommand());
         //   if (MathUtils.randomBoolean(0.2f)) command = MathUtils.random(0, 3);
-        if (command == Heading_type.RED_COMMAND) {
+        if (getCommand() == Heading_type.RED_COMMAND) {
             sb.draw(img,
                     position.x - 20, position.y - 20,
                     20, 20,
@@ -235,7 +228,7 @@ public class Tank {
                     0, 0,
                     img.getWidth(), img.getHeight(),
                     false, false);
-        } else if (command == Heading_type.BLUE_COMMAND) {
+        } else if (getCommand() == Heading_type.BLUE_COMMAND) {
             sb.draw(imgr,
                     position.x - 20, position.y - 20,
                     20, 20,
@@ -326,7 +319,6 @@ public class Tank {
             if (MathUtils.randomBoolean(.004f))
                 gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
         }
-
 
 //        gsp.getGameSpace().getLighting().setPointL(position.x, position.y); //освещение перемещение
 //        gsp.getGameSpace().getLighting().setCone(position.x, position.y, direction.angleDeg());
