@@ -45,6 +45,7 @@ public class Falling_element { // базовый класс
         dy = ((camera.position.y - position.y) / -300);
         wi = position.z + texture.getWidth();
         hi = position.z + texture.getHeight();
+
     }
 
     protected boolean checkLimet(){

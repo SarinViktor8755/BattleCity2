@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 
-public class Flying_stereo_elements_base {
+public class Flying_stereo_elements_base { // это используется!!!!!!!!!!!!
     Vector3 position;  // позиция
     Texture texture;   // текстура
     SpriteBatch spriteBatch;   // батч
@@ -28,6 +28,7 @@ public class Flying_stereo_elements_base {
         this.spriteBatch = spriteBatch;
         scale = 1;
         this.align = MathUtils.random(180);
+
     }
 
     public void add(float x, float y, float h, float scale, float speed, Texture tex, float r, float g, float b, float a) {
@@ -39,6 +40,7 @@ public class Flying_stereo_elements_base {
     }
 
     protected void update(float dt, Camera camera) {
+
         //deltaCamera = MathUtils.map(this.MAX_H, this.MIN_H, 300, 0, position.z);
         position.z += dt * speed;
 

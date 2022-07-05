@@ -34,9 +34,9 @@ public class Point_of_fire {// точка генерация поэара
     public void update(float dt) {
         if (!isLive()) return;
         this.time_life = time_life - dt;
-     //   System.out.println(time_life);
+        //   System.out.println(time_life);
 
-            generateSmoke();
+        generateSmoke();
 
 
     }
@@ -47,21 +47,21 @@ public class Point_of_fire {// точка генерация поэара
     }
 
     private void generateSmoke() {
-        float shans = MathUtils.map(0,lifetime_initial,0.0f,0.4f,time_life);
-        if(MathUtils.randomBoolean(shans)) {
-            float delta = MathUtils.random(-15,15);
-            if(MathUtils.randomBoolean(.20f))
-            pc.add_flying_stereo_elements_bases(
-                    this.x + delta+ tex.getWidth()/2, this.y + delta + tex.getWidth()/2,
-                    0,1,
-                    1,
-                    this.tex,
-                    1, .3f, .1f, .3f
-            );
-            else{
-                float black = MathUtils.random(0.05f,0.15f);
+        float shans = MathUtils.map(0, lifetime_initial, 0.0f, 0.4f, time_life);
+        if (MathUtils.randomBoolean(shans)) {
+            float delta = MathUtils.random(-15, 15);
+            if (MathUtils.randomBoolean(.20f))
                 pc.add_flying_stereo_elements_bases(
-                        this.x + delta +tex.getHeight()/2, this.y + delta+ tex.getWidth()/2,
+                        this.x + delta + tex.getWidth() / 2, this.y + delta + tex.getWidth() / 2,
+                        0, 1,
+                        1,
+                        this.tex,
+                        1, .3f, .1f, .3f
+                );
+            else {
+                float black = MathUtils.random(0.05f, 0.15f);
+                pc.add_flying_stereo_elements_bases(
+                        this.x + delta + tex.getHeight() / 2, this.y + delta + tex.getWidth() / 2,
                         0, 1,
                         1,
                         this.tex,
