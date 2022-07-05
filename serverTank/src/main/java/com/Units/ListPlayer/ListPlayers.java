@@ -34,7 +34,7 @@ public class ListPlayers {
         this.playersTokken = new ConcurrentHashMap<>();
         this.gameServer = gameServer;
 
-        System.out.println("install_ListPlayers : " + GameServer.getDate());
+      //  System.out.println("install_ListPlayers : " + GameServer.getDate());
 
         red_size = 0;
         blue_size = 0;

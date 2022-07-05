@@ -15,6 +15,7 @@ public class Heading_type {
     public static final int PARAMETERS_COMMAND = 8;
 
     public static final int MY_PARAMETERS = 9;
+    public static final int MY_COMMAND = 14;
 
     public static final int HP_PLAYER = 10;
 

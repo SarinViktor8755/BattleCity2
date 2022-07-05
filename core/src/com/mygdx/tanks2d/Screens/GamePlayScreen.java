@@ -289,6 +289,10 @@ public class GamePlayScreen implements Screen {
         }
     }
 
+    public void sendMyCommand(int command){
+        this.getMainGame().getMainClient().getNetworkPacketStock().toSendMyCommand(command);
+    }
+
 
     public AssetManager getAssetsManagerGame() {
         return this.mainGame.getAssetManager();

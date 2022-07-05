@@ -3,6 +3,7 @@ package com.mygdx.tanks2d.ClientNetWork;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.kryonet.Client;
 import com.mygdx.tanks2d.Units.NikName;
+import com.mygdx.tanks2d.Units.Tanks.Tank;
 
 import java.util.HashMap;
 import java.util.concurrent.BlockingDeque;
@@ -12,7 +13,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class NetworkPacketStock {
 
     Client client;
-    public static boolean required_to_send_tooken = true;
+    public static boolean required_to_send_tooken = false;
 //    BlockingDeque<PacketMo    del> packetDeque;
 //    HashMap<Integer, PacketModel> outList; // лист выходных сообщений
 //    HashMap<Integer, PacketModel> inList; // лист входных сообщений
@@ -27,7 +28,7 @@ public class NetworkPacketStock {
 
     public NetworkPacketStock(Client client) {
         this.client = client;
-        required_to_send_tooken = true;
+        required_to_send_tooken = false;
     }
 
 
@@ -61,12 +62,19 @@ public class NetworkPacketStock {
 
 
     public void toSendMyTokken() {
-      //  System.out.println("toSendMyTokken");
+        System.out.println("required_to_send_tooken " + required_to_send_tooken);
+        if(required_to_send_tooken) return;
+        if(!client.isConnected()){required_to_send_tooken = false; return;}
         send_package_to_server(Heading_type.MY_TOKKEN, 0, 0, 0, 0, NikName.getTokken());
+        required_to_send_tooken = true;
+    }
+
+    public void toSendMyCommand(int command){
+        send_package_to_server(Heading_type.MY_COMMAND, command, 0, 0, 0, NikName.getNikName());
     }
 
     public void toSendButtonStartClick() {
-        send_package_to_server(Heading_type.STATUS_GAME, 0, 0, 0, 0, NikName.getNikName());
+        send_package_to_server(Heading_type.STATUS_GAME, Tank.getMy_Command(), 0, 0, 0, NikName.getNikName());
 
     }
 
@@ -75,10 +83,8 @@ public class NetworkPacketStock {
     }
 
     public void toSendMyNikAndTokken() {
-        if(!required_to_send_tooken) return;
-        if(!client.isConnected())return;
+
         toSendMyTokken();
-        required_to_send_tooken = true;
     }
 }
 

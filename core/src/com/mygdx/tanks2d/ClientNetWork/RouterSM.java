@@ -116,7 +116,7 @@ public class RouterSM {
 
     private void saveParametrsMtTank(Network.StockMessOut sm) {
         mainGame.getGamePlayScreen().getTank().setHp((int) sm.p3);
-        mainGame.getGamePlayScreen().getTank().setCommand((int) sm.p4);
+        //mainGame.getGamePlayScreen().getTank().set((int) sm.p4);
         if (!mainGame.getGamePlayScreen().getTank().isLive())
             mainGame.getGamePlayScreen().getPc().addAnimationDeath(mainGame.getGamePlayScreen().getTank().getPosition().x, mainGame.getGamePlayScreen().getTank().getPosition().y);
     }

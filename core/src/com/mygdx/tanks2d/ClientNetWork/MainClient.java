@@ -153,7 +153,7 @@ public class MainClient {
         boolean result = true;
    //     System.out.println(NetworkPacketStock.required_to_send_tooken);
         getNetworkPacketStock().toSendMyNikAndTokken(); // отправка ника и токкена
-        if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
+     //   if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
 
         if (!getClient().isConnected()) {
             result = false;
@@ -162,7 +162,7 @@ public class MainClient {
 
                     System.out.println("reconect");
                     getClient().reconnect(5000);
-                    NetworkPacketStock.required_to_send_tooken = true;
+                    NetworkPacketStock.required_to_send_tooken = false;
 
                 } catch (IOException e) {
                     e.printStackTrace();

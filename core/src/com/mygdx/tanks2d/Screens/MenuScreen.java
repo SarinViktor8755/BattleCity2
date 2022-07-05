@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Units.NikName;
+import com.mygdx.tanks2d.Units.Tanks.Tank;
 
 import java.io.IOException;
 
@@ -63,7 +64,7 @@ public class MenuScreen implements Screen {
 
 
     public MenuScreen(final MainGame mainGame) {
-
+        Tank.setMy_Command(Tank.generateCommand());
         button_start_click = false;
 
         this.mainGame = mainGame;
