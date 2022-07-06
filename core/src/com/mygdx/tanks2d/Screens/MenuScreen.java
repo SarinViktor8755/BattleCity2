@@ -64,7 +64,7 @@ public class MenuScreen implements Screen {
 
 
     public MenuScreen(final MainGame mainGame) {
-        Tank.setMy_Command(Tank.generateCommand());
+
         button_start_click = false;
 
         this.mainGame = mainGame;
@@ -145,6 +145,7 @@ public class MenuScreen implements Screen {
 
                  //   mainClient.getNetworkPacketStock().toSendButtonStartClick();
                     button_start_click = true;
+
                     //mainGame.getMainClient().getNetworkPacketStock().toSendMyNik();
                     mainGame.getMainClient().getNetworkPacketStock().toSendButtonStartClick();
                 }

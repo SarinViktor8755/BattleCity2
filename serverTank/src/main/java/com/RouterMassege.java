@@ -26,10 +26,23 @@ public class RouterMassege {
             return;
         }
 
-        if (Heading_type.MY_COMMAND == sm.tip) {
+//        if (Heading_type.MY_COMMAND == sm.tip) {
+//            gameServer.lp.getPlayerForId(id_coonect).setCommand((int)sm.p1);
+//            return;
+//        }
+
+        if (Heading_type.STATUS_GAME == sm.tip) {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
             gameServer.lp.getPlayerForId(id_coonect).setCommand((int)sm.p1);
+            System.out.println(gameServer.lp.getPlayerForId(id_coonect).getCommand() + " ---");
+          //  gameServer.getLp().getPlayerForId(id_coonect).setCommand();
+            System.out.println();
+            System.out.println();
+            /// ответить время . карта параметры игры
             return;
         }
+
+
 
 
     }

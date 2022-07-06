@@ -24,7 +24,6 @@ public class IndexMath {
     }
 
     public int getCommand() {
-
              if (listPlayers.blue_players_size() > listPlayers.red_players_size()) {
                 return Heading_type.RED_COMMAND;
             } else if (listPlayers.blue_players_size() < listPlayers.red_players_size()) {

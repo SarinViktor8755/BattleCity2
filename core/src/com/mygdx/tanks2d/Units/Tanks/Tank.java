@@ -38,7 +38,7 @@ public class Tank {
     Vector2 deltaSledVec;
     static Integer  my_Command = generateCommand(); // по умолчанию 1 красня команда временно
 
-    final float SPEED = 90f;
+    final float SPEED = 100f;
     final float SPEED_ROTATION = 180f;
 
     private TowerRotation tr;
@@ -84,7 +84,7 @@ public class Tank {
         deltaSledVec.set(this.getPosition());
 
         gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
-        gsp.sendMyCommand(my_Command);
+
     }
 
     public static Integer getMy_Command() {
@@ -145,15 +145,19 @@ public class Tank {
     }
 
     public static int generateCommand() {
+
         if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
         else return Heading_type.BLUE_COMMAND;
 
     }
 
+
+
     private void moveMainTank(Vector2 directionMovementControll) { // движние основного танка
         //System.out.println(direction.len());
         rotation_the_tower(directionMovementControll);
-        this.position.add(direction.clamp(SPEED, SPEED).scl(Gdx.graphics.getDeltaTime()));
+
+        this.position.add(direction.nor().scl(SPEED).scl(Gdx.graphics.getDeltaTime()));
 
         gsp.getGameSpace().checkMapBordersReturnSpaceTank(getPosition());
         collisinRectangleTrue();
@@ -210,7 +214,7 @@ public class Tank {
         update(directionMovement, inTouch);
         System.out.println("coommand: " + getMy_Command());
         //   if (MathUtils.randomBoolean(0.2f)) command = MathUtils.random(0, 3);
-        if (getMy_Command() == Heading_type.RED_COMMAND) {
+        if (getMy_Command() == Heading_type.BLUE_COMMAND) {
             sb.draw(img,
                     position.x - 20, position.y - 20,
                     20, 20,
@@ -230,7 +234,7 @@ public class Tank {
                     0, 0,
                     img.getWidth(), img.getHeight(),
                     false, false);
-        } else if (getMy_Command() == Heading_type.BLUE_COMMAND) {
+        } else if (getMy_Command() == Heading_type.RED_COMMAND) {
             sb.draw(imgr,
                     position.x - 20, position.y - 20,
                     20, 20,
