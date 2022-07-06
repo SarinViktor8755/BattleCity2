@@ -140,6 +140,7 @@ public class ListPlayers {
             Map.Entry<Integer, Player> entry = entries.next();
             if (entry.getKey() > -99) continue;
             Player p = entry.getValue();
+            if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
             pn.nom = entry.getKey();
             pn.xp = p.getPosi().x;
             pn.yp = p.getPosi().y;

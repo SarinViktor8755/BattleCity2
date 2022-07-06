@@ -2,24 +2,19 @@ package main.java.com.Units.ListPlayer;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.tanks2d.ClientNetWork.Heading_type;
-import com.mygdx.tanks2d.ClientNetWork.Network;
-import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Utils.VectorUtils;
 
 public class Player {
-    public static final int STATUS_MENU = 1;
-    public static final int STATUS_IN_GAME = 2;
+
 
 //    private static int RED_COMMAND = 1;
 //    private static int BLUE_COMMAND = 2;
 
     // общие
-    int status = STATUS_MENU;
+    int status = StatusPlayer.IN_MENU;
 
     Vector2 pos;
     Vector2 body_rotation;
-
 
     float rotTower; // коодинаты
     int hp, frags, death, command, id; //ХП
@@ -32,10 +27,8 @@ public class Player {
         death = 1;
         this.command = command;
         nikName = "Player no." + this.id + " live Player";
-        pos = new Vector2();
+        pos = new Vector2(StatusPlayer.IN_MENU,StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
         body_rotation = new Vector2(1, 1);
-
-
     }
 
     public void setPosition(Vector2 p) {
@@ -66,10 +59,6 @@ public class Player {
         this.status = status;
     }
 
-
-    public static int getStatusInGame() {
-        return STATUS_IN_GAME;
-    }
 
 
     public void setR(float r) {
@@ -154,6 +143,8 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "status=" + status +
+                ", pos=" + pos +
+                ", body_rotation=" + body_rotation +
                 ", rotTower=" + rotTower +
                 ", hp=" + hp +
                 ", frags=" + frags +
@@ -172,6 +163,7 @@ public class Player {
     }
 
     public boolean isLive() {
+        System.out.println(this);
         if (getHp() < 1) return false;
         return true;
     }

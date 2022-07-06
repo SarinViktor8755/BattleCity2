@@ -51,12 +51,10 @@ public class Flying_stereo_elements_base { // это используется!!!
         dx = MathUtils.map(0, 2500, 0, 50, dx);
         dy = MathUtils.map(0, 2500, 0, 50, dy);
 
-//        wi = position.z + texture.getWidth();
-//        hi = position.z + texture.getHeight();
-        //     System.out.println(dx);
-
         this.color.a = MathUtils.map(this.MAX_H, this.MIN_H * 3, .000f, .7f, position.z);
     }
+
+
 
     protected boolean checkLimet() {
         if (position.z > this.MAX_H - .5f) return false;
@@ -65,7 +63,7 @@ public class Flying_stereo_elements_base { // это используется!!!
     }
 
     public void rander(float dt, Camera camera) {
-        if (!checkLimet()) return;
+        if (! checkLimet()) return;
         update(dt, camera);
         spriteBatch.setColor(this.color);
         float scaleDel = scale + position.z * .001f;
