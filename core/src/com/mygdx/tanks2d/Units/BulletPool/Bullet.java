@@ -16,6 +16,7 @@ public class Bullet implements Pool.Poolable {
     //public boolean vis = true;
 
     public int namber = 0;
+    public int coomand;
 
 
     public int getNamber() {
@@ -28,6 +29,7 @@ public class Bullet implements Pool.Poolable {
         this.position.setZero();
         this.direction.setZero();
         this.namber = 0;
+
 
     }
 
@@ -45,12 +47,13 @@ public class Bullet implements Pool.Poolable {
     }
 
     // способ задания положения и направления пуль (стрельбы)
-    public void fireBullet(float xpos, float ypos, float xvel, float yvel, int n) {
+    public void fireBullet(float xpos, float ypos, float xvel, float yvel, int n, int comand) {
 
         this.position.set(xpos, ypos);
         this.direction.set(xvel, yvel).clamp(BULLET_SPEED, BULLET_SPEED);
         this.direction.setLength(BULLET_SPEED);
         this.namber = n;
+        this.coomand = comand;
 
     }
 

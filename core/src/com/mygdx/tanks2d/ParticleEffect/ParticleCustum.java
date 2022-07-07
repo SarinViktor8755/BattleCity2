@@ -140,6 +140,10 @@ public class ParticleCustum {
 
     }
 
+    public Texture getT() {
+        return t;
+    }
+
     public void render(SpriteBatch sb) {
         float dt = Gdx.graphics.getDeltaTime();
         rander_point_of_fires(dt);

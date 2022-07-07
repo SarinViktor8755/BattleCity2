@@ -97,7 +97,7 @@ public class GameServer {
         stockMessOut.p2 = y;
         stockMessOut.p3 = nom;
         stockMessOut.p4 = author;
-        this.server.sendToAllTCP(stockMessOut);
+        this.sendToAllTCP_in_game(stockMessOut);
 
     }
 
@@ -127,7 +127,16 @@ public class GameServer {
         stockMessOut.p3 = p.getHp(); // ХП
         stockMessOut.p4 = p.getCommand(); // номер игрока
         stockMessOut.textM = p.getNikName(); // ник нейм
-        this.server.sendToAllTCP(stockMessOut);
+        this.sendToAllTCP_in_game(stockMessOut);
+    }
+
+    public void sendToAllTCP_in_game (Object object) { // разослать тем кто в игре
+        Connection[] connections = server.getConnections();
+        for (int i = 0, n = connections.length; i < n; i++) {
+            Connection connection = connections[i];
+            if(lp.getPlayerForId(connection.getID()).isClickButtonStart())
+            connection.sendTCP(object);
+        }
     }
 
 
@@ -135,7 +144,7 @@ public class GameServer {
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.DISCONECT_PLAYER;
         stockMessOut.p1 = idPlayer;
-        this.server.sendToAllTCP(stockMessOut);
+        this.sendToAllTCP_in_game(stockMessOut);
     }
 
 

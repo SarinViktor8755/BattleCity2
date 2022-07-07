@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.Screens.GamePlayScreen;
 import com.mygdx.tanks2d.Units.BulletPool.Bullet;
 import com.mygdx.tanks2d.Units.BulletPool.BulletPool;
@@ -29,7 +30,7 @@ public class Bullets {
         // получи пулю из нашего бассейна
         Bullet b = bp.obtain();
         /// стреляйте пулей с того места, на которое мы нажимаем, в направлении прямо вверх
-        b.fireBullet(pos.x, pos.y, vel.x, vel.y, nomer);
+        b.fireBullet(pos.x, pos.y, vel.x, vel.y, nomer, Heading_type.BLUE_COMMAND);
         // добавьте в наш массив маркеры, чтобы мы могли получить к ним доступ в нашем методе визуализации
         activeBullets.add(b);
 
@@ -57,7 +58,18 @@ public class Bullets {
                 if (MathUtils.randomBoolean(.7f))
                    // System.out.println(b.getNamber() + " - -- - -");
                     gpl.pc.addParticalsSmokeOneBullet(b.position.x + MathUtils.random(-MAX_distribution_smoke, +MAX_distribution_smoke), b.position.y + MathUtils.random(-MAX_distribution_smoke, +MAX_distribution_smoke));
+
             }
+
+            if(MathUtils.randomBoolean(.2f))
+                gpl.pc.add_flying_stereo_elements_bases(
+                    b.position.x + MathUtils.random(-MAX_distribution_smoke, +MAX_distribution_smoke),
+                    b.position.y + MathUtils.random(-MAX_distribution_smoke, +MAX_distribution_smoke),
+                    1,.3f,2.5f,gpl.pc.getT(),.4f, .4f, MathUtils.random(.7f, 1),1
+
+
+            );
+
             b.update(delta); // update bullet
 //                if(i ==1)
             sb.draw(img,
