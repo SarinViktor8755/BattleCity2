@@ -4,6 +4,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.Network;
 
+import main.java.com.Units.ListPlayer.StatusPlayer;
+
 public class RouterMassege {
 
     public static void routeSM(Network.StockMessOut sm, int id_coonect, GameServer gameServer) {
@@ -18,6 +20,7 @@ public class RouterMassege {
 
         if (Heading_type.BUTTON_STARTGAME == sm.tip) {
             gameServer.lp.getPlayerForId(id_coonect).setNikName(sm.textM);
+            gameServer.lp.getPlayerForId(id_coonect).setStatus(StatusPlayer.CLICK_BOTON_START);
 
             return;
         }
@@ -26,10 +29,6 @@ public class RouterMassege {
             return;
         }
 
-//        if (Heading_type.MY_COMMAND == sm.tip) {
-//            gameServer.lp.getPlayerForId(id_coonect).setCommand((int)sm.p1);
-//            return;
-//        }
 
         if (Heading_type.STATUS_GAME == sm.tip) {
             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");

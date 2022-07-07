@@ -8,7 +8,7 @@ import com.mygdx.tanks2d.ClientNetWork.Network;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
+import com.esotericsoftware.kryonet.Connection;
 import main.java.com.Bots.TowerRotationLogic;
 import main.java.com.GameServer;
 
@@ -145,7 +145,15 @@ public class ListPlayers {
             pn.xp = p.getPosi().x;
             pn.yp = p.getPosi().y;
             pn.roy_tower = p.getRotTower();
-            gameServer.getServer().sendToAllUDP(pn);
+            //gameServer.getServer().sendToAllUDP(pn);
+            //  Object object;
+            Connection[] connections = this.gameServer.getServer().getConnections();
+            for (int i = 0, n = connections.length; i < n; i++) {
+                Connection connection = connections[i];
+              //  System.out.println(getPlayerForId(connection.getID()).isClickButtonStart());
+                if(!getPlayerForId(connection.getID()).isClickButtonStart()) continue;
+                connection.sendUDP(pn);
+            }
         }
     }
 //////////////collisin

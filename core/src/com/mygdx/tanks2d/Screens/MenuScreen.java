@@ -120,6 +120,7 @@ public class MenuScreen implements Screen {
         textButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                mainGame.getMainClient().getNetworkPacketStock().toSendButtonStartClick();
 //                if(!mainGame.getMainClient().isConnect()) return false; else {
 //                    try {
 //                        mainGame.getMainClient().getClient().reconnect();
@@ -147,7 +148,7 @@ public class MenuScreen implements Screen {
                     button_start_click = true;
 
                     //mainGame.getMainClient().getNetworkPacketStock().toSendMyNik();
-                    mainGame.getMainClient().getNetworkPacketStock().toSendButtonStartClick();
+
                 }
                 startgameMP = true;
 

@@ -62,7 +62,7 @@ public class NetworkPacketStock {
 
 
     public void toSendMyTokken() {
-        System.out.println("required_to_send_tooken " + required_to_send_tooken);
+       // System.out.println("required_to_send_tooken " + required_to_send_tooken);
         if(required_to_send_tooken) return;
         if(!client.isConnected()){required_to_send_tooken = false; return;}
         send_package_to_server(Heading_type.MY_TOKKEN, 0, 0, 0, 0, NikName.getTokken());
@@ -74,8 +74,7 @@ public class NetworkPacketStock {
     }
 
     public void toSendButtonStartClick() {
-        send_package_to_server(Heading_type.STATUS_GAME, Tank.getMy_Command(), 0, 0, 0, NikName.getNikName());
-
+        if(client.isConnected()) send_package_to_server(Heading_type.BUTTON_STARTGAME, Tank.getMy_Command(), 0, 0, 0, NikName.getNikName());
     }
 
     public void toSendMYParameters(int hp) {

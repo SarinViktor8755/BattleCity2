@@ -212,7 +212,7 @@ public class Tank {
         else gsp.getAudioEngine().stopSoundOfTower(); // звук башни
         tr.setRotation(false);
         update(directionMovement, inTouch);
-        System.out.println("coommand: " + getMy_Command());
+      //  System.out.println("coommand: " + getMy_Command());
         //   if (MathUtils.randomBoolean(0.2f)) command = MathUtils.random(0, 3);
         if (getMy_Command() == Heading_type.BLUE_COMMAND) {
             sb.draw(img,

@@ -77,18 +77,6 @@ public class IndexBot extends Thread {
         p.setCommand(gs.getMainGame().getIndexMath().getCommand());
     }
 
-//    public void upateMainPlayerList(ListPlayers listPlayers) { //обносить основй список играков )_)) закидуть ботов в листПлаер
-//        Iterator<Map.Entry<Integer, DBBot>> bot = this.dbBots.entrySet().iterator();
-//        while (bot.hasNext()) {
-//            listPlayers.accept_bot((DBBot) bot);
-//        }
-//
-//    }
-
-    public void send_bot_coordinates() {
-        gs.getLp().send_bot_coordinates();
-    }
-
     public void updaeteBot(float deltaTime) {
         actionBot(deltaTime);
         send_bot_coordinates();
@@ -132,6 +120,12 @@ public class IndexBot extends Thread {
         }
 
     }
+
+    public void send_bot_coordinates() {
+        gs.getLp().send_bot_coordinates();
+    }
+
+
 
     private void moveBot(float deltaTime, DBBot tank, Player p, ListPlayers lp) {
         //isPointInCollision

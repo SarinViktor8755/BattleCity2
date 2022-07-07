@@ -6,12 +6,7 @@ import com.mygdx.tanks2d.Utils.VectorUtils;
 
 public class Player {
 
-
-//    private static int RED_COMMAND = 1;
-//    private static int BLUE_COMMAND = 2;
-
-    // общие
-    int status = StatusPlayer.IN_MENU;
+    int status;
 
     Vector2 pos;
     Vector2 body_rotation;
@@ -27,8 +22,9 @@ public class Player {
         death = 1;
         this.command = command;
         nikName = "Player no." + this.id + " live Player";
-        pos = new Vector2(StatusPlayer.IN_MENU,StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
+        pos = new Vector2(StatusPlayer.IN_MENU, StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
         body_rotation = new Vector2(1, 1);
+        status = StatusPlayer.IN_MENU;
     }
 
     public void setPosition(Vector2 p) {
@@ -58,7 +54,6 @@ public class Player {
     public void setStatus(int status) {
         this.status = status;
     }
-
 
 
     public void setR(float r) {
@@ -163,9 +158,15 @@ public class Player {
     }
 
     public boolean isLive() {
-        System.out.println(this);
+    //    System.out.println(this);
         if (getHp() < 1) return false;
         return true;
+    }
+
+    public boolean isClickButtonStart() {
+       // System.out.println(status);
+        if (getStatus() == StatusPlayer.IN_MENU) return false;
+        else return true;
     }
 
 

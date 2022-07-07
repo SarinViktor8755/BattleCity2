@@ -85,7 +85,7 @@ public class TowerRotation { /// поворот любой башни ЛОГИК
             if (!tank.getValue().isLive()) continue;
             if (myCommand == tank.getValue().getCommand()) continue;
             float l = tank.getValue().getPosition().cpy().sub(positionMy).len2();
-            System.out.println("myCommand " + myCommand + "  " + tank.getValue().getCommand());
+           // System.out.println("myCommand " + myCommand + "  " + tank.getValue().getCommand());
 
             if (l < rast_to_target) {
                 this.targetTreet.put(returnAngle(tank.getValue().getPosition(), myPosition), tank.getKey());
