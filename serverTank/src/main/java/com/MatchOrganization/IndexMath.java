@@ -9,7 +9,11 @@ import main.java.com.Units.ListPlayer.ListPlayers;
 public class IndexMath {
     private static final float MATH_LENGHT = 1000 * 60 * 2; // время матча
     private static float realTimeMath; // время матча
-    private ListPlayers listPlayers;
+    private ListPlayers listPlayers; // копиялиста
+
+    private static int red_team_score;
+    private static int blue_team_score;
+
 
 
     public void updateMath(float dt,ListPlayers listPlayers) {
@@ -30,9 +34,43 @@ public class IndexMath {
                 return Heading_type.BLUE_COMMAND;
             } else if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
             else return Heading_type.BLUE_COMMAND;
-
-
-
     }
+//////////////////////////////////////////////////////
+    public static int getRed_team_score() {
+        return red_team_score;
+    }
+
+    public static void setRed_team_score(int red_team_score) {
+        IndexMath.red_team_score = red_team_score;
+    }
+
+    public static int getBlue_team_score() {
+        return blue_team_score;
+    }
+
+    public static void setBlue_team_score(int blue_team_score) {
+        IndexMath.blue_team_score = blue_team_score;
+    }
+
+    public static void add_score_blue_team(){
+        blue_team_score++;
+    }
+
+    public static void add_score_red_team(){
+        red_team_score++;
+    }
+
+    public static void  add_score_team(int team){
+        if(team == Heading_type.BLUE_COMMAND)add_score_blue_team();
+        if(team == Heading_type.RED_COMMAND)add_score_red_team();
+        System.out.println("RED  " + red_team_score + "  BLUE  " + blue_team_score);
+    }
+
+    public static float getRealTimeMath() {
+        return realTimeMath;
+    }
+
+    ///////////////////
+
 
 }

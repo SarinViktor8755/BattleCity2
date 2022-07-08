@@ -106,7 +106,7 @@ public class MainClient {
             frameUpdates.put(pp.nom, true);
           //  System.out.println(pp.nom);
             if (pp.nom == client.getID()) return;
-             System.out.println("PleyerPositionNom");
+            // System.out.println("PleyerPositionNom");
             try {
                 try {
                     OpponentsTanks t = mg.getGamePlayScreen().getTanksOther().getTankForID(pp.nom);

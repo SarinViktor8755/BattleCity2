@@ -129,9 +129,10 @@ public class Player {
         this.command = command;
     }
 
-    public void minusHP(int minus) {
+    public int minusHP(int minus) {
         this.hp -= minus;
         MathUtils.clamp(hp, 0, 100);
+        return this.hp;
     }
 
     @Override

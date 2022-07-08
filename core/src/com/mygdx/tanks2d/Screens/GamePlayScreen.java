@@ -42,9 +42,14 @@ public class GamePlayScreen implements Screen {
     private Bullets bullets;
     public ParticleCustum pc;
 
+    private int score_blue_command;
+    private int score_red_command;
+
     private TanksOther tanksOther;
 
     public GamePlayScreen(MainGame mainGame) {
+        score_blue_command = 0; score_red_command = 0;
+
         this.mainGame = mainGame;
 
         this.batch = new SpriteBatch();
@@ -298,6 +303,19 @@ public class GamePlayScreen implements Screen {
         return this.mainGame.getAssetManager();
     }
 
+    public int getScore_blue_command() {
+        return score_blue_command;
+    }
 
+    public int getScore_red_command() {
+        return score_red_command;
+    }
 
+    public void setScore_red_command(int score_red_command) {
+        this.score_red_command = score_red_command;
+    }
+
+    public void setScore_blue_command(int score_blue_command) {
+        this.score_blue_command = score_blue_command;
+    }
 }

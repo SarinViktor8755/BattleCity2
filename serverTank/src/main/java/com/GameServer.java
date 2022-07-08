@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import main.java.com.Bots.IndexBot;
+import main.java.com.MatchOrganization.IndexMath;
 import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
 
@@ -117,6 +118,16 @@ public class GameServer {
 
     public void send_PARAMETERS_PLAYER(Player p, int forIdPlayer, int abautPlayer) {
         send_PARAMETERS_PLAYER(p.getHp(), p.getCommand(), p.getNikName(), forIdPlayer, abautPlayer);
+    }
+
+    public void send_PARAMETERS_MATH() { // разослать параметры матча
+        Network.StockMessOut stockMessOut = new Network.StockMessOut();
+        stockMessOut.tip = Heading_type.PARAMETERS_MATH;
+        stockMessOut.p1 = IndexMath.getBlue_team_score(); //счетсиний команды
+        stockMessOut.p2 = IndexMath.getRed_team_score(); //счетсиний команды
+        stockMessOut.p3 = IndexMath.getRealTimeMath(); // вернуьт ревльное время матча
+
+        this.sendToAllTCP_in_game(stockMessOut);
     }
 
     public void send_PARAMETERS_PLAYER(Player p) { // для всех рассылк апараметров

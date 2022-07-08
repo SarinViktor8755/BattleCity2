@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.Array;
 
 import main.java.com.GameServer;
 import main.java.com.MainGame;
+import main.java.com.MatchOrganization.IndexMath;
 import main.java.com.Units.ListPlayer.Player;
 
 public class IndexBullets {
@@ -72,12 +73,17 @@ public class IndexBullets {
                     continue;
                 }
                 //System.out.println("vrag");
-                player.minusHP(MathUtils.random(17,27));
+                int  hp = player.minusHP(MathUtils.random(18,27));
                 gameServer.send_PARAMETERS_PLAYER(player); // рассылка всем
+                if(hp < 1){     // если игрок умер тогда присваиваем очки
+                    IndexMath.add_score_team(player.getCommand());
+                    gameServer.send_PARAMETERS_MATH();
+                    /// отправить сообщение
+
+                }
             }
           //  System.out.println("______________________"+ np);
             if(gameServer.getMainGame().getMapSpace().isPointInCollision(bullet.position.x,bullet.position.y)) delBullet(bullet);
-
 
             ////////////
 

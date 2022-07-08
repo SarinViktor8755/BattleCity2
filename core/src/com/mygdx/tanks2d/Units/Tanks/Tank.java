@@ -108,6 +108,9 @@ public class Tank {
         // if (MathUtils.randomBoolean(.005f)) hp = MathUtils.random(0, 80);
         // if(MathUtils.randomBoolean(.05f)) gsp.pc.addPasricalExplosionDeath(position.x, position.y);
         upDateHpHud();
+        //////////////////////////
+
+
 ////////////////////////////////////
         // gsp.getGameSpace().getLighting().setLasetOn(false);
         if (this.tr.getNomTarget() != null) {
@@ -204,6 +207,11 @@ public class Tank {
 
     private void upDateHpHud() {
         gsp.getController().setHPHeroTank(this.hp);
+        gsp.getController().setBlueCommand(gsp.getScore_blue_command());
+        gsp.getController().setRedCommand(gsp.getScore_red_command());
+        System.out.println("blue "+ gsp.getScore_blue_command()+ " red "+ gsp.getScore_red_command());
+
+
     }
 
 

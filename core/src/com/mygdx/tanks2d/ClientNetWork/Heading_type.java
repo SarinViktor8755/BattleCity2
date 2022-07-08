@@ -13,6 +13,7 @@ public class Heading_type {
     public static final int PARAMETERS_PLAYER = 7;
 
     public static final int PARAMETERS_COMMAND = 8;
+    public static final int PARAMETERS_MATH = 15;
 
     public static final int MY_PARAMETERS = 9;
     public static final int MY_COMMAND = 14;

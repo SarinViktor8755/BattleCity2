@@ -43,7 +43,13 @@ public class Controller {
     final private Vector2 distance;
     private Vector2 temp_Point;
     private Image changingGoal;
+
+
     private Label labelHP;
+
+    private Label score_red;
+    private Label score_blue;
+
     private BitmapFont font;
 
     private GamePlayScreen gamePlayScreen;
@@ -263,4 +269,16 @@ public class Controller {
         this.labelHP.setText("HP: " + hp);
         if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
     }
+
+    public void setBlueCommand(int score){
+        this.labelHP.setText(score);
+        //if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
+    }
+
+    public void setRedCommand(int score){
+        this.labelHP.setText(score);
+       // if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
+    }
+
+
 }

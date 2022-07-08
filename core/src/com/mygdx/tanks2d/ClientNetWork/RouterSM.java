@@ -43,6 +43,13 @@ public class RouterSM {
             return;
         }
 
+        if (Heading_type.PARAMETERS_MATH == sm.tip) {
+            mainGame.getGamePlayScreen().setScore_blue_command((int)sm.p1);
+            mainGame.getGamePlayScreen().setScore_blue_command((int)sm.p2);
+
+            return;
+        }
+
         if (Heading_type.SHELL_RUPTURE == sm.tip) { // РАЗРЫВ СНАРЯДА
             try {
             Vector2 pp = new Vector2(sm.p1, sm.p2);
@@ -108,6 +115,8 @@ public class RouterSM {
             // mainGame.getGamePlayScreen().playAnimation(position, velocity, (int) sm.p4);
             return;
         }
+
+
 
         //Heading_type.SHELL_RUPTURE
 
