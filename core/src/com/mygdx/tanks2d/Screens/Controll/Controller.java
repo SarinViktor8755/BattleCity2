@@ -50,6 +50,7 @@ public class Controller {
 
     private Label score_red;
     private Label score_blue;
+    private Label my_frag;
 
     private BitmapFont font;
 
@@ -203,6 +204,14 @@ public class Controller {
         score_blue.setX(30);
         score_blue.setY(sh - 100);
         stage.addActor(score_blue);
+
+        my_frag = new Label("frags : " + my_frag, style);
+        my_frag.setColor(Color.YELLOW);
+        my_frag.setX(30);
+        my_frag.setY(sh - 130);
+        stage.addActor(my_frag);
+
+
 //////////////////////////////////
         //   stage.setDebugAll(true);
 //        if(!MainGame.ANDROID)
