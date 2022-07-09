@@ -3,6 +3,7 @@ package com.mygdx.tanks2d.ClientNetWork;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.ArrayMap;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Units.Tanks.OpponentsTanks;
 import com.mygdx.tanks2d.Units.Tanks.Tank;
@@ -45,8 +46,7 @@ public class RouterSM {
 
         if (Heading_type.PARAMETERS_MATH == sm.tip) {
             mainGame.getGamePlayScreen().setScore_blue_command((int)sm.p1);
-            mainGame.getGamePlayScreen().setScore_blue_command((int)sm.p2);
-
+            mainGame.getGamePlayScreen().setScore_red_command((int)sm.p2);
             return;
         }
 
@@ -86,14 +86,8 @@ public class RouterSM {
                     opponentsTanks.setNikPlayer(sm.textM);
                     if (!opponentsTanks.isLive()) {
                         if (mainGame.getGamePlayScreen().getTimeInGame() < 1) return;
-
                         mainGame.getGamePlayScreen().getPc().addAnimationDeath(opponentsTanks.getPosition().x, opponentsTanks.getPosition().y);
-
-
-
-
                     }
-
                 }
 
             } catch (NullPointerException e) {

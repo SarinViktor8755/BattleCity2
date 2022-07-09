@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -28,7 +29,7 @@ import com.mygdx.tanks2d.Screens.GamePlayScreen;
  * Created by brentaureli on 10/23/15.
  */
 public class Controller {
-   // Skin skinGame;
+    // Skin skinGame;
 
     final private Viewport viewport;
     final private Stage stage;
@@ -64,8 +65,7 @@ public class Controller {
     }
 
     public Controller(GamePlayScreen gsp) {
-       // gsp.getAssetManager().get("de.pack", TextureAtlas.class);
-
+        // gsp.getAssetManager().get("de.pack", TextureAtlas.class);
 
 
         distance = new Vector2();
@@ -93,7 +93,7 @@ public class Controller {
         final Image stick = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("b"));
         pointStick = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("stick"));
 ////////////////
-       // System.out.println(pointStick.getImageHeight()+ "  ==== ___ ");
+        // System.out.println(pointStick.getImageHeight()+ "  ==== ___ ");
 
         pointStick.setSize(90, 90);
 
@@ -185,18 +185,28 @@ public class Controller {
         gropuButton.addActor(attacButton);
         gropuButton.addActor(changingGoal);
 ///////////////////
-       // skinGame = gsp.getMainGame().assetManager.get("skin/metal-ui.json", Skin.class);
-        labelHP = new Label("HP:",style);
+        // skinGame = gsp.getMainGame().assetManager.get("skin/metal-ui.json", Skin.class);
+        labelHP = new Label("HP:", style);
         labelHP.setX(30);
         labelHP.setY(sh - 40);
-//        labelHP.setColor(Color.FIREBRICK);
-//
-//        labelHP.setFontScale(2);
-
         stage.addActor(labelHP);
+
+        ///////////////////////////////
+        score_red = new Label("RED:", style);
+        score_red.setColor(Color.RED);
+        score_red.setX(30);
+        score_red.setY(sh - 70);
+        stage.addActor(score_red);
+
+        score_blue = new Label("BLUE:", style);
+        score_blue.setColor(Color.BLUE);
+        score_blue.setX(30);
+        score_blue.setY(sh - 100);
+        stage.addActor(score_blue);
 //////////////////////////////////
         //   stage.setDebugAll(true);
 //        if(!MainGame.ANDROID)
+
         stage.addActor(gropuButton);
 
         resetPoint(stick);
@@ -256,28 +266,33 @@ public class Controller {
     }
 
     private void update() {
+
+        // labelHP = MathUtils.random(5,50);
+        //labelHP.setText("HP: " + hp);
         //System.out.println(buttonChangingOpponent);
         if (buttonChangingOpponent) changingGoal.setColor(1, 1, 1, .3f);
-        else changingGoal.setColor(1,0,0,.1f);
+        else changingGoal.setColor(1, 0, 0, .1f);
     }
 
     public void setButtonChangingOpponent(boolean buttonChangingOpponent) {
         this.buttonChangingOpponent = buttonChangingOpponent;
     }
 
-    public void setHPHeroTank(int hp){
+    public void setHPHeroTank(int hp) {
         this.labelHP.setText("HP: " + hp);
-        if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
+        if (hp < 30) labelHP.setColor(Color.FIREBRICK);
+        else labelHP.setColor(Color.WHITE);
     }
 
-    public void setBlueCommand(int score){
-        this.labelHP.setText(score);
+    public void setBlueCommand(int score) {
+        this.score_blue.setText(score);
+
         //if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
     }
 
-    public void setRedCommand(int score){
-        this.labelHP.setText(score);
-       // if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
+    public void setRedCommand(int score) {
+        this.score_red.setText(score);
+        // if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
     }
 
 

@@ -22,7 +22,9 @@ public class RouterMassege {
 
         if (Heading_type.BUTTON_STARTGAME == sm.tip) {
             gameServer.lp.getPlayerForId(id_coonect).setNikName(sm.textM);
+            gameServer.lp.getPlayerForId(id_coonect).setCommand((int)sm.p1);
             gameServer.lp.getPlayerForId(id_coonect).setStatus(StatusPlayer.CLICK_BOTON_START);
+
 
             return;
         }

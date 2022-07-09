@@ -157,11 +157,8 @@ public class Tank {
 
 
     private void moveMainTank(Vector2 directionMovementControll) { // движние основного танка
-        //System.out.println(direction.len());
         rotation_the_tower(directionMovementControll);
-
         this.position.add(direction.nor().scl(SPEED).scl(Gdx.graphics.getDeltaTime()));
-
         gsp.getGameSpace().checkMapBordersReturnSpaceTank(getPosition());
         collisinRectangleTrue();
         collisinCircleTrue();
