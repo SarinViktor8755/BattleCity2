@@ -244,7 +244,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-            if (entry.getKey() > -99) continue;
+           if (entry.getKey() < -1) continue;
             Player p = entry.getValue();
             if (!p.isLive()) {
                 if (MathUtils.randomBoolean(0.05f)) {
@@ -252,11 +252,12 @@ public class ListPlayers {
                     if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(1000, 1000);
                     else p.setPosition(10, 10);
                     gameServer.send_PARAMETERS_PLAYER(p);
-                }
+
+                    System.out.println("!!!!!!!! RESPOWN"+p.getPosi());
+                     }
             }
-
         }
-
-
     }
+
+
 }
