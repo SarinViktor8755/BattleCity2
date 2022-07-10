@@ -45,6 +45,8 @@ public class Tank {
 
     private int hp;
 
+ //   private float deltaDeath; // пузза что выдержать игрока в смерти
+
 //    private HashMap<Float, Integer> targetTreet; // цели - угол до цели - номер цели )))
 //    private int target_tank;
 //    private Integer nomTarget;
@@ -134,9 +136,23 @@ public class Tank {
         if (!inTuch) return;
         raz = Math.abs(direction.angleDeg() - directionMovementControll.angleDeg());
 
-        if (isLive()) moveMainTank(directionMovementControll);
-        //System.out.println(direction.clamp(SPEED,SPEED).len());
+//        if (isLive()) moveMainTank(directionMovementControll); else {
+//            deathTank(Gdx.graphics.getDeltaTime());
+//        }
+
         generatorSled();
+    }
+
+//    private void deathTank(float deltaTime) {
+//        deltaTime+=deltaDeath;
+//        if(deltaTime > 4){
+//            deltaTime = 0;
+//            respawnMainTank();
+//        }
+//    }
+
+    private void respawnMainTank() {
+
     }
 
     private void generatorSled() {

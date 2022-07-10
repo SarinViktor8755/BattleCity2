@@ -85,11 +85,13 @@ public class MainGame {
 
                         //     System.out.print("+");
 
-
-
                         float time = (float) (deltaTime * .001);
                         bullets.updateBulets(deltaTime);
                         gameServer.indexBot.updaeteBot(time);
+
+                        gameServer.lp.respaunPlayer();
+
+                       // gameServer.lp.re
 
 
                         // System.out.println("---");

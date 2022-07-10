@@ -76,9 +76,7 @@ public class GameServer {
 //
                                        if (p.getNikName() != null)
                                            mainGame.gameServer.send_PARAMETERS_PLAYER(p, connection.getID(), gpp.nomerPlayer);
-
                                    }
-
 
                                }
                            }

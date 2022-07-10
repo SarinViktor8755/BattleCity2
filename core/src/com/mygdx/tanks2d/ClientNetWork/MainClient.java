@@ -160,11 +160,9 @@ public class MainClient {
             result = false;
             if (MathUtils.randomBoolean(.05f)) {
                 try {
-
                     System.out.println("reconect");
                     getClient().reconnect(5000);
                     NetworkPacketStock.required_to_send_tooken = false;
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

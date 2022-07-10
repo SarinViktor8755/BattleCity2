@@ -8,7 +8,9 @@ import com.mygdx.tanks2d.ClientNetWork.Network;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 import com.esotericsoftware.kryonet.Connection;
+
 import main.java.com.Bots.TowerRotationLogic;
 import main.java.com.GameServer;
 
@@ -34,7 +36,7 @@ public class ListPlayers {
         this.playersTokken = new ConcurrentHashMap<>();
         this.gameServer = gameServer;
 
-      //  System.out.println("install_ListPlayers : " + GameServer.getDate());
+        //  System.out.println("install_ListPlayers : " + GameServer.getDate());
 
         red_size = 0;
         blue_size = 0;
@@ -42,7 +44,8 @@ public class ListPlayers {
 
     public Player getPlayerForId(int id) { // почему то вызывается  иногда
         Player result = players.get(id);
-        if (result == null) players.put(id, new Player(id,gameServer.getMainGame().getIndexMath().getCommand()));
+        if (result == null)
+            players.put(id, new Player(id, gameServer.getMainGame().getIndexMath().getCommand()));
         return players.get(id);
     }
 
@@ -60,7 +63,7 @@ public class ListPlayers {
 
     public void addPlayer(int con) {
 
-        this.players.put(con, new Player(con,gameServer.getMainGame().getIndexMath().getCommand()));
+        this.players.put(con, new Player(con, gameServer.getMainGame().getIndexMath().getCommand()));
         //   System.out.println(this.players);
     }
 
@@ -81,7 +84,8 @@ public class ListPlayers {
 
     public void updatePosition(int id, Network.PleyerPosition pp) { // записать парметры Игрока
         Player p = players.get(id);
-        if (p == null) players.put(id, new Player(id,gameServer.getMainGame().getIndexMath().getCommand()));
+        if (p == null)
+            players.put(id, new Player(id, gameServer.getMainGame().getIndexMath().getCommand()));
 
         p.setPosition(pp.xp, pp.yp);
         p.setRotTower(pp.roy_tower);
@@ -150,8 +154,8 @@ public class ListPlayers {
             Connection[] connections = this.gameServer.getServer().getConnections();
             for (int i = 0, n = connections.length; i < n; i++) {
                 Connection connection = connections[i];
-              //  System.out.println(getPlayerForId(connection.getID()).isClickButtonStart());
-                if(!getPlayerForId(connection.getID()).isClickButtonStart()) continue;
+                //  System.out.println(getPlayerForId(connection.getID()).isClickButtonStart());
+                if (!getPlayerForId(connection.getID()).isClickButtonStart()) continue;
                 connection.sendUDP(pn);
             }
         }
@@ -160,7 +164,8 @@ public class ListPlayers {
 
 
     public Vector2 isCollisionsTanks(Vector2 pos) {
-        red_size = 0; blue_size = 0;
+        red_size = 0;
+        blue_size = 0;
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
 
             if (tank.getValue().getCommand() == Heading_type.BLUE_COMMAND) blue_size++;
@@ -171,7 +176,7 @@ public class ListPlayers {
             if (tank.getValue().isCollisionsTanks(pos))
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
         }
-       // System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
+        // System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
         return null;
     }
 ///////////////////
@@ -180,7 +185,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
-            if(my.getCommand()== p.getCommand()) continue;
+            if (my.getCommand() == p.getCommand()) continue;
             float dst = p.getPosi().dst2(myPosi);
             if (dst > TowerRotationLogic.rast_to_target) continue;
             if (dst < 5) continue;
@@ -235,5 +240,23 @@ public class ListPlayers {
         return this.red_size;
     }
 
+    public void respaunPlayer() { // респаун игрока живого - новый плеер
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+            if (entry.getKey() > -99) continue;
+            Player p = entry.getValue();
+            if (!p.isLive()) {
+                if (MathUtils.randomBoolean(0.05f)) {
+                    p.setHp(100);
+                    if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(1000, 1000);
+                    else p.setPosition(10, 10);
+                    gameServer.send_PARAMETERS_PLAYER(p);
+                }
+            }
 
+        }
+
+
+    }
 }

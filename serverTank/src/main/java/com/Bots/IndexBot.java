@@ -80,6 +80,8 @@ public class IndexBot extends Thread {
     public void updaeteBot(float deltaTime) {
         actionBot(deltaTime);
         send_bot_coordinates();
+
+
     }
 
 
