@@ -4,7 +4,9 @@ package com.mygdx.tanks2d;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.esotericsoftware.kryonet.Client;
 import com.mygdx.tanks2d.Assets.AssetsManagerGame;
+import com.mygdx.tanks2d.ClientNetWork.Client_new_Thred;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
 import com.mygdx.tanks2d.Screens.GamePlayScreen;
 import com.mygdx.tanks2d.Screens.MenuScreen;
@@ -43,7 +45,6 @@ public class MainGame extends Game {
 		assetManager = new AssetManager();
 		assetsManagerGame = new AssetsManagerGame(assetManager);
 
-
 		mainClient = new MainClient(this);
 
 		if (tip == 1) ANDROID = false;
@@ -54,9 +55,7 @@ public class MainGame extends Game {
 
 	}
 
-	public void setMainClient(MainClient mainClient) {
-		this.mainClient = mainClient;
-	}
+
 
 	@Override
 	public void create() {

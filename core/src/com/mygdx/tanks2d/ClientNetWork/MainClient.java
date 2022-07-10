@@ -39,9 +39,7 @@ public class MainClient {
 //        client.start();
 
 
-            new ClientThread(client);
-
-
+        new ClientThread(client);
 
 
         // For consistency, the classes to be sent over the network are
@@ -53,7 +51,10 @@ public class MainClient {
             client.connect(5000, Network.host, Network.tcpPort, Network.udpPort);
             // Server communication after connection can go here, or in Listener#connected().
         } catch (IOException ex) {
-          //  ex.printStackTrace();
+            //  ex.printStackTrace();
+
+        } catch (RuntimeException e3) {
+            System.out.println("An error occurred please try again!");
         }
 
 
@@ -76,11 +77,11 @@ public class MainClient {
             public void disconnected(Connection connection) {
             }
         });
-     //   Sytem.out.printlsn(client.isConnected() + "!!!!!!!!!!!!!!!1");
+        //   Sytem.out.printlsn(client.isConnected() + "!!!!!!!!!!!!!!!1");
     }
 
     private void startClient() {
-    //    System.out.println(client.isConnected());
+        //    System.out.println(client.isConnected());
         this.client = new Client();
         Network.register(client);
         this.client.start();
@@ -104,30 +105,30 @@ public class MainClient {
         if (object instanceof Network.PleyerPositionNom) { // полученеи позиции играков
             Network.PleyerPositionNom pp = (Network.PleyerPositionNom) object;
             frameUpdates.put(pp.nom, true);
-          //  System.out.println(pp.nom);
+            //  System.out.println(pp.nom);
             if (pp.nom == client.getID()) return;
             // System.out.println("PleyerPositionNom");
             try {
                 try {
                     OpponentsTanks t = mg.getGamePlayScreen().getTanksOther().getTankForID(pp.nom);
                     mg.getGamePlayScreen().getTanksOther().setTankPosition(pp, mg.getMainClient().frameUpdates.get(pp.nom));
-                }catch (NullPointerException e){
+                } catch (NullPointerException e) {
 
                 }
 
                 //mg.getMainClient().frameUpdates.put(pp.nom, false); /// закрывает флаг о рендере __
             } catch (NullPointerException e) {
-                 e.printStackTrace();
+                e.printStackTrace();
             }
 
             return;
         }
 
         if (object instanceof Network.StockMessOut) {
-        //    System.out.println((Network.StockMessOut) object);
+            //    System.out.println((Network.StockMessOut) object);
             try {
-            routerSM.routeSM((Network.StockMessOut) object);
-            }catch (NullPointerException e){
+                routerSM.routeSM((Network.StockMessOut) object);
+            } catch (NullPointerException e) {
                 e.printStackTrace();
             }
 
@@ -151,9 +152,9 @@ public class MainClient {
 
     public boolean checkConnect() {
         boolean result = true;
-   //     System.out.println(NetworkPacketStock.required_to_send_tooken);
+        //     System.out.println(NetworkPacketStock.required_to_send_tooken);
         getNetworkPacketStock().toSendMyNikAndTokken(); // отправка ника и токкена
-     //   if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
+        //   if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
 
         if (!getClient().isConnected()) {
             result = false;
