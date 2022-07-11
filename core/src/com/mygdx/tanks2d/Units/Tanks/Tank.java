@@ -26,6 +26,7 @@ public class Tank {
 
     Texture img;
     Texture img_1;
+
     Texture imgr;
     Texture img_1r;
 
@@ -229,7 +230,6 @@ public class Tank {
                     0, 0,
                     img.getWidth(), img.getHeight(),
                     true, false);
-
             sb.draw(img_1,
                     position.x - 20, position.y - 20,
                     20, 20,
