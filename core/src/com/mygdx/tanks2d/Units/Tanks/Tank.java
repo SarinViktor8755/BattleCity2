@@ -24,11 +24,8 @@ public class Tank {
     SpriteBatch sb;
     Controller controller;
 
-    Texture img;
-    Texture img_1;
+    Texture img, img_1, img2, imgB, imgB2, img_1B, imgr, body,towers;
 
-    Texture imgr;
-    Texture img_1r;
 
     Texture target;
 
@@ -37,7 +34,7 @@ public class Tank {
 
     float deltaSled;
     Vector2 deltaSledVec;
-    static Integer  my_Command = generateCommand(); // по умолчанию 1 красня команда временно
+    static Integer my_Command = generateCommand(); // по умолчанию 1 красня команда временно
 
     final float SPEED = 100f;
     final float SPEED_ROTATION = 180f;
@@ -59,23 +56,24 @@ public class Tank {
         //targetCoordinat = new Vector2()
         this.sb = gsp.getBatch();
 
+///////////////////////////////////////
 
-       // System.out.println(command +  " !!!-----!!!");
+        img = gsp.getMainGame().getAssetManager().get("tbb1.png");
+        img2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
 
-        img = gsp.getMainGame().getAssetManager().get("trb1.png");
-        //img = gsp.getAssetsManagerGame().get("badlogic.png",Texture.class);
-        img_1 = gsp.getMainGame().getAssetManager().get("tr.png");
-        /////////
-        imgr = gsp.getMainGame().getAssetManager().get("tbb1.png");
-        //img = gsp.getAssetsManagerGame().get("badlogic.png",Texture.class);
-        img_1r = gsp.getMainGame().getAssetManager().get("tb.png");
+        img_1 = gsp.getMainGame().getAssetManager().get("tb.png");
+
+        imgB = gsp.getMainGame().getAssetManager().get("trb1.png");
+        imgB2 = gsp.getMainGame().getAssetManager().get("trb2.png");
+
+        img_1B = gsp.getMainGame().getAssetManager().get("tr.png");
 
         //target = new Texture(Gdx.files.internal("target.png"));
         target = gsp.getMainGame().assetManager.get("target.png", Texture.class);
+  //////////////////
         hp = 100;
 
-        img.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
-        img_1.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
+
         target.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
 
         rot = true;
@@ -156,7 +154,6 @@ public class Tank {
     }
 
 
-
     private void moveMainTank(Vector2 directionMovementControll) { // движние основного танка
         rotation_the_tower(directionMovementControll);
         this.position.add(direction.nor().scl(SPEED).scl(Gdx.graphics.getDeltaTime()));
@@ -165,6 +162,9 @@ public class Tank {
         collisinCircleTrue();
         collisinOtherTanksTrue();
 
+        /////////////////////////////////////////////////////////
+        System.out.println(direction.len2());
+///////////////////
     }
 
     private void rotation_the_tower(Vector2 directionMovementControll) {
@@ -207,7 +207,7 @@ public class Tank {
         gsp.getController().setHPHeroTank(this.hp);
         gsp.getController().setBlueCommand(gsp.getScore_blue_command());
         gsp.getController().setRedCommand(gsp.getScore_red_command());
-      //  System.out.println("blue "+ gsp.getScore_blue_command()+ " red "+ gsp.getScore_red_command());
+        //  System.out.println("blue "+ gsp.getScore_blue_command()+ " red "+ gsp.getScore_red_command());
 
 
     }
@@ -218,10 +218,10 @@ public class Tank {
         else gsp.getAudioEngine().stopSoundOfTower(); // звук башни
         tr.setRotation(false);
         update(directionMovement, inTouch);
-      //  System.out.println("coommand: " + getMy_Command());
+        //  System.out.println("coommand: " + getMy_Command());
         //   if (MathUtils.randomBoolean(0.2f)) command = MathUtils.random(0, 3);
         if (getMy_Command() == Heading_type.BLUE_COMMAND) {
-            sb.draw(img,
+            sb.draw(imgB,
                     position.x - 20, position.y - 20,
                     20, 20,
                     40, 40,
@@ -230,7 +230,7 @@ public class Tank {
                     0, 0,
                     img.getWidth(), img.getHeight(),
                     true, false);
-            sb.draw(img_1,
+            sb.draw(img_1B,
                     position.x - 20, position.y - 20,
                     20, 20,
                     40, 40,
@@ -240,7 +240,7 @@ public class Tank {
                     img.getWidth(), img.getHeight(),
                     false, false);
         } else if (getMy_Command() == Heading_type.RED_COMMAND) {
-            sb.draw(imgr,
+            sb.draw(img,
                     position.x - 20, position.y - 20,
                     20, 20,
                     40, 40,
@@ -250,7 +250,7 @@ public class Tank {
                     img.getWidth(), img.getHeight(),
                     true, false);
 
-            sb.draw(img_1r,
+            sb.draw(img_1,
                     position.x - 20, position.y - 20,
                     20, 20,
                     40, 40,
@@ -354,7 +354,7 @@ public class Tank {
     }
 
     public boolean isLive() {
-      //  System.out.println(hp + "  hp");
+        //  System.out.println(hp + "  hp");
         if (hp < 1) return false;
         return true;
     }
