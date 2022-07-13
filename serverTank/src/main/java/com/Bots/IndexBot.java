@@ -106,7 +106,6 @@ public class IndexBot extends Thread {
                 Player p = gs.getLp().getPlayerForId(tank.getId());
                 respaunBot(p);
 
-
                 gs.getMainGame().getMapSpace().resolving_conflict_with_objects(p.getPosi(), deltaTime); /// проверка столкновений с обьектами
                 collisinOtherTanksTrue(p.getPosi(), deltaTime, p.getBody_rotation()); /// calisiion tanks
                 gs.getMainGame().getMapSpace().returnToSpace(p.getPosi());
