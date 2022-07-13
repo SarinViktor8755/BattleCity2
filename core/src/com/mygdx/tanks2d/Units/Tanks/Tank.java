@@ -24,7 +24,7 @@ public class Tank {
     SpriteBatch sb;
     Controller controller;
 
-    Texture img, img_1, img2, imgB, imgB2, img_1B, imgr, body,towers;
+    Texture img, img_1, img2, imgB, imgB2, img_1B, imgr, body, towers;
 
 
     Texture target;
@@ -58,6 +58,7 @@ public class Tank {
 
 ///////////////////////////////////////
 
+
         img = gsp.getMainGame().getAssetManager().get("tbb1.png");
         img2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
 
@@ -70,7 +71,9 @@ public class Tank {
 
         //target = new Texture(Gdx.files.internal("target.png"));
         target = gsp.getMainGame().assetManager.get("target.png", Texture.class);
-  //////////////////
+        //////////////////
+        replace_textures();
+
         hp = 100;
 
 
@@ -163,7 +166,8 @@ public class Tank {
         collisinOtherTanksTrue();
 
         /////////////////////////////////////////////////////////
-        System.out.println(direction.len2());
+        replace_textures();
+      //  System.out.println(direction.len2());
 ///////////////////
     }
 
@@ -208,8 +212,19 @@ public class Tank {
         gsp.getController().setBlueCommand(gsp.getScore_blue_command());
         gsp.getController().setRedCommand(gsp.getScore_red_command());
         //  System.out.println("blue "+ gsp.getScore_blue_command()+ " red "+ gsp.getScore_red_command());
+    }
 
 
+    private void replace_textures() {       // определение текстур для команды
+        if (getMy_Command() == Heading_type.BLUE_COMMAND) { // синяя команда
+            towers = img_1B;
+            if (MathUtils.sin(gsp.getTimeInGame() * 50) >= 0) body = imgB;
+            else body = imgB2;
+        } else {                                              // красная  команда
+            towers = img_1;
+            if (MathUtils.sin(gsp.getTimeInGame() * 50) >= 0) body = img;
+            else body = img2;
+        }
     }
 
 
@@ -220,48 +235,8 @@ public class Tank {
         update(directionMovement, inTouch);
         //  System.out.println("coommand: " + getMy_Command());
         //   if (MathUtils.randomBoolean(0.2f)) command = MathUtils.random(0, 3);
-        if (getMy_Command() == Heading_type.BLUE_COMMAND) {
-            sb.draw(imgB,
-                    position.x - 20, position.y - 20,
-                    20, 20,
-                    40, 40,
-                    1, 1,
-                    direction.angleDeg() + 180,
-                    0, 0,
-                    img.getWidth(), img.getHeight(),
-                    true, false);
-            sb.draw(img_1B,
-                    position.x - 20, position.y - 20,
-                    20, 20,
-                    40, 40,
-                    1, 1,
-                    direction_tower.angleDeg() + 180,
-                    0, 0,
-                    img.getWidth(), img.getHeight(),
-                    false, false);
-        } else if (getMy_Command() == Heading_type.RED_COMMAND) {
-            sb.draw(img,
-                    position.x - 20, position.y - 20,
-                    20, 20,
-                    40, 40,
-                    1, 1,
-                    direction.angleDeg() + 180,
-                    0, 0,
-                    img.getWidth(), img.getHeight(),
-                    true, false);
 
-            sb.draw(img_1,
-                    position.x - 20, position.y - 20,
-                    20, 20,
-                    40, 40,
-                    1, 1,
-                    direction_tower.angleDeg() + 180,
-                    0, 0,
-                    img.getWidth(), img.getHeight(),
-                    false, false);
-        } else {
-            sb.setColor(0, 0, 0, 1);
-            sb.draw(imgr,
+            sb.draw(body,
                     position.x - 20, position.y - 20,
                     20, 20,
                     40, 40,
@@ -270,8 +245,7 @@ public class Tank {
                     0, 0,
                     img.getWidth(), img.getHeight(),
                     true, false);
-
-            sb.draw(img_1,
+            sb.draw(towers,
                     position.x - 20, position.y - 20,
                     20, 20,
                     40, 40,
@@ -280,8 +254,7 @@ public class Tank {
                     0, 0,
                     img.getWidth(), img.getHeight(),
                     false, false);
-            sb.setColor(1, 1, 1, 1);
-        }
+
         // System.out.println(this.tr.getNomTarget());
 
         if (tr.getNomTarget() != null) {

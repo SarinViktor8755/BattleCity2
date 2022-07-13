@@ -129,7 +129,7 @@ public class MainClient {
             try {
                 routerSM.routeSM((Network.StockMessOut) object);
             } catch (NullPointerException e) {
-                e.printStackTrace();
+               // e.printStackTrace();
             }
 
         }

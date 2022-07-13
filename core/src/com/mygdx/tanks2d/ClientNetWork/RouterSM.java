@@ -65,7 +65,7 @@ public class RouterSM {
                     mainGame.getGamePlayScreen().getPc().addShares(sm.p1, sm.p2, v.x, v.y);
                 }
             } catch (NullPointerException e) {
-                  e.printStackTrace();
+               //   e.printStackTrace();
                     return;
             }
             return;
@@ -91,7 +91,7 @@ public class RouterSM {
                 }
 
             } catch (NullPointerException e) {
-                 e.printStackTrace();
+          //      e.printStackTrace();
               //  System.out.println("1");
 //                Tank myTank = mainGame.getGamePlayScreen().getTank();
 //                myTank.setHp((int) sm.p3);
