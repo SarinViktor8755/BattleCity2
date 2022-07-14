@@ -24,6 +24,10 @@ public class IndexMap {
     private int width_map; // ширина карты
     private int height_map; // высота карты
 
+    private Vector2 rasp1, rasp2;
+
+    private final Vector2 centr = new Vector2(width_map/2f,height_map/2);
+
     final float SPEED = 90f;
     final float SPEED_ROTATION = 180f;
 
@@ -53,6 +57,7 @@ public class IndexMap {
         for (int i = 0; i < arr.length(); i++) {
             ceateObjectmap((JSONObject) arr.get(i));
         }
+       //     System.out.println("rasp1 "+rasp1 +"  rasp2 "+  rasp2);
           System.out.println("install_map : " + GameServer.getDate());
     }
 
@@ -60,6 +65,7 @@ public class IndexMap {
     public void ceateObjectmap(JSONObject obj) {
         if (obj.optBoolean("ellipse")) createEllipse(obj);
         else createRectangle(obj);
+
     }
 
 
@@ -71,7 +77,12 @@ public class IndexMap {
     }
 
     private void createRectangle(JSONObject obj) {
+        System.out.println(obj.get("name"));
+        if(obj.get("name").equals("resp_1"))rasp1 = new Vector2(obj.getInt("x"),height_map - obj.getInt("y"));
+        if(obj.get("name").equals("resp_2"))rasp2 = new Vector2(obj.getInt("x"),height_map - obj.getInt("y"));
         Rectangle r = new Rectangle(obj.getInt("x"), height_map - obj.getInt("y"), obj.getInt("width"), obj.getInt("height"), this.height_map);
+
+
         this.allfigure.add(r);
         // System.out.println(" Rectangle: position" + r.getPosition() + "  WH" + r.getPositionWH());
 
@@ -123,6 +134,9 @@ public class IndexMap {
         if (pos.y > height_map + 7) pos.y = height_map;
     }
 
+    public Vector2 getCentrMap() {
+        return centr;
+    }
 
     public boolean isPointInCollision(float x, float y) { // кализия для бууулета
         for (int i = 0; i < allfigure.size(); i++) {
@@ -190,6 +204,13 @@ public class IndexMap {
         }
     }
 
+    public Vector2 getRasp1() {
+        return rasp1;
+    }
+
+    public Vector2 getRasp2() {
+        return rasp2;
+    }
 
     public int getWidth_map() {
         return width_map;

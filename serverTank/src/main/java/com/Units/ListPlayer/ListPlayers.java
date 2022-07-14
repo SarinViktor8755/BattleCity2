@@ -203,8 +203,16 @@ public class ListPlayers {
 
     }
 
+    public static Vector2 getBlue_average() {
+        return blue_average;
+    }
 
-//////////////collisin
+    public static Vector2 getRed_average() {
+        return red_average;
+    }
+
+
+    //////////////collisin
 
     public Vector2 isCollisionsTanks(Vector2 pos) {
         red_size = 0;
@@ -292,8 +300,8 @@ public class ListPlayers {
             if (!p.isLive()) {
                 if (MathUtils.randomBoolean(0.05f)) {
                     p.setHp(100);
-                    if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(1000, 1000);
-                    else p.setPosition(10, 10);
+                    if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(gameServer.getMainGame().getMapSpace().getRasp1());
+                    else p.setPosition(gameServer.getMainGame().getMapSpace().getRasp2());
                     gameServer.send_PARAMETERS_PLAYER(p);
 
                     System.out.println("!!!!!!!! RESPOWN" + p.getPosi());

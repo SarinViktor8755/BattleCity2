@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.mygdx.tanks2d.Units.Tanks.OpponentsTanks;
 import com.mygdx.tanks2d.Units.Tanks.Tank;
 
-public class CameraGame{
+public class CameraGame {
 
     OpponentsTanks targetCamera;
 
@@ -28,9 +28,9 @@ public class CameraGame{
 
     private final int hl, wl;
 
-    public CameraGame(float HIDE_SCREEN,float WHIDE_SCREEN, int sm, int hl,int wl) {
+    public CameraGame(float HIDE_SCREEN, float WHIDE_SCREEN, int sm, int hl, int wl) {
         this.camera = new OrthographicCamera();
-        this.viewport = new FillViewport(HIDE_SCREEN , WHIDE_SCREEN , camera);
+        this.viewport = new FillViewport(HIDE_SCREEN, WHIDE_SCREEN, camera);
         floatCamera = false;
         targetPoint = new Vector2();
         this.sizeMap = sm;
@@ -38,42 +38,39 @@ public class CameraGame{
         this.hl = hl;
     }
 
-    public void moveFloatCameraToPoint(float x , float y, float speed){
-        this.targetPoint.set(x,y);
-       //// System.out.println("moveFloatCameraToPoint");
-        this.camera.position.sub(this.camera.position.cpy().sub(targetPoint.x,targetPoint.y,0).scl(Gdx.graphics.getDeltaTime() * speed));
+    public void moveFloatCameraToPoint(float x, float y, float speed) {
+        this.targetPoint.set(x, y);
+        //// System.out.println("moveFloatCameraToPoint");
+        this.camera.position.sub(this.camera.position.cpy().sub(targetPoint.x, targetPoint.y, 0).scl(Gdx.graphics.getDeltaTime() * speed));
         fixBounds();
     }
 
-    public void zoomCamera(){
+    public void zoomCamera() {
 
 //        if(camera.zoom > 5) camera.zoom = 5;
 //        camera.zoom += 0.01;
-        
-
 
 
     }
 
-    public void deathStatus(Tank tank){
+    public void deathStatus(Tank tank) {
         fixBounds();
         try {
-            moveFloatCameraToPoint(targetCamera.getPosition().x,targetCamera.getPosition().y,2.3f);
-        }catch (NullPointerException e){
+            moveFloatCameraToPoint(targetCamera.getPosition().x, targetCamera.getPosition().y, 2.3f);
+        } catch (NullPointerException e) {
             tank.getGsp().getCameraGame().createNewTargetDeathRhim(tank.getGsp().getTanksOther().getRandomPlayer());
         }
     }
 
-    public void createNewTargetDeathRhim(OpponentsTanks ot){
+    public void createNewTargetDeathRhim(OpponentsTanks ot) {
         this.targetCamera = ot;
     }
 
 
-
-    public void jampCameraToPoint(float x , float y){
+    public void jampCameraToPoint(float x, float y) {
         //this.camera.position.set(x,y,0);
         fixBounds();
-        this.camera.position.set(x,y,0);
+        this.camera.position.set(x, y, 0);
 
     }
 
@@ -84,7 +81,7 @@ public class CameraGame{
 //        fixBounds();
 //    }
 
-    public void updateCamera(){
+    public void updateCamera() {
 
     }
 
@@ -102,8 +99,8 @@ public class CameraGame{
 
 
     public void fixBounds() {
-        float scaledViewportWidthHalfExtent = WHIDE_SCREEN * 1.2f  * 0.5f;
-        float scaledViewportHeightHalfExtent = HIDE_SCREEN  * 1.2f* 0.5f;
+        float scaledViewportWidthHalfExtent = WHIDE_SCREEN * 1.2f * 0.5f;
+        float scaledViewportHeightHalfExtent = HIDE_SCREEN * 1.2f * 0.5f;
 
         // Horizontal
         if (camera.position.x < scaledViewportWidthHalfExtent)
@@ -118,7 +115,7 @@ public class CameraGame{
             camera.position.y = hl - scaledViewportHeightHalfExtent;
     }
 
-    public Vector3 getCameraPosition(){
+    public Vector3 getCameraPosition() {
         return camera.position;
     }
 }

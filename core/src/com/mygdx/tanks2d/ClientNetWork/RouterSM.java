@@ -76,6 +76,7 @@ public class RouterSM {
 
                 int id = mainGame.getMainClient().getClient().getID();
                 if (id == (int) sm.p1) {
+                    System.out.println(sm);
                     saveParametrsMtTank(sm);
                 } else {
                     OpponentsTanks opponentsTanks = mainGame.getGamePlayScreen().getTanksOther().getTankForID((int) sm.p1);

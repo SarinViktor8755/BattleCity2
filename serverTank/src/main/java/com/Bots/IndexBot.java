@@ -156,7 +156,7 @@ public class IndexBot extends Thread {
             } else {
                 if (MathUtils.randomBoolean(.05f)) return;
               //  tank.getGlobalTarget().set(500, 500);
-                if(p.getCommand()== Heading_type.RED_COMMAND){tank.getGlobalTarget().set(10, 10);}else tank.getGlobalTarget().set(1000, 1000);
+                if(p.getCommand()== Heading_type.RED_COMMAND){tank.getGlobalTarget().set(ListPlayers.getBlue_average());}else tank.getGlobalTarget().set(ListPlayers.getRed_average());
                 // System.out.println("222");
             }
         } catch (NullPointerException e) {
@@ -218,8 +218,9 @@ public class IndexBot extends Thread {
         if (!p.isLive()) {
             if (MathUtils.randomBoolean(0.05f)) {
                 p.setHp(100);
-                if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(800, 800);
-                else p.setPosition(100, 100);
+                if (p.getCommand() == Heading_type.RED_COMMAND)
+                    p.setPosition(gs.getMainGame().getMapSpace().getRasp1());
+                else p.setPosition(gs.getMainGame().getMapSpace().getRasp2());
                // p.setPosition(MathUtils.random(0, 1000), MathUtils.random(0, 1000));
                 gs.send_PARAMETERS_PLAYER(p);
             }
