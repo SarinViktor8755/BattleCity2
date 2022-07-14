@@ -13,6 +13,7 @@ import com.esotericsoftware.kryonet.Connection;
 
 import main.java.com.Bots.TowerRotationLogic;
 import main.java.com.GameServer;
+import main.java.com.MatchOrganization.IndexMath;
 
 public class ListPlayers {
     static public final int DEFULT_COUNT_BOT = 20;
@@ -30,6 +31,10 @@ public class ListPlayers {
 
     private int blue_size;
     private int red_size;
+
+    private static Vector2 blue_average = new Vector2(0, 0);
+    private static Vector2 red_average = new Vector2(0, 0);
+    private static Vector2 average_cord = new Vector2(0, 0);
 
     public ListPlayers(GameServer gameServer) {
         this.players = new ConcurrentHashMap<>();
@@ -62,13 +67,13 @@ public class ListPlayers {
     }
 
     public void addPlayer(int con) {
-
+        update_the_average_coordinates_of_the_commands();
         this.players.put(con, new Player(con, gameServer.getMainGame().getIndexMath().getCommand()));
         //   System.out.println(this.players);
     }
 
     public void addPlayer(Player p) { // конструктоор для ботов
-
+        update_the_average_coordinates_of_the_commands();
         this.players.put(p.getId(), p);
     }
 
@@ -132,13 +137,14 @@ public class ListPlayers {
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
             if (((temp1.dst2(temp2) < 500) && author_id != entry.getValue().getId()))
                 res = entry.getKey();
-
             if (res != -1) return res;
         }
         return res;
     }
 
+
     public void send_bot_coordinates() {
+        if(MathUtils.randomBoolean(.005f))update_the_average_coordinates_of_the_commands();
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
@@ -160,17 +166,51 @@ public class ListPlayers {
             }
         }
     }
-//////////////collisin
 
+
+    private void update_number_of_clicks(int coomand) {
+        if (coomand == Heading_type.BLUE_COMMAND) blue_size++;
+        if (coomand == Heading_type.RED_COMMAND) red_size++;
+    }
+
+    public void update_the_average_coordinates_of_the_commands() { // обновить средние координаты команд
+        Iterator<Map.Entry<Integer, Player>> entries = this.players.entrySet().iterator();
+        float xb = 0;
+        float yb = 0;
+        float xr = 0;
+        float yr = 0;
+        int r = 0;
+        int b = 0;
+        while (entries.hasNext()) {
+            Player p = entries.next().getValue();
+            if (p.getCommand() == Heading_type.BLUE_COMMAND) {
+                xb += p.getPosi().x;
+                yb += p.getPosi().y;
+                b++;
+            }
+            if (p.getCommand() == Heading_type.RED_COMMAND) {
+                xr += p.getPosi().x;
+                yr += p.getPosi().y;
+                r++;
+            }
+        }
+        ListPlayers.blue_average.set(xb / b, yb / b);
+        ListPlayers.red_average.set(xr / r, yr / r);
+
+        ListPlayers.average_cord.set( ((ListPlayers.blue_average.x + ListPlayers.red_average.x)/2) ,((ListPlayers.blue_average.y + ListPlayers.red_average.y)/2));
+        System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    --  " + average_cord);
+
+
+    }
+
+
+//////////////collisin
 
     public Vector2 isCollisionsTanks(Vector2 pos) {
         red_size = 0;
         blue_size = 0;
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
-
-            if (tank.getValue().getCommand() == Heading_type.BLUE_COMMAND) blue_size++;
-            else red_size++;
-
+            update_number_of_clicks(tank.getValue().getCommand());
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
             if (!tank.getValue().isLive()) continue;
             if (tank.getValue().isCollisionsTanks(pos))
@@ -179,6 +219,8 @@ public class ListPlayers {
         // System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
         return null;
     }
+
+
 ///////////////////
 
     public Integer targetTankForBotAttack(Vector2 myPosi, Player my) { // найти цель для бота - просто перебор кто первый попадется
@@ -240,11 +282,12 @@ public class ListPlayers {
         return this.red_size;
     }
 
+
     public void respaunPlayer() { // респаун игрока живого - новый плеер
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-           if (entry.getKey() < -1) continue;
+            if (entry.getKey() < -1) continue;
             Player p = entry.getValue();
             if (!p.isLive()) {
                 if (MathUtils.randomBoolean(0.05f)) {
@@ -253,8 +296,8 @@ public class ListPlayers {
                     else p.setPosition(10, 10);
                     gameServer.send_PARAMETERS_PLAYER(p);
 
-                    System.out.println("!!!!!!!! RESPOWN"+p.getPosi());
-                     }
+                    System.out.println("!!!!!!!! RESPOWN" + p.getPosi());
+                }
             }
         }
     }

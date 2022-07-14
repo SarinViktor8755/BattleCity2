@@ -166,7 +166,7 @@ public class Tank {
         collisinOtherTanksTrue();
 
         /////////////////////////////////////////////////////////
-        //replace_textures();
+        replace_textures();
       //  System.out.println(direction.len2());
 ///////////////////
     }

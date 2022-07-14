@@ -1,10 +1,15 @@
 package main.java.com.MatchOrganization;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
+
+import java.util.Iterator;
+import java.util.Map;
 
 import main.java.com.MainGame;
 import main.java.com.Units.ListPlayer.ListPlayers;
+import main.java.com.Units.ListPlayer.Player;
 
 public class IndexMath {
     private static final float MATH_LENGHT = 1000 * 60 * 2; // время матча
@@ -18,7 +23,6 @@ public class IndexMath {
 
     public void updateMath(float dt,ListPlayers listPlayers) {
         this.realTimeMath += dt;
-      //  System.out.println(realTimeMath);
         this.listPlayers = listPlayers;
     }
 
@@ -27,7 +31,8 @@ public class IndexMath {
         else return false;
     }
 
-    public int getCommand() {
+
+    public int getCommand() { // определить команду
              if (listPlayers.blue_players_size() > listPlayers.red_players_size()) {
                 return Heading_type.RED_COMMAND;
             } else if (listPlayers.blue_players_size() < listPlayers.red_players_size()) {
@@ -71,6 +76,5 @@ public class IndexMath {
     }
 
     ///////////////////
-
 
 }

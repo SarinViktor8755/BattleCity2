@@ -75,6 +75,7 @@ public class IndexBot extends Thread {
         DBBot bot = new DBBot(p.getId());
         dbBots.put(p.getId(), bot);
         p.setCommand(gs.getMainGame().getIndexMath().getCommand());
+
     }
 
     public void updaeteBot(float deltaTime) {
@@ -217,8 +218,8 @@ public class IndexBot extends Thread {
         if (!p.isLive()) {
             if (MathUtils.randomBoolean(0.05f)) {
                 p.setHp(100);
-                if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(1000, 1000);
-                else p.setPosition(10, 10);
+                if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(800, 800);
+                else p.setPosition(100, 100);
                // p.setPosition(MathUtils.random(0, 1000), MathUtils.random(0, 1000));
                 gs.send_PARAMETERS_PLAYER(p);
             }
