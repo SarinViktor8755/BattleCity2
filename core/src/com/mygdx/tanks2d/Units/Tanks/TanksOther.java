@@ -170,12 +170,14 @@ public class TanksOther { /// много танков )))
     }
 
     public void deathAllPlayers(){
-
         for (Map.Entry<Integer, OpponentsTanks> tanks: listOpponents.entrySet())
             if(MathUtils.randomBoolean())tanks.getValue().getPosition().set(-1000,-1000);
-
-    //   this.listOpponents.clear();
     }
+
+    public void delPlayer(int id){
+        this.listOpponents.remove(id);
+    }
+
 
 
     private boolean inCanMove(int x, int y) {

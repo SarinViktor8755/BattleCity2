@@ -158,6 +158,7 @@ public class OpponentsTanks { // ОДИН ТАНК
 
     }
 
+
     private void attack() {
         if (MathUtils.randomBoolean(0.005f)) return;
 //        if (towerRotation.getNomTarget() == null) return;

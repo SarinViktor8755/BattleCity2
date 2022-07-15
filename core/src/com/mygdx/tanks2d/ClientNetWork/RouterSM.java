@@ -102,19 +102,11 @@ public class RouterSM {
             return;
         }
 
-
         if (Heading_type.DISCONECT_PLAYER == sm.tip) {
-            OpponentsTanks opponentsTanks = mainGame.getGamePlayScreen().getTanksOther().getTankForID((int) sm.p3);
-//            opponentsTanks.hp = (int) sm.p1;
-
-            // mainGame.getGamePlayScreen().playAnimation(position, velocity, (int) sm.p4);
+            System.out.println("del  " + ((int)sm.p1));
+            mainGame.getGamePlayScreen().getTanksOther().delPlayer((int)sm.p1);
             return;
         }
-
-
-
-        //Heading_type.SHELL_RUPTURE
-
 
     }
 
