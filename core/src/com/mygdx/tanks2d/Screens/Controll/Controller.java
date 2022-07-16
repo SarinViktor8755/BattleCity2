@@ -58,6 +58,8 @@ public class Controller {
 
     private boolean buttonChangingOpponent;
 
+    private int frag = 0;
+
 
     Vector2 directionMovement; // Направление движения
 
@@ -205,11 +207,12 @@ public class Controller {
         score_blue.setY(sh - 100);
         stage.addActor(score_blue);
 
-        my_frag = new Label("frags : " + my_frag, style);
+        my_frag = new Label("frags : " + frag, style);
         my_frag.setColor(Color.YELLOW);
         my_frag.setX(30);
         my_frag.setY(sh - 130);
         stage.addActor(my_frag);
+
 
 
 //////////////////////////////////
@@ -238,6 +241,10 @@ public class Controller {
 
     public boolean isChance() {
         return chance;
+    }
+
+    public void addFrag(){
+        this.frag++;
     }
 
     public void setChance(boolean chance) {

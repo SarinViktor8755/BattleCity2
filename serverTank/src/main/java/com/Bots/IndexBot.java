@@ -105,6 +105,12 @@ public class IndexBot extends Thread {
                 DBBot tank = entry.getValue();
 
                 Player p = gs.getLp().getPlayerForId(tank.getId());
+                if(!p.isLive()){
+
+                    p.setPosition(-100_000,-100_000);
+                    continue;
+                }
+
                 respaunBot(p);
 
                 gs.getMainGame().getMapSpace().resolving_conflict_with_objects(p.getPosi(), deltaTime); /// проверка столкновений с обьектами
@@ -214,7 +220,8 @@ public class IndexBot extends Thread {
         return a;
     }
 
-    private void respaunBot(Player p) {
+    public void respaunBot(Player p) {
+
         if (!p.isLive()) {
             if (MathUtils.randomBoolean(0.05f)) {
                 p.setHp(100);

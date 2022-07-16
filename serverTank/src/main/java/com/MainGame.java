@@ -89,7 +89,7 @@ public class MainGame {
                         bullets.updateBulets(deltaTime);
                         gameServer.indexBot.updaeteBot(time);
 
-                        gameServer.lp.respaunPlayer();
+                 //      gameServer.lp.respaunPlayer();
 
                        // gameServer.lp.re
 

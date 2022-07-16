@@ -32,6 +32,9 @@ public class ListPlayers {
     private int blue_size;
     private int red_size;
 
+    private int live_blue_size;
+    private int live_red_size;
+
     private static Vector2 blue_average = new Vector2(0, 0);
     private static Vector2 red_average = new Vector2(0, 0);
     private static Vector2 average_cord = new Vector2(0, 0);
@@ -144,7 +147,7 @@ public class ListPlayers {
 
 
     public void send_bot_coordinates() {
-        if(MathUtils.randomBoolean(.005f))update_the_average_coordinates_of_the_commands();
+        if(MathUtils.randomBoolean(.05f))update_the_average_coordinates_of_the_commands();
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
@@ -168,6 +171,8 @@ public class ListPlayers {
     }
 
 
+
+
     private void update_number_of_clicks(int coomand) {
         if (coomand == Heading_type.BLUE_COMMAND) blue_size++;
         if (coomand == Heading_type.RED_COMMAND) red_size++;
@@ -183,6 +188,7 @@ public class ListPlayers {
         int b = 0;
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
+            if (!p.isLive()) continue;
             if (p.getCommand() == Heading_type.BLUE_COMMAND) {
                 xb += p.getPosi().x;
                 yb += p.getPosi().y;
@@ -193,14 +199,30 @@ public class ListPlayers {
                 yr += p.getPosi().y;
                 r++;
             }
+
         }
         ListPlayers.blue_average.set(xb / b, yb / b);
         ListPlayers.red_average.set(xr / r, yr / r);
 
         ListPlayers.average_cord.set( ((ListPlayers.blue_average.x + ListPlayers.red_average.x)/2) ,((ListPlayers.blue_average.y + ListPlayers.red_average.y)/2));
-        System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    --  " + average_cord);
+        System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    -- Общая средняя " + average_cord);
+
+        live_blue_size = b;
+        live_red_size = r;
 
 
+    }
+
+    public int getLive_blue_size() {
+        return live_blue_size;
+    }
+
+    public int getLive_red_size() {
+        return live_red_size;
+    }
+
+    public void setLive_blue_size(int live_blue_size) {
+        this.live_blue_size = live_blue_size;
     }
 
     public static Vector2 getBlue_average() {
@@ -289,6 +311,19 @@ public class ListPlayers {
     public int red_players_size() {
         return this.red_size;
     }
+
+    public void respownAllPlaers(){
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        respaunPlayer();
+        while (entries.hasNext()) {
+            Player p = entries.next().getValue();
+            if(p.getId() < 1)
+                gameServer.getIndexBot().respaunBot(p);
+
+
+        }
+    }
+
 
 
     public void respaunPlayer() { // респаун игрока живого - новый плеер

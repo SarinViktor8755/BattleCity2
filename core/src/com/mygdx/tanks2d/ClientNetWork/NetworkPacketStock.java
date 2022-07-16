@@ -42,6 +42,7 @@ public class NetworkPacketStock {
         pack.p4 = p4;
         pack.textM = text;
         client.sendTCP(pack);
+        System.out.println("OUT-->>  " + pack);
     }
 
     public void toSendMyShot(float x, float y, float alignShoot) { // мой выстрел
@@ -82,7 +83,6 @@ public class NetworkPacketStock {
     }
 
     public void toSendMyNikAndTokken() {
-
         toSendMyTokken();
     }
 }

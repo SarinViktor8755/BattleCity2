@@ -24,6 +24,7 @@ public class IndexMath {
     public void updateMath(float dt,ListPlayers listPlayers) {
         this.realTimeMath += dt;
         this.listPlayers = listPlayers;
+        restartMath();
     }
 
     private boolean is_end_math() {
@@ -68,8 +69,18 @@ public class IndexMath {
     public static void  add_score_team(int team){
         if(team == Heading_type.BLUE_COMMAND)add_score_blue_team();
         if(team == Heading_type.RED_COMMAND)add_score_red_team();
-        System.out.println("RED  " + red_team_score + "  BLUE  " + blue_team_score);
+       // System.out.println("RED  " + red_team_score + "  BLUE  " + blue_team_score);
     }
+
+    private void restartMath(){
+        System.out.println(listPlayers.getLive_blue_size() + "   " + listPlayers.getLive_red_size());
+                if((listPlayers.getLive_blue_size()<1)||(listPlayers.getLive_red_size()<1)){
+                    listPlayers.respownAllPlaers();
+
+                }
+    }
+
+
 
     public static float getRealTimeMath() {
         return realTimeMath;

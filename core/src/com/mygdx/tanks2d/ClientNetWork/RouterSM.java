@@ -88,6 +88,8 @@ public class RouterSM {
                     if (!opponentsTanks.isLive()) {
                         if (mainGame.getGamePlayScreen().getTimeInGame() < 1) return;
                         mainGame.getGamePlayScreen().getPc().addAnimationDeath(opponentsTanks.getPosition().x, opponentsTanks.getPosition().y);
+//                        System.out.println(sm + " !!!!!!!!!!!!!!!!!!!!!!!");
+//                        if(sm.p1 == mainGame.getMainClient().getClient().getID()) mainGame.getGamePlayScreen().getController().addFrag();
                     }
                 }
 

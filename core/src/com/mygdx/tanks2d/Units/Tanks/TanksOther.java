@@ -107,18 +107,18 @@ public class TanksOther { /// много танков )))
 
             } else { // есть фрейм - тогда смещаем танк к реальной точке перемещения
 
-                 temp.set(p.xp, p.yp);
+                temp.set(p.xp, p.yp);
 
-                tRotation.set(p.xp,p.yp).sub(ot.getPosition());
+                tRotation.set(p.xp, p.yp).sub(ot.getPosition());
 //                System.out.println("!!!! " + tRotation.angleDeg()+ "  _-"+ot.getDirection().angleDeg()
 //                +"  " + (tRotation.angleDeg() - ot.getDirection().angleDeg())
 //                );
                 float delta = tRotation.angleDeg() - ot.getDirection().angleDeg();
-                if(Math.abs(delta) > 10){
-                    delta = MathUtils.map(-360,360,-1,1,delta);
+                if (Math.abs(delta) > 10) {
+                    delta = MathUtils.map(-360, 360, -1, 1, delta);
                 }
                 ot.getDirection().setAngleRad(delta);
-              //  System.out.println(tRotation.hasOppositeDirection(ot.getDirection()));
+                //  System.out.println(tRotation.hasOppositeDirection(ot.getDirection()));
 
                 /// поворот
 //                if (Math.abs(temp.angleDeg() - ot.getDirection().angleDeg()) > 2) {
@@ -127,7 +127,7 @@ public class TanksOther { /// много танков )))
 //                    else ot.getDirection().rotateDeg(-.005f);
 //                } else ot.getDirection().setAngleRad(temp.angleDeg());
 
-             //   System.out.println(ot.getDirection().angleDeg() + "  angel " + temp.angleDeg() + "   - " + (Math.abs(temp.angleDeg() - ot.getDirection().angleDeg())));
+                //   System.out.println(ot.getDirection().angleDeg() + "  angel " + temp.angleDeg() + "   - " + (Math.abs(temp.angleDeg() - ot.getDirection().angleDeg())));
                 ot.getPosition().add(temp.sub(ot.getPosition().cpy()).scl(Gdx.graphics.getDeltaTime() * 10));
                 //ot.getPosition().sub(temp.scl(Gdx.graphics.getDeltaTime()));
 //                System.out.println("frame TRUE");
@@ -138,7 +138,7 @@ public class TanksOther { /// много танков )))
             if (temp.set(p.xp, p.yp).sub(ot.getPosition().cpy()).scl(10).len2() > 50)
                 ot.move = true;
             else ot.move = false;
-           // System.out.println("!!!! " + ot.getDirection() + rotation );
+            // System.out.println("!!!! " + ot.getDirection() + rotation );
             ot.getDirection().setAngleDeg(rotation);
             ot.getDirection_tower().setAngleDeg(p.roy_tower);
             if (ot.move)
@@ -162,22 +162,30 @@ public class TanksOther { /// много танков )))
 
     public OpponentsTanks getRandomPlayer() {
         try {
-            return getTankForID((int) listOpponents.keySet().toArray()[MathUtils.random(listOpponents.size() + 1)]);
-        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
+            OpponentsTanks ot;
+            do {
+                ot = getTankForID((int) listOpponents.keySet().toArray()[MathUtils.random(listOpponents.size())]);
+            } while (ot.getPosition().x < 0);
+
+            //   if(getRandomPlayer().getPosition().x < -100) getRandomPlayer();
+            System.out.println(ot.getPosition() + "!!!!!-___!!!!!!!");
+            return ot;
+
+        } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException | NullPointerException e) {
+            e.printStackTrace();
             return null;
         }
 
     }
 
-    public void deathAllPlayers(){
-        for (Map.Entry<Integer, OpponentsTanks> tanks: listOpponents.entrySet())
-            if(MathUtils.randomBoolean())tanks.getValue().getPosition().set(-1000,-1000);
+    public void deathAllPlayers() {
+        for (Map.Entry<Integer, OpponentsTanks> tanks : listOpponents.entrySet())
+            if (MathUtils.randomBoolean()) tanks.getValue().getPosition().set(-1000, -1000);
     }
 
-    public void delPlayer(int id){
+    public void delPlayer(int id) {
         this.listOpponents.remove(id);
     }
-
 
 
     private boolean inCanMove(int x, int y) {
@@ -196,12 +204,12 @@ public class TanksOther { /// много танков )))
 
     public void randerOtherTanks(SpriteBatch sb) {
         OpponentsTanks t;
-     //   System.out.println("--------");
+        //   System.out.println("--------");
         for (Map.Entry<Integer, OpponentsTanks> tank : this.listOpponents.entrySet()) {
             t = tank.getValue();
 
             if (!tank.getValue().isLive()) continue;
-            gsp.pc.generatorSmoke(tank.getValue().hp,t.getPosition().x,t.getPosition().y);
+            gsp.pc.generatorSmoke(tank.getValue().hp, t.getPosition().x, t.getPosition().y);
             updateColor(t, Gdx.graphics.getDeltaTime());
 
             if (t.getNikPlayer() != null) {
