@@ -150,10 +150,10 @@ public class MainClient {
         return this.networkPacketStock;
     }
 
-    public boolean checkConnect() {
+    public boolean checkConnect(int status_game) {
         boolean result = true;
         //     System.out.println(NetworkPacketStock.required_to_send_tooken);
-        getNetworkPacketStock().toSendMyNikAndTokken(); // отправка ника и токкена
+        getNetworkPacketStock().toSendMyTokken(status_game); // отправка ника и токкена
         //   if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
 
         if (!getClient().isConnected()) {

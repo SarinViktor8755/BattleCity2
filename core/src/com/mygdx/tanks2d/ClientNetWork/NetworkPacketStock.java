@@ -62,10 +62,11 @@ public class NetworkPacketStock {
     }
 
 
-    public void toSendMyTokken() {
+    public void toSendMyTokken(int status_game) {
        // System.out.println("required_to_send_tooken " + required_to_send_tooken);
         if(required_to_send_tooken) return;
         if(!client.isConnected()){required_to_send_tooken = false; return;}
+        //2 - статус игры -- сообщает что игкрок в меню или  в игру - вответиедолжна быть карта Местность
         send_package_to_server(Heading_type.MY_TOKKEN, 0, 0, 0, 0, NikName.getTokken());
         required_to_send_tooken = true;
     }
@@ -82,9 +83,7 @@ public class NetworkPacketStock {
         send_package_to_server(Heading_type.MY_PARAMETERS, hp, 0, 0, 0, NikName.getNikName());
     }
 
-    public void toSendMyNikAndTokken() {
-        toSendMyTokken();
-    }
+
 }
 
 
