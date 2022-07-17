@@ -56,7 +56,7 @@ public class GameSpace {
 
 
         //map = new TmxMapLoader().load(MAP_DESETRT);
-        map = gps.getAssetsManagerGame().get("map/desert.tmx");
+        map = gps.getAssetsManagerGame().get("map/field/index.tmx");
 
         rendererMap = new OrthogonalTiledMapRenderer(map, 1.0f, getGps().getBatch());
 

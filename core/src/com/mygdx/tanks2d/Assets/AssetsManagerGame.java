@@ -83,7 +83,7 @@ public class AssetsManagerGame {
         assets.put("sound/explode4.ogg", Sound.class);
 
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
-        assets.put("map/desert.tmx", TiledMap.class);
+        assets.put("map/field/index.tmx", TiledMap.class);
 
         assets.put("fire.png", Texture.class);
         assets.put("fonts/font.fnt", BitmapFont.class);
@@ -96,7 +96,7 @@ public class AssetsManagerGame {
 //        assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
 //        assets.put("C:\\tank2d\\android\\assets\\map\\desert.tmx", Texture.class);
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
-        assetManager.load("map/desert.tmx", TiledMap.class);
+        assetManager.load("map/field/index.tmx", TiledMap.class);
 
         loadedAseets();
         return assetManager;
