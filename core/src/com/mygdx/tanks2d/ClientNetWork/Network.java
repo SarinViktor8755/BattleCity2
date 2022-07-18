@@ -7,11 +7,11 @@ import com.esotericsoftware.kryonet.EndPoint;
 public class Network {
     final public static int udpPort = 37001, tcpPort = 37001;
 
-    //final public static String ip = "176.62.66.63";
+    //final public static Strin`g ip = "176.62.66.63";
     //final public static String ip = "185.231.68.81";
     //final public static String ip = "omskSarin2020.online";
-    // final  public static String host = "127.0.0.1";
-  final public static String host = "92.124.144.204";
+     final  public static String host = "127.0.0.1";
+  //final public static String host = "92.124.144.204";
 
     static public void register(EndPoint endPoint) {
         Kryo kryo = endPoint.getKryo();

@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Units.NikName;
@@ -253,7 +254,7 @@ public class MenuScreen implements Screen {
     }
 
     private void upDateScreen() {
-       mainClient.checkConnect(); // проверяет на коннект переподключется
+       mainClient.checkConnect(Heading_type.IN_MENU); // проверяет на коннект переподключется
 
        // System.out.println("!!!" + mainClient.getClient().isConnected() + " ___ isOnLine" + mainGame.getMainClient().isOnLine());
        // mainGame.getMainClient().updateAlphaW();
@@ -314,7 +315,6 @@ public class MenuScreen implements Screen {
         batch.dispose();
         stageMenu.dispose();
         wallpaper.dispose();
-        //   play.dispose();
         logo.dispose();
     }
 
@@ -325,6 +325,7 @@ public class MenuScreen implements Screen {
     public void setStartgameSP(boolean startgame) {
         this.startgameSP = startgame;
     }
+
 
 
 }

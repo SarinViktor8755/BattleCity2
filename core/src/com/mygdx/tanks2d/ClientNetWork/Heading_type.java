@@ -32,7 +32,7 @@ public class Heading_type {
 
     ////
     public static final int  IN_MENU = -1;
-    public static final int  IN_GAME= -1;
+    public static final int  IN_GAME= -2;
 
 
 }

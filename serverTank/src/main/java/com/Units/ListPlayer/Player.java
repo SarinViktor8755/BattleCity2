@@ -18,7 +18,7 @@ public class Player {
 
     public Player(int id, int command) {
         this.id = id;
-        hp = 100;
+        hp = -1;
         death = 1;
         this.command = command;
         nikName = "Player no." + this.id + " live Player";

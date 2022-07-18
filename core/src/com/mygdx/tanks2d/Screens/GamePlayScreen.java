@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.AudioEngine.AudioEngine;
 import com.mygdx.tanks2d.CameraGame;
+import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.ServiceClient;
 import com.mygdx.tanks2d.InputProcessor.InputProcessorDesktop;
 import com.mygdx.tanks2d.Locations.GameSpace;
@@ -100,6 +101,7 @@ public class GamePlayScreen implements Screen {
     }
 
     public void update() {
+        mainGame.getMainClient().checkConnect(Heading_type.STATUS_GAME);
 
 
         disconect_protection();

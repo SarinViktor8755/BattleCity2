@@ -56,8 +56,10 @@ public class GameServer {
                                @Override
                                public void received(Connection connection, Object object) {
                                    if (object instanceof Network.PleyerPosition) {
-                                       lp.updatePosition(connection.getID(), (Network.PleyerPosition) object);
+
+                                       Player p = lp.updatePosition(connection.getID(), (Network.PleyerPosition) object);
                                        lp.sendToAllPlayerPosition(connection.getID(), (Network.PleyerPosition) object);
+
                                        return;
                                    }
 

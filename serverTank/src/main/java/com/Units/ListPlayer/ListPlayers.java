@@ -90,13 +90,18 @@ public class ListPlayers {
     }
 
 
-    public void updatePosition(int id, Network.PleyerPosition pp) { // записать парметры Игрока
+    public Player updatePosition(int id, Network.PleyerPosition pp) { // записать парметры Игрока
         Player p = players.get(id);
         if (p == null)
             players.put(id, new Player(id, gameServer.getMainGame().getIndexMath().getCommand()));
 
         p.setPosition(pp.xp, pp.yp);
         p.setRotTower(pp.roy_tower);
+        return p;
+    }
+
+    public static Vector2 getAverage_cord() {
+        return average_cord;
     }
 
     public void sendToAllPlayerPosition(int id, Network.PleyerPosition pp) {
@@ -153,7 +158,7 @@ public class ListPlayers {
             Map.Entry<Integer, Player> entry = entries.next();
             if (entry.getKey() > -99) continue;
             Player p = entry.getValue();
-            if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
+          //  if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
             pn.nom = entry.getKey();
             pn.xp = p.getPosi().x;
             pn.yp = p.getPosi().y;
@@ -314,15 +319,15 @@ public class ListPlayers {
 
     public void respownAllPlaers(){
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+      //  players.clear();
         respaunPlayer();
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
             if(p.getId() < 1)
                 gameServer.getIndexBot().respaunBot(p);
-
-
         }
     }
+
 
 
 
@@ -344,6 +349,12 @@ public class ListPlayers {
             }
         }
     }
+
+//    public Player getRandomPlayer(){
+//        Player result = null;
+//
+//
+//    }
 
 
 }

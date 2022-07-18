@@ -58,12 +58,14 @@ public class IndexBot extends Thread {
 
 
     private void addBot() {
+        System.out.println("Add_bot");
         Player p = new Player(NOM_ID_BOT, gs.getMainGame().getIndexMath().getCommand());
+
 
 //        if (MathUtils.randomBoolean()) p.setCommand(Heading_type.RED_COMMAND);
 //        else p.setCommand(Heading_type.BLUE_COMMAND);
 
-        p.setPosition(MathUtils.random(200, 1100), MathUtils.random(200, 1100));
+
         p.setHp(100);
         p.setNikName(getNikNameGen());
 
@@ -75,6 +77,11 @@ public class IndexBot extends Thread {
         DBBot bot = new DBBot(p.getId());
         dbBots.put(p.getId(), bot);
         p.setCommand(gs.getMainGame().getIndexMath().getCommand());
+
+        if (p.getCommand() == Heading_type.RED_COMMAND)
+            p.setPosition(gs.getMainGame().getMapSpace().getRasp2());
+        else p.setPosition(gs.getMainGame().getMapSpace().getRasp1());
+        //  p.setPosition(MathUtils.random(200, 1100), MathUtils.random(200, 1100));
 
     }
 
@@ -105,13 +112,13 @@ public class IndexBot extends Thread {
                 DBBot tank = entry.getValue();
 
                 Player p = gs.getLp().getPlayerForId(tank.getId());
-                if(!p.isLive()){
+                if (!p.isLive()) {
 
-                    p.setPosition(-100_000,-100_000);
+                    p.setPosition(-100_000, -100_000);
                     continue;
                 }
 
-                respaunBot(p);
+                //respaunBot(p);
 
                 gs.getMainGame().getMapSpace().resolving_conflict_with_objects(p.getPosi(), deltaTime); /// проверка столкновений с обьектами
                 collisinOtherTanksTrue(p.getPosi(), deltaTime, p.getBody_rotation()); /// calisiion tanks
@@ -132,7 +139,6 @@ public class IndexBot extends Thread {
     public void send_bot_coordinates() {
         gs.getLp().send_bot_coordinates();
     }
-
 
 
     private void moveBot(float deltaTime, DBBot tank, Player p, ListPlayers lp) {
@@ -160,9 +166,18 @@ public class IndexBot extends Thread {
                 tank.setGlobalTarget(gs.getLp().getPlayerForId(tank.getNomTarget()).getPosi().cpy().add(MathUtils.random(-150, +150), MathUtils.random(-150, +150)));
                 //  System.out.println("11__");
             } else {
-                if (MathUtils.randomBoolean(.05f)) return;
-              //  tank.getGlobalTarget().set(500, 500);
-                if(p.getCommand()== Heading_type.RED_COMMAND){tank.getGlobalTarget().set(ListPlayers.getBlue_average());}else tank.getGlobalTarget().set(ListPlayers.getRed_average());
+//                if (MathUtils.randomBoolean(.05f)) return;
+//                //  tank.getGlobalTarget().set(500, 500);
+//
+////
+//                if(p.getCommand()== Heading_type.RED_COMMAND)tank.getGlobalTarget().set(gs.getMainGame().getMapSpace().getRasp1());
+//                if(p.getCommand()== Heading_type.BLUE_COMMAND)tank.getGlobalTarget().set(gs.getMainGame().getMapSpace().getRasp2());
+
+               if(p.getCommand()== Heading_type.RED_COMMAND)tank.getGlobalTarget().set(ListPlayers.getBlue_average());
+                if(p.getCommand()== Heading_type.BLUE_COMMAND)tank.getGlobalTarget().set(ListPlayers.getRed_average());
+
+
+            tank.getGlobalTarget().set(ListPlayers.getAverage_cord());
                 // System.out.println("222");
             }
         } catch (NullPointerException e) {
@@ -185,25 +200,27 @@ public class IndexBot extends Thread {
 
     private void go_around_an_obstacle(DBBot tank, Player p) { // обход припятсвий
         //    Vector2 stick = get_vector_from_players_position(p.getBody_rotation(), p).nor().scl(-50);
-        if (MathUtils.randomBoolean(.85f)) return;
+        if (MathUtils.randomBoolean(.5f)) return;
         Vector2 rot = temp_position_vector.set(1, 0).setAngleDeg(tank.getTarget_body_rotation_angle().angleDeg()).scl(MathUtils.random(70, 100));
         Vector2 stick = p.getPosi().cpy().sub(rot);
-        ;
 
 
         //   System.out.println("space: "+!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) + "__calision "+ gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y));
         if (!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) || gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y)) {
-            tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(45, 315));
+            if(MathUtils.randomBoolean()){
+            tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(25, 100));}else{
+                tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(-100, -25));}
+
             tank.setTime_to_operation(MathUtils.random(1, 4));
         }
 
     }
 
-    private void go_to_tarpent_point(Player p, DBBot tank, boolean a) { // двигаться к целевой точке
+    private void go_to_tarpent_point(Player p, DBBot tank, boolean key) { // двигаться к целевой точке
         if (!tank.isFreeForOperation()) return;
         if (tank.getGlobalTarget().equals(DBBot.etalon_target)) return;
         if (!tank.is_redy_move()) return;
-        if (!a) return;
+      //  if (!key) return;
         // System.out.println("point");
         tank.getTarget_body_rotation_angle().set(p.getPosi().cpy().sub(tank.getGlobalTarget()));
 
@@ -221,17 +238,21 @@ public class IndexBot extends Thread {
     }
 
     public void respaunBot(Player p) {
-
-        if (!p.isLive()) {
-            if (MathUtils.randomBoolean(0.05f)) {
+      //  if (!p.isLive()) {
+       //     if (MathUtils.randomBoolean(0.05f)) {
                 p.setHp(100);
-                if (p.getCommand() == Heading_type.RED_COMMAND)
+                if (p.getCommand() == Heading_type.RED_COMMAND) {
+                    p.setPosition(gs.getMainGame().getMapSpace().getRasp2().cpy());
+                    p.getPosi().y += MathUtils.random(600);
+                }
+                else if (p.getCommand() == Heading_type.BLUE_COMMAND) {
                     p.setPosition(gs.getMainGame().getMapSpace().getRasp1());
-                else p.setPosition(gs.getMainGame().getMapSpace().getRasp2());
-               // p.setPosition(MathUtils.random(0, 1000), MathUtils.random(0, 1000));
+                    p.getPosi().y += MathUtils.random(600);
+                }
+               // System.out.println("----------");
                 gs.send_PARAMETERS_PLAYER(p);
-            }
-        }
+      //      }
+      //  }
     }
 
     private void collisinOtherTanksTrue(Vector2 position, float dt, Vector2 rotation) {

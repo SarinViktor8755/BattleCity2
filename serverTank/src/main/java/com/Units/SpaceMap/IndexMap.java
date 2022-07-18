@@ -35,11 +35,11 @@ public class IndexMap {
 
     public IndexMap() {
         allfigure = new ArrayList<>();
-        readFile("desert.json");
+        String map = readFile("index.json");
 
-        JSONObject obj = new JSONObject(readFile("desert.json"));
+        JSONObject obj = new JSONObject(readFile("index.json"));
         // System.out.println(obj);
-        String firstName = String.valueOf(obj.getInt("height"));
+     //   String firstName = String.valueOf(obj.getInt("height"));
         // System.out.println(firstName);
 
         width_map = obj.getInt("width") * obj.getInt("tilewidth"); // ширина карты
