@@ -317,7 +317,7 @@ public class ListPlayers {
         return this.red_size;
     }
 
-    public void respownAllPlaers(){
+    public void respownAllPlaers(){ //рестарт игкраков -
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
       //  players.clear();
         respaunPlayer();
@@ -338,14 +338,13 @@ public class ListPlayers {
             if (entry.getKey() < -1) continue;
             Player p = entry.getValue();
             if (!p.isLive()) {
-                if (MathUtils.randomBoolean(0.05f)) {
+                //     if (MathUtils.randomBoolean(0.05f)) {
                     p.setHp(100);
                     if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(gameServer.getMainGame().getMapSpace().getRasp1());
                     else p.setPosition(gameServer.getMainGame().getMapSpace().getRasp2());
                     gameServer.send_PARAMETERS_PLAYER(p);
-
                     System.out.println("!!!!!!!! RESPOWN" + p.getPosi());
-                }
+             //       ..     }
             }
         }
     }

@@ -19,7 +19,7 @@ public class IndexMath {
     private static int red_team_score;
     private static int blue_team_score;
 
-
+    private static int map;
 
     public void updateMath(float dt,ListPlayers listPlayers) {
         this.realTimeMath += dt;
@@ -78,7 +78,6 @@ public class IndexMath {
 //        System.out.println("00000000000000");
         if(mathTime < 3000) return;
 
-
                 if((listPlayers.getLive_blue_size()==0)||(listPlayers.getLive_red_size()==0)){
                     listPlayers.respownAllPlaers();
                     realTimeMath = 0;
@@ -86,7 +85,9 @@ public class IndexMath {
                 }
     }
 
-
+    public static int getMap() {
+        return map;
+    }
 
     public static float getRealTimeMath() {
         return realTimeMath;

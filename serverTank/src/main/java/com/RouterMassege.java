@@ -20,7 +20,7 @@ public class RouterMassege {
             return;
         }
 
-        if (Heading_type.BUTTON_STARTGAME == sm.tip) {
+        if (Heading_type.BUTTON_STARTGAME == sm.tip) { // ответ на кнопку нажать СТАРТ
             gameServer.lp.getPlayerForId(id_coonect).setNikName(sm.textM);
             gameServer.lp.getPlayerForId(id_coonect).setCommand((int)sm.p1);
             gameServer.lp.getPlayerForId(id_coonect).setStatus(StatusPlayer.CLICK_BOTON_START);

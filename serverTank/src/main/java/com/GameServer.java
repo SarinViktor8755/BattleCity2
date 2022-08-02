@@ -2,10 +2,6 @@ package main.java.com;
 
 import static com.mygdx.tanks2d.ClientNetWork.Network.register;
 
-import static java.lang.Integer.parseInt;
-
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
@@ -15,8 +11,7 @@ import com.mygdx.tanks2d.ClientNetWork.Network;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
+
 
 import main.java.com.Bots.IndexBot;
 import main.java.com.MatchOrganization.IndexMath;
@@ -127,7 +122,6 @@ public class GameServer {
         stockMessOut.p2 = IndexMath.getRed_team_score(); //счетсиний команды
         stockMessOut.p3 = IndexMath.getRealTimeMath(); // вернуьт ревльное время матча
         //stockMessOut.textM = ///IndexMath. // Номер карты будем делать менедже карт
-
         this.sendToAllTCP_in_game(stockMessOut);
     }
 
@@ -142,6 +136,13 @@ public class GameServer {
         this.sendToAllTCP_in_game(stockMessOut);
     }
 
+    public void send_MAP_PARAMETOR(){ // сообщить название карты
+        Network.StockMessOut stockMessOut = new Network.StockMessOut();
+        stockMessOut.tip = Heading_type.PARAMETERS_MAP;
+        stockMessOut.p1 = IndexMath.getMap();
+        this.server.sendToAllTCP(stockMessOut);
+    }
+
     public void sendToAllTCP_in_game (Object object) { // разослать тем кто в игре
         Connection[] connections = server.getConnections();
         for (int i = 0, n = connections.length; i < n; i++) {
@@ -150,6 +151,8 @@ public class GameServer {
             connection.sendTCP(object);
         }
     }
+
+
 
 
     public void send_DISCONECT_PLAYER(int idPlayer) {

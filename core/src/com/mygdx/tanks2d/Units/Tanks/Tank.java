@@ -74,7 +74,7 @@ public class Tank {
         //////////////////
         replace_textures();
 
-        hp = 0;
+        hp = 100;
 
 
         target.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
