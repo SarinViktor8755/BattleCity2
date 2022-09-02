@@ -121,6 +121,11 @@ public class IndexBot extends Thread {
                 //respaunBot(p);
 
                 gs.getMainGame().getMapSpace().resolving_conflict_with_objects(p.getPosi(), deltaTime); /// проверка столкновений с обьектами
+
+
+                System.out.println(entry.getValue().getId() + " --");
+
+
                 collisinOtherTanksTrue(p.getPosi(), deltaTime, p.getBody_rotation()); /// calisiion tanks
                 gs.getMainGame().getMapSpace().returnToSpace(p.getPosi());
 
@@ -133,6 +138,8 @@ public class IndexBot extends Thread {
                 e.printStackTrace();
             }
         }
+
+        System.out.println(gs.getLp());
 
     }
 
@@ -194,7 +201,6 @@ public class IndexBot extends Thread {
         // Vector2 stick = get_vector_from_players_position(tank.getTarget_body_rotation_angle(), p).scl(-1);
         tank.getTarget_body_rotation_angle().set(p.getPosi().cpy().sub(away_tank).scl(-1)).rotateDeg(MathUtils.random(-30, 30));
         tank.setTime_to_operation(MathUtils.random(2, 5));
-
 
     }
 
@@ -258,7 +264,7 @@ public class IndexBot extends Thread {
     private void collisinOtherTanksTrue(Vector2 position, float dt, Vector2 rotation) {
         Vector2 ct = gs.getLp().isCollisionsTanks(position);
         if (ct != null) {  // танки другие
-            position.sub(rotation.cpy().scl(dt * 90 * -2.5f)); // тут вроде норм
+            position.sub(rotation.cpy().scl(dt * 90 * -2.5f)); // !!!!!! тут вроде норм (кализия танков поправить проблема в колизии сдругими живыми игроками)
         }
     }
 

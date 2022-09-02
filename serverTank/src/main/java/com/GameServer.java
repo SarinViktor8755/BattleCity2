@@ -40,6 +40,8 @@ public class GameServer {
                                @Override
                                public void connected(Connection connection) {
                                    lp.addPlayer(connection.getID());
+
+                                   send_MAP_PARAMETOR(connection.getID());
                                }
 
                                @Override
@@ -111,6 +113,17 @@ public class GameServer {
   //      System.out.println(nikName + ">>>>");
     }
 
+    public void send_RESPOUN_PLAYER(int id, float x,float y) {
+        Network.StockMessOut stockMessOut = new Network.StockMessOut();
+        stockMessOut.tip = Heading_type.RESPOWN_TANK_PLAYER;
+        stockMessOut.p1 = x; // позиция респауна
+        stockMessOut.p2 = y; // позиция респауна
+        stockMessOut.p3 = id; /// ид игрока
+
+        this.server.sendToTCP(id, stockMessOut);
+
+    }
+
     public void send_PARAMETERS_PLAYER(Player p, int forIdPlayer, int abautPlayer) {
         send_PARAMETERS_PLAYER(p.getHp(), p.getCommand(), p.getNikName(), forIdPlayer, abautPlayer);
     }
@@ -141,6 +154,14 @@ public class GameServer {
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
         stockMessOut.p1 = IndexMath.getMap();
         this.server.sendToAllTCP(stockMessOut);
+    }
+
+    public void send_MAP_PARAMETOR(int id){ // сообщить название карты для одного
+        Network.StockMessOut stockMessOut = new Network.StockMessOut();
+        stockMessOut.tip = Heading_type.PARAMETERS_MAP;
+        stockMessOut.p1 = IndexMath.getMap();
+        this.server.sendToTCP(id,stockMessOut);
+        System.out.println("!!!!!!!!!!MAP:::");
     }
 
     public void sendToAllTCP_in_game (Object object) { // разослать тем кто в игре

@@ -31,9 +31,13 @@ public class Heading_type {
     public static final int LIFE_TANK = 47;
     public static final int DEATH_TANK = 48;
 
+    public static final int RESPOWN_TANK_PLAYER = 49; // дать команду на респаун - в пакет нужно поместить номер команды ))
+
     ////
     public static final int  IN_MENU = -1;
     public static final int  IN_GAME= -2;
+
+
 
 
 

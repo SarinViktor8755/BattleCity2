@@ -28,6 +28,8 @@ public class Player {
     }
 
     public void setPosition(Vector2 p) {
+        System.out.println(p);
+
         this.pos.set(p);
     }
 
@@ -160,7 +162,7 @@ public class Player {
 
     public boolean isLive() {
     //    System.out.println(this);
-        if (getHp() < 1) return false;
+        if (hp < 1) return false;
         return true;
     }
 

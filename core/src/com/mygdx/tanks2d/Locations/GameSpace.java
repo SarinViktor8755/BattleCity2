@@ -21,6 +21,8 @@ import com.mygdx.tanks2d.Screens.GamePlayScreen;
 public class GameSpace {
     GamePlayScreen gps;
 
+    private MapsList mapsList;
+
 
     private Vector2 rasp1;
     private Vector2 rasp2;
@@ -48,6 +50,7 @@ public class GameSpace {
     public GameSpace(GamePlayScreen gps, MainGame mainGame) {
 
         this.gps = gps;
+        mapsList = new MapsList();
         radspurens = new Radspurens(gps.getAssetsManagerGame().get("sled.png", Texture.class),gps.getAssetsManagerGame().get("crater.png", Texture.class));
 
 

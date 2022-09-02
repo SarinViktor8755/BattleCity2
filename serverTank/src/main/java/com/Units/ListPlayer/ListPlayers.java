@@ -210,7 +210,7 @@ public class ListPlayers {
         ListPlayers.red_average.set(xr / r, yr / r);
 
         ListPlayers.average_cord.set( ((ListPlayers.blue_average.x + ListPlayers.red_average.x)/2) ,((ListPlayers.blue_average.y + ListPlayers.red_average.y)/2));
-        System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    -- Общая средняя " + average_cord);
+      //  System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    -- Общая средняя " + average_cord);
 
         live_blue_size = b;
         live_red_size = r;
@@ -245,9 +245,11 @@ public class ListPlayers {
         red_size = 0;
         blue_size = 0;
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
+            System.out.println(tank.getValue().getId() + "___!!!____ !!!");
             update_number_of_clicks(tank.getValue().getCommand());
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
-            if (!tank.getValue().isLive()) continue;
+            if (!tank.getValue().isLive()) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
+
             if (tank.getValue().isCollisionsTanks(pos))
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
         }
@@ -324,7 +326,10 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
             if(p.getId() < 1)
+                System.out.println(players + "@@@@@__" + players.size());
                 gameServer.getIndexBot().respaunBot(p);
+
+
         }
     }
 
@@ -337,12 +342,18 @@ public class ListPlayers {
             Map.Entry<Integer, Player> entry = entries.next();
             if (entry.getKey() < -1) continue;
             Player p = entry.getValue();
+
+            gameServer.send_RESPOUN_PLAYER(p.getId(),50,50);
             if (!p.isLive()) {
                 //     if (MathUtils.randomBoolean(0.05f)) {
                     p.setHp(100);
-                    if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(gameServer.getMainGame().getMapSpace().getRasp1());
-                    else p.setPosition(gameServer.getMainGame().getMapSpace().getRasp2());
-                    gameServer.send_PARAMETERS_PLAYER(p);
+//                    if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(gameServer.getMainGame().getMapSpace().getRasp1());
+//                    else p.setPosition(gameServer.getMainGame().getMapSpace().getRasp2());
+                /// gameServer.send_PARAMETERS_PLAYER(p);
+
+
+
+
                     System.out.println("!!!!!!!! RESPOWN" + p.getPosi());
              //       ..     }
             }

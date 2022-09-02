@@ -43,6 +43,9 @@ public class Tank {
 
     private int hp;
 
+    private Vector2 point_respown_blue = new Vector2();
+    private Vector2 point_respown_red= new Vector2();
+
 //    private HashMap<Float, Integer> targetTreet; // цели - угол до цели - номер цели )))
 //    private int target_tank;
 //    private Integer nomTarget;
@@ -87,6 +90,16 @@ public class Tank {
 
         gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
 
+        this.point_respown_blue.set(gsp.getGameSpace().getRasp1());
+        this.point_respown_red.set(gsp.getGameSpace().getRasp2());
+
+    }
+
+    public void respownTank(){
+        hp = 100;
+        if(my_Command == Heading_type.BLUE_COMMAND) position.set(point_respown_blue);
+        if(my_Command == Heading_type.RED_COMMAND) position.set(point_respown_red);
+        position.set(position.x + MathUtils.random(250),position.y);
     }
 
     public static Integer getMy_Command() {
@@ -150,10 +163,8 @@ public class Tank {
     }
 
     public static int generateCommand() {
-
         if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
         else return Heading_type.BLUE_COMMAND;
-
     }
 
 

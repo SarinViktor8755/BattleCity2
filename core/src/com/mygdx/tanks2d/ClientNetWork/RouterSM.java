@@ -50,6 +50,32 @@ public class RouterSM {
             return;
         }
 
+        if (Heading_type.PARAMETERS_MAP == sm.tip) { // сервер прислал карту матча ))
+         System.out.println("MAP_!!! " + sm.p1);
+
+
+
+            return;
+        }
+
+        if (Heading_type.RESPOWN_TANK_PLAYER == sm.tip) { // сервер прислал оманду на респун
+//            System.out.println("RESPOWN_TANK_PLAYER!!! " + sm.p1);
+//            System.out.println("RESPOWN_TANK_PLAYER!!! " + sm.p2);
+//            System.out.println("RESPOWN_TANK_PLAYER!!! " + sm.p3);
+
+
+
+            /// ока сделаем что бы клиент сам определял место респауна, если что - поменяем на то что бы сервер определял ,
+            mainGame.getGamePlayScreen().getTank().setHp(100);
+            mainGame.getGamePlayScreen().getTank().respownTank();
+           // mainGame.getGamePlayScreen().getTank().getPosition().set(sm.p1,sm.p2);
+
+
+
+            return;
+        }
+
+
         if (Heading_type.SHELL_RUPTURE == sm.tip) { // РАЗРЫВ СНАРЯДА
             try {
             Vector2 pp = new Vector2(sm.p1, sm.p2);
