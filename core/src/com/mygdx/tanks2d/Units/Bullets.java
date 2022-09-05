@@ -48,6 +48,8 @@ public class Bullets {
         sb.setColor(1, MathUtils.random(0,255),  MathUtils.random(0,255), 1);
         for (Bullet b : activeBullets) {
 
+            if(b.getTimeLife() > 1.5f) removeBullet(b);
+
             if (!checkingGoingAbroad(b.position.x, b.position.y)) {
                 removeBullet(b);
                 continue;
@@ -70,6 +72,8 @@ public class Bullets {
 
             );
 
+
+
             b.update(delta); // update bullet
 //                if(i ==1)
             sb.draw(img,
@@ -86,6 +90,7 @@ public class Bullets {
             );
 
             sb.setColor(1, 1, 1, 1);
+
 
         }
     }

@@ -21,7 +21,7 @@ public class IndexMath {
 
     private static int map;
 
-    public void updateMath(float dt,ListPlayers listPlayers) {
+    public void updateMath(float dt, ListPlayers listPlayers) {
         this.realTimeMath += dt;
         this.listPlayers = listPlayers;
         this.restartMath(this.realTimeMath);
@@ -34,14 +34,15 @@ public class IndexMath {
 
 
     public int getCommand() { // определить команду
-             if (listPlayers.blue_players_size() > listPlayers.red_players_size()) {
-                return Heading_type.RED_COMMAND;
-            } else if (listPlayers.blue_players_size() < listPlayers.red_players_size()) {
-                return Heading_type.BLUE_COMMAND;
-            } else if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
-            else return Heading_type.BLUE_COMMAND;
+        if (listPlayers.blue_players_size() > listPlayers.red_players_size()) {
+            return Heading_type.RED_COMMAND;
+        } else if (listPlayers.blue_players_size() < listPlayers.red_players_size()) {
+            return Heading_type.BLUE_COMMAND;
+        } else if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
+        else return Heading_type.BLUE_COMMAND;
     }
-//////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////
     public static int getRed_team_score() {
         return red_team_score;
     }
@@ -58,31 +59,30 @@ public class IndexMath {
         IndexMath.blue_team_score = blue_team_score;
     }
 
-    public static void add_score_blue_team(){
+    public static void add_score_blue_team() {
         blue_team_score++;
     }
 
-    public static void add_score_red_team(){
+    public static void add_score_red_team() {
         red_team_score++;
     }
 
-    public static void  add_score_team(int team){
-        if(team == Heading_type.BLUE_COMMAND)add_score_blue_team();
-        if(team == Heading_type.RED_COMMAND)add_score_red_team();
-       // System.out.println("RED  " + red_team_score + "  BLUE  " + blue_team_score);
+    public static void add_score_team(int team) {
+        if (team == Heading_type.BLUE_COMMAND) add_score_blue_team();
+        if (team == Heading_type.RED_COMMAND) add_score_red_team();
+        // System.out.println("RED  " + red_team_score + "  BLUE  " + blue_team_score);
     }
 
-    private void restartMath(float mathTime){
+    private void restartMath(float mathTime) {
 //        System.out.println(ListPlayers.getRed_average().x == null);
 //        System.out.println(ListPlayers.getBlue_average().equals(null));
 //        System.out.println("00000000000000");
-        if(mathTime < 3000) return;
-
-                if((listPlayers.getLive_blue_size()==0)||(listPlayers.getLive_red_size()==0)){
-                    listPlayers.respownAllPlaers();
-                    realTimeMath = 0;
-                    System.out.println("RESTART MATH");
-                }
+        if (mathTime < 3000) return;
+        if ((listPlayers.getLive_blue_size() < 1) || (listPlayers.getLive_red_size() < 1)) {
+            listPlayers.respownAllPlaers();
+            realTimeMath = 0;
+            System.out.println("RESTART MATH");
+        }
     }
 
     public static int getMap() {

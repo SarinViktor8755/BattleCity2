@@ -8,7 +8,6 @@ import com.mygdx.tanks2d.ClientNetWork.Network;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -59,6 +58,7 @@ public class IndexBot extends Thread {
 
     private void addBot() {
         System.out.println("Add_bot");
+
         Player p = new Player(NOM_ID_BOT, gs.getMainGame().getIndexMath().getCommand());
 
 
@@ -70,7 +70,7 @@ public class IndexBot extends Thread {
         p.setNikName(getNikNameGen());
 
         NOM_ID_BOT--;
-        System.out.println("add_bot+ : " + NOM_ID_BOT);
+        System.out.println("add_bot+ : " + NOM_ID_BOT + "  " + p.getCommand());
 
         gs.getLp().addPlayer(p); // добавляем в базу играков
 
@@ -88,7 +88,6 @@ public class IndexBot extends Thread {
     public void updaeteBot(float deltaTime) {
         actionBot(deltaTime);
         send_bot_coordinates();
-
 
     }
 
@@ -123,7 +122,7 @@ public class IndexBot extends Thread {
                 gs.getMainGame().getMapSpace().resolving_conflict_with_objects(p.getPosi(), deltaTime); /// проверка столкновений с обьектами
 
 
-                System.out.println(entry.getValue().getId() + " --");
+                //   System.out.println(entry.getValue().getId() + " --");
 
 
                 collisinOtherTanksTrue(p.getPosi(), deltaTime, p.getBody_rotation()); /// calisiion tanks
@@ -139,7 +138,7 @@ public class IndexBot extends Thread {
             }
         }
 
-        System.out.println(gs.getLp());
+        //System.out.println(gs.getLp());
 
     }
 
@@ -180,11 +179,13 @@ public class IndexBot extends Thread {
 //                if(p.getCommand()== Heading_type.RED_COMMAND)tank.getGlobalTarget().set(gs.getMainGame().getMapSpace().getRasp1());
 //                if(p.getCommand()== Heading_type.BLUE_COMMAND)tank.getGlobalTarget().set(gs.getMainGame().getMapSpace().getRasp2());
 
-               if(p.getCommand()== Heading_type.RED_COMMAND)tank.getGlobalTarget().set(ListPlayers.getBlue_average());
-                if(p.getCommand()== Heading_type.BLUE_COMMAND)tank.getGlobalTarget().set(ListPlayers.getRed_average());
+                if (p.getCommand() == Heading_type.RED_COMMAND)
+                    tank.getGlobalTarget().set(ListPlayers.getBlue_average());
+                if (p.getCommand() == Heading_type.BLUE_COMMAND)
+                    tank.getGlobalTarget().set(ListPlayers.getRed_average());
 
 
-            tank.getGlobalTarget().set(ListPlayers.getAverage_cord());
+                tank.getGlobalTarget().set(ListPlayers.getAverage_cord());
                 // System.out.println("222");
             }
         } catch (NullPointerException e) {
@@ -213,9 +214,11 @@ public class IndexBot extends Thread {
 
         //   System.out.println("space: "+!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) + "__calision "+ gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y));
         if (!gs.getMainGame().getMapSpace().isPointWithinMmap(stick) || gs.getMainGame().getMapSpace().isPointInCollision(stick.x, stick.y)) {
-            if(MathUtils.randomBoolean()){
-            tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(25, 100));}else{
-                tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(-100, -25));}
+            if (MathUtils.randomBoolean()) {
+                tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(25, 100));
+            } else {
+                tank.getTarget_body_rotation_angle().rotateDeg(MathUtils.random(-100, -25));
+            }
 
             tank.setTime_to_operation(MathUtils.random(1, 4));
         }
@@ -226,7 +229,7 @@ public class IndexBot extends Thread {
         if (!tank.isFreeForOperation()) return;
         if (tank.getGlobalTarget().equals(DBBot.etalon_target)) return;
         if (!tank.is_redy_move()) return;
-      //  if (!key) return;
+        //  if (!key) return;
         // System.out.println("point");
         tank.getTarget_body_rotation_angle().set(p.getPosi().cpy().sub(tank.getGlobalTarget()));
 
@@ -244,21 +247,20 @@ public class IndexBot extends Thread {
     }
 
     public void respaunBot(Player p) {
-      //  if (!p.isLive()) {
-       //     if (MathUtils.randomBoolean(0.05f)) {
-                p.setHp(100);
-                if (p.getCommand() == Heading_type.RED_COMMAND) {
-                    p.setPosition(gs.getMainGame().getMapSpace().getRasp2().cpy());
-                    p.getPosi().y += MathUtils.random(600);
-                }
-                else if (p.getCommand() == Heading_type.BLUE_COMMAND) {
-                    p.setPosition(gs.getMainGame().getMapSpace().getRasp1());
-                    p.getPosi().y += MathUtils.random(600);
-                }
-               // System.out.println("----------");
-                gs.send_PARAMETERS_PLAYER(p);
-      //      }
-      //  }
+        //  if (!p.isLive()) {
+        //     if (MathUtils.randomBoolean(0.05f)) {
+        p.setHp(100);
+        if (p.getCommand() == Heading_type.RED_COMMAND) {
+            p.setPosition(gs.getMainGame().getMapSpace().getRasp2().cpy());
+            p.getPosi().y += MathUtils.random(600);
+        } else if (p.getCommand() == Heading_type.BLUE_COMMAND) {
+            p.setPosition(gs.getMainGame().getMapSpace().getRasp1());
+            p.getPosi().y += MathUtils.random(600);
+        }
+        // System.out.println("----------");
+        gs.send_PARAMETERS_PLAYER(p);
+        //      }
+        //  }
     }
 
     private void collisinOtherTanksTrue(Vector2 position, float dt, Vector2 rotation) {
@@ -273,8 +275,10 @@ public class IndexBot extends Thread {
 
 
     public void updateCountBot(int lPlayers, int target_plaers) {
+
+        System.out.println(target_plaers + "  " + dbBots.size() + "  " + lPlayers);
         if ((dbBots.size() + lPlayers) < target_plaers) addBot();
-        if ((dbBots.size() + lPlayers) > target_plaers) delBot();
+        if ((dbBots.size() + lPlayers) > target_plaers) delBot(lPlayers,target_plaers);
         //    System.out.println(lPlayers + "  " + dbBots.size());
     }
 
@@ -303,13 +307,24 @@ public class IndexBot extends Thread {
 
 
     private void delBot() {
-//        if ((dbBots.size() + lPlayers) > target_plaers){
-//
-//        }
+
+
+
     }
 
 
-    private void delBot(int id) {
+    private void delBot(int lPlayers, int target_plaers) {
+        if ((dbBots.size() + lPlayers) > target_plaers) {
+            Integer firstKey = dbBots.keySet().iterator().next();
+            dbBots.remove(firstKey);
+            System.out.println("delete");
+            gs.send_DISCONECT_PLAYER(firstKey);
+            gs.lp.remove_player(firstKey);
+        }
+
+
+
+
 
     }
 

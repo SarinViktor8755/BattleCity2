@@ -12,6 +12,8 @@ public class Bullet implements Pool.Poolable {
     public Vector2 direction = new Vector2(0, 0);
     private int nom;            // номер снаряда в сквозном списке
     private int author_bullet; // автор снаряда
+    private float timeLife = 0;
+
 
     @Override
     public void reset() {
@@ -19,22 +21,28 @@ public class Bullet implements Pool.Poolable {
         this.position.set(0, 0);
         this.direction.set(BULLET_SPEED, 0);
         nom = 0;
+        timeLife = 0;
         // System.out.println("Bullet is reset");
     }
 
     // метод, который мы можем вызвать для обновления нашей логики маркеров
 
     public void update(float dt) {
-        this.direction.clamp(BULLET_SPEED,BULLET_SPEED);
+        this.timeLife +=dt;
+        this.direction.clamp(BULLET_SPEED, BULLET_SPEED);
         // System.out.println((dt * .001f)+ " ms");
         // System.out.println( "   SPEED buul :" + position.cpy().add(direction.cpy().scl(dt * .001f)).sub(position).len() / (dt * .001f) * 1000);
         position.add(direction.cpy().scl(dt * .001f)); //ЗА секунду пролетает 400 пикселей пуля
     }
 
+    public float getTimeLife() {
+        return timeLife;
+    }
+
     // способ задания положения и направления пуль (стрельбы)
-    public void fireBullet(float xp, float yp, float xv, float yv, int nom,int idAuthor) {
+    public void fireBullet(float xp, float yp, float xv, float yv, int nom, int idAuthor) {
         this.position.set(xp, yp);
-        this.direction.set(xv, yv).clamp(BULLET_SPEED,BULLET_SPEED);
+        this.direction.set(xv, yv).clamp(BULLET_SPEED, BULLET_SPEED);
         this.nom = nom;
         this.author_bullet = idAuthor;
     }

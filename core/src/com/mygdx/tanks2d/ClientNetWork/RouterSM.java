@@ -68,6 +68,8 @@ public class RouterSM {
             /// ока сделаем что бы клиент сам определял место респауна, если что - поменяем на то что бы сервер определял ,
             mainGame.getGamePlayScreen().getTank().setHp(100);
             mainGame.getGamePlayScreen().getTank().respownTank();
+
+
            // mainGame.getGamePlayScreen().getTank().getPosition().set(sm.p1,sm.p2);
 
 
@@ -132,7 +134,8 @@ public class RouterSM {
 
         if (Heading_type.DISCONECT_PLAYER == sm.tip) {
             System.out.println("del  " + ((int)sm.p1));
-            mainGame.getGamePlayScreen().getTanksOther().delPlayer((int)sm.p1);
+            mainGame.getGamePlayScreen().getTanksOther().getTankForID((int)sm.p1).setLive(-1000);
+           // mainGame.getGamePlayScreen().getTanksOther().delPlayer((int)sm.p1);
             return;
         }
 

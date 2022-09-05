@@ -65,6 +65,8 @@ public class IndexBullets {
             int np = gameServer.getLp().projectile_collide_with_players(bullet.getAuthor_bullet(),bullet.position.x, bullet.position.y);
 
             if(np!=-1){
+
+
                 delBullet(bullet); // /тут ели попали в игрок 1. минусуем хп 2. уничтожаем патрон 3. рассылаем игрока
                 Player player = gameServer.getLp().getPlayerForId(np);
                 gameServer.getLp().getPlayerForId(bullet.getAuthor_bullet()).getCommand();
@@ -81,6 +83,7 @@ public class IndexBullets {
                     /// отправить сообщение
 
                 }
+                if(bullet.getTimeLife() > 1.5f)  delBullet(bullet,false); // конец жизни пули )))
             }
           //  System.out.println("______________________"+ np);
             if(gameServer.getMainGame().getMapSpace().isPointInCollision(bullet.position.x,bullet.position.y)) delBullet(bullet);
@@ -109,6 +112,11 @@ public class IndexBullets {
 
     public void delBullet(Bullet bullet){
         gameServer.sendSHELL_RUPTURE(bullet.position.x, bullet.position.y,bullet.getNom(),bullet.getAuthor_bullet());
+        bullet.position.set(-20_000,-20_000);
+    }
+
+    public void delBullet(Bullet bullet, boolean life){
+        //gameServer.sendSHELL_RUPTURE(bullet.position.x, bullet.position.y,bullet.getNom(),bullet.getAuthor_bullet());
         bullet.position.set(-20_000,-20_000);
     }
 

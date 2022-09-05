@@ -168,7 +168,7 @@ public class TanksOther { /// много танков )))
             } while (ot.getPosition().x < 0);
 
             //   if(getRandomPlayer().getPosition().x < -100) getRandomPlayer();
-            System.out.println(ot.getPosition() + "!!!!!-___!!!!!!!");
+            // System.out.println(ot.getPosition() + "!!!!!-___!!!!!!!");
             return ot;
 
         } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException | NullPointerException e) {

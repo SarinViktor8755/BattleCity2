@@ -37,7 +37,7 @@ public class RouterMassege {
         if (Heading_type.STATUS_GAME == sm.tip) {
             System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
             gameServer.lp.getPlayerForId(id_coonect).setCommand((int)sm.p1);
-            System.out.println(gameServer.lp.getPlayerForId(id_coonect).getCommand() + " ---");
+            //  System.out.println(gameServer.lp.getPlayerForId(id_coonect).getCommand() + " ---");
           //  gameServer.getLp().getPlayerForId(id_coonect).setCommand();
             System.out.println();
             System.out.println();

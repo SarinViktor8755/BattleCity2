@@ -17,6 +17,7 @@ public class Bullet implements Pool.Poolable {
 
     public int namber = 0;
     public int coomand;
+    private float timeLife = 0;
 
 
     public int getNamber() {
@@ -29,6 +30,8 @@ public class Bullet implements Pool.Poolable {
         this.position.setZero();
         this.direction.setZero();
         this.namber = 0;
+        timeLife = 0;
+
 
 
     }
@@ -43,6 +46,8 @@ public class Bullet implements Pool.Poolable {
         // System.out.println(direction.len());
         position.x = position.x + direction.x * delta;
         position.y = position.y + direction.y * delta;
+
+        this.timeLife += delta;
         ///   System.out.println(delta);
     }
 
@@ -69,5 +74,9 @@ public class Bullet implements Pool.Poolable {
         return "Bullet{" +
                 "position=" + position +
                 '}';
+    }
+
+    public float getTimeLife() {
+        return timeLife;
     }
 }

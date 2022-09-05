@@ -100,6 +100,10 @@ public class ListPlayers {
         return p;
     }
 
+    public void remove_player(int id){ // del player
+        this.players.remove(id);
+    }
+
     public static Vector2 getAverage_cord() {
         return average_cord;
     }
@@ -245,11 +249,11 @@ public class ListPlayers {
         red_size = 0;
         blue_size = 0;
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
-            System.out.println(tank.getValue().getId() + "___!!!____ !!!");
+           // System.out.println(tank.getValue().getId() + "___!!!____ !!!");
             update_number_of_clicks(tank.getValue().getCommand());
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
-            if (!tank.getValue().isLive()) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
-
+        //    if (!tank.getValue().isLive() || tank.getValue().id > 0) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
+            if (tank.getValue().hp < 1) continue;
             if (tank.getValue().isCollisionsTanks(pos))
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
         }
@@ -354,7 +358,7 @@ public class ListPlayers {
 
 
 
-                    System.out.println("!!!!!!!! RESPOWN" + p.getPosi());
+                //   System.out.println("!!!!!!!! RESPOWN" + p.getPosi());
              //       ..     }
             }
         }

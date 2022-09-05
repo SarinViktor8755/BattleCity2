@@ -26,7 +26,7 @@ public class GameServer {
 
 
     static long previousStepTime; // шаг для дельты
-    ListPlayers lp = new ListPlayers(this);
+    public ListPlayers lp = new ListPlayers(this);
 
     public GameServer(String[] args, ServerLauncher serverLauncher) throws IOException {
         server = new Server();
@@ -47,7 +47,9 @@ public class GameServer {
                                @Override
                                public void disconnected(Connection connection) {
                                    super.disconnected(connection);
+                                   lp.remove_player(connection.getID());
                                    send_DISCONECT_PLAYER(connection.getID());
+
                                }
 
                                @Override
@@ -172,9 +174,6 @@ public class GameServer {
             connection.sendTCP(object);
         }
     }
-
-
-
 
     public void send_DISCONECT_PLAYER(int idPlayer) {
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
