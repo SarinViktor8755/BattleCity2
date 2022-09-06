@@ -4,24 +4,7 @@
             "outputFile": "com.mygdx.tanks2d.android-mergeDebugResources-3:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\e6e7898fce60b6628efaab0b5a8c1a73\\transformed\\play-services-ads-15.0.0\\res\\values-zh-rHK\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10",
-                        "startColumns": "0,0,0,0,0,0,0",
-                        "startOffsets": "201,262,335,395,455,519,589",
-                        "endColumns": "60,72,59,59,63,69,61",
-                        "endOffsets": "261,334,394,454,518,588,650"
-                    },
-                    "to": {
-                        "startLines": "3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "272,337,414,478,542,610,684",
-                        "endColumns": "64,76,63,63,67,73,65",
-                        "endOffsets": "332,409,473,537,605,679,745"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\a423a1ecae54e023153ae31479a096c3\\transformed\\play-services-basement-15.0.1\\res\\values-zh-rHK\\values.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\a423a1ecae54e023153ae31479a096c3\\transformed\\play-services-basement-15.0.1\\res\\values-zh-rHK\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\e6e7898fce60b6628efaab0b5a8c1a73\\transformed\\play-services-ads-15.0.0\\res\\values-zh-rHK\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "201,262,335,395,455,519,589",
+                        "endColumns": "60,72,59,59,63,69,61",
+                        "endOffsets": "261,334,394,454,518,588,650"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "272,337,414,478,542,610,684",
+                        "endColumns": "64,76,63,63,67,73,65",
+                        "endOffsets": "332,409,473,537,605,679,745"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-zh-rHK\\values-zh-rHK.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -4,7 +4,7 @@
             "outputFile": "com.mygdx.tanks2d.android-mergeDebugResources-3:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

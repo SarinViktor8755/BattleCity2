@@ -114,6 +114,8 @@ public class ListPlayers {
         pn.yp = pp.yp;
         pn.roy_tower = pp.roy_tower;
         gameServer.getServer().sendToAllExceptTCP(id, pn);
+
+
     }
 
 //    public void accept_bot(DBBot dbBot) {
@@ -122,6 +124,15 @@ public class ListPlayers {
 //        p_bot.getPosi().y = dbBot.getPosition().y;
 //        p_bot.rotTower = dbBot.getAngle_rotation_tower().angleDeg();
 //    }
+
+    private void checkPlayerForDisconect(Player p){
+        if(p.status == Heading_type.DISCONECT_PLAYER){
+            p.setPosition(-10_000,-10_000);
+            p.setHp(-1000);
+        }
+
+    }
+
 
     public void sendParametersPlayers(int aboutPlayerID) { // рассылка о характеристиках игрока по id
         Network.StockMessOut sm = new Network.StockMessOut();
@@ -145,6 +156,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
+
             if (entry.getValue().hp < 1) continue;
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
             if (((temp1.dst2(temp2) < 500) && author_id != entry.getValue().getId()))
@@ -153,6 +165,45 @@ public class ListPlayers {
         }
         return res;
     }
+//////////////
+
+    public int getSizeLivePlayer(){ // kolichesto hivih i botov i igrakov
+        int i = 0;
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+//            //entry.getValue().hp;
+//            System.out.println(entry.getValue().hp);
+            if(entry.getValue().hp > 0) i++;
+        }
+        return i;
+    }
+
+    public int getSizeLiveBots(){ // kolichesto botov
+        int i = 0;
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+//            //entry.getValue().hp;
+//            System.out.println(entry.getValue().hp);
+            if(entry.getValue().id < -99) i++;
+        }
+        return i;
+    }
+
+    public int getSizeLiveRealPlayers(){ // kolichesto real
+        int i = 0;
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+//            //entry.getValue().hp;
+//            System.out.println(entry.getValue().hp);
+            System.out.println(entry.getValue().status + "  " + entry.getValue().getPosi().x);
+            if(entry.getValue().status == Heading_type.DISCONECT_PLAYER) continue;
+            if(entry.getValue().id > -99 ) i++;
+        }
+        return i;
+    }
 
 
     public void send_bot_coordinates() {
@@ -160,6 +211,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
+            checkPlayerForDisconect(entry.getValue()); // проверка на дисконект игрока
             if (entry.getKey() > -99) continue;
             Player p = entry.getValue();
           //  if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
@@ -344,8 +396,13 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-            if (entry.getKey() < -1) continue;
+            if (entry.getKey() < -99) continue;
+
             Player p = entry.getValue();
+            if(p.status == Heading_type.DISCONECT_PLAYER){
+                p.setPosition(-10_000,-10_000);
+                p.setHp(-1000);
+            }
 
             gameServer.send_RESPOUN_PLAYER(p.getId(),50,50);
             if (!p.isLive()) {

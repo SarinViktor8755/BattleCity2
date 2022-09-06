@@ -4,24 +4,24 @@
             "outputFile": "com.mygdx.tanks2d.android-mergeDebugResources-3:/values-is/values-is.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-is\\values-is.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\e6e7898fce60b6628efaab0b5a8c1a73\\transformed\\play-services-ads-15.0.0\\res\\values-is\\values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "197,264,368,435,498,579,681",
+                        "endColumns": "66,103,66,62,80,101,73",
+                        "endOffsets": "263,367,434,497,578,680,754"
                     },
                     "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "879",
-                        "endColumns": "100",
-                        "endOffsets": "975"
+                        "startLines": "3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "293,364,472,543,610,695,801",
+                        "endColumns": "70,107,70,66,84,105,77",
+                        "endOffsets": "359,467,538,605,690,796,874"
                     }
                 },
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\a423a1ecae54e023153ae31479a096c3\\transformed\\play-services-basement-15.0.1\\res\\values-is\\values.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\a423a1ecae54e023153ae31479a096c3\\transformed\\play-services-basement-15.0.1\\res\\values-is\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\e6e7898fce60b6628efaab0b5a8c1a73\\transformed\\play-services-ads-15.0.0\\res\\values-is\\values.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-is\\values-is.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8,9,10",
-                        "startColumns": "0,0,0,0,0,0,0",
-                        "startOffsets": "197,264,368,435,498,579,681",
-                        "endColumns": "66,103,66,62,80,101,73",
-                        "endOffsets": "263,367,434,497,578,680,754"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "293,364,472,543,610,695,801",
-                        "endColumns": "70,107,70,66,84,105,77",
-                        "endOffsets": "359,467,538,605,690,796,874"
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "879",
+                        "endColumns": "100",
+                        "endOffsets": "975"
                     }
                 }
             ]

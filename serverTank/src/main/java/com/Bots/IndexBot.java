@@ -112,7 +112,6 @@ public class IndexBot extends Thread {
 
                 Player p = gs.getLp().getPlayerForId(tank.getId());
                 if (!p.isLive()) {
-
                     p.setPosition(-100_000, -100_000);
                     continue;
                 }
@@ -139,6 +138,10 @@ public class IndexBot extends Thread {
         }
 
         //System.out.println(gs.getLp());
+
+    }
+
+    private void checkBotDisconect(){ // соотношение с с основнйо базой - проверка Жи ли бот
 
     }
 
@@ -276,11 +279,13 @@ public class IndexBot extends Thread {
 
     public void updateCountBot(int lPlayers, int target_plaers) {
 
-        System.out.println(target_plaers + "  " + dbBots.size() + "  " + lPlayers);
+        System.out.println("targetP "+target_plaers +"  dbBots " + dbBots.size() + "  lPlayers " + lPlayers + " " + gs.lp.getSize() + "  LIVE:: " + gs.lp.getSizeLivePlayer()+ " bots " + gs.lp.getSizeLiveBots()+ " real " + gs.lp.getSizeLiveRealPlayers());
+        // System.out.println(gs.lp);
         if ((dbBots.size() + lPlayers) < target_plaers) addBot();
-        if ((dbBots.size() + lPlayers) > target_plaers) delBot(lPlayers,target_plaers);
+        if ((dbBots.size() + lPlayers) > target_plaers) delBot(lPlayers, target_plaers);
         //    System.out.println(lPlayers + "  " + dbBots.size());
     }
+
 
     public static void botShoot(int id) { /// выстрел LAVEL_1
         Player p = gs.getLp().getPlayerForId(id);
@@ -306,24 +311,16 @@ public class IndexBot extends Thread {
     }
 
 
-    private void delBot() {
-
-
-
-    }
-
-
     private void delBot(int lPlayers, int target_plaers) {
         if ((dbBots.size() + lPlayers) > target_plaers) {
             Integer firstKey = dbBots.keySet().iterator().next();
-            dbBots.remove(firstKey);
+
             System.out.println("delete");
+
+            dbBots.remove(firstKey);
             gs.send_DISCONECT_PLAYER(firstKey);
             gs.lp.remove_player(firstKey);
         }
-
-
-
 
 
     }

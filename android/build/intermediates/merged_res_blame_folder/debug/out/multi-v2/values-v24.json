@@ -4,7 +4,7 @@
             "outputFile": "com.mygdx.tanks2d.android-mergeDebugResources-3:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\ee2c8d48db651dc5bbafd502be92afcb\\transformed\\support-media-compat-26.1.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\ee2c8d48db651dc5bbafd502be92afcb\\transformed\\support-media-compat-26.1.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

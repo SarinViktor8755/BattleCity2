@@ -161,7 +161,7 @@ public class Player {
     }
 
     public boolean isLive() {
-        if (hp < 0) return false;
+        if (hp < 1) return false;
         return true;
     }
 

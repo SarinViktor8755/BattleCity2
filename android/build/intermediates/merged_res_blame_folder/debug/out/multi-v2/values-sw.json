@@ -4,24 +4,7 @@
             "outputFile": "com.mygdx.tanks2d.android-mergeDebugResources-3:/values-sw/values-sw.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\e6e7898fce60b6628efaab0b5a8c1a73\\transformed\\play-services-ads-15.0.0\\res\\values-sw\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10",
-                        "startColumns": "0,0,0,0,0,0,0",
-                        "startOffsets": "197,267,393,457,520,599,708",
-                        "endColumns": "69,125,63,62,78,108,75",
-                        "endOffsets": "266,392,456,519,598,707,783"
-                    },
-                    "to": {
-                        "startLines": "3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "310,384,514,582,649,732,845",
-                        "endColumns": "73,129,67,66,82,112,79",
-                        "endOffsets": "379,509,577,644,727,840,920"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-sw\\values-sw.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-sw\\values-sw.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\qwerty\\.gradle\\caches\\transforms-3\\a423a1ecae54e023153ae31479a096c3\\transformed\\play-services-basement-15.0.1\\res\\values-sw\\values.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\e6e7898fce60b6628efaab0b5a8c1a73\\transformed\\play-services-ads-15.0.0\\res\\values-sw\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10",
+                        "startColumns": "0,0,0,0,0,0,0",
+                        "startOffsets": "197,267,393,457,520,599,708",
+                        "endColumns": "69,125,63,62,78,108,75",
+                        "endOffsets": "266,392,456,519,598,707,783"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "310,384,514,582,649,732,845",
+                        "endColumns": "73,129,67,66,82,112,79",
+                        "endOffsets": "379,509,577,644,727,840,920"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\a423a1ecae54e023153ae31479a096c3\\transformed\\play-services-basement-15.0.1\\res\\values-sw\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

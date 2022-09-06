@@ -38,33 +38,35 @@ public class GameServer {
         mainGame = new MainGame(this, getSizeBot(args));
         server.addListener(new Listener() {
                                @Override
-                               public void connected(Connection connection) {
-                                   lp.addPlayer(connection.getID());
-
-                                   send_MAP_PARAMETOR(connection.getID());
+                               public void disconnected(Connection connection) {
+                                   lp.getPlayerForId(connection.getID()).setStatus(Heading_type.DISCONECT_PLAYER);
+                                   lp.getPlayerForId(connection.getID()).setPosition(-10000,-10000);
+                                   send_DISCONECT_PLAYER(connection.getID());
                                }
 
                                @Override
-                               public void disconnected(Connection connection) {
-                                   super.disconnected(connection);
-                                   lp.remove_player(connection.getID());
-                                   send_DISCONECT_PLAYER(connection.getID());
-
+                               public void connected(Connection connection) {
+                                   lp.addPlayer(connection.getID());
+                                   send_MAP_PARAMETOR(connection.getID());
+                                   lp.getPlayerForId(connection.getID()).setStatus(Heading_type.IN_MENU);
                                }
+
 
                                @Override
                                public void received(Connection connection, Object object) {
+
+                                   System.out.println(server.getConnections().length +"    -------------");
                                    if (object instanceof Network.PleyerPosition) {
 
-                                       Player p = lp.updatePosition(connection.getID(), (Network.PleyerPosition) object);
+                                     //  Player p = lp.updatePosition(connection.getID(), (Network.PleyerPosition) object);
                                        lp.sendToAllPlayerPosition(connection.getID(), (Network.PleyerPosition) object);
-
+                                       lp.getPlayerForId(connection.getID()).setStatus(Heading_type.IN_GAME);
                                        return;
                                    }
 
                                    if (object instanceof Network.StockMessOut) {// полученеи сообщения
                                        Network.StockMessOut sm = (Network.StockMessOut) object;
-                                     //  System.out.println(sm);
+                                       //  System.out.println(sm);
                                        RouterMassege.routeSM(sm, connection.getID(), getMainGame().gameServer);
                                    }
 
@@ -104,7 +106,7 @@ public class GameServer {
     public void send_PARAMETERS_PLAYER(int HP, int comant, String nikName, int forIdPlayer, int aboutPlayer) {
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_PLAYER;
-      //  System.out.println(nikName);
+        //  System.out.println(nikName);
         stockMessOut.p1 = aboutPlayer; // ХП
         stockMessOut.p2 = getCoomandforPlayer(aboutPlayer);// КОМАНДА
         stockMessOut.p3 = HP; // номер игрока
@@ -112,10 +114,10 @@ public class GameServer {
         stockMessOut.textM = nikName; // ник нейм
         this.server.sendToTCP(forIdPlayer, stockMessOut);
 
-  //      System.out.println(nikName + ">>>>");
+        //      System.out.println(nikName + ">>>>");
     }
 
-    public void send_RESPOUN_PLAYER(int id, float x,float y) {
+    public void send_RESPOUN_PLAYER(int id, float x, float y) {
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.RESPOWN_TANK_PLAYER;
         stockMessOut.p1 = x; // позиция респауна
@@ -151,27 +153,27 @@ public class GameServer {
         this.sendToAllTCP_in_game(stockMessOut);
     }
 
-    public void send_MAP_PARAMETOR(){ // сообщить название карты
+    public void send_MAP_PARAMETOR() { // сообщить название карты
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
         stockMessOut.p1 = IndexMath.getMap();
         this.server.sendToAllTCP(stockMessOut);
     }
 
-    public void send_MAP_PARAMETOR(int id){ // сообщить название карты для одного
+    public void send_MAP_PARAMETOR(int id) { // сообщить название карты для одного
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
         stockMessOut.p1 = IndexMath.getMap();
-        this.server.sendToTCP(id,stockMessOut);
+        this.server.sendToTCP(id, stockMessOut);
         System.out.println("!!!!!!!!!!MAP:::");
     }
 
-    public void sendToAllTCP_in_game (Object object) { // разослать тем кто в игре
+    public void sendToAllTCP_in_game(Object object) { // разослать тем кто в игре
         Connection[] connections = server.getConnections();
         for (int i = 0, n = connections.length; i < n; i++) {
             Connection connection = connections[i];
-            if(lp.getPlayerForId(connection.getID()).isClickButtonStart())
-            connection.sendTCP(object);
+            if (lp.getPlayerForId(connection.getID()).isClickButtonStart())
+                connection.sendTCP(object);
         }
     }
 
@@ -238,7 +240,7 @@ public class GameServer {
     }
 
     private int getCoomandforPlayer(int id) {
-         return lp.getPlayerForId(id).getCommand();
+        return lp.getPlayerForId(id).getCommand();
 //        if (MathUtils.randomBoolean()) return Heading_type.BLUE_COMMAND;
 //        else return Heading_type.RED_COMMAND;
     }
