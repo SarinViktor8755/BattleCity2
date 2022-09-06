@@ -279,7 +279,7 @@ public class IndexBot extends Thread {
 
     public void updateCountBot(int lPlayers, int target_plaers) {
 
-        System.out.println("targetP "+target_plaers +"  dbBots " + dbBots.size() + "  lPlayers " + lPlayers + " " + gs.lp.getSize() + "  LIVE:: " + gs.lp.getSizeLivePlayer()+ " bots " + gs.lp.getSizeLiveBots()+ " real " + gs.lp.getSizeLiveRealPlayers());
+        // System.out.println("targetP "+target_plaers +"  dbBots " + dbBots.size() + "  lPlayers " + lPlayers + " " + gs.lp.getSize() + "  LIVE:: " + gs.lp.getSizeLivePlayer()+ " bots " + gs.lp.getSizeLiveBots()+ " real " + gs.lp.getSizeLiveRealPlayers());
         // System.out.println(gs.lp);
         if ((dbBots.size() + lPlayers) < target_plaers) addBot();
         if ((dbBots.size() + lPlayers) > target_plaers) delBot(lPlayers, target_plaers);

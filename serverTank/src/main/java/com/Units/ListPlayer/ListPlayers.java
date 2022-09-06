@@ -157,7 +157,7 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
 
-            if (entry.getValue().hp < 1) continue;
+            //if (entry.getValue().hp < 1) continue;
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
             if (((temp1.dst2(temp2) < 500) && author_id != entry.getValue().getId()))
                 res = entry.getKey();
@@ -198,7 +198,7 @@ public class ListPlayers {
             Map.Entry<Integer, Player> entry = entries.next();
 //            //entry.getValue().hp;
 //            System.out.println(entry.getValue().hp);
-            System.out.println(entry.getValue().status + "  " + entry.getValue().getPosi().x);
+          //  System.out.println(entry.getValue().status + "  " + entry.getValue().getPosi().x);
             if(entry.getValue().status == Heading_type.DISCONECT_PLAYER) continue;
             if(entry.getValue().id > -99 ) i++;
         }
@@ -305,9 +305,12 @@ public class ListPlayers {
             update_number_of_clicks(tank.getValue().getCommand());
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
         //    if (!tank.getValue().isLive() || tank.getValue().id > 0) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
-            if (tank.getValue().hp < 1) continue;
-            if (tank.getValue().isCollisionsTanks(pos))
+            //  if (tank.getValue().hp < 1) continue;
+            System.out.println(tank.getValue().id + "   " + tank.getValue().pos);
+            if (tank.getValue().isCollisionsTanks(pos)){
+                System.out.println("!!!!!!!!!!!!!!!"+ tank.getValue().nikName);
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
+            }
         }
         // System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
         return null;
@@ -382,7 +385,7 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
             if(p.getId() < 1)
-                System.out.println(players + "@@@@@__" + players.size());
+              //  System.out.println(players + "@@@@@__" + players.size());
                 gameServer.getIndexBot().respaunBot(p);
 
 

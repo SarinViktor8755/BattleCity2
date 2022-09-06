@@ -55,10 +55,10 @@ public class GameServer {
                                @Override
                                public void received(Connection connection, Object object) {
 
-                                   System.out.println(server.getConnections().length +"    -------------");
+                                   ///      System.out.println(server.getConnections().length +"    -------------");
                                    if (object instanceof Network.PleyerPosition) {
 
-                                     //  Player p = lp.updatePosition(connection.getID(), (Network.PleyerPosition) object);
+                                       lp.updatePosition(connection.getID(), (Network.PleyerPosition) object);
                                        lp.sendToAllPlayerPosition(connection.getID(), (Network.PleyerPosition) object);
                                        lp.getPlayerForId(connection.getID()).setStatus(Heading_type.IN_GAME);
                                        return;
