@@ -100,7 +100,7 @@ public class ListPlayers {
         return p;
     }
 
-    public void remove_player(int id){ // del player
+    public void remove_player(int id) { // del player
         this.players.remove(id);
     }
 
@@ -114,8 +114,6 @@ public class ListPlayers {
         pn.yp = pp.yp;
         pn.roy_tower = pp.roy_tower;
         gameServer.getServer().sendToAllExceptTCP(id, pn);
-
-
     }
 
 //    public void accept_bot(DBBot dbBot) {
@@ -125,9 +123,9 @@ public class ListPlayers {
 //        p_bot.rotTower = dbBot.getAngle_rotation_tower().angleDeg();
 //    }
 
-    private void checkPlayerForDisconect(Player p){
-        if(p.status == Heading_type.DISCONECT_PLAYER){
-            p.setPosition(-10_000,-10_000);
+    private void checkPlayerForDisconect(Player p) {
+        if (p.status == Heading_type.DISCONECT_PLAYER) {
+            p.setPosition(-10_000, -10_000);
             p.setHp(-1000);
         }
 
@@ -167,54 +165,66 @@ public class ListPlayers {
     }
 //////////////
 
-    public int getSizeLivePlayer(){ // kolichesto hivih i botov i igrakov
+    public int getSizeLivePlayer() { // kolichesto hivih i botov i igrakov
         int i = 0;
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
 //            //entry.getValue().hp;
 //            System.out.println(entry.getValue().hp);
-            if(entry.getValue().hp > 0) i++;
+            if (entry.getValue().hp > 0) i++;
         }
         return i;
     }
 
-    public int getSizeLiveBots(){ // kolichesto botov
+
+    public int getSizeComandSize(int command) { // играков в команде
         int i = 0;
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-//            //entry.getValue().hp;
-//            System.out.println(entry.getValue().hp);
-            if(entry.getValue().id < -99) i++;
+            if (entry.getValue().getStatus() == Heading_type.DISCONECT_PLAYER) continue;
+            if (entry.getValue().getCommand() == command) i++;
         }
         return i;
     }
 
-    public int getSizeLiveRealPlayers(){ // kolichesto real
+    public int getSizeLiveBots() { // kolichesto botov
         int i = 0;
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
 //            //entry.getValue().hp;
 //            System.out.println(entry.getValue().hp);
-          //  System.out.println(entry.getValue().status + "  " + entry.getValue().getPosi().x);
-            if(entry.getValue().status == Heading_type.DISCONECT_PLAYER) continue;
-            if(entry.getValue().id > -99 ) i++;
+            if (entry.getValue().id < -99) i++;
+        }
+        return i;
+    }
+
+    public int getSizeLiveRealPlayers() { // kolichesto real
+        int i = 0;
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+//            //entry.getValue().hp;
+//            System.out.println(entry.getValue().hp);
+            //  System.out.println(entry.getValue().status + "  " + entry.getValue().getPosi().x);
+            if (entry.getValue().status == Heading_type.DISCONECT_PLAYER) continue;
+            if (entry.getValue().id > -99) i++;
         }
         return i;
     }
 
 
     public void send_bot_coordinates() {
-        if(MathUtils.randomBoolean(.05f))update_the_average_coordinates_of_the_commands();
+        if (MathUtils.randomBoolean(.05f)) update_the_average_coordinates_of_the_commands();
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             checkPlayerForDisconect(entry.getValue()); // проверка на дисконект игрока
             if (entry.getKey() > -99) continue;
             Player p = entry.getValue();
-          //  if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
+            //  if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
             pn.nom = entry.getKey();
             pn.xp = p.getPosi().x;
             pn.yp = p.getPosi().y;
@@ -230,8 +240,6 @@ public class ListPlayers {
             }
         }
     }
-
-
 
 
     private void update_number_of_clicks(int coomand) {
@@ -265,8 +273,8 @@ public class ListPlayers {
         ListPlayers.blue_average.set(xb / b, yb / b);
         ListPlayers.red_average.set(xr / r, yr / r);
 
-        ListPlayers.average_cord.set( ((ListPlayers.blue_average.x + ListPlayers.red_average.x)/2) ,((ListPlayers.blue_average.y + ListPlayers.red_average.y)/2));
-      //  System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    -- Общая средняя " + average_cord);
+        ListPlayers.average_cord.set(((ListPlayers.blue_average.x + ListPlayers.red_average.x) / 2), ((ListPlayers.blue_average.y + ListPlayers.red_average.y) / 2));
+        //  System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    -- Общая средняя " + average_cord);
 
         live_blue_size = b;
         live_red_size = r;
@@ -300,18 +308,21 @@ public class ListPlayers {
     public Vector2 isCollisionsTanks(Vector2 pos) {
         red_size = 0;
         blue_size = 0;
+        if(MathUtils.randomBoolean(.005f))  System.out.println("RedC " + getSizeComandSize(Heading_type.RED_COMMAND) + "BlueC " + getSizeComandSize(Heading_type.BLUE_COMMAND));
+
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
-           // System.out.println(tank.getValue().getId() + "___!!!____ !!!");
+         System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
+
             update_number_of_clicks(tank.getValue().getCommand());
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
-        //    if (!tank.getValue().isLive() || tank.getValue().id > 0) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
+            //    if (!tank.getValue().isLive() || tank.getValue().id > 0) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
             //  if (tank.getValue().hp < 1) continue;
-            System.out.println(tank.getValue().id + "   " + tank.getValue().pos);
-            if (tank.getValue().isCollisionsTanks(pos)){
-                System.out.println("!!!!!!!!!!!!!!!"+ tank.getValue().nikName);
+            //   System.out.println(tank.getValue().id + "   " + tank.getValue().pos+ "   " + tank.getValue().status);
+            if (tank.getValue().isCollisionsTanks(pos)) {
+                //  System.out.println("!!!!!!!!!!!!!!!"+ tank.getValue().nikName);
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
             }
-        }
+        }System.out.println();
         // System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
         return null;
     }
@@ -378,14 +389,14 @@ public class ListPlayers {
         return this.red_size;
     }
 
-    public void respownAllPlaers(){ //рестарт игкраков -
+    public void respownAllPlaers() { //рестарт игкраков -
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
-      //  players.clear();
+        //  players.clear();
         respaunPlayer();
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
-            if(p.getId() < 1)
-              //  System.out.println(players + "@@@@@__" + players.size());
+            if (p.getId() < 1)
+                //  System.out.println(players + "@@@@@__" + players.size());
                 gameServer.getIndexBot().respaunBot(p);
 
 
@@ -393,33 +404,28 @@ public class ListPlayers {
     }
 
 
-
-
     public void respaunPlayer() { // респаун игрока живого - новый плеер
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             if (entry.getKey() < -99) continue;
-
             Player p = entry.getValue();
-            if(p.status == Heading_type.DISCONECT_PLAYER){
-                p.setPosition(-10_000,-10_000);
+            if (p.status == Heading_type.DISCONECT_PLAYER) {
+                p.setPosition(-10_000, -10_000);
                 p.setHp(-1000);
             }
 
-            gameServer.send_RESPOUN_PLAYER(p.getId(),50,50);
+            gameServer.send_RESPOUN_PLAYER(p.getId(), 50, 50);
             if (!p.isLive()) {
                 //     if (MathUtils.randomBoolean(0.05f)) {
-                    p.setHp(100);
+                p.setHp(100);
 //                    if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(gameServer.getMainGame().getMapSpace().getRasp1());
 //                    else p.setPosition(gameServer.getMainGame().getMapSpace().getRasp2());
                 /// gameServer.send_PARAMETERS_PLAYER(p);
 
 
-
-
                 //   System.out.println("!!!!!!!! RESPOWN" + p.getPosi());
-             //       ..     }
+                //       ..     }
             }
         }
     }

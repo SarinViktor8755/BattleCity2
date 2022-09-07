@@ -41,7 +41,7 @@ public class GameSpace {
 
     ShapeRenderer shapeRenderer;
 
-    static String MAP_DESETRT = "map/desert.tmx";
+    static String MAP_DESETRT = "desert";
     private TiledMapTileLayer decorations;
     private TiledMapTileLayer ground;
 
@@ -59,7 +59,7 @@ public class GameSpace {
 
 
         //map = new TmxMapLoader().load(MAP_DESETRT);
-        map = gps.getAssetsManagerGame().get("map/field/index.tmx");
+        map = gps.getAssetsManagerGame().get("map/"+MAP_DESETRT+"/index.tmx");
 
         rendererMap = new OrthogonalTiledMapRenderer(map, 1.0f, getGps().getBatch());
 

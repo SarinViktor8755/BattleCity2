@@ -52,6 +52,8 @@ public class MainGame {
                         else Thread.sleep(450);
 
 
+
+
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
 
@@ -79,6 +81,7 @@ public class MainGame {
                     while (true) {
                         if (gameServer.isServerLivePlayer()) Thread.sleep(timer_tread_25);
                         else Thread.sleep(timer_tread_50);
+
 
                         long deltaTime = GameServer.getDeltaTime();
                         indexMath.updateMath(deltaTime, gameServer.lp); // время матча

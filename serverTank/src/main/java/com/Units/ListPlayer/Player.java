@@ -58,6 +58,8 @@ public class Player {
     }
 
 
+
+
     public void setR(float r) {
         this.body_rotation.setAngleDeg(r);
 //        if (this.r > 360) this.r = 0;

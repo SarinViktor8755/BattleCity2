@@ -144,6 +144,10 @@ public class GameServer {
 
     public void send_PARAMETERS_PLAYER(Player p) { // для всех рассылк апараметров
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
+        if(p.getStatus()== Heading_type.DISCONECT_PLAYER){
+            send_DISCONECT_PLAYER(p.getId());
+            return;
+        }
         stockMessOut.tip = Heading_type.PARAMETERS_PLAYER;
         stockMessOut.p1 = p.getId(); // id
         stockMessOut.p2 = getCoomandforPlayer(p.getId());// КОМАНДА
@@ -206,7 +210,8 @@ public class GameServer {
     }
 
     public boolean isServerLivePlayer() {
-        //System.out.println(server.getConnections().length > 0);
+       // System.out.println(server.getConnections().length > 0);
+
         if (server.getConnections().length > 0) return true;
         else return false;
     }

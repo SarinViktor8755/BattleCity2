@@ -97,6 +97,7 @@ public class AssetsManagerGame {
 //        assets.put("C:\\tank2d\\android\\assets\\map\\desert.tmx", Texture.class);
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
         assetManager.load("map/field/index.tmx", TiledMap.class);
+        assetManager.load("map/desert/index.tmx", TiledMap.class);
 
         loadedAseets();
         return assetManager;
