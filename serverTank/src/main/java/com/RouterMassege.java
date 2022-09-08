@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.Network;
 
+import main.java.com.Units.ListPlayer.Player;
 import main.java.com.Units.ListPlayer.StatusPlayer;
 
 public class RouterMassege {
@@ -29,7 +30,21 @@ public class RouterMassege {
             return;
         }
         if (Heading_type.MY_TOKKEN == sm.tip) {
-            gameServer.lp.getPlayerForId(id_coonect).setTokken(sm.textM);
+
+            if(gameServer.lp.getPlayersTokken().get(sm.textM)!= null){
+                Player p = gameServer.lp.getPlayerForId(gameServer.lp.getPlayersTokken().get(sm.textM));
+                gameServer.lp.remove_player(gameServer.lp.getPlayersTokken().get(sm.textM));
+                gameServer.lp.getPlayerForId(id_coonect).setTokken(sm.textM);
+                gameServer.lp.getPlayersTokken().put(sm.textM, id_coonect);
+            }else {
+                // System.out.println("@@@@@@@@@!!!!!!!!!" + gameServer.lp.getPlayersTokken().get(sm.textM) + "  "+ sm.textM);
+                /// проверка на дублева )) )
+                gameServer.lp.getPlayerForId(id_coonect).setTokken(sm.textM);
+                gameServer.lp.getPlayersTokken().put(sm.textM, id_coonect);
+            }
+            System.out.println(gameServer.lp.getPlayersTokken()+ "  "+ gameServer.lp.getPlayersTokken().size());
+            System.out.println(gameServer.lp.getPlayers());
+
             return;
         }
 
@@ -39,8 +54,7 @@ public class RouterMassege {
             gameServer.lp.getPlayerForId(id_coonect).setCommand((int)sm.p1);
             //  System.out.println(gameServer.lp.getPlayerForId(id_coonect).getCommand() + " ---");
           //  gameServer.getLp().getPlayerForId(id_coonect).setCommand();
-            System.out.println();
-            System.out.println();
+
             /// ответить время . карта параметры игры
             return;
         }

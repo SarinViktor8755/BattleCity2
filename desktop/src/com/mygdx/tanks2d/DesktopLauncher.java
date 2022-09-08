@@ -10,7 +10,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("Tanks2D");
-		config.setWindowedMode(MainGame.WHIDE_SCREEN,MainGame.HIDE_SCREEN);
+		config.setWindowedMode(MainGame.WHIDE_SCREEN *2 ,MainGame.HIDE_SCREEN *2);
 //		config.width = MainGame.WHIDE_SCREEN / 2;
 //		config.height = MainGame.HIDE_SCREEN / 2;
 		new Lwjgl3Application(new MainGame(3), config);

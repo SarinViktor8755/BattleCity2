@@ -57,6 +57,13 @@ public class ListPlayers {
         return players.get(id);
     }
 
+    public ConcurrentHashMap<String, Integer> getPlayersTokken() {
+        return playersTokken;
+    }
+
+    public ConcurrentHashMap<Integer, Player> getPlayers() {
+        return players;
+    }
 
     private boolean checkTokken(String tokken, int connct_id) { // проверяет был литакой токкен
         playersTokken.put(tokken, connct_id);
@@ -219,11 +226,15 @@ public class ListPlayers {
     public void send_bot_coordinates() {
         if (MathUtils.randomBoolean(.05f)) update_the_average_coordinates_of_the_commands();
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             checkPlayerForDisconect(entry.getValue()); // проверка на дисконект игрока
+         //   System.out.println(entry.getValue().nikName + "  @@@@BAG" + " tokk  " + entry.getValue().getTokken() );
+
             if (entry.getKey() > -99) continue;
             Player p = entry.getValue();
+
             //  if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
             pn.nom = entry.getKey();
             pn.xp = p.getPosi().x;
@@ -308,10 +319,10 @@ public class ListPlayers {
     public Vector2 isCollisionsTanks(Vector2 pos) {
         red_size = 0;
         blue_size = 0;
-        if(MathUtils.randomBoolean(.005f))  System.out.println("RedC " + getSizeComandSize(Heading_type.RED_COMMAND) + "BlueC " + getSizeComandSize(Heading_type.BLUE_COMMAND));
+       // if(MathUtils.randomBoolean(.005f))  System.out.println("RedC " + getSizeComandSize(Heading_type.RED_COMMAND) + "BlueC " + getSizeComandSize(Heading_type.BLUE_COMMAND));
 
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
-         System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
+      //   System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
 
             update_number_of_clicks(tank.getValue().getCommand());
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
@@ -322,7 +333,8 @@ public class ListPlayers {
                 //  System.out.println("!!!!!!!!!!!!!!!"+ tank.getValue().nikName);
                 return new Vector2().set(pos.cpy().sub(tank.getValue().pos).nor());
             }
-        }System.out.println();
+        }
+        //System.out.println();
         // System.out.println("red " + red_size + " " + "blue " + blue_size + "  " + (blue_size+red_size));
         return null;
     }

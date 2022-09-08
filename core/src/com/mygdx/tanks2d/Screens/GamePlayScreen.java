@@ -60,8 +60,7 @@ public class GamePlayScreen implements Screen {
 
         this.tanksOther = new TanksOther(this);
 
-//        this.inputProcessorPC = new InputProcessorDesktop(this);
-//        System.out.println("inputProcessorPC");
+        this.inputProcessorPC = new InputProcessorDesktop(this);
         Gdx.input.setInputProcessor(inputProcessorPC);
         this.pos = new Vector2(150, 150);
         this.cameraGame = new CameraGame(MainGame.WHIDE_SCREEN * 1.2f, MainGame.HIDE_SCREEN * 1.2f, gameSpace.getSizeLocationPixel(), gameSpace.WITH_LOCATION, gameSpace.HEIHT_LOCATION);

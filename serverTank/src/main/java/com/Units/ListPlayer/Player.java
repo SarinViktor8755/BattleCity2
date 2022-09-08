@@ -21,14 +21,14 @@ public class Player {
         hp = -1;
         death = 1;
         this.command = command;
-        nikName = "Player no." + this.id + " live Player";
+        nikName = "Player no." + this.id + " live Player"; // от куда он берется - это не понятно
         pos = new Vector2(StatusPlayer.IN_MENU, StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
         body_rotation = new Vector2(1, 1);
         status = StatusPlayer.IN_MENU;
     }
 
     public void setPosition(Vector2 p) {
-        System.out.println(p);
+      //  System.out.println(p);
 
         this.pos.set(p);
     }
