@@ -34,32 +34,39 @@ public class GameSpace {
     private Radspurens radspurens;
 
     // private static ArrayList<String> maps = new ArrayList<>();
-    public final int WITH_LOCATION;
-    public final int HEIHT_LOCATION;
+    public int WITH_LOCATION;
+    public int HEIHT_LOCATION;
 
     private MapLayer obstacles; // препятствия
 
     ShapeRenderer shapeRenderer;
 
-    static String MAP_DESETRT = "desert";
+     static String MAP_DESETRT;
     private TiledMapTileLayer decorations;
     private TiledMapTileLayer ground;
 
     MainCollision mainCollision;
 
     public GameSpace(GamePlayScreen gps, MainGame mainGame) {
-
+        MAP_DESETRT = MapsList.getMapForServer();
         this.gps = gps;
         mapsList = new MapsList();
-        radspurens = new Radspurens(gps.getAssetsManagerGame().get("sled.png", Texture.class),gps.getAssetsManagerGame().get("crater.png", Texture.class));
+        lighting = new LightingBox2D(mainGame);
+        //  System.out.println(mainCollision);
+        Object mapName;
+        loadMap(MAP_DESETRT);
+    }
+
+
+    public void loadMap(String mapName) {
+        radspurens = new Radspurens(gps.getAssetsManagerGame().get("sled.png", Texture.class), gps.getAssetsManagerGame().get("crater.png", Texture.class));
 
 
         float unitScale = 1f;
-        lighting = new LightingBox2D(mainGame);
 
 
         //map = new TmxMapLoader().load(MAP_DESETRT);
-        map = gps.getAssetsManagerGame().get("map/"+MAP_DESETRT+"/index.tmx");
+        map = gps.getAssetsManagerGame().get("map/" + mapName + "/index.tmx");
 
         rendererMap = new OrthogonalTiledMapRenderer(map, 1.0f, getGps().getBatch());
 
@@ -77,11 +84,13 @@ public class GameSpace {
 
         for (int i = 0; i < obstacles.getObjects().getCount(); i++) {
             System.out.println(obstacles.getObjects().get(i).getName() + " NameObjMap");
-            if(obstacles.getObjects().get(i).getName()!= null ){
+            if (obstacles.getObjects().get(i).getName() != null) {
                 RectangleMapObject r = (RectangleMapObject) obstacles.getObjects().get(i);
-                if(obstacles.getObjects().get(i).getName().equals("resp_1")) rasp1 = new Vector2(r.getRectangle().x,r.getRectangle().y);
-                if(obstacles.getObjects().get(i).getName().equals("resp_2")) rasp2 = new Vector2(r.getRectangle().x,r.getRectangle().y);
-               // System.out.println(rasp1 + "   "+ rasp2);
+                if (obstacles.getObjects().get(i).getName().equals("resp_1"))
+                    rasp1 = new Vector2(r.getRectangle().x, r.getRectangle().y);
+                if (obstacles.getObjects().get(i).getName().equals("resp_2"))
+                    rasp2 = new Vector2(r.getRectangle().x, r.getRectangle().y);
+                // System.out.println(rasp1 + "   "+ rasp2);
                 continue;
             }
 
@@ -108,13 +117,12 @@ public class GameSpace {
                 float y = ellipse.getEllipse().y + r;
 
                 mainCollision.addCircleeMapObject(new Vector2(x, ((HEIHT_LOCATION - ellipse.getEllipse().y) - (ellipse.getEllipse().height))), r);
-                BodyBuilder.createCircle(getLighting().getWorld(),  x, y, r); }
+                BodyBuilder.createCircle(getLighting().getWorld(), x, y, r);
+            }
         }
-
-      //  System.out.println(mainCollision);
     }
 
-    public boolean checkObstacles(Vector2 pos){ // проверянет координаты с обьектами
+    public boolean checkObstacles(Vector2 pos) { // проверянет координаты с обьектами
 //        if(mainCollision.isCircleCircle(pos)) return false;
 //        if(mainCollision.isCollisionsRectangle(pos)) return false;
         return true;
@@ -137,6 +145,14 @@ public class GameSpace {
     public int getHideLocation() {
         TiledMapTileLayer tiledLayer = (TiledMapTileLayer) map.getLayers().get(0);
         return tiledLayer.getHeight() * tiledLayer.getHeight();
+    }
+
+    public static String getMapDesetrt() {
+        return MAP_DESETRT;
+    }
+
+    public static void setMapDesetrt(String mapDesetrt) {
+        MAP_DESETRT = mapDesetrt;
     }
 
     public MapLayer getObstacles() {
@@ -172,9 +188,10 @@ public class GameSpace {
 
         //  }
         // Rectangle
-     //    rendererMap.render();
+        //    rendererMap.render();
         // createShape();
     }
+
     public boolean inPointLocation(float x, float y) {
         if ((x < 0) || (y < 0)) return false;
         if ((x > WITH_LOCATION) || (y > HEIHT_LOCATION)) return false;
@@ -197,9 +214,9 @@ public class GameSpace {
     public void addSled(float x, float y, float align) {
         radspurens.addRadspurenTank(x, y, align);
 
-      //  radspurens.addCrater(x + 50, y, align);
+        //  radspurens.addCrater(x + 50, y, align);
 
-       // mainGame.getGamePlayScreen().getGameSpace().getRadspurens().addCrater(sm.p1, sm.p2, MathUtils.random());
+        // mainGame.getGamePlayScreen().getGameSpace().getRadspurens().addCrater(sm.p1, sm.p2, MathUtils.random());
     }
 
 
@@ -243,7 +260,7 @@ public class GameSpace {
     }
 
     public boolean checkMapBorders(Vector2 p) {
-        checkMapBorders(p.x,p.y);
+        checkMapBorders(p.x, p.y);
         return true;
     }
 
@@ -255,9 +272,6 @@ public class GameSpace {
         if (pos.y > HEIHT_LOCATION + 0) pos.y = HEIHT_LOCATION;
         return true;
     }
-
-
-
 
 
 }

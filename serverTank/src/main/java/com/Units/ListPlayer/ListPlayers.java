@@ -161,6 +161,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
+            System.out.println(entry.getValue().getNikName());
 
             //if (entry.getValue().hp < 1) continue;
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
@@ -168,6 +169,7 @@ public class ListPlayers {
                 res = entry.getKey();
             if (res != -1) return res;
         }
+        System.out.println();
         return res;
     }
 //////////////

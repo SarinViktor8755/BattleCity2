@@ -4,6 +4,7 @@ package com.mygdx.tanks2d.ClientNetWork;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ArrayMap;
+import com.mygdx.tanks2d.Locations.GameSpace;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Units.Tanks.OpponentsTanks;
 import com.mygdx.tanks2d.Units.Tanks.Tank;
@@ -54,6 +55,7 @@ public class RouterSM {
 
         if (Heading_type.PARAMETERS_MAP == sm.tip) { // сервер прислал карту матча ))
             System.out.println("MAP_!!! " + sm.p1);
+            GameSpace.setMapDesetrt(sm.p1);
 
 
             return;

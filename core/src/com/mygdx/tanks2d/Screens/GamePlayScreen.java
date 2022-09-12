@@ -17,6 +17,7 @@ import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.ServiceClient;
 import com.mygdx.tanks2d.InputProcessor.InputProcessorDesktop;
 import com.mygdx.tanks2d.Locations.GameSpace;
+import com.mygdx.tanks2d.Locations.MapsList;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.ParticleEffect.ParticleCustum;
 import com.mygdx.tanks2d.Screens.Controll.Controller;
@@ -163,6 +164,8 @@ public class GamePlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
+
+      //  System.out.println(MapsList.getMapForServer());
 
         update();
         Gdx.gl.glClearColor(0, 0, 0, 1);
