@@ -18,6 +18,8 @@ import main.java.com.MatchOrganization.IndexMath;
 public class ListPlayers {
     static public final int DEFULT_COUNT_BOT = 20;
 
+    private int size_list_player_in_game = 0;
+
     ConcurrentHashMap<Integer, Player> players;
     ConcurrentHashMap<String, Integer> playersTokken; // tooken/ id
 
@@ -29,8 +31,13 @@ public class ListPlayers {
 
     static final float MAX_DIST = 150 * 150;
 
+    //размеры команд
     private int blue_size;
     private int red_size;
+    //живы игроки
+    private int size_live_player;
+    private int size_bot_player;
+
 
     private int live_blue_size;
     private int live_red_size;
@@ -155,13 +162,15 @@ public class ListPlayers {
         }
     }
 
+
     public int projectile_collide_with_players(int author_id, float xs, float ys) {
         int res = -1;
+        this.size_list_player_in_game = 0;
         temp1.set(xs, ys);
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-            System.out.println(entry.getValue().getNikName());
+            System.out.println(entry.getValue().getNikName() + "pos " + entry.getValue().pos);
 
             //if (entry.getValue().hp < 1) continue;
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
@@ -169,7 +178,7 @@ public class ListPlayers {
                 res = entry.getKey();
             if (res != -1) return res;
         }
-        System.out.println();
+        //   System.out.println();
         return res;
     }
 //////////////
@@ -232,7 +241,7 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             checkPlayerForDisconect(entry.getValue()); // проверка на дисконект игрока
-         //   System.out.println(entry.getValue().nikName + "  @@@@BAG" + " tokk  " + entry.getValue().getTokken() );
+            //   System.out.println(entry.getValue().nikName + "  @@@@BAG" + " tokk  " + entry.getValue().getTokken() );
 
             if (entry.getKey() > -99) continue;
             Player p = entry.getValue();
@@ -321,12 +330,15 @@ public class ListPlayers {
     public Vector2 isCollisionsTanks(Vector2 pos) {
         red_size = 0;
         blue_size = 0;
-       // if(MathUtils.randomBoolean(.005f))  System.out.println("RedC " + getSizeComandSize(Heading_type.RED_COMMAND) + "BlueC " + getSizeComandSize(Heading_type.BLUE_COMMAND));
+        // if(MathUtils.randomBoolean(.005f))  System.out.println("RedC " + getSizeComandSize(Heading_type.RED_COMMAND) + "BlueC " + getSizeComandSize(Heading_type.BLUE_COMMAND));
 
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
-      //   System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
+            //   System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
 
-            update_number_of_clicks(tank.getValue().getCommand());
+
+
+
+
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
             //    if (!tank.getValue().isLive() || tank.getValue().id > 0) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
             //  if (tank.getValue().hp < 1) continue;
@@ -348,6 +360,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
+            if (!p.in_game_player()) continue;
             if (my.getCommand() == p.getCommand()) continue;
             float dst = p.getPosi().dst2(myPosi);
             if (dst > TowerRotationLogic.rast_to_target) continue;
@@ -368,6 +381,7 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
             if (!p.isLive()) continue;
+            if (!p.in_game_player()) continue;
             float d = p.getPosi().dst2(x, y);
 
             if (d < min_dst && d != 0) {
@@ -424,15 +438,18 @@ public class ListPlayers {
             Map.Entry<Integer, Player> entry = entries.next();
             if (entry.getKey() < -99) continue;
             Player p = entry.getValue();
+            if (!p.in_game_player()) continue;
             if (p.status == Heading_type.DISCONECT_PLAYER) {
                 p.setPosition(-10_000, -10_000);
                 p.setHp(-1000);
             }
 
             gameServer.send_RESPOUN_PLAYER(p.getId(), 50, 50);
+            if (!p.in_game_player()) continue;
+            p.setHp(100);
             if (!p.isLive()) {
                 //     if (MathUtils.randomBoolean(0.05f)) {
-                p.setHp(100);
+
 //                    if (p.getCommand() == Heading_type.RED_COMMAND) p.setPosition(gameServer.getMainGame().getMapSpace().getRasp1());
 //                    else p.setPosition(gameServer.getMainGame().getMapSpace().getRasp2());
                 /// gameServer.send_PARAMETERS_PLAYER(p);
@@ -444,11 +461,34 @@ public class ListPlayers {
         }
     }
 
-//    public Player getRandomPlayer(){
+    //    public Player getRandomPlayer(){
 //        Player result = null;
 //
 //
 //    }
+    public void counting_games() { // подсчет всех видов играков;
+        size_live_player = 0; size_bot_player = 0;
+        blue_size = 0; red_size = 0;
+        
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+            Player p = entry.getValue();
+            if (p.id > -99) {
+                if(p.in_game_player())continue;
+                update_number_of_clicks(p.getCommand()); // добавить в команду
+                size_live_player++;
 
+
+            } else {
+                update_number_of_clicks(p.getCommand());
+                size_bot_player++;
+
+            }
+
+
+        }
+
+    }
 
 }

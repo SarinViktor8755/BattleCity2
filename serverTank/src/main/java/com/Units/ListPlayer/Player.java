@@ -2,6 +2,7 @@ package main.java.com.Units.ListPlayer;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.Utils.VectorUtils;
 
 public class Player {
@@ -21,7 +22,7 @@ public class Player {
         hp = -1;
         death = 1;
         this.command = command;
-        nikName = "Player no." + this.id + " live Player"; // от куда он берется - это не понятно
+        nikName = "tokken_123"; // от куда он берется - это не понятно
         pos = new Vector2(StatusPlayer.IN_MENU, StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
         body_rotation = new Vector2(1, 1);
         status = StatusPlayer.IN_MENU;
@@ -171,6 +172,17 @@ public class Player {
        // System.out.println(status);
         if (getStatus() == StatusPlayer.IN_MENU) return false;
         else return true;
+    }
+
+    public boolean in_game_player(){
+        if(id>-99) return true;
+        if(status == Heading_type.DISCONECT_PLAYER) return false;
+        if(status == Heading_type.DISCONECT_PLAYER) return false;
+        if(pos.x == StatusPlayer.IN_MENU) return false;
+        if(pos.x == StatusPlayer.IN_MENU) return false;
+        if(nikName.equals("tokken_123")) return false;
+
+        return true;
     }
 
 

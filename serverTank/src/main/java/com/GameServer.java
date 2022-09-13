@@ -218,7 +218,10 @@ public class GameServer {
     }
 
     public int countLivePlayer() {
-        return server.getConnections().length;
+
+
+        return 1;
+       // return server.getConnections().length;
     }
 
     public IndexBot getIndexBot() {
