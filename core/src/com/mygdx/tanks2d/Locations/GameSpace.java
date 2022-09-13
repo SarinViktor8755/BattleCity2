@@ -48,7 +48,7 @@ public class GameSpace {
     MainCollision mainCollision;
 
     public GameSpace(GamePlayScreen gps, MainGame mainGame) {
-        MAP_DESETRT = MapsList.getMapForServer();
+        //MAP_DESETRT = MapsList.getMapForServer();
         this.gps = gps;
         mapsList = new MapsList();
         lighting = new LightingBox2D(mainGame);
