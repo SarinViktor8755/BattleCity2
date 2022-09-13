@@ -17,6 +17,7 @@ import main.java.com.Bots.IndexBot;
 import main.java.com.MatchOrganization.IndexMath;
 import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
+import main.java.com.Units.SpaceMap.IndexMap;
 
 public class GameServer {
 
@@ -160,14 +161,14 @@ public class GameServer {
     public void send_MAP_PARAMETOR() { // сообщить название карты
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
-        stockMessOut.p1 = IndexMath.getMap();
+        //stockMessOut.p1 = IndexMath.;
         this.server.sendToAllTCP(stockMessOut);
     }
 
     public void send_MAP_PARAMETOR(int id) { // сообщить название карты для одного
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
-        stockMessOut.p1 = IndexMath.getMap();
+        stockMessOut.textM = mainGame.mapSpace.getMap_math();
         this.server.sendToTCP(id, stockMessOut);
         System.out.println("!!!!!!!!!!MAP:::");
     }

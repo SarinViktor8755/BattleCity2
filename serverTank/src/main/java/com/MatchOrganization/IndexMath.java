@@ -14,12 +14,11 @@ import main.java.com.Units.ListPlayer.Player;
 public class IndexMath {
     private static final float MATH_LENGHT = 1000 * 60 * 2; // время матча
     private static float realTimeMath; // время матча
-    private ListPlayers listPlayers; // копиялиста
+    private ListPlayers listPlayers; // копия листа
 
     private static int red_team_score;
     private static int blue_team_score;
 
-    private static int map;
 
     public void updateMath(float dt, ListPlayers listPlayers) {
         this.realTimeMath += dt;
@@ -85,9 +84,7 @@ public class IndexMath {
         }
     }
 
-    public static int getMap() {
-        return map;
-    }
+
 
     public static float getRealTimeMath() {
         return realTimeMath;

@@ -1,6 +1,8 @@
 package main.java.com;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.mygdx.tanks2d.Locations.GameSpace;
+import com.mygdx.tanks2d.Locations.MapsList;
 
 import main.java.com.MatchOrganization.IndexMath;
 import main.java.com.Units.Bullet.IndexBullets;
@@ -25,7 +27,7 @@ public class MainGame {
 
         this.gameServer = gameServer;
         this.bullets = new IndexBullets(this.gameServer);
-        this.mapSpace = new IndexMap();
+        this.mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
         startSecondaryThread_50();
         startSecondaryThread_25();
 

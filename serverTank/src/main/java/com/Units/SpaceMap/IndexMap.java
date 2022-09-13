@@ -2,8 +2,7 @@ package main.java.com.Units.SpaceMap;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.tanks2d.Locations.Collision.BoxCollision;
-import com.mygdx.tanks2d.Locations.Collision.CircleCollision;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,46 +18,47 @@ import main.java.com.Units.SpaceMap.Figure.Figure;
 import main.java.com.Units.SpaceMap.Figure.Rectangle;
 
 public class IndexMap {
-    private TiledMap map;
+   // private TiledMap map;
 
     private int width_map; // ширина карты
     private int height_map; // высота карты
 
     private Vector2 rasp1, rasp2;
 
-    private final Vector2 centr = new Vector2(width_map/2f,height_map/2);
+    private final Vector2 centr = new Vector2(width_map / 2f, height_map / 2);
 
-    final float SPEED = 90f;
-    final float SPEED_ROTATION = 180f;
+//    final float SPEED = 90f;
+//    final float SPEED_ROTATION = 180f;
+
+    private String map_math;
 
     private ArrayList<Figure> allfigure; // набор колизий
 
-    public IndexMap() {
+    public IndexMap(String map_math) {
         allfigure = new ArrayList<>();
-        String map = readFile("index.json");
+        this.map_math = map_math;
+        //String map = readFile("index.json");
+        System.out.println("GET_MAP "+ map_math + "  " + map_math + ".json");
 
-        JSONObject obj = new JSONObject(readFile("index.json"));
+        JSONObject obj = new JSONObject(readFile(map_math + ".json"));
         // System.out.println(obj);
-     //   String firstName = String.valueOf(obj.getInt("height"));
+        //   String firstName = String.valueOf(obj.getInt("height"));
         // System.out.println(firstName);
-
         width_map = obj.getInt("width") * obj.getInt("tilewidth"); // ширина карты
         height_map = obj.getInt("height") * obj.getInt("tilewidth");  // высота карты
 //        System.out.println(width_map);
-
         // JSONArray arr = obj.getJSONArray("layers").getJSONObject(1).getJSONArray("objects");
         // JSONObject arr = obj.getJSONArray("layers").get
 //        System.out.println("!!!!!!!!!!!!!!!!!");
 //        System.out.println(obj.getJSONArray("layers").getJSONObject(2).getJSONArray("objects"));
 //        System.out.println("!!!!!!!!!!!!!!!!!");
-
         JSONArray arr = obj.getJSONArray("layers").getJSONObject(2).getJSONArray("objects");
 
         for (int i = 0; i < arr.length(); i++) {
             ceateObjectmap((JSONObject) arr.get(i));
         }
-       //     System.out.println("rasp1 "+rasp1 +"  rasp2 "+  rasp2);
-          System.out.println("install_map : " + GameServer.getDate());
+        //     System.out.println("rasp1 "+rasp1 +"  rasp2 "+  rasp2);
+        System.out.println("install_map : " + GameServer.getDate());
     }
 
     ////////////////
@@ -76,10 +76,16 @@ public class IndexMap {
         //  System.out.println(this.allfigure);
     }
 
+    public String getMap_math() {
+        return map_math;
+    }
+
     private void createRectangle(JSONObject obj) {
         System.out.println(obj.get("name"));
-        if(obj.get("name").equals("resp_1"))rasp1 = new Vector2(obj.getInt("x"),height_map - obj.getInt("y"));
-        if(obj.get("name").equals("resp_2"))rasp2 = new Vector2(obj.getInt("x"),height_map - obj.getInt("y"));
+        if (obj.get("name").equals("resp_1"))
+            rasp1 = new Vector2(obj.getInt("x"), height_map - obj.getInt("y"));
+        if (obj.get("name").equals("resp_2"))
+            rasp2 = new Vector2(obj.getInt("x"), height_map - obj.getInt("y"));
         Rectangle r = new Rectangle(obj.getInt("x"), height_map - obj.getInt("y"), obj.getInt("width"), obj.getInt("height"), this.height_map);
 
 
@@ -157,7 +163,6 @@ public class IndexMap {
     }
 
 
-
     public void resolving_conflict_with_objects(Vector2 pos, float dt) { /// решение коллизии с обьектами
         for (int i = 0; i < allfigure.size(); i++) {
             if (allfigure.get(i) instanceof Rectangle) {
@@ -195,7 +200,7 @@ public class IndexMap {
 
             if (allfigure.get(i) instanceof Ellipse) {
                 Ellipse e = (Ellipse) allfigure.get(i);
-               // if (!e.isPointCollision(pos.x, pos.y)) continue;
+                // if (!e.isPointCollision(pos.x, pos.y)) continue;
 //                System.out.println("Ellipse");
 //                pos.set(500,500);
 
@@ -226,7 +231,7 @@ public class IndexMap {
 //        if (c != null) position.add(c.scl(SPEED * dt));
 //    }
 
-//
+    //
 //    public void collisinCircleTrue() {
 //        Vector2 c = isCircleCircle(getPosition());
 //        if (c != null) position.add(c.scl(SPEED * dt));

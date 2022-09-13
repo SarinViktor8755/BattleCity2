@@ -55,7 +55,7 @@ public class RouterSM {
 
         if (Heading_type.PARAMETERS_MAP == sm.tip) { // сервер прислал карту матча ))
             System.out.println("MAP_!!! " + sm.p1);
-            GameSpace.setMapDesetrt(sm.p1);
+            GameSpace.setMapDesetrt(sm.textM);
 
 
             return;
