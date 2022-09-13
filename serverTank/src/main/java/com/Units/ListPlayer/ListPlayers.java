@@ -469,7 +469,7 @@ public class ListPlayers {
     public void counting_games() { // подсчет всех видов играков;
         size_live_player = 0; size_bot_player = 0;
         blue_size = 0; red_size = 0;
-        
+
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
