@@ -170,7 +170,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-            System.out.println(entry.getValue().getNikName() + "pos " + entry.getValue().pos);
+           // System.out.println(entry.getValue().getNikName() + "pos " + entry.getValue().pos);
 
             //if (entry.getValue().hp < 1) continue;
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
@@ -336,9 +336,6 @@ public class ListPlayers {
             //   System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
 
 
-
-
-
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
             //    if (!tank.getValue().isLive() || tank.getValue().id > 0) continue; // ---- Вот после  этой строчки почему то колизиия перестает работать !!! НО СТРОЧКА НУЖНА!!!!
             //  if (tank.getValue().hp < 1) continue;
@@ -467,28 +464,50 @@ public class ListPlayers {
 //
 //    }
     public void counting_games() { // подсчет всех видов играков;
-        size_live_player = 0; size_bot_player = 0;
-        blue_size = 0; red_size = 0;
-
+        size_live_player = 0;
+        size_bot_player = 0;
+        blue_size = 0;
+        red_size = 0;
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
             if (p.id > -99) {
-                if(p.in_game_player())continue;
+                if (!p.in_game_player()) continue;
                 update_number_of_clicks(p.getCommand()); // добавить в команду
                 size_live_player++;
-
-
             } else {
                 update_number_of_clicks(p.getCommand());
                 size_bot_player++;
-
             }
 
 
         }
-
+//        System.out.println("_____________________________________________________");
+//        System.out.println("size_live_player " + size_live_player + " |||| size_bot_player " + size_bot_player);
+//        System.out.println("blue_size " + blue_size + "  |||      red_size " + red_size);
+//        System.out.println("_____________________________________________________");
     }
+
+    public int getSize_list_player_in_game() {
+        return size_list_player_in_game;
+    }
+
+    public int getBlue_size() {
+        return blue_size;
+    }
+
+    public int getRed_size() {
+        return red_size;
+    }
+
+    public int getSize_live_player() {
+        return size_live_player;
+    }
+
+    public int getSize_bot_player() {
+        return size_bot_player;
+    }
+
 
 }

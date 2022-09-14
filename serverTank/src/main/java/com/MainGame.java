@@ -62,6 +62,7 @@ public class MainGame {
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
              //           System.out.println("is_end_math : " + is_end_math());
 
+                        gameServer.lp.counting_games();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -75,7 +76,7 @@ public class MainGame {
         return mapSpace;
     }
 
-    private void startSecondaryThread_25() {
+    private void startSecondaryThread_25() { // выполняется каждые 25 мс
         new Thread(new Runnable() {
             @Override
             public void run() {
