@@ -170,7 +170,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-           // System.out.println(entry.getValue().getNikName() + "pos " + entry.getValue().pos);
+            System.out.println(entry.getValue().getNikName() + "pos " + entry.getValue().pos);
 
             //if (entry.getValue().hp < 1) continue;
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
@@ -328,12 +328,15 @@ public class ListPlayers {
     //////////////collisin
 
     public Vector2 isCollisionsTanks(Vector2 pos) {
-//        red_size = 0;
-//        blue_size = 0;
+        red_size = 0;
+        blue_size = 0;
         // if(MathUtils.randomBoolean(.005f))  System.out.println("RedC " + getSizeComandSize(Heading_type.RED_COMMAND) + "BlueC " + getSizeComandSize(Heading_type.BLUE_COMMAND));
 
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
             //   System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
+
+
+
 
 
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
@@ -464,6 +467,7 @@ public class ListPlayers {
 //
 //    }
     public void counting_games() { // подсчет всех видов играков;
+        //  if(MathUtils.randomBoolean(.3f)) return;
         size_live_player = 0;
         size_bot_player = 0;
         blue_size = 0;
@@ -477,16 +481,19 @@ public class ListPlayers {
                 update_number_of_clicks(p.getCommand()); // добавить в команду
                 size_live_player++;
             } else {
-                update_number_of_clicks(p.getCommand());
+                update_number_of_clicks(p.getCommand()); // добавить в команду
                 size_bot_player++;
             }
 
 
         }
-        System.out.println("_____________________________________________________");
-        System.out.println("size_live_player " + size_live_player + " |||| size_bot_player " + size_bot_player);
-        System.out.println("blue_size " + blue_size + "  |||      red_size " + red_size);
-        System.out.println("_____________________________________________________");
+//        System.out.println("_____________________________________________________");
+//        System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
+//        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
+//        System.out.println("_____________________________________________________");
+
+
+        System.out.println(get_activ_player_bots() + "   "+ getRed_size() + " "+ getBlue_size());
     }
 
     public int getSize_list_player_in_game() {
@@ -512,4 +519,5 @@ public class ListPlayers {
     public int get_activ_player_bots() {
         return getSize_bot_player() + getSize_live_player();
     }
+
 }
