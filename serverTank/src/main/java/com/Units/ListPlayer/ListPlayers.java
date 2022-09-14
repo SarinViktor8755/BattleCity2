@@ -38,6 +38,7 @@ public class ListPlayers {
     private int size_live_player;
     private int size_bot_player;
 
+    private int team_difference;
 
     private int live_blue_size;
     private int live_red_size;
@@ -170,7 +171,7 @@ public class ListPlayers {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
-            System.out.println(entry.getValue().getNikName() + "pos " + entry.getValue().pos);
+            if (!entry.getValue().in_game_player()) continue;
 
             //if (entry.getValue().hp < 1) continue;
             temp2.set(entry.getValue().getPosi().x, entry.getValue().getPosi().y);
@@ -476,6 +477,8 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
+            System.out.println(p.getNikName() + "pos " + p.pos + "Status"+ p.status);
+
             if (p.id > -99) {
                 if (!p.in_game_player()) continue;
                 update_number_of_clicks(p.getCommand()); // добавить в команду
@@ -492,7 +495,7 @@ public class ListPlayers {
 //        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
 //        System.out.println("_____________________________________________________");
 
-
+        this.team_difference = getRed_size() - getBlue_size();
         System.out.println(get_activ_player_bots() + "   "+ getRed_size() + " "+ getBlue_size());
     }
 
@@ -506,6 +509,10 @@ public class ListPlayers {
 
     public int getRed_size() {
         return red_size;
+    }
+
+    public int getTeam_difference() {
+        return team_difference;
     }
 
     public int getSize_live_player() {

@@ -29,7 +29,7 @@ public class Player {
     }
 
     public void setPosition(Vector2 p) {
-      //  System.out.println(p);
+        //  System.out.println(p);
 
         this.pos.set(p);
     }
@@ -57,8 +57,6 @@ public class Player {
     public void setStatus(int status) {
         this.status = status;
     }
-
-
 
 
     public void setR(float r) {
@@ -169,21 +167,33 @@ public class Player {
     }
 
     public boolean isClickButtonStart() {
-       // System.out.println(status);
+        // System.out.println(status);
         if (getStatus() == StatusPlayer.IN_MENU) return false;
         else return true;
     }
 
-    public boolean in_game_player(){
-        if(id>-99) return true;
-        if(status == Heading_type.DISCONECT_PLAYER) return false;
-        if(status == Heading_type.DISCONECT_PLAYER) return false;
-        if(pos.x == StatusPlayer.IN_MENU) return false;
-        if(pos.x == StatusPlayer.IN_MENU) return false;
-        if(nikName.equals("tokken_123")) return false;
+    public boolean in_game_player() {
+        if (id > -99) return true;
+        if (status == Heading_type.DISCONECT_PLAYER) return false;
+      //  if (status == Heading_type.DISCONECT_PLAYER) return false;
+        if (pos.x == StatusPlayer.IN_MENU) return false;
+      //  if (pos.x == StatusPlayer.IN_MENU) return false;
+        if (nikName.equals("tokken_123")) return false;
 
         return true;
     }
-
+//    public boolean in_game_player() {
+//        if (id < -99) return false;
+//        // System.out.println("-");
+//        if (status == Heading_type.DISCONECT_PLAYER) return false;
+//        // System.out.println("--");
+//        if (pos.x == StatusPlayer.IN_MENU) return false;
+//        // System.out.println("-_-");
+//        if (pos.y == StatusPlayer.IN_MENU) return false;
+//        //  System.out.println("-_--");
+//        if (nikName.equals("tokken_123")) return false;
+//        //  System.out.println("-_-->>>");
+//        return true;
+//    }
 
 }
