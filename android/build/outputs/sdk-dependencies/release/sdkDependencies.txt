@@ -1,0 +1,511 @@
+# List of SDK dependencies of this app, this information is also included in an encrypted form in the APK.
+# For more information visit: https://d.android.com/r/tools/dependency-metadata
+
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx-backend-android"
+    version: "1.10.0"
+  }
+  digests {
+    sha256: "\032q\263\200\242m\004\250\3576\221O\351\260\016a\302|z0?`\304j\246\311\225\217f_\200b"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx"
+    version: "1.10.0"
+  }
+  digests {
+    sha256: "\377\264\233\006q\0364\261\241u\337\0271\033\017:\340\350[\364lV\232\023~\300\r)\033\262\312\341"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx-bullet"
+    version: "1.10.0"
+  }
+  digests {
+    sha256: "\245)VJ\227\244D\031\020\360\221\001S\374\225\326\334\364k\351X\344N|\375%\207\205\323\307\272\201"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx-freetype"
+    version: "1.10.0"
+  }
+  digests {
+    sha256: "\377\017s\022\300cW\253\354\006mI)k\217eT\264\017\241\314>V\271\302\b\225t\026\226\241%"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.badlogicgames.gdx"
+    artifactId: "gdx-box2d"
+    version: "1.10.0"
+  }
+  digests {
+    sha256: "\272\223\240\206\366\211G%0t\306QA8\020\214\316\250\326<\203\257(\307\003\020\256)\367\030Z\t"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.esotericsoftware"
+    artifactId: "kryonet"
+    version: "2.22.0-RC1"
+  }
+  digests {
+    sha256: "\217d\252\326\343\247\3262P\231\"\333\2220\325\000\234\304\260\032\343\022\037\355\2539GfZ\366\316\235"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.esotericsoftware.kryo"
+    artifactId: "kryo"
+    version: "2.24.0"
+  }
+  digests {
+    sha256: "~V\263,cPX\371\252( \370\211\031\253p-\002\234\274\321R\205\332\231\222\343l\300\256R\362"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.esotericsoftware.minlog"
+    artifactId: "minlog"
+    version: "1.2"
+  }
+  digests {
+    sha256: "\246x\313\032\250\365\320=\220\034\231,ut\030A\331\212\233\303\325]\255\002\350Me1\\N`\362"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "org.objenesis"
+    artifactId: "objenesis"
+    version: "2.1"
+  }
+  digests {
+    sha256: "\307C0\314k\200l\200O\323~tH{O\345\327\302u\f^\025\373\306\357\241;\336\341\275\357\200"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.esotericsoftware"
+    artifactId: "jsonbeans"
+    version: "0.7"
+  }
+  digests {
+    sha256: "\341\330\343p\206\005\243\363\003\020\026 9V\312q\032\n\003\034\233+J\2337\301\v\001..\340\275"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.badlogicgames.box2dlights"
+    artifactId: "box2dlights"
+    version: "1.5"
+  }
+  digests {
+    sha256: "\027Z\215\256!Ce\024\205`\0033\254<?\275-n\3451\343\n\373x\323l\226\362)K^\027"
+  }
+  repo_index {
+  }
+}
+library {
+  maven_library {
+    groupId: "com.google.android.gms"
+    artifactId: "play-services-ads"
+    version: "15.0.0"
+  }
+  digests {
+    sha256: "\366u\302\201MWs\216)\211\317dB\201\235j\325]\304\277\246\213\376|H\323\336\032\245\002x\261"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "customtabs"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "\314_6\277q\214/\334\327y\f\203\356\324\273\226u\222\232\345@\260\035\244\304\3616\006\263\215G*"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "support-compat"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "}m\240\034\371vk\027\005\306\310\f\374\022\'J\211[@lL(y\000\260zV\024\\\246\3000"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "support-annotations"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "\231\326\031\232\325\240\232\016^\212I\244\314\b\370\030H=\334\375~\355\352/\231#A-\257\230#\t"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "android.arch.lifecycle"
+    artifactId: "runtime"
+    version: "1.0.0"
+  }
+  digests {
+    sha256: "\344\343N]\002\275\020.\2159\335\274)\371\352\330\241Za\343g\231=\002#\201\226\254HP\232\330"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "android.arch.lifecycle"
+    artifactId: "common"
+    version: "1.0.0"
+  }
+  digests {
+    sha256: "\206\2770\032 \255\f\320\243\221\342*R\346\373\371\005u\300\226\377\203#?\251\375\rR\263!\221!"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "android.arch.core"
+    artifactId: "common"
+    version: "1.0.0"
+  }
+  digests {
+    sha256: "Q\222\223L\327=\363.,\025r.\327\374H\215\336\220\272\256\311\256\003\000\020\335\032\200\373Nt\341"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.google.android.gms"
+    artifactId: "play-services-ads-base"
+    version: "15.0.0"
+  }
+  digests {
+    sha256: "\343\205>\2112%\266bB\235V\310\030\200\263\225\020\026\"E\376\004\37592\270\364A \027o\267"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.google.android.gms"
+    artifactId: "play-services-ads-identifier"
+    version: "15.0.1"
+  }
+  digests {
+    sha256: "\367c\001\303\000\353\274\251-\032\"\347\375\330I\341O\221`\306\347*u\352\366\330\b\021>Fv\005"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.google.android.gms"
+    artifactId: "play-services-basement"
+    version: "15.0.1"
+  }
+  digests {
+    sha256: "\021\246y\023\357\241\315\230\266hI\301\016\347\003\242\345\304\363\221]A}\327)\022n\264B\227? "
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "support-v4"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "6\3308]\341\276w\221#\032\313\223;uq\230\371|\265;\307\320F\350\304\274@=!L\252\312"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "support-media-compat"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "\235\214\356|\324\016\377\"\353\336\271\f\216p\365\356\226\305\275%\313,>;9@\342r\205\243\351\212"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "support-core-utils"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "O\332mN\2640\227\036;\035\255tV\230\2033\363t\260\364\272\025\371\2309\312\032\n\265\025\\\212"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "support-core-ui"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "\202\3658\005\025\2313^\250\201\354&D\aT|\253R\276u\017\026\316\t\234\373\'uO\307U\377"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "support-fragment"
+    version: "26.1.0"
+  }
+  digests {
+    sha256: "\240\2533i\357@\376\031\221`i/\004c\245\366?\022w\353\373d\335X|v\375\261(\327k2"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.google.android.gms"
+    artifactId: "play-services-ads-lite"
+    version: "15.0.0"
+  }
+  digests {
+    sha256: "\277$`r\374\347\354\374\371W\353\342v\306\031\270ne)\276d\020k\343\034\375\302Ga\246\270\r"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.google.android.gms"
+    artifactId: "play-services-gass"
+    version: "15.0.0"
+  }
+  digests {
+    sha256: "\3318T~\363\022dJ\226\273T\375A\b@\353Y\2447D\200{k\037(\264\321\312\037\226;|"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library {
+  maven_library {
+    groupId: "com.android.support"
+    artifactId: "multidex"
+    version: "1.0.2"
+  }
+  digests {
+    sha256: "|\324\207U\307\317\333m\322\322\034\273\002#n\303\220\366\254\221\315\350~\266/G[%\232\2650\035"
+  }
+  repo_index {
+    value: 1
+  }
+}
+library_dependencies {
+  library_dep_index: 1
+}
+library_dependencies {
+  library_index: 2
+  library_dep_index: 1
+}
+library_dependencies {
+  library_index: 3
+  library_dep_index: 1
+}
+library_dependencies {
+  library_index: 4
+  library_dep_index: 1
+}
+library_dependencies {
+  library_index: 5
+  library_dep_index: 6
+  library_dep_index: 9
+}
+library_dependencies {
+  library_index: 6
+  library_dep_index: 7
+  library_dep_index: 8
+}
+library_dependencies {
+  library_index: 10
+  library_dep_index: 4
+}
+library_dependencies {
+  library_index: 11
+  library_dep_index: 12
+  library_dep_index: 18
+  library_dep_index: 19
+  library_dep_index: 26
+  library_dep_index: 20
+  library_dep_index: 27
+}
+library_dependencies {
+  library_index: 12
+  library_dep_index: 13
+  library_dep_index: 14
+}
+library_dependencies {
+  library_index: 13
+  library_dep_index: 14
+  library_dep_index: 15
+}
+library_dependencies {
+  library_index: 15
+  library_dep_index: 16
+  library_dep_index: 17
+}
+library_dependencies {
+  library_index: 19
+  library_dep_index: 20
+}
+library_dependencies {
+  library_index: 20
+  library_dep_index: 21
+}
+library_dependencies {
+  library_index: 21
+  library_dep_index: 13
+  library_dep_index: 22
+  library_dep_index: 23
+  library_dep_index: 24
+  library_dep_index: 25
+}
+library_dependencies {
+  library_index: 22
+  library_dep_index: 14
+  library_dep_index: 13
+}
+library_dependencies {
+  library_index: 23
+  library_dep_index: 14
+  library_dep_index: 13
+}
+library_dependencies {
+  library_index: 24
+  library_dep_index: 14
+  library_dep_index: 13
+}
+library_dependencies {
+  library_index: 25
+  library_dep_index: 13
+  library_dep_index: 24
+  library_dep_index: 23
+}
+library_dependencies {
+  library_index: 26
+  library_dep_index: 18
+  library_dep_index: 20
+}
+library_dependencies {
+  library_index: 27
+  library_dep_index: 18
+  library_dep_index: 20
+}
+module_dependencies {
+  module_name: "base"
+  dependency_index: 0
+  dependency_index: 2
+  dependency_index: 3
+  dependency_index: 4
+  dependency_index: 28
+  dependency_index: 1
+  dependency_index: 5
+  dependency_index: 10
+  dependency_index: 11
+}
+repositories {
+  maven_repo {
+    url: "https://repo.maven.apache.org/maven2/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://dl.google.com/dl/android/maven2/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://plugins.gradle.org/m2"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://oss.sonatype.org/content/repositories/releases/"
+  }
+}
+repositories {
+  maven_repo {
+    url: "https://jitpack.io"
+  }
+}
