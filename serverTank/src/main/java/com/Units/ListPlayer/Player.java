@@ -174,15 +174,15 @@ public class Player {
 
     public boolean in_game_player() {
         if (id < -99) return false;
-        System.out.println("-");
+        // System.out.println("-");
         if (status == Heading_type.DISCONECT_PLAYER) return false;
-        System.out.println("--");
+        // System.out.println("--");
         if (pos.x == StatusPlayer.IN_MENU) return false;
-        System.out.println("-_-");
+        // System.out.println("-_-");
         if (pos.y == StatusPlayer.IN_MENU) return false;
-        System.out.println("-_--");
+        //  System.out.println("-_--");
         if (nikName.equals("tokken_123")) return false;
-        System.out.println("-_-->>>");
+        //  System.out.println("-_-->>>");
         return true;
     }
 
