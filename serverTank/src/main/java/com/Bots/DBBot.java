@@ -7,7 +7,6 @@ public class DBBot {
 
     private int id;
 
-
     private String nikName;
 
     private float timerShoot; // время с последней аттаки

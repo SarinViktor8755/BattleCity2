@@ -58,9 +58,7 @@ public class IndexBot extends Thread {
 
     private void addBot() {
         System.out.println("Add_bot");
-
         Player p = new Player(NOM_ID_BOT, gs.getMainGame().getIndexMath().getCommand());
-
 
 //        if (MathUtils.randomBoolean()) p.setCommand(Heading_type.RED_COMMAND);
 //        else p.setCommand(Heading_type.BLUE_COMMAND);
@@ -76,7 +74,7 @@ public class IndexBot extends Thread {
 
         DBBot bot = new DBBot(p.getId());
         dbBots.put(p.getId(), bot);
-        p.setCommand(gs.getMainGame().getIndexMath().getCommand());
+      //  p.setCommand(gs.getMainGame().getIndexMath().getCommand());
 
         if (p.getCommand() == Heading_type.RED_COMMAND)
             p.setPosition(gs.getMainGame().getMapSpace().getRasp2());

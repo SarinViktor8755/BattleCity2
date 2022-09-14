@@ -35,9 +35,11 @@ public class IndexMath {
     public int getCommand() { // определить команду
         if (listPlayers.blue_players_size() > listPlayers.red_players_size()) {
             return Heading_type.RED_COMMAND;
-        } else if (listPlayers.blue_players_size() < listPlayers.red_players_size()) {
+        }
+        if (listPlayers.blue_players_size() < listPlayers.red_players_size()) {
             return Heading_type.BLUE_COMMAND;
-        } else if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
+        }
+        if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
         else return Heading_type.BLUE_COMMAND;
     }
 
@@ -83,7 +85,6 @@ public class IndexMath {
             System.out.println("RESTART MATH");
         }
     }
-
 
 
     public static float getRealTimeMath() {
