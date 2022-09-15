@@ -124,9 +124,7 @@ public class GameServer {
         stockMessOut.p1 = x; // позиция респауна
         stockMessOut.p2 = y; // позиция респауна
         stockMessOut.p3 = id; /// ид игрока
-
         this.server.sendToTCP(id, stockMessOut);
-
     }
 
     public void send_PARAMETERS_PLAYER(Player p, int forIdPlayer, int abautPlayer) {

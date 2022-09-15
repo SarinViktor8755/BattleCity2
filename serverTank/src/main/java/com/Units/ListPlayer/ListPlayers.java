@@ -323,11 +323,11 @@ public class ListPlayers {
     }
 
     public int getLive_blue_size() {
-        return live_blue_size;
+        return live_blue_size_player;
     }
 
     public int getLive_red_size() {
-        return live_red_size;
+        return live_red_size_player;
     }
 
     public void setLive_blue_size(int live_blue_size) {
