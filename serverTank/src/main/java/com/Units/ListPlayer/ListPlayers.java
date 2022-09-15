@@ -42,6 +42,9 @@ public class ListPlayers {
 
     private int live_blue_size;
     private int live_red_size;
+    ////////////// дублирую переменные _ НО так надо - используются  двух разных методов
+    private int live_blue_size_player;  // Это среднии живые игроки
+    private int live_red_size_player;
 
     private static Vector2 blue_average = new Vector2(0, 0);
     private static Vector2 red_average = new Vector2(0, 0);
@@ -270,6 +273,20 @@ public class ListPlayers {
         if (coomand == Heading_type.RED_COMMAND) red_size++;
     }
 
+    private void update_number_of_clicks(int coomand, boolean live) {
+        if (coomand == Heading_type.BLUE_COMMAND) {
+            blue_size++;
+            if (live) live_blue_size_player++;
+        }
+
+
+        if (coomand == Heading_type.RED_COMMAND) {
+            red_size++;
+            if (live) live_red_size_player++;
+        }
+    }
+
+
     public void update_the_average_coordinates_of_the_commands() { // обновить средние координаты команд
         Iterator<Map.Entry<Integer, Player>> entries = this.players.entrySet().iterator();
         float xb = 0;
@@ -329,15 +346,12 @@ public class ListPlayers {
     //////////////collisin
 
     public Vector2 isCollisionsTanks(Vector2 pos) {
-        red_size = 0;
-        blue_size = 0;
+//        red_size = 0;
+//        blue_size = 0;
         // if(MathUtils.randomBoolean(.005f))  System.out.println("RedC " + getSizeComandSize(Heading_type.RED_COMMAND) + "BlueC " + getSizeComandSize(Heading_type.BLUE_COMMAND));
 
         for (Map.Entry<Integer, Player> tank : this.players.entrySet()) {
             //   System.out.print(tank.getValue().getId() + "  " + tank.getValue().status  +"  "+ tank.getValue().getPosi().x + " | ");
-
-
-
 
 
             // System.out.println(tank.getValue().id + "  isCollisionsTanks");
@@ -473,30 +487,39 @@ public class ListPlayers {
         size_bot_player = 0;
         blue_size = 0;
         red_size = 0;
+
+        live_blue_size_player = 0;
+        live_red_size_player = 0;
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
-            System.out.println(p.getNikName() + "pos " + p.pos + "Status"+ p.status);
+
+            //  System.out.println("ID: " +p.getId()+"  "+p.getNikName() + "pos " + p.pos + "Status"+ p.status);
 
             if (p.id > -99) {
                 if (!p.in_game_player()) continue;
-                update_number_of_clicks(p.getCommand()); // добавить в команду
-                size_live_player++;
+                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
+                size_live_player++; // количество жиых играков ___ реальных играков
+
+
             } else {
-                update_number_of_clicks(p.getCommand()); // добавить в команду
-                size_bot_player++;
+                // if(p.getNikName().equals("tokken_123")) this.players.remove(p);
+                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
+                size_bot_player++;// количество БОТОВ играков ___ НЕ РЕАЛЬНЫХ играков
+
             }
 
 
         }
-//        System.out.println("_____________________________________________________");
-//        System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
-//        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
-//        System.out.println("_____________________________________________________");
+        System.out.println("_____________________________________________________");
+        System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
+        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
+        System.out.println("BLUE_LIVE " + live_blue_size_player + "  |      RED_LIVE " + live_red_size_player);
+        System.out.println("_____________________________________________________");
 
         this.team_difference = getRed_size() - getBlue_size();
-        System.out.println(get_activ_player_bots() + "   "+ getRed_size() + " "+ getBlue_size());
+        System.out.println(get_activ_player_bots() + "   " + getRed_size() + " " + getBlue_size());
     }
 
     public int getSize_list_player_in_game() {

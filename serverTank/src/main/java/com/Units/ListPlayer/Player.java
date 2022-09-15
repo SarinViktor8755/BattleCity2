@@ -18,6 +18,7 @@ public class Player {
     String tokken, nikName;
 
     public Player(int id, int command) {
+
         this.id = id;
         hp = -1;
         death = 1;
@@ -26,6 +27,11 @@ public class Player {
         pos = new Vector2(StatusPlayer.IN_MENU, StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
         body_rotation = new Vector2(1, 1);
         status = StatusPlayer.IN_MENU;
+//        if (id < -99) {
+//            System.out.println(
+//                    "create " + id + "  " + getNikName());
+//            new Exception().printStackTrace();
+//        }
     }
 
     public void setPosition(Vector2 p) {
@@ -175,9 +181,9 @@ public class Player {
     public boolean in_game_player() {
         if (id > -99) return true;
         if (status == Heading_type.DISCONECT_PLAYER) return false;
-      //  if (status == Heading_type.DISCONECT_PLAYER) return false;
+        //  if (status == Heading_type.DISCONECT_PLAYER) return false;
         if (pos.x == StatusPlayer.IN_MENU) return false;
-      //  if (pos.x == StatusPlayer.IN_MENU) return false;
+        //  if (pos.x == StatusPlayer.IN_MENU) return false;
         if (nikName.equals("tokken_123")) return false;
 
         return true;
