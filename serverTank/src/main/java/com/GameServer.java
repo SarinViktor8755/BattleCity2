@@ -137,8 +137,15 @@ public class GameServer {
         stockMessOut.p1 = IndexMath.getBlue_team_score(); //счетсиний команды
         stockMessOut.p2 = IndexMath.getRed_team_score(); //счетсиний команды
         stockMessOut.p3 = IndexMath.getRealTimeMath(); // вернуьт ревльное время матча
+
+//        stockMessOut.p4 = IndexMath.getRealTimeMath(); // ОСТАЛОСЬ ЖИВЫХ СИНИХ
+//        stockMessOut.p3 = IndexMath.getRealTimeMath(); // ОСТАЛОСЬ ЖИВЫХ КРАСНЫХ
+
+
         //stockMessOut.textM = ///IndexMath. // Номер карты будем делать менедже карт
         this.sendToAllTCP_in_game(stockMessOut);
+
+
     }
 
     public void send_PARAMETERS_PLAYER(Player p) { // для всех рассылк апараметров
