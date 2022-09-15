@@ -107,6 +107,13 @@ public class ListPlayers {
         return this.players.size();
     }
 
+    public int getLive_blue_size_player() {
+        return live_blue_size_player;
+    }
+
+    public int getLive_red_size_player() {
+        return live_red_size_player;
+    }
 
     public Player updatePosition(int id, Network.PleyerPosition pp) { // записать парметры Игрока
         Player p = players.get(id);
@@ -433,6 +440,7 @@ public class ListPlayers {
     }
 
     public void respownAllPlaers() { //рестарт игкраков -
+        gameServer.send_PARAMETERS_MATH();
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         //  players.clear();
         respaunPlayer();

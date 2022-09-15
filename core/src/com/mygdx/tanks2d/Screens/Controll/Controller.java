@@ -50,6 +50,9 @@ public class Controller {
 
     private Label score_red;
     private Label score_blue;
+
+    private Label live_score_red;
+    private Label live_score_blue;
     private Label my_frag;
 
     private BitmapFont font;
@@ -207,11 +210,24 @@ public class Controller {
         score_blue.setY(sh - 100);
         stage.addActor(score_blue);
 
+
         my_frag = new Label("frags : " + frag, style);
         my_frag.setColor(Color.YELLOW);
         my_frag.setX(30);
         my_frag.setY(sh - 130);
         stage.addActor(my_frag);
+
+        live_score_red = new Label("RED_LIVE:", style);
+        live_score_red.setColor(Color.RED);
+        live_score_red.setX(30);
+        live_score_red.setY(sh - 160);
+        stage.addActor(live_score_red);
+
+        live_score_blue = new Label("BLUE_LIVE:", style);
+        live_score_blue.setColor(Color.BLUE);
+        live_score_blue.setX(30);
+        live_score_blue.setY(sh - 190);
+        stage.addActor(live_score_blue);
 
 
 
@@ -311,5 +327,21 @@ public class Controller {
         // if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
     }
 
+    public Label getLive_score_red() {
+        return live_score_red;
+    }
 
+
+
+    public Label getLive_score_blue() {
+        return live_score_blue;
+    }
+
+    public void setLive_score_red(int i) {
+        this.live_score_red.setText(i);
+    }
+
+    public void setLive_score_blue(int i) {
+        this.live_score_blue.setText(i);
+    }
 }

@@ -46,12 +46,14 @@ public class GamePlayScreen implements Screen {
 
     private int score_blue_command;
     private int score_red_command;
+    private int live_blue_command;
+    private int live_red_command;
 
     private TanksOther tanksOther;
 
     public GamePlayScreen(MainGame mainGame) {
         score_blue_command = 0; score_red_command = 0;
-
+        live_blue_command = 0; live_red_command = 0;
         this.mainGame = mainGame;
 
         this.batch = new SpriteBatch();
@@ -254,6 +256,22 @@ public class GamePlayScreen implements Screen {
     @Override
     public void hide() {
 
+    }
+
+    public int getLive_blue_command() {
+        return live_blue_command;
+    }
+
+    public void setLive_blue_command(int live_blue_command) {
+        this.live_blue_command = live_blue_command;
+    }
+
+    public int getLive_red_command() {
+        return live_red_command;
+    }
+
+    public void setLive_red_command(int live_red_command) {
+        this.live_red_command = live_red_command;
     }
 
     public Bullets getBullets() {

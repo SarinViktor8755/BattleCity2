@@ -88,7 +88,7 @@ public class Tank {
         targetCoordinat = new Vector2(0, 0);
         deltaSledVec.set(this.getPosition());
 
-        gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
+      //  gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
 
         this.point_respown_blue.set(gsp.getGameSpace().getRasp1());
         this.point_respown_red.set(gsp.getGameSpace().getRasp2());
@@ -223,6 +223,9 @@ public class Tank {
         gsp.getController().setBlueCommand(gsp.getScore_blue_command());
         gsp.getController().setRedCommand(gsp.getScore_red_command());
         //  System.out.println("blue "+ gsp.getScore_blue_command()+ " red "+ gsp.getScore_red_command());
+        gsp.getController().setLive_score_blue(gsp.getLive_blue_command());
+        gsp.getController().setLive_score_red(gsp.getLive_red_command());
+
     }
 
 
