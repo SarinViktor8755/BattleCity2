@@ -182,10 +182,12 @@ public class ParticleCustum {
     }
 
     public void addAnimationDeath(float x, float y) {
+
         this.addPasricalDeath(x, y);
         for (int i = 0; i < 90; i++) {
             addShares(x, y);
         }
+
         gps.getAudioEngine().pleySoundKickExplosion(x,y,gps.getCameraGame().getCamera().position.x,gps.getCameraGame().getCamera().position.y);
         gps.getGameSpace().getRadspurens().addCrater(x, y, MathUtils.random(0, 360)); // кратор
         gps.pc.addPasricalDeath_little(x, y, 2.7f);

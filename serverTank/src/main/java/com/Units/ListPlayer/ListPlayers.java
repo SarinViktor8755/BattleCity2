@@ -16,7 +16,7 @@ import main.java.com.GameServer;
 import main.java.com.MatchOrganization.IndexMath;
 
 public class ListPlayers {
-    static public final int DEFULT_COUNT_BOT = 20;
+    static public final int DEFULT_COUNT_BOT = 60;
 
     private int size_list_player_in_game = 0;
 
@@ -169,6 +169,7 @@ public class ListPlayers {
             //sm.p4 = еще какой т опараметр;
             sm.tip = Heading_type.PARAMETERS_PLAYER;
             gameServer.getServer().sendToAllExceptTCP(aboutPlayerID, sm);
+            gameServer.send_PARAMETERS_MATH();
         } catch (NullPointerException e) {
         }
     }
@@ -490,7 +491,7 @@ public class ListPlayers {
 //
 //    }
     public void counting_games() { // подсчет всех видов играков;
-        //  if(MathUtils.randomBoolean(.3f)) return;
+          if(MathUtils.randomBoolean(.8f)) return;
         size_live_player = 0;
         size_bot_player = 0;
         blue_size = 0;
@@ -520,6 +521,7 @@ public class ListPlayers {
 
 
         }
+
         System.out.println("_____________________________________________________");
         System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
         System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);

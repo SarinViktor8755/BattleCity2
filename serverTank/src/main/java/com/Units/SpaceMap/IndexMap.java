@@ -18,7 +18,7 @@ import main.java.com.Units.SpaceMap.Figure.Figure;
 import main.java.com.Units.SpaceMap.Figure.Rectangle;
 
 public class IndexMap {
-   // private TiledMap map;
+    // private TiledMap map;
 
     private int width_map; // ширина карты
     private int height_map; // высота карты
@@ -38,7 +38,7 @@ public class IndexMap {
         allfigure = new ArrayList<>();
         this.map_math = map_math;
         //String map = readFile("index.json");
-        System.out.println("GET_MAP "+ map_math + "  " + map_math + ".json");
+        System.out.println("GET_MAP " + map_math + "  " + map_math + ".json");
 
         JSONObject obj = new JSONObject(readFile(map_math + ".json"));
         // System.out.println(obj);
@@ -82,10 +82,14 @@ public class IndexMap {
 
     private void createRectangle(JSONObject obj) {
         System.out.println(obj.get("name"));
-        if (obj.get("name").equals("resp_1"))
+        if (obj.get("name").equals("resp_1")) {
             rasp1 = new Vector2(obj.getInt("x"), height_map - obj.getInt("y"));
-        if (obj.get("name").equals("resp_2"))
+            return;
+        }
+        if (obj.get("name").equals("resp_2")) {
             rasp2 = new Vector2(obj.getInt("x"), height_map - obj.getInt("y"));
+            return;
+        }
         Rectangle r = new Rectangle(obj.getInt("x"), height_map - obj.getInt("y"), obj.getInt("width"), obj.getInt("height"), this.height_map);
 
 

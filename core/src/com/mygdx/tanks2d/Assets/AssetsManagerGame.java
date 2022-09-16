@@ -48,6 +48,11 @@ public class AssetsManagerGame {
         assets.put("button.pack", TextureAtlas.class);
 
         assets.put("sound/BSB.ogg", Sound.class);
+
+        assets.put("sound/f.ogg", Sound.class);
+        assets.put("sound/loose.ogg", Sound.class);
+        assets.put("sound/bash.ogg", Sound.class);
+
         //  assets.put("badlogic.png", Texture.class);
         assets.put("target.png", Texture.class);
 

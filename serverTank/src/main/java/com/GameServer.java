@@ -137,9 +137,9 @@ public class GameServer {
         stockMessOut.p1 = IndexMath.getBlue_team_score(); //счетсиний команды
         stockMessOut.p2 = IndexMath.getRed_team_score(); //счетсиний команды
 
-        stockMessOut.p3 = lp.getLive_blue_size_player(); // ОСТАЛОСЬ ЖИВЫХ СИНИХ
+        stockMessOut.p3 = lp.getLive_red_size_player(); // ОСТАЛОСЬ ЖИВЫХ СИНИХ
         stockMessOut.p4 = lp.getLive_blue_size_player(); // ОСТАЛОСЬ ЖИВЫХ КРАСНЫХ
-        //ПЕРЕНЕСТИ В ПАКЕТ МАТЧА 
+        //ПЕРЕНЕСТИ В ПАКЕТ МАТЧА
        // stockMessOut.p3 = IndexMath.getRealTimeMath(); // вернуьт ревльное время матча
 
 //        stockMessOut.p4 = IndexMath.getRealTimeMath(); // ОСТАЛОСЬ ЖИВЫХ СИНИХ

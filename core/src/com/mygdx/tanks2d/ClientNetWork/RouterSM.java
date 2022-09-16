@@ -77,6 +77,8 @@ public class RouterSM {
             mainGame.getGamePlayScreen().getTank().respownTank();
 
 
+
+
             // mainGame.getGamePlayScreen().getTank().getPosition().set(sm.p1,sm.p2);
 
 
@@ -90,7 +92,7 @@ public class RouterSM {
 
                 // Vector2 v = mainGame.getGamePlayScreen().getBullets().getBullet((int) sm.p3).direction;
                 mainGame.getGamePlayScreen().playExplosion(pp, velocity);
-                System.out.println(sm.p3 + "-------------");
+                //System.out.println(sm.p3 + "-------------");
                 Vector2 v = mainGame.getGamePlayScreen().getBullets().removeBullet((int) sm.p3);
                 v.rotateDeg(180);
 
@@ -153,6 +155,7 @@ public class RouterSM {
         mainGame.getGamePlayScreen().getTank().setHp((int) sm.p3);
         //mainGame.getGamePlayScreen().getTank().set((int) sm.p4);
         if (!mainGame.getGamePlayScreen().getTank().isLive())
+            mainGame.getGamePlayScreen().getAudioEngine().pley_lose_ad_sound();
             mainGame.getGamePlayScreen().getPc().addAnimationDeath(mainGame.getGamePlayScreen().getTank().getPosition().x, mainGame.getGamePlayScreen().getTank().getPosition().y);
     }
 }

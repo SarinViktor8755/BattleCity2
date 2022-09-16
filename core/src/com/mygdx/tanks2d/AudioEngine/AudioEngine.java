@@ -17,6 +17,8 @@ public class AudioEngine {
     Sound tower;
     Sound explosion;
 
+    Sound fight, loose;
+
     private Long idTrack;
     private Long idTower;
     private float timer_towr_ratation;
@@ -36,7 +38,11 @@ public class AudioEngine {
         sound = mainGaming.getAssetsManagerGame().get("sound/BSB.ogg", Sound.class);
         track = mainGaming.getAssetsManagerGame().get("sound/00708.ogg", Sound.class);
         tower = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
+        fight = mainGaming.getAssetsManagerGame().get("sound/f.ogg", Sound.class);
+        loose = mainGaming.getAssetsManagerGame().get("sound/loose.ogg", Sound.class);
+
         explosion = mainGaming.getAssetsManagerGame().get("sound/explode4.ogg", Sound.class);
+
 
     }
 
@@ -52,6 +58,14 @@ public class AudioEngine {
         float distanc = tempV.dst2(x1, y1);
         distanc = MathUtils.map(0, 250_000, 1, 0, distanc);
         return distanc;
+    }
+
+    public void pley_fight_ad_sound() {
+        this.fight.play();
+    }
+
+    public void pley_lose_ad_sound() {
+        this.loose.play();
     }
 
     private static float countVolmeDistantion(Vector2 a,Vector2 b) {

@@ -99,7 +99,8 @@ public class Tank {
         hp = 100;
         if(my_Command == Heading_type.BLUE_COMMAND) position.set(point_respown_blue);
         if(my_Command == Heading_type.RED_COMMAND) position.set(point_respown_red);
-        position.set(position.x + MathUtils.random(250),position.y);
+        position.set(position.x,position.y);
+        gsp.getMainGame().getGamePlayScreen().getAudioEngine().pley_fight_ad_sound();
     }
 
     public static Integer getMy_Command() {
@@ -175,6 +176,8 @@ public class Tank {
         collisinRectangleTrue();
         collisinCircleTrue();
         collisinOtherTanksTrue();
+
+
 
         /////////////////////////////////////////////////////////
         replace_textures();

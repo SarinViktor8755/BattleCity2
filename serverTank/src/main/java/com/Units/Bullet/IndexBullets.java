@@ -79,11 +79,13 @@ public class IndexBullets {
                 gameServer.send_PARAMETERS_PLAYER(player); // рассылка всем
                 if(hp < 1){     // если игрок умер тогда присваиваем очки
                     IndexMath.add_score_team(player.getCommand());
-                    gameServer.send_PARAMETERS_MATH();
+
                     /// отправить сообщение
 
                 }
+
                 if(bullet.getTimeLife() > 1.5f)  delBullet(bullet,false); // конец жизни пули )))
+                gameServer.send_PARAMETERS_MATH();
             }
           //  System.out.println("______________________"+ np);
             if(gameServer.getMainGame().getMapSpace().isPointInCollision(bullet.position.x,bullet.position.y)) delBullet(bullet);
