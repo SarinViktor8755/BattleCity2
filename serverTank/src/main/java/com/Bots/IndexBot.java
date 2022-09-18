@@ -57,11 +57,10 @@ public class IndexBot extends Thread {
 
 
     private void addBot() {
+
         System.out.println("Add_bot");
         Player p = new Player(NOM_ID_BOT, gs.getMainGame().getIndexMath().getCommand());
 
-//        if (MathUtils.randomBoolean()) p.setCommand(Heading_type.RED_COMMAND);
-//        else p.setCommand(Heading_type.BLUE_COMMAND);
 
 
         p.setHp(100);
@@ -279,6 +278,8 @@ public class IndexBot extends Thread {
         //if (gs.lp.get_activ_player_bots() == target_plaers) return;
         if (gs.lp.get_activ_player_bots() < target_plaers) addBot();
        // else delBot();
+
+        if(gs.lp.get_activ_player_bots() > target_plaers) delateBot();
     }
 
 
@@ -306,12 +307,43 @@ public class IndexBot extends Thread {
     }
 
 
-    private void delBot() { // дописать нужно с какой команды удалять ))
-        Integer firstKey = dbBots.keySet().iterator().next();
-        System.out.println("delete");
-        gs.lp.remove_player(firstKey);
-        dbBots.remove(firstKey);
-        gs.send_DISCONECT_PLAYER(firstKey);
+    private void delateBot() { // дописать нужно с какой команды удалять ))
+//        Integer firstKey = dbBots.keySet().iterator().next();
+//        System.out.println("delete");
+//        gs.lp.remove_player(firstKey);
+//        dbBots.remove(firstKey);
+//        gs.send_DISCONECT_PLAYER(firstKey);
+        if (gs.lp.getBlue_size() <1) return;
+        System.out.println("DELETA BOT");
+        int target_conmand;
+       // if()
+        if (gs.lp.getRed_size() < gs.lp.getBlue_size()) {
+            // System.out.println("RED_COMMAND");
+            target_conmand = Heading_type.BLUE_COMMAND;
+        }else
+        if (gs.lp.getBlue_size() < gs.lp.getRed_size()) {
+            //System.out.println("BLUE COMAND");
+            target_conmand = Heading_type.RED_COMMAND;
+        }else
+        if (MathUtils.randomBoolean()) target_conmand = Heading_type.RED_COMMAND;
+        else target_conmand = Heading_type.BLUE_COMMAND;
+
+        Iterator<Map.Entry<Integer, DBBot>> inter_bot = dbBots.entrySet().iterator();
+        Player p;
+        while (inter_bot.hasNext()) {
+            Map.Entry<Integer, DBBot> bot = inter_bot.next();
+            p = gs.lp.getPlayerForId(bot.getKey());
+            if(p.getCommand()== target_conmand);
+            {
+                int id = bot.getKey();
+                System.out.println("DELATE: " + id);
+                gs.send_DISCONECT_PLAYER(id);
+                gs.lp.remove_player(id);
+                dbBots.remove(id);
+
+            }
+
+        }
 
     }
 

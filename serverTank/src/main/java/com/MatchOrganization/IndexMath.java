@@ -12,7 +12,7 @@ import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
 
 public class IndexMath {
-    private static final float SECONDS_MATH = 20;
+    private static final float SECONDS_MATH = 120;
     private static final float MATH_LENGHT = 1000 * SECONDS_MATH; // время матча
     private static float realTimeMath; // время матча
     private ListPlayers listPlayers; // копия листа
@@ -34,12 +34,16 @@ public class IndexMath {
 
 
     public int getCommand() { // определить команду
-        if (listPlayers.blue_players_size() > listPlayers.red_players_size()) {
+        listPlayers.counting_games();
+        if (listPlayers.getRed_size() < listPlayers.getBlue_size()) {
+            // System.out.println("RED_COMMAND");
             return Heading_type.RED_COMMAND;
         }
-        if (listPlayers.blue_players_size() < listPlayers.red_players_size()) {
+        if (listPlayers.getBlue_size() < listPlayers.getRed_size()) {
+            //System.out.println("BLUE COMAND");
             return Heading_type.BLUE_COMMAND;
         }
+       // System.out.println("____________________________");
         if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
         else return Heading_type.BLUE_COMMAND;
     }
@@ -76,7 +80,7 @@ public class IndexMath {
     }
 
     private void restartMath(float mathTime) {
-        System.out.println((int)mathTime/1000);
+       // System.out.println((int)mathTime/1000);
 //        System.out.println(ListPlayers.getRed_average().x == null);
 //        System.out.println(ListPlayers.getBlue_average().equals(null));
 //        System.out.println("00000000000000");

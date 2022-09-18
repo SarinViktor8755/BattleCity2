@@ -38,12 +38,15 @@ public class Controller {
 
     private boolean inTuchMove;
     private boolean attackButon;
+    private boolean voiceButton;
     private boolean chance;
+
 
     final private Image pointStick;
     final private Vector2 distance;
     private Vector2 temp_Point;
     private Image changingGoal;
+    private Image voiceB;
 
 
     private Label labelHP;
@@ -77,6 +80,7 @@ public class Controller {
         distance = new Vector2();
         inTuchMove = false;
         attackButon = false;
+        voiceButton = false;
         chance = false;
         this.directionMovement = new Vector2(0, 0);
         cam = new OrthographicCamera();
@@ -131,6 +135,8 @@ public class Controller {
         });
 
 
+
+
         final Image attacButton = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("ba"));
         attacButton.addListener(new InputListener() {
             @Override
@@ -168,6 +174,24 @@ public class Controller {
             }
         });
 
+        ////////////////////////////////////////// VOICE
+        voiceB = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("br"));
+        voiceB.setSize(90, 90);
+        voiceB.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                voiceButton = true;
+                // System.out.println("changingGoal");
+                return false;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                voiceButton = false;
+
+            }
+        });
+        ////////////////////////////////////////////////////////////////////////////////////
         stick.setSize(90, 90);
         stick.setPosition(0, 0);
 
@@ -176,6 +200,9 @@ public class Controller {
 
         changingGoal.setSize(55, 55);
         changingGoal.setPosition(sw - 100, 105);
+
+        voiceB.setSize(55, 55);
+        voiceB.setPosition(sw - 100, 170);
 
 
         Group gropuButton = new Group();
@@ -190,6 +217,7 @@ public class Controller {
         gropuButton.addActor(gropuStick);
         gropuButton.addActor(attacButton);
         gropuButton.addActor(changingGoal);
+        gropuButton.addActor(voiceB);
 ///////////////////
         // skinGame = gsp.getMainGame().assetManager.get("skin/metal-ui.json", Skin.class);
         labelHP = new Label("HP:", style);
@@ -343,5 +371,13 @@ public class Controller {
 
     public void setLive_score_blue(int i) {
         this.live_score_blue.setText(i);
+    }
+
+    public boolean isVoiceButton() {
+        return voiceButton;
+    }
+
+    public void setVoiceButton(boolean voiceButton) {
+        this.voiceButton = voiceButton;
     }
 }

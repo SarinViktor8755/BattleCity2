@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.AudioEngine.AudioEngine;
@@ -51,12 +52,15 @@ public class GamePlayScreen implements Screen {
 
     private TanksOther tanksOther;
 
+    ShaderProgram shader;
+
     public GamePlayScreen(MainGame mainGame) {
+        this.batch = new SpriteBatch();
         score_blue_command = 0; score_red_command = 0;
         live_blue_command = 0; live_red_command = 0;
         this.mainGame = mainGame;
 
-        this.batch = new SpriteBatch();
+
         this.timeInGame = 0;
         this.gameSpace = new GameSpace(this, mainGame);
         this.audioEngine = new AudioEngine(this);
@@ -84,6 +88,17 @@ public class GamePlayScreen implements Screen {
 //        }
         //getMainGame().getMainClient().getNetworkPacketStock().toSendMyNik();
         //get
+
+//        ShaderProgram.pedantic = false;
+//        shader = new ShaderProgram(Gdx.files.internal("shaders/default.vert"),
+//                (Gdx.files.internal("shaders/default.frag")));
+//        if (!shader.isCompiled()) {
+//            System.err.println(shader.getLog());
+//            System.exit(0);
+//        }
+
+
+//        batch.setShader(shader);
     }
 
     public GamePlayScreen() {

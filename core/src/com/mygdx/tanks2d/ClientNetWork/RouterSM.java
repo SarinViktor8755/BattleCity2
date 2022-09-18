@@ -113,7 +113,7 @@ public class RouterSM {
                 int id = mainGame.getMainClient().getClient().getID();
                 if (id == (int) sm.p1) {
                     System.out.println(sm);
-                    saveParametrsMtTank(sm);
+                    saveParametrsMyTank(sm);
                 } else {
                     OpponentsTanks opponentsTanks = mainGame.getGamePlayScreen().getTanksOther().getTankForID((int) sm.p1);
                     //    System.out.println(opponentsTanks);
@@ -151,11 +151,12 @@ public class RouterSM {
 
     }
 
-    private void saveParametrsMtTank(Network.StockMessOut sm) {
+    private void saveParametrsMyTank(Network.StockMessOut sm) {
         mainGame.getGamePlayScreen().getTank().setHp((int) sm.p3);
         //mainGame.getGamePlayScreen().getTank().set((int) sm.p4);
-        if (!mainGame.getGamePlayScreen().getTank().isLive())
+        if (!mainGame.getGamePlayScreen().getTank().isLive()) {
             mainGame.getGamePlayScreen().getAudioEngine().pley_lose_ad_sound();
             mainGame.getGamePlayScreen().getPc().addAnimationDeath(mainGame.getGamePlayScreen().getTank().getPosition().x, mainGame.getGamePlayScreen().getTank().getPosition().y);
-    }
+        }
+        }
 }

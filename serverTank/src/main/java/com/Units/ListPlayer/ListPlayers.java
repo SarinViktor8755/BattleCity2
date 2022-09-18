@@ -64,6 +64,7 @@ public class ListPlayers {
     public Player getPlayerForId(int id) { // почему то вызывается  иногда
         Player result = players.get(id);
         if (result == null)
+
             players.put(id, new Player(id, gameServer.getMainGame().getIndexMath().getCommand()));
         return players.get(id);
     }
@@ -491,7 +492,7 @@ public class ListPlayers {
 //
 //    }
     public void counting_games() { // подсчет всех видов играков;
-          if(MathUtils.randomBoolean(.8f)) return;
+          //if(MathUtils.randomBoolean(.8f)) return;
         size_live_player = 0;
         size_bot_player = 0;
         blue_size = 0;
