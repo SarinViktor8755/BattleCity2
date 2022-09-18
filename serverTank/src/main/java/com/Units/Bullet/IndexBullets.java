@@ -3,6 +3,7 @@ package main.java.com.Units.Bullet;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 
 import main.java.com.GameServer;
 import main.java.com.MainGame;
@@ -84,7 +85,7 @@ public class IndexBullets {
 
                 }
 
-                if(bullet.getTimeLife() > 1.5f)  delBullet(bullet,false); // конец жизни пули )))
+                if(bullet.getTimeLife() > Heading_type.SHOT_LIFETIME)  delBullet(bullet,false); // конец жизни пули )))
                 gameServer.send_PARAMETERS_MATH();
             }
           //  System.out.println("______________________"+ np);

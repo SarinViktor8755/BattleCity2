@@ -42,8 +42,8 @@ public class RouterMassege {
                 gameServer.lp.getPlayerForId(id_coonect).setTokken(sm.textM);
                 gameServer.lp.getPlayersTokken().put(sm.textM, id_coonect);
             }
-            System.out.println(gameServer.lp.getPlayersTokken()+ "  "+ gameServer.lp.getPlayersTokken().size());
-            System.out.println(gameServer.lp.getPlayers());
+//            System.out.println(gameServer.lp.getPlayersTokken()+ "  "+ gameServer.lp.getPlayersTokken().size());
+//            System.out.println(gameServer.lp.getPlayers());
 
             return;
         }

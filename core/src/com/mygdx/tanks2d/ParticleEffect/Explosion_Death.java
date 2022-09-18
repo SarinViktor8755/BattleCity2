@@ -3,6 +3,7 @@ package com.mygdx.tanks2d.ParticleEffect;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 
 public class Explosion_Death {
     private Vector2 position;

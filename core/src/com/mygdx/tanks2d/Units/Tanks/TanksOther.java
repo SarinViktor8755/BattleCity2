@@ -212,7 +212,7 @@ public class TanksOther { /// много танков )))
             gsp.pc.generatorSmoke(tank.getValue().hp, t.getPosition().x, t.getPosition().y);
             updateColor(t, Gdx.graphics.getDeltaTime());
 
-            if (t.getNikPlayer() != null) {
+            if (t.getNikPlayer() != null || t.getNikPlayer().equals(Heading_type.DEFULT_NAME)) {
                 textFont.draw(sb, t.getNikPlayer(), t.getPosition().x - t.getNikPlayer().length() * 4, t.getPosition().y + 50);
             } else
                 gsp.getMainGame().getMainClient().getNetworkPacketStock().toSendMyParPlayer(t.nomder);

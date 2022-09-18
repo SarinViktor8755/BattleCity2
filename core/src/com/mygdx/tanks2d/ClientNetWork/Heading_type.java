@@ -37,6 +37,9 @@ public class Heading_type {
     public static final int IN_MENU = -1;
     public static final int IN_GAME = -2;
 
+    public static final float SHOT_LIFETIME = 1.5f;
+    public static final String DEFULT_NAME = "no_name3812";
+
 
 
 }

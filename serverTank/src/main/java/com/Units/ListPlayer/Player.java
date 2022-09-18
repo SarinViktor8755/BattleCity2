@@ -23,7 +23,7 @@ public class Player {
         hp = -1;
         death = 1;
         this.command = command;
-        nikName = "tokken_123"; // от куда он берется - это не понятно
+        nikName = Heading_type.DEFULT_NAME; // от куда он берется - это не понятно
         pos = new Vector2(StatusPlayer.IN_MENU, StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
         body_rotation = new Vector2(1, 1);
         status = StatusPlayer.IN_MENU;
@@ -184,7 +184,7 @@ public class Player {
         //  if (status == Heading_type.DISCONECT_PLAYER) return false;
         if (pos.x == StatusPlayer.IN_MENU) return false;
         //  if (pos.x == StatusPlayer.IN_MENU) return false;
-        if (nikName.equals("tokken_123")) return false;
+        if (nikName.equals(Heading_type.DEFULT_NAME)) return false;
 
         return true;
     }
