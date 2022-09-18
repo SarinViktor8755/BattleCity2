@@ -504,7 +504,7 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
-
+            checking_empty_players(p); // проверка пустых игроков
             //  System.out.println("ID: " +p.getId()+"  "+p.getNikName() + "pos " + p.pos + "Status"+ p.status);
 
             if (p.id > -99) {
@@ -531,6 +531,14 @@ public class ListPlayers {
 
         this.team_difference = getRed_size() - getBlue_size();
         System.out.println(get_activ_player_bots() + "   " + getRed_size() + " " + getBlue_size());
+    }
+
+    private void checking_empty_players(Player p) {
+        if(p.getId() > -99) return;
+        if(p.nikName.equals(Heading_type.DEFULT_NAME)){
+            gameServer.send_DISCONECT_PLAYER(p.getId());
+            this.players.remove(p);
+        }
     }
 
     public int getSize_list_player_in_game() {

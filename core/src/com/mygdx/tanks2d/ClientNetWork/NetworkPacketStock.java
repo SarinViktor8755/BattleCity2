@@ -54,7 +54,7 @@ public class NetworkPacketStock {
         send_package_to_server(Heading_type.MY_NIK, 0, 0, 0, 0, NikName.getNikName());
     }
     public void toSendMyParPlayer(int idPlayer) { // запорс параметра игрока
-        if(MathUtils.randomBoolean(.0005f)) return;
+        if(MathUtils.randomBoolean()) return;
         Network.GivePlayerParameters givePlayerParameters = new Network.GivePlayerParameters();
         givePlayerParameters.nomerPlayer = idPlayer;
         givePlayerParameters.nik = NikName.getNikName();
