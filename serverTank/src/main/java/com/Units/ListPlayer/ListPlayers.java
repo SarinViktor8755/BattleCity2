@@ -452,7 +452,7 @@ public class ListPlayers {
         respaunPlayer();
         while (entries.hasNext()) {
             Player p = entries.next().getValue();
-            if (p.getId() < 1)
+            if (p.getId() < -99)
                 //  System.out.println(players + "@@@@@__" + players.size());
                 gameServer.getIndexBot().respaunBot(p);
 
