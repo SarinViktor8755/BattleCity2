@@ -88,7 +88,14 @@ public class Radspurens { //следы кратеры
             rt.life = false;
             rt.timer = -1;
         }
+    }
 
+    public void clearCrater() {// оичстит следы на карте
+        for (RadspurenTank rt : listCrater) {
+         //   if(MathUtils.randomBoolean()) continue;
+            rt.life = false;
+            rt.timer = -1;
+        }
     }
 
 

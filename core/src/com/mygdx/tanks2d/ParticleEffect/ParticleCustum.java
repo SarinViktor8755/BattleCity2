@@ -181,6 +181,8 @@ public class ParticleCustum {
 
     }
 
+
+
     public void addAnimationDeath(float x, float y) {
 
         this.addPasricalDeath(x, y);
