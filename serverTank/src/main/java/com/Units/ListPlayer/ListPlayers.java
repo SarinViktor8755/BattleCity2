@@ -63,10 +63,14 @@ public class ListPlayers {
 
     public Player getPlayerForId(int id) { // почему то вызывается  иногда
         Player result = players.get(id);
-        if (result == null)
-
+        if (result == null) {
+            if (id < -99) return null;
             players.put(id, new Player(id, gameServer.getMainGame().getIndexMath().getCommand()));
+
+
+        }
         return players.get(id);
+
     }
 
     public ConcurrentHashMap<String, Integer> getPlayersTokken() {
@@ -492,7 +496,7 @@ public class ListPlayers {
 //
 //    }
     public void counting_games() { // подсчет всех видов играков;
-          //if(MathUtils.randomBoolean(.8f)) return;
+        //if(MathUtils.randomBoolean(.8f)) return;
         size_live_player = 0;
         size_bot_player = 0;
         blue_size = 0;
@@ -534,8 +538,8 @@ public class ListPlayers {
     }
 
     private void checking_empty_players(Player p) {
-        if(p.getId() > -99) return;
-        if(p.nikName.equals(Heading_type.DEFULT_NAME)){
+        if (p.getId() > -99) return;
+        if (p.nikName.equals(Heading_type.DEFULT_NAME)) {
             gameServer.send_DISCONECT_PLAYER(p.getId());
             this.players.remove(p);
         }
