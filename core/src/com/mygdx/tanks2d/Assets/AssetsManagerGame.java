@@ -94,6 +94,7 @@ public class AssetsManagerGame {
         assets.put("fonts/font.fnt", BitmapFont.class);
 
         assets.put("bullet.png", Texture.class);
+        assets.put("microphone.png", Texture.class);
 
         assets.put("iron.png", Texture.class);
 

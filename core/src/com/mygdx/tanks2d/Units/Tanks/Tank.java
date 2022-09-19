@@ -314,6 +314,7 @@ public class Tank {
         Vector2 temp = position.cpy().sub(direction_tower.cpy().scl(-160));
         if (isLive())
             gsp.getCameraGame().moveFloatCameraToPoint(temp.x, temp.y, (int) 3.5); //камера перемещение
+
             // куда пееремещать
         else {
             gsp.getCameraGame().deathStatus(this);

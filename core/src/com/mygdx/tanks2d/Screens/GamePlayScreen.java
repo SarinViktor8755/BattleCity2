@@ -121,7 +121,6 @@ public class GamePlayScreen implements Screen {
     public void update() {
         mainGame.getMainClient().checkConnect(Heading_type.STATUS_GAME);
 
-
         disconect_protection();
 
         getMainGame().updateClien();

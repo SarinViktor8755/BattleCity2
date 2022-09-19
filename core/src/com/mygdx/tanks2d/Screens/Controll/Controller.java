@@ -50,14 +50,14 @@ public class Controller {
 
 
     private Label labelHP;
-
+    /////////////
     private Label score_red;
     private Label score_blue;
 
     private Label live_score_red;
     private Label live_score_blue;
     private Label my_frag;
-
+/////////////
     private BitmapFont font;
 
     private GamePlayScreen gamePlayScreen;
@@ -84,7 +84,10 @@ public class Controller {
         chance = false;
         this.directionMovement = new Vector2(0, 0);
         cam = new OrthographicCamera();
-        viewport = new FillViewport(MainGame.WHIDE_SCREEN, MainGame.HIDE_SCREEN, cam);
+
+        viewport = new FitViewport(MainGame.WHIDE_SCREEN, MainGame.HIDE_SCREEN, cam);
+
+
         stage = new Stage(viewport, gsp.getBatch());
         Gdx.input.setInputProcessor(stage);
         temp_Point = new Vector2(0, 0);
@@ -175,7 +178,7 @@ public class Controller {
         });
 
         ////////////////////////////////////////// VOICE
-        voiceB = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("br"));
+        voiceB = new Image((Texture) gsp.getMainGame().getAssetManager().get("microphone.png"));
         voiceB.setSize(90, 90);
         voiceB.addListener(new InputListener() {
             @Override
@@ -275,6 +278,7 @@ public class Controller {
 
         attacButton.setColor(1, 1, 1, .3f);
         changingGoal.setColor(1, 1, 1, .3f);
+        voiceB.setColor(1, 1, 1, .3f);
 
 
     }

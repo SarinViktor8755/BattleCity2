@@ -76,6 +76,9 @@ public class RouterSM {
             mainGame.getGamePlayScreen().getTank().setHp(100);
             mainGame.getGamePlayScreen().getTank().respownTank();
 
+            mainGame.getGamePlayScreen().getGameSpace().clear_map_particel();
+            //mainGame.getGamePlayScreen().getPc().
+
 
 
 

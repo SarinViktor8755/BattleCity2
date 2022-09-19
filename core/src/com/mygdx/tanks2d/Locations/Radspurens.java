@@ -80,6 +80,14 @@ public class Radspurens { //следы кратеры
         }
 
         sb.setColor(1,1,1,1);
+    }
+
+    public void clearRadspurens() {// оичстит следы на карте
+        for (RadspurenTank rt : listRadspurens) {
+            if(MathUtils.randomBoolean()) continue;
+            rt.life = false;
+            rt.timer = -1;
+        }
 
     }
 

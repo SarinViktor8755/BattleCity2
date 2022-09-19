@@ -30,7 +30,7 @@ public class CameraGame {
 
     public CameraGame(float HIDE_SCREEN, float WHIDE_SCREEN, int sm, int hl, int wl) {
         this.camera = new OrthographicCamera();
-        this.viewport = new FillViewport(HIDE_SCREEN * 3 , WHIDE_SCREEN * 3, camera);
+        this.viewport = new FillViewport(HIDE_SCREEN, WHIDE_SCREEN, camera);
       //  this.viewport = new FillViewport(HIDE_SCREEN, WHIDE_SCREEN, camera);
         floatCamera = false;
         targetPoint = new Vector2();
@@ -44,6 +44,15 @@ public class CameraGame {
         //// System.out.println("moveFloatCameraToPoint");
         this.camera.position.sub(this.camera.position.cpy().sub(targetPoint.x, targetPoint.y, 0).scl(Gdx.graphics.getDeltaTime() * speed));
         fixBounds();
+        integrationCamera();
+
+    }
+
+    private void integrationCamera(){
+        int xc,yc;
+        xc = (int) camera.position.x;
+        yc = (int) camera.position.y;
+        camera.position.set(xc,yc,1);
     }
 
     public void zoomCamera() {
@@ -61,6 +70,7 @@ public class CameraGame {
         } catch (NullPointerException e) {
             tank.getGsp().getCameraGame().createNewTargetDeathRhim(tank.getGsp().getTanksOther().getRandomPlayer());
         }
+        integrationCamera();
     }
 
     public void createNewTargetDeathRhim(OpponentsTanks ot) {

@@ -199,6 +199,10 @@ public class GameSpace {
     }
 
 
+    public void clear_map_particel(){
+        this.radspurens.clearRadspurens();
+    }
+
     public Vector2 getRasp1() {
         return rasp1;
     }
