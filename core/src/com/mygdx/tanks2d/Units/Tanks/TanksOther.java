@@ -234,10 +234,17 @@ public class TanksOther { /// много танков )))
         }
 
 //        System.out.println("_______________________________");
-//        System.out.println("  r: "  + r + "  b: "  + b );
-//        System.out.println("  rl: "  + rl + "  bl: "  + bl );
+//        System.out.println("  r: " + r + "  b: " + b);
+//        System.out.println("  rl: " + rl + "  bl: " + bl);
 //        System.out.println("_______________________________");
-        // gsp.getTank().isLive();
+//        gsp.getTank().isLive();
+//
+
+//        gsp.setScore_blue_command(b);
+//        gsp.setScore_blue_command(r);
+
+        gsp.setLive_red_command(rl);
+        gsp.setLive_blue_command(bl);
 
     }
 
