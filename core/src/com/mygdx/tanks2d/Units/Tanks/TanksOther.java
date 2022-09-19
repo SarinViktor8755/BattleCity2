@@ -1,5 +1,7 @@
 package com.mygdx.tanks2d.Units.Tanks;
 
+import static com.mygdx.tanks2d.Units.Tanks.Tank.getMy_Command;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -48,15 +50,16 @@ public class TanksOther { /// много танков )))
     public TanksOther(GamePlayScreen gsp) {
         this.gsp = gsp;
 
-        img = gsp.getMainGame().getAssetManager().get("tbb1.png");
-        img2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
+        img = gsp.getMainGame().getAssetManager().get("trb1.png");
+        img2 = gsp.getMainGame().getAssetManager().get("trb2.png");
 
-        img_1 = gsp.getMainGame().getAssetManager().get("tb.png");
+        img_1 = gsp.getMainGame().getAssetManager().get("tr.png");
+//////////////
+        imgB = gsp.getMainGame().getAssetManager().get("tbb1.png");
+        imgB2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
 
-        imgB = gsp.getMainGame().getAssetManager().get("trb1.png");
-        imgB2 = gsp.getMainGame().getAssetManager().get("trb2.png");
+        img_1B = gsp.getMainGame().getAssetManager().get("tb.png");
 
-        img_1B = gsp.getMainGame().getAssetManager().get("tr.png");
 
         textFont = new BitmapFont();
         textFont.setColor(Color.WHITE);
@@ -160,6 +163,7 @@ public class TanksOther { /// много танков )))
         return nomer;
     }
 
+
     public OpponentsTanks getRandomPlayer() {
         try {
             OpponentsTanks ot;
@@ -202,7 +206,43 @@ public class TanksOther { /// много танков )))
 
     }
 
+
+    public void count_living() { // посчитать живых играко и всего сколько
+        if (MathUtils.randomBoolean()) return;
+        OpponentsTanks t;
+        int r = 0;
+        int b = 0;
+
+        int rl = 0;
+        int bl = 0;
+        if (getMy_Command().equals(Heading_type.RED_COMMAND)) {
+            r++;
+            if (gsp.getTank().isLive()) rl++;
+        } else if (getMy_Command().equals(Heading_type.BLUE_COMMAND)) {
+            b++;
+            if (gsp.getTank().isLive()) bl++;
+        }
+        for (Map.Entry<Integer, OpponentsTanks> tank : this.listOpponents.entrySet()) {
+            t = tank.getValue();
+            if (t.getCommand().equals(Heading_type.RED_COMMAND)) {
+                r++;
+                if (t.isLive()) rl++;
+            } else if (t.getCommand().equals(Heading_type.BLUE_COMMAND)) {
+                b++;
+                if (t.isLive()) bl++;
+            }
+        }
+
+//        System.out.println("_______________________________");
+//        System.out.println("  r: "  + r + "  b: "  + b );
+//        System.out.println("  rl: "  + rl + "  bl: "  + bl );
+//        System.out.println("_______________________________");
+        // gsp.getTank().isLive();
+
+    }
+
     public void randerOtherTanks(SpriteBatch sb) {
+        count_living();
         OpponentsTanks t;
         //   System.out.println("--------");
         for (Map.Entry<Integer, OpponentsTanks> tank : this.listOpponents.entrySet()) {
@@ -214,10 +254,10 @@ public class TanksOther { /// много танков )))
 
 
 //////////////////////////////////////
-                if (t.getNikPlayer() != null) {
-                    textFont.draw(sb, t.getNikPlayer(), t.getPosition().x - t.getNikPlayer().length() * 4, t.getPosition().y + 50);
-                } else
-                    gsp.getMainGame().getMainClient().getNetworkPacketStock().toSendMyParPlayer(t.nomder);
+            if (t.getNikPlayer() != null) {
+                textFont.draw(sb, t.getNikPlayer(), t.getPosition().x - t.getNikPlayer().length() * 4, t.getPosition().y + 50);
+            } else
+                gsp.getMainGame().getMainClient().getNetworkPacketStock().toSendMyParPlayer(t.nomder);
 
 //////////////////////////////////////
 
@@ -388,6 +428,7 @@ public class TanksOther { /// много танков )))
 //    }
 
     public OpponentsTanks getTankForID(int id) {
+
         //// надо создать танк
         return this.listOpponents.get(id);
     }

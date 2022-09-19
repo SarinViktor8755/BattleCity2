@@ -62,15 +62,15 @@ public class Tank {
 ///////////////////////////////////////
 
 
-        img = gsp.getMainGame().getAssetManager().get("tbb1.png");
-        img2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
+        img = gsp.getMainGame().getAssetManager().get("trb1.png");
+        img2 = gsp.getMainGame().getAssetManager().get("trb2.png");
 
-        img_1 = gsp.getMainGame().getAssetManager().get("tb.png");
+        img_1 = gsp.getMainGame().getAssetManager().get("tr.png");
+//////////////
+        imgB = gsp.getMainGame().getAssetManager().get("tbb1.png");
+        imgB2 =  gsp.getMainGame().getAssetManager().get("tbb2.png");
 
-        imgB = gsp.getMainGame().getAssetManager().get("trb1.png");
-        imgB2 = gsp.getMainGame().getAssetManager().get("trb2.png");
-
-        img_1B = gsp.getMainGame().getAssetManager().get("tr.png");
+        img_1B = gsp.getMainGame().getAssetManager().get("tb.png");
 
         //target = new Texture(Gdx.files.internal("target.png"));
         target = gsp.getMainGame().assetManager.get("target.png", Texture.class);
