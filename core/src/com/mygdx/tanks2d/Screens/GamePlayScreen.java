@@ -139,6 +139,10 @@ public class GamePlayScreen implements Screen {
 //        if(MathUtils.randomBoolean(.5f)) mainGame.getMainClient().getNetworkPacketStock().toSendMyNik();
 
 
+
+        if(controller.isVoiceButton()){
+            mainGame.getMainClient().getVoiceChatClient().sendVoice(mainGame.getMainClient().getClient(),Gdx.graphics.getDeltaTime());
+        }
         if (controller.isChance()) {
             controller.setChance(false);
             if (tank.isLive()) {

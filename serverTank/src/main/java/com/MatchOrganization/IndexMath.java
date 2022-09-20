@@ -12,7 +12,7 @@ import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
 
 public class IndexMath {
-    private static final float SECONDS_MATH = 800;
+    private static final float SECONDS_MATH = 30;
     private static final float MATH_LENGHT = 1000 * SECONDS_MATH; // время матча
     private static float realTimeMath; // время матча
     private ListPlayers listPlayers; // копия листа
@@ -85,13 +85,18 @@ public class IndexMath {
 //        System.out.println(ListPlayers.getBlue_average().equals(null));
 //        System.out.println("00000000000000");
 
-    //    if(mathTime < 3000) return;
-        if ((listPlayers.getLive_blue_size() < 1) || (listPlayers.getLive_red_size() < 1))
-            respon_math();
-        if (mathTime > MATH_LENGHT) respon_math();
-      //  if (mathTime < MATH_LENGHT) return;
+        //    if(mathTime < 3000) return;
+//        if ((listPlayers.getLive_blue_size() < 1) || (listPlayers.getLive_red_size() < 1))
+//            respon_math();
+//        if (mathTime > MATH_LENGHT) respon_math();
+        //  if (mathTime < MATH_LENGHT) return;
+        if (mathTime < 3000) return;
+        if (mathTime < MATH_LENGHT) return;
+        if ((listPlayers.getLive_blue_size() > 0)) return;
+        if ((listPlayers.getLive_red_size() > 0)) return;
 
 
+        respon_math();
     }
 
     public void respon_math() {

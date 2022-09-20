@@ -40,11 +40,11 @@ public class MainClient {
 //        client.start();
 
 
-        new ClientThread(client);
+        new ClientThread(client,voiceChatClient);
         /////////////////VC
-        voiceChatClient = new VoiceChatClient(client.getKryo());
-        voiceChatClient.addReceiver(client);
-        voiceClient.addReceiver(client);
+//        voiceChatClient = new VoiceChatClient(client.getKryo());
+//        voiceChatClient.addReceiver(client);
+        //voiceClient.addReceiver(client);
 //////////////////
 
         // For consistency, the classes to be sent over the network are
@@ -177,5 +177,7 @@ public class MainClient {
         return result;
     }
 
-
+    public VoiceChatClient getVoiceChatClient() {
+        return voiceChatClient;
+    }
 }

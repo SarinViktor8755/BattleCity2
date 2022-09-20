@@ -200,6 +200,7 @@ public class GameSpace {
 
 
     public void clear_map_particel(){
+        if(MathUtils.randomBoolean()) return;
         this.radspurens.clearRadspurens();
         this.radspurens.clearCrater();
 
