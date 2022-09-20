@@ -56,8 +56,10 @@ public class GamePlayScreen implements Screen {
 
     public GamePlayScreen(MainGame mainGame) {
         this.batch = new SpriteBatch();
-        score_blue_command = 0; score_red_command = 0;
-        live_blue_command = 0; live_red_command = 0;
+        score_blue_command = 0;
+        score_red_command = 0;
+        live_blue_command = 0;
+        live_red_command = 0;
         this.mainGame = mainGame;
 
 
@@ -127,7 +129,7 @@ public class GamePlayScreen implements Screen {
 
         // кинуть на сервер мои координаты
         //if (!getTank().isLive())
-            ServiceClient.sendMuCoordinat(tank.getPosition().x, tank.getPosition().y, tank.getTr().getAnTower(), mainGame.getMainClient().getClient());
+        ServiceClient.sendMuCoordinat(tank.getPosition().x, tank.getPosition().y, tank.getTr().getAnTower(), mainGame.getMainClient().getClient());
 
         //////////    mainGame.getMainClient().getNetworkPacketStock();
 
@@ -139,8 +141,18 @@ public class GamePlayScreen implements Screen {
 
         if (controller.isChance()) {
             controller.setChance(false);
-            tank.getTr().changeTarget();
+            if (tank.isLive()) {
+                tank.getTr().changeTarget();
+            }else {
+                getCameraGame().createNewTargetDeathRhim(getTanksOther().getRandomPlayer());
+            }
+
+
         }
+
+
+        controller.setContollerOn(tank.isLive());
+
         timeInGame = timeInGame + Gdx.graphics.getDeltaTime(); // игрвовое время
         if (controller.isInTuchMove()) audioEngine.pleySoundOfTracks();
         else audioEngine.stopSoundOfTracks();
@@ -148,8 +160,8 @@ public class GamePlayScreen implements Screen {
     }
 
     private void disconect_protection() {
-        if(!mainGame.getMainClient().getClient().isConnected()){
-            if(MathUtils.randomBoolean(.005f)) {
+        if (!mainGame.getMainClient().getClient().isConnected()) {
+            if (MathUtils.randomBoolean(.005f)) {
                 try {
                     tanksOther.deathAllPlayers();
                     mainGame.getMainClient().getClient().reconnect(5000);
@@ -181,7 +193,7 @@ public class GamePlayScreen implements Screen {
     @Override
     public void render(float delta) {
 
-      //  System.out.println(MapsList.getMapForServer());
+        //  System.out.println(MapsList.getMapForServer());
 
         update();
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -193,7 +205,7 @@ public class GamePlayScreen implements Screen {
         this.cameraGame.getCamera().update();
         this.batch.begin();
         try {
-          //  System.out.println("rander");
+            //  System.out.println("rander");
 
             this.gameSpace.renderSpace((OrthographicCamera) cameraGame.getCamera());                //рендер пространство
             this.cameraGame.getCamera().update();
@@ -205,8 +217,8 @@ public class GamePlayScreen implements Screen {
             this.pc.randerGarbage(batch);
 
 
-                //this.tanksOther.updateOtherTank(mainGame.getMainClient().isOnLine()); /// обновление других танков с сервреа (позиция) или локальной зоны
-                this.tanksOther.randerOtherTanks(getBatch());      // визуализация других танков
+            //this.tanksOther.updateOtherTank(mainGame.getMainClient().isOnLine()); /// обновление других танков с сервреа (позиция) или локальной зоны
+            this.tanksOther.randerOtherTanks(getBatch());      // визуализация других танков
             this.tank.renderTank(controller.getDirectionMovement(), controller.isInTuchMove());     //рендер основного танка
 
 /////////////стрельба
@@ -326,12 +338,12 @@ public class GamePlayScreen implements Screen {
         Vector2 smooke = tank.getPosition().cpy().sub(tank.getDirection_tower().cpy().nor().scl(-30));
         if (controller.isAttackButon()) {
             if (!tank.redyToAttack()) return;
-                   //  System.out.println("startFlashForMainTank !! Generator new Buulet");
+            //  System.out.println("startFlashForMainTank !! Generator new Buulet");
             this.getMainGame().getMainClient().getNetworkPacketStock().toSendMyShot(smooke.x, smooke.y, tank.getDirection_tower().angleDeg());
         }
     }
 
-    public void sendMyCommand(int command){
+    public void sendMyCommand(int command) {
         this.getMainGame().getMainClient().getNetworkPacketStock().toSendMyCommand(command);
     }
 

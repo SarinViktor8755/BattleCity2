@@ -42,12 +42,14 @@ public class Controller {
     private boolean chance;
 
 
-    final private Image pointStick;
+
     final private Vector2 distance;
     private Vector2 temp_Point;
     private Image changingGoal;
     private Image voiceB;
-
+    final Image stick;
+    final Image attacButton;
+    final private Image pointStick;
 
     private Label labelHP;
     /////////////
@@ -57,7 +59,7 @@ public class Controller {
     private Label live_score_red;
     private Label live_score_blue;
     private Label my_frag;
-/////////////
+    /////////////
     private BitmapFont font;
 
     private GamePlayScreen gamePlayScreen;
@@ -65,6 +67,8 @@ public class Controller {
     private boolean buttonChangingOpponent;
 
     private int frag = 0;
+
+    private boolean contollerOn;
 
 
     Vector2 directionMovement; // Направление движения
@@ -86,6 +90,7 @@ public class Controller {
         cam = new OrthographicCamera();
 
         viewport = new FitViewport(MainGame.WHIDE_SCREEN, MainGame.HIDE_SCREEN, cam);
+        contollerOn = false;
 
 
         stage = new Stage(viewport, gsp.getBatch());
@@ -102,8 +107,10 @@ public class Controller {
         final float sw = MainGame.WHIDE_SCREEN;
         final float sh = MainGame.HIDE_SCREEN;
 
+        //System.out.println(Gdx.graphics.ge);
+
 /////////////////
-        final Image stick = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("b"));
+        stick = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("b"));
         pointStick = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("stick"));
 ////////////////
         // System.out.println(pointStick.getImageHeight()+ "  ==== ___ ");
@@ -121,26 +128,21 @@ public class Controller {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 inTuchMove = false;
                 resetPoint(pointStick);
-
             }
 
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 temp_Point.set(stick.getImageX() + stick.getImageWidth() / 2, stick.getImageY() + stick.getImageHeight() / 2);
                 temp_Point.sub(x, y).scl(-1).clamp(0, 35);
-                //System.out.println(temp_Point);
+
                 directionMovement.set(temp_Point);
-
                 pointStick.setPosition(temp_Point.x, temp_Point.y);
-
 
             }
         });
 
 
-
-
-        final Image attacButton = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("ba"));
+        attacButton = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("ba"));
         attacButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -165,8 +167,10 @@ public class Controller {
         changingGoal.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+
                 chance = true;
-                // System.out.println("changingGoal");
+                setChance(true);
+            //    System.out.println("changingGoal");
                 return false;
             }
 
@@ -261,7 +265,6 @@ public class Controller {
         stage.addActor(live_score_blue);
 
 
-
 //////////////////////////////////
         //   stage.setDebugAll(true);
 //        if(!MainGame.ANDROID)
@@ -291,7 +294,7 @@ public class Controller {
         return chance;
     }
 
-    public void addFrag(){
+    public void addFrag() {
         this.frag++;
     }
 
@@ -334,8 +337,25 @@ public class Controller {
         // labelHP = MathUtils.random(5,50);
         //labelHP.setText("HP: " + hp);
         //System.out.println(buttonChangingOpponent);
+       // changingGoal.setVisible(contollerOn);
+        voiceB.setVisible(contollerOn);
+        pointStick.setVisible(contollerOn);
+        attacButton.setVisible(contollerOn);
+        stick.setVisible(contollerOn);
+
+
+
+
+
+
+
         if (buttonChangingOpponent) changingGoal.setColor(1, 1, 1, .3f);
         else changingGoal.setColor(1, 0, 0, .1f);
+        if(!contollerOn) changingGoal.setColor(1,1,1,1);
+    }
+
+    public void setContollerOn(boolean contollerOn) {
+        this.contollerOn = contollerOn;
     }
 
     public void setButtonChangingOpponent(boolean buttonChangingOpponent) {
@@ -362,7 +382,6 @@ public class Controller {
     public Label getLive_score_red() {
         return live_score_red;
     }
-
 
 
     public Label getLive_score_blue() {

@@ -12,7 +12,7 @@ import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
 
 public class IndexMath {
-    private static final float SECONDS_MATH = 120;
+    private static final float SECONDS_MATH = 800;
     private static final float MATH_LENGHT = 1000 * SECONDS_MATH; // время матча
     private static float realTimeMath; // время матча
     private ListPlayers listPlayers; // копия листа
@@ -43,7 +43,7 @@ public class IndexMath {
             //System.out.println("BLUE COMAND");
             return Heading_type.BLUE_COMMAND;
         }
-       // System.out.println("____________________________");
+        // System.out.println("____________________________");
         if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
         else return Heading_type.BLUE_COMMAND;
     }
@@ -80,17 +80,21 @@ public class IndexMath {
     }
 
     private void restartMath(float mathTime) {
-       // System.out.println((int)mathTime/1000);
+        // System.out.println((int)mathTime/1000);
 //        System.out.println(ListPlayers.getRed_average().x == null);
 //        System.out.println(ListPlayers.getBlue_average().equals(null));
 //        System.out.println("00000000000000");
-        if (mathTime < MATH_LENGHT) return;
-        if ((listPlayers.getLive_blue_size() < 1) || (listPlayers.getLive_red_size() < 1)) respon_math();
-        if(mathTime > MATH_LENGHT)respon_math();
+
+    //    if(mathTime < 3000) return;
+        if ((listPlayers.getLive_blue_size() < 1) || (listPlayers.getLive_red_size() < 1))
+            respon_math();
+        if (mathTime > MATH_LENGHT) respon_math();
+      //  if (mathTime < MATH_LENGHT) return;
+
 
     }
 
-    public void respon_math(){
+    public void respon_math() {
         listPlayers.respownAllPlaers();
         realTimeMath = 0;
         System.out.println("RESTART MATH");

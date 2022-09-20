@@ -55,7 +55,7 @@ public class MenuScreen implements Screen {
     private Skin skinMenu;
 
     TextButton textButton;
-    TextButton singelGame;
+  //  TextButton singelGame;
 
     private boolean button_start_click;
 
@@ -97,9 +97,9 @@ public class MenuScreen implements Screen {
         textField.setPosition(20,250);
         textField.setText(NikName.getNikName());
 
-        statusConnetct = new Label("Connetct . . .",skinMenu);
+        statusConnetct = new Label("",skinMenu);
         statusConnetct.setPosition(350,170);
-        statusConnetct.setColor(Color.DARK_GRAY);
+       // statusConnetct.setColor(Color.DARK_GRAY);
         statusConnetct.setFontScale(.6f);
 
 //        singelGame = new Label("single player",skinMenu);
@@ -113,7 +113,7 @@ public class MenuScreen implements Screen {
     //    System.out.println(viewport.getRightGutterX());
 
         textButton = new TextButton("Play Game", skinMenu);
-        singelGame = new TextButton("Singel game", skinMenu);
+      //  singelGame = new TextButton("Singel game", skinMenu);
         ///System.out.println(textField.getText());
 
         textButton.setX(350);
@@ -184,31 +184,31 @@ public class MenuScreen implements Screen {
             }
         });
 
-        singelGame.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("touchDown");
+//        singelGame.addListener(new InputListener() {
+//            @Override
+//            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+//                System.out.println("touchDown");
+//
+//                return true;
+//            }
+//
+//            @Override
+//            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+//                System.out.println("touchUp");
+//                startgameSP = true;
+//                mainGame.assetsManagerGame.loadAllAsseGame();
+//                NikName.setNikName(textField.getText());
+//
+//            }
+//        });
 
-                return true;
-            }
 
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("touchUp");
-                startgameSP = true;
-                mainGame.assetsManagerGame.loadAllAsseGame();
-                NikName.setNikName(textField.getText());
-
-            }
-        });
-
-
-        singelGame.setX(350);
-        singelGame.setY(120);
+//        singelGame.setX(350);
+//        singelGame.setY(120);
 
         stageMenu.addActor(textButton);
         stageMenu.addActor(textField);
-        stageMenu.addActor(singelGame);
+      //  stageMenu.addActor(singelGame);
         stageMenu.addActor(statusConnetct);
 
         Gdx.input.setInputProcessor(stageMenu);
@@ -269,10 +269,11 @@ public class MenuScreen implements Screen {
 
             MainGame.nik_name = NikName.getNikName();
 
+            statusConnetct.setText("");
         } else {
             statusConnetct.setText("Server:disconnect");
             statusConnetct.setColor(Color.RED);
-            textButton.setText("Connect");
+           // textButton.setText("Connect");
         }
 
         if (startgameMP || startgameSP) {

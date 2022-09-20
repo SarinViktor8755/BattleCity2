@@ -312,14 +312,11 @@ public class Tank {
     public void getTargetCamera() {
         //directionMovementControll
         Vector2 temp = position.cpy().sub(direction_tower.cpy().scl(-160));
-        if (isLive())
+        if (isLive()) {
             gsp.getCameraGame().moveFloatCameraToPoint(temp.x, temp.y, (int) 3.5); //камера перемещение
-
             // куда пееремещать
-        else {
+        } else {
             gsp.getCameraGame().deathStatus(this);
-            if (MathUtils.randomBoolean(.004f))
-                gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
         }
 
 //        gsp.getGameSpace().getLighting().setPointL(position.x, position.y); //освещение перемещение
