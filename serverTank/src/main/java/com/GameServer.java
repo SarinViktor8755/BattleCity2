@@ -2,11 +2,13 @@ package main.java.com;
 
 import static com.mygdx.tanks2d.ClientNetWork.Network.register;
 
+import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.Network;
+import com.mygdx.tanks2d.ClientNetWork.VoiceChat.VoiceChatServer;
 
 
 import java.io.IOException;
@@ -24,20 +26,26 @@ public class GameServer {
     Server server;
     MainGame mainGame;
     IndexBot indexBot; // количество играков - по нему боты орентируюься сколько их нужно = для автобаласа
-
+    private VoiceChatServer relay;
 
     static long previousStepTime; // шаг для дельты
     public ListPlayers lp = new ListPlayers(this);
 
     public GameServer(String[] args, ServerLauncher serverLauncher) throws IOException {
-        server = new Server();
+        int bufferSize = 22050; // Recommened value.
+        server = new Server(bufferSize, bufferSize);
         register(server);
         server.bind(Network.tcpPort, Network.udpPort);
         server.start();
         previousStepTime = System.currentTimeMillis();
-
+///////////
+        relay = new VoiceChatServer(server.getKryo());
+///////////////
         mainGame = new MainGame(this, getSizeBot(args));
         server.addListener(new Listener() {
+
+
+
                                @Override
                                public void disconnected(Connection connection) {
                                    lp.getPlayerForId(connection.getID()).setStatus(Heading_type.DISCONECT_PLAYER);
@@ -56,6 +64,8 @@ public class GameServer {
                                @Override
                                public void received(Connection connection, Object object) {
 
+
+                                   relay.relayVoice(connection, object, server);
                                    ///      System.out.println(server.getConnections().length +"    -------------");
                                    if (object instanceof Network.PleyerPosition) {
 

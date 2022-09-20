@@ -2,6 +2,7 @@ package com.mygdx.tanks2d.ClientNetWork;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
@@ -24,7 +25,7 @@ public class MainClient {
     private int myIdConnect;
     private RouterSM routerSM;
 
-
+    private VoiceChatClient voiceChatClient;
     private NetworkPacketStock networkPacketStock;
     public TreeMap<Integer, Network.PleyerPositionNom> otherPlayer;
     public HashMap<Integer, Boolean> frameUpdates; //Обновления кадра для играков
@@ -34,13 +35,17 @@ public class MainClient {
         this.mg = mg;
         routerSM = new RouterSM(mg);
 
-
-        client = new Client();
+        int bufferSize = 22050; // Recommended value.
+        client = new Client(bufferSize, bufferSize);
 //        client.start();
 
 
         new ClientThread(client);
-
+        /////////////////VC
+        voiceChatClient = new VoiceChatClient(client.getKryo());
+        voiceChatClient.addReceiver(client);
+        voiceClient.addReceiver(client);
+//////////////////
 
         // For consistency, the classes to be sent over the network are
         // registered by the same method for both the client and server.
