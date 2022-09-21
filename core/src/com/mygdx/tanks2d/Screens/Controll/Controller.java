@@ -46,9 +46,10 @@ public class Controller {
     final private Vector2 distance;
     private Vector2 temp_Point;
     private Image changingGoal;
-    private Image voiceB;
+
     final Image stick;
     final Image attacButton;
+    final Image voiceButtonImg;
     final private Image pointStick;
 
     private Label labelHP;
@@ -86,6 +87,7 @@ public class Controller {
         attackButon = false;
         voiceButton = false;
         chance = false;
+
         this.directionMovement = new Vector2(0, 0);
         cam = new OrthographicCamera();
 
@@ -181,15 +183,13 @@ public class Controller {
             }
         });
 
-        ////////////////////////////////////////// VOICE
-        voiceB = new Image((Texture) gsp.getMainGame().getAssetManager().get("microphone.png"));
-        voiceB.setSize(90, 90);
-        voiceB.addListener(new InputListener() {
+        voiceButtonImg =  new Image((Texture) gsp.getMainGame().getAssetManager().get("microphone.png"));
+        voiceButtonImg.setSize(90, 90);
+        voiceButtonImg.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 voiceButton = true;
-                // System.out.println("changingGoal");
-                return false;
+                return true;
             }
 
             @Override
@@ -198,6 +198,29 @@ public class Controller {
 
             }
         });
+
+        /////////////////
+
+
+        ////////////////////////////////////////// VOICE
+//        voiceB = new Image((Texture) gsp.getMainGame().getAssetManager().get("microphone.png"));
+//        voiceB.setSize(90, 90);
+//        voiceB.addListener(new InputListener() {
+//            @Override
+//            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+//                voiceButton = true;
+//                setVoiceButton(true);
+//                // System.out.println("changingGoal");
+//                return false;
+//            }
+//
+//            @Override
+//            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+//                setVoiceButton(false);
+//                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//
+//            }
+//        });
         ////////////////////////////////////////////////////////////////////////////////////
         stick.setSize(90, 90);
         stick.setPosition(0, 0);
@@ -205,11 +228,13 @@ public class Controller {
         attacButton.setSize(55, 55);
         attacButton.setPosition(sw - 100, 40);
 
+        voiceButtonImg.setSize(55, 55);
+        voiceButtonImg.setPosition(sw - 100, 170);
+
         changingGoal.setSize(55, 55);
         changingGoal.setPosition(sw - 100, 105);
 
-        voiceB.setSize(55, 55);
-        voiceB.setPosition(sw - 100, 170);
+
 
 
         Group gropuButton = new Group();
@@ -223,8 +248,11 @@ public class Controller {
 
         gropuButton.addActor(gropuStick);
         gropuButton.addActor(attacButton);
+        gropuButton.addActor(voiceButtonImg);
+
         gropuButton.addActor(changingGoal);
-        gropuButton.addActor(voiceB);
+
+
 ///////////////////
         // skinGame = gsp.getMainGame().assetManager.get("skin/metal-ui.json", Skin.class);
         labelHP = new Label("HP:", style);
@@ -280,8 +308,10 @@ public class Controller {
         pointStick.setColor(1, 1, 1, .7f);
 
         attacButton.setColor(1, 1, 1, .3f);
+        voiceButtonImg.setColor(1, 1, 1, .3f);
+
         changingGoal.setColor(1, 1, 1, .3f);
-        voiceB.setColor(1, 1, 1, .3f);
+
 
 
     }
@@ -338,7 +368,9 @@ public class Controller {
         //labelHP.setText("HP: " + hp);
         //System.out.println(buttonChangingOpponent);
        // changingGoal.setVisible(contollerOn);
-        voiceB.setVisible(contollerOn);
+
+
+
         pointStick.setVisible(contollerOn);
         attacButton.setVisible(contollerOn);
         stick.setVisible(contollerOn);

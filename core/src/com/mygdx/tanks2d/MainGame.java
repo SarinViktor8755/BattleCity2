@@ -42,10 +42,11 @@ public class MainGame extends Game {
 	static public int status = STATUS_GAME_MENU;
 
 	public MainGame(int tip) {
+		mainClient = new MainClient(this);
 		assetManager = new AssetManager();
 		assetsManagerGame = new AssetsManagerGame(assetManager);
 
-		mainClient = new MainClient(this);
+
 
 		if (tip == 1) ANDROID = false;
 		else ANDROID = true;

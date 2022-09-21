@@ -1,7 +1,7 @@
 package com.mygdx.tanks2d.ClientNetWork;
 
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
+
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
@@ -9,7 +9,7 @@ import com.esotericsoftware.kryonet.Listener;
 import com.mygdx.tanks2d.ClientNetWork.VoiceChat.VoiceChatClient;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Units.Tanks.OpponentsTanks;
-import com.mygdx.tanks2d.Utils.VectorUtils;
+
 
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -25,6 +25,8 @@ public class MainClient {
     private int myIdConnect;
     private RouterSM routerSM;
 
+
+
     private VoiceChatClient voiceChatClient;
     private NetworkPacketStock networkPacketStock;
     public TreeMap<Integer, Network.PleyerPositionNom> otherPlayer;
@@ -35,21 +37,26 @@ public class MainClient {
         this.mg = mg;
         routerSM = new RouterSM(mg);
 
-        int bufferSize = 22050; // Recommended value.
-        client = new Client(bufferSize, bufferSize);
-//        client.start();
+        int bufferSize = 22050; // Recommened value.
 
+        client = new Client(bufferSize,bufferSize);
+        client.start();
 
-        new ClientThread(client,voiceChatClient);
+        // FrameworkMessage.Ping ping = new FrameworkMessage.Ping();
+        Network.register(client);
+
         /////////////////VC
-//        voiceChatClient = new VoiceChatClient(client.getKryo());
+        Kryo kryo = client.getKryo();
+//        voiceChatClient = new VoiceChatClient(kryo);
+//
+//        // Finally, allow the client to play audio recieved from the server.
 //        voiceChatClient.addReceiver(client);
-        //voiceClient.addReceiver(client);
+
+
+
+        new ClientThread(client);
 //////////////////
 
-        // For consistency, the classes to be sent over the network are
-        // registered by the same method for both the client and server.
-        Network.register(client);
 
         frameUpdates = new HashMap<Integer, Boolean>();
         try {
@@ -176,6 +183,7 @@ public class MainClient {
         }
         return result;
     }
+
 
     public VoiceChatClient getVoiceChatClient() {
         return voiceChatClient;
