@@ -16,7 +16,6 @@ public class MainGame {
     // IndexBot bot;
 
 
-
     public final long timer_tread_50 = 25; //ms поток таймер циклов , рассылвает координаты ботов ))
     public final long timer_tread_25 = 15; // таймер поведения ботов - 25
 
@@ -36,8 +35,13 @@ public class MainGame {
 
     }
 
+
     public IndexMath getIndexMath() {
         return indexMath;
+    }
+
+    public float getTimeMath() {
+        return getIndexMath().getTimeMath();
     }
 
     public IndexBullets getBullets() {
@@ -54,13 +58,11 @@ public class MainGame {
                         else Thread.sleep(450);
 
 
-
-
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
 
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
-             //           System.out.println("is_end_math : " + is_end_math());
+                        //           System.out.println("is_end_math : " + is_end_math());
                         gameServer.lp.counting_games();
                     }
                 } catch (Exception e) {
@@ -94,9 +96,9 @@ public class MainGame {
                         bullets.updateBulets(deltaTime);
                         gameServer.indexBot.updaeteBot(time);
 
-                 //      gameServer.lp.respaunPlayer();
+                        //      gameServer.lp.respaunPlayer();
 
-                       // gameServer.lp.re
+                        // gameServer.lp.re
 
 
                         // System.out.println("---");
@@ -112,6 +114,6 @@ public class MainGame {
         }).start();
     }
 
- ///если конец матча
+    ///если конец матча
 
 }

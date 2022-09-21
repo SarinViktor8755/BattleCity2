@@ -27,6 +27,10 @@ public class IndexMath {
         this.restartMath(this.realTimeMath);
     }
 
+    public float getTimeMath(){ // время оставшегося матча
+        return MATH_LENGHT - realTimeMath;
+    }
+
     private boolean is_end_math() {
         if (realTimeMath > MATH_LENGHT) return true;
         else return false;
