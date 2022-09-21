@@ -33,6 +33,8 @@ public class MainClient {
     public HashMap<Integer, Boolean> frameUpdates; //Обновления кадра для играков
 //    public ArrayDeque<PacketModel> inDequePacket; // входящие пакеты для обработки;
 
+    ClientThread clientThread;
+
     public MainClient(MainGame mg) {
         this.mg = mg;
         routerSM = new RouterSM(mg);
@@ -54,7 +56,7 @@ public class MainClient {
 
 
 
-        new ClientThread(client);
+        clientThread = new ClientThread(client);
 //////////////////
 
 
@@ -186,6 +188,6 @@ public class MainClient {
 
 
     public VoiceChatClient getVoiceChatClient() {
-        return voiceChatClient;
+        return this.clientThread.getVoiceChatClient();
     }
 }

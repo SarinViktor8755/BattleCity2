@@ -144,6 +144,7 @@ public class GamePlayScreen implements Screen {
         if(controller.isVoiceButton()){
             System.out.println("-------------");
             System.out.println(mainGame.getMainClient().getClient());
+            System.out.println(mainGame.getMainClient().getVoiceChatClient());
             mainGame.getMainClient().getVoiceChatClient().sendVoice(mainGame.getMainClient().getClient(),Gdx.graphics.getDeltaTime());
         }
 
