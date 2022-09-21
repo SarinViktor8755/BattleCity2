@@ -45,7 +45,7 @@ public class VoiceChatServer {
 		if(message instanceof VoiceNetData){
 			
 			server.sendToAllExceptUDP(connection.getID(), message);
-			
+			System.out.println("VOICE >>> " + connection.getID());
 			return true;
 		}else{
 			return false;
