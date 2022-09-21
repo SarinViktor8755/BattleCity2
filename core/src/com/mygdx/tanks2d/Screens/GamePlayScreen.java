@@ -156,8 +156,6 @@ public class GamePlayScreen implements Screen {
             }else {
                 getCameraGame().createNewTargetDeathRhim(getTanksOther().getRandomPlayer());
             }
-
-
         }
 
 

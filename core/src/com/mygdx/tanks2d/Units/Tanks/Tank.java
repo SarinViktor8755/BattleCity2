@@ -44,7 +44,9 @@ public class Tank {
     private int hp;
 
     private Vector2 point_respown_blue = new Vector2();
-    private Vector2 point_respown_red= new Vector2();
+    private Vector2 point_respown_red = new Vector2();
+
+
 
 //    private HashMap<Float, Integer> targetTreet; // цели - угол до цели - номер цели )))
 //    private int target_tank;
@@ -68,7 +70,7 @@ public class Tank {
         img_1 = gsp.getMainGame().getAssetManager().get("tr.png");
 //////////////
         imgB = gsp.getMainGame().getAssetManager().get("tbb1.png");
-        imgB2 =  gsp.getMainGame().getAssetManager().get("tbb2.png");
+        imgB2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
 
         img_1B = gsp.getMainGame().getAssetManager().get("tb.png");
 
@@ -88,18 +90,18 @@ public class Tank {
         targetCoordinat = new Vector2(0, 0);
         deltaSledVec.set(this.getPosition());
 
-      //  gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
+        //  gsp.getCameraGame().createNewTargetDeathRhim(gsp.getTanksOther().getRandomPlayer());
 
         this.point_respown_blue.set(gsp.getGameSpace().getRasp1());
         this.point_respown_red.set(gsp.getGameSpace().getRasp2());
 
     }
 
-    public void respownTank(){
+    public void respownTank() {
         hp = 100;
-        if(my_Command == Heading_type.BLUE_COMMAND) position.set(point_respown_blue);
-        if(my_Command == Heading_type.RED_COMMAND) position.set(point_respown_red);
-        position.set(position.x,position.y);
+        if (my_Command == Heading_type.BLUE_COMMAND) position.set(point_respown_blue);
+        if (my_Command == Heading_type.RED_COMMAND) position.set(point_respown_red);
+        position.set(position.x, position.y);
         gsp.getMainGame().getGamePlayScreen().getAudioEngine().pley_fight_ad_sound();
     }
 
@@ -178,12 +180,12 @@ public class Tank {
         collisinOtherTanksTrue();
 
 
-
         /////////////////////////////////////////////////////////
         replace_textures();
-      //  System.out.println(direction.len2());
+        //  System.out.println(direction.len2());
 ///////////////////
     }
+
 
     private void rotation_the_tower(Vector2 directionMovementControll) {
         if (raz > 10) // поворот башни
@@ -222,6 +224,7 @@ public class Tank {
     }
 
     private void upDateHpHud() {
+
         gsp.getController().setHPHeroTank(this.hp);
         gsp.getController().setBlueCommand(gsp.getScore_blue_command());
         gsp.getController().setRedCommand(gsp.getScore_red_command());
@@ -253,24 +256,24 @@ public class Tank {
         //  System.out.println("coommand: " + getMy_Command());
         //   if (MathUtils.randomBoolean(0.2f)) command = MathUtils.random(0, 3);
 
-            sb.draw(body,
-                    position.x - 20, position.y - 20,
-                    20, 20,
-                    40, 40,
-                    1, 1,
-                    direction.angleDeg() + 180,
-                    0, 0,
-                    img.getWidth(), img.getHeight(),
-                    true, false);
-            sb.draw(towers,
-                    position.x - 20, position.y - 20,
-                    20, 20,
-                    40, 40,
-                    1, 1,
-                    direction_tower.angleDeg() + 180,
-                    0, 0,
-                    img.getWidth(), img.getHeight(),
-                    false, false);
+        sb.draw(body,
+                position.x - 20, position.y - 20,
+                20, 20,
+                40, 40,
+                1, 1,
+                direction.angleDeg() + 180,
+                0, 0,
+                img.getWidth(), img.getHeight(),
+                true, false);
+        sb.draw(towers,
+                position.x - 20, position.y - 20,
+                20, 20,
+                40, 40,
+                1, 1,
+                direction_tower.angleDeg() + 180,
+                0, 0,
+                img.getWidth(), img.getHeight(),
+                false, false);
 
         // System.out.println(this.tr.getNomTarget());
 

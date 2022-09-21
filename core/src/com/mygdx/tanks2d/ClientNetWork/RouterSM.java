@@ -52,7 +52,7 @@ public class RouterSM {
             mainGame.getGamePlayScreen().setScore_blue_command((int) sm.p1);
             mainGame.getGamePlayScreen().setScore_red_command((int) sm.p2);
 
-//            mainGame.getGamePlayScreen().setLive_blue_command((int) sm.p3);  // переделать на время матча
+            mainGame.getGamePlayScreen().getController().setTime_in_game(sm.p3);  // переделать на время матча
 //            mainGame.getGamePlayScreen().setLive_red_command((int) sm.p4);
             return;
         }

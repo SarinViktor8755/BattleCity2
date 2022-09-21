@@ -74,13 +74,15 @@ public class Controller {
 
     Vector2 directionMovement; // Направление движения
 
+    private float time_in_game; // время в игре
+
     public boolean isInTuchMove() {
         return inTuchMove;
     }
 
     public Controller(GamePlayScreen gsp) {
         // gsp.getAssetManager().get("de.pack", TextureAtlas.class);
-
+        time_in_game = 500000;
 
         distance = new Vector2();
         inTuchMove = false;
@@ -370,13 +372,14 @@ public class Controller {
        // changingGoal.setVisible(contollerOn);
 
 
+        time_in_game-=Gdx.graphics.getDeltaTime();
+
+        System.out.println(time_in_game);
+
 
         pointStick.setVisible(contollerOn);
         attacButton.setVisible(contollerOn);
         stick.setVisible(contollerOn);
-
-
-
 
 
 
@@ -404,6 +407,10 @@ public class Controller {
         this.score_blue.setText(score);
 
         //if (hp < 30) labelHP.setColor(Color.FIREBRICK); else labelHP.setColor(Color.WHITE);
+    }
+
+    public void setTime_in_game(float time_in_game) {
+        this.time_in_game = time_in_game;
     }
 
     public void setRedCommand(int score) {
