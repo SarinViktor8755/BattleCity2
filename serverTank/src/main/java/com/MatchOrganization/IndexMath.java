@@ -28,7 +28,7 @@ public class IndexMath {
     }
 
     public float getTimeMath(){ // время оставшегося матча
-        return MATH_LENGHT - realTimeMath;
+        return realTimeMath;
     }
 
     private boolean is_end_math() {

@@ -372,7 +372,8 @@ public class Controller {
        // changingGoal.setVisible(contollerOn);
 
 
-        time_in_game-=Gdx.graphics.getDeltaTime();
+        time_in_game+=Gdx.graphics.getDeltaTime();
+        setBlueCommand((int)time_in_game);
 
         System.out.println(time_in_game);
 
