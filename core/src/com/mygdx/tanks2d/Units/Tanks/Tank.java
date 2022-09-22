@@ -46,6 +46,8 @@ public class Tank {
     private Vector2 point_respown_blue = new Vector2();
     private Vector2 point_respown_red = new Vector2();
 
+    private float time_life = 0;
+    private float g = 1;
 
 
 //    private HashMap<Float, Integer> targetTreet; // цели - угол до цели - номер цели )))
@@ -53,6 +55,8 @@ public class Tank {
 //    private Integer nomTarget;
 
     public Tank(GamePlayScreen gsp) {
+        time_life = 0;
+        g = 1;
         deltaSledVec = new Vector2();
         this.gsp = gsp;
         position = new Vector2(MathUtils.random(0, gsp.getGameSpace().WITH_LOCATION), MathUtils.random(0, gsp.getGameSpace().HEIHT_LOCATION));
@@ -99,6 +103,7 @@ public class Tank {
 
     public void respownTank() {
         hp = 100;
+        time_life = 0;
         if (my_Command == Heading_type.BLUE_COMMAND) position.set(point_respown_blue);
         if (my_Command == Heading_type.RED_COMMAND) position.set(point_respown_red);
         position.set(position.x, position.y);
@@ -121,7 +126,17 @@ public class Tank {
         return tr;
     }
 
+    private void flashing_tank(){
+        time_life += Gdx.graphics.getDeltaTime();
+        if(time_life < 3) g = MathUtils.sin(time_life * 28); else  g = 1;
+
+
+    }
+
     public void update(Vector2 directionMovementControll, boolean inTuch) {
+        flashing_tank();
+
+
         if (!isLive()) this.position.set(-1111, -1111);
         // if (MathUtils.randomBoolean(.005f)) hp = MathUtils.random(0, 80);
         // if(MathUtils.randomBoolean(.05f)) gsp.pc.addPasricalExplosionDeath(position.x, position.y);
@@ -226,8 +241,8 @@ public class Tank {
     private void upDateHpHud() {
 
         gsp.getController().setHPHeroTank(this.hp);
-        gsp.getController().setBlueCommand(gsp.getScore_blue_command());
-        gsp.getController().setRedCommand(gsp.getScore_red_command());
+//        gsp.getController().setBlueCommand(gsp.getScore_blue_command());
+//        gsp.getController().setRedCommand(gsp.getScore_red_command());
         //  System.out.println("blue "+ gsp.getScore_blue_command()+ " red "+ gsp.getScore_red_command());
         gsp.getController().setLive_score_blue(gsp.getLive_blue_command());
         gsp.getController().setLive_score_red(gsp.getLive_red_command());
@@ -256,6 +271,7 @@ public class Tank {
         //  System.out.println("coommand: " + getMy_Command());
         //   if (MathUtils.randomBoolean(0.2f)) command = MathUtils.random(0, 3);
 
+        sb.setColor(g + 1, g, 1, 1);
         sb.draw(body,
                 position.x - 20, position.y - 20,
                 20, 20,

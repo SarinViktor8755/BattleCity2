@@ -14,7 +14,7 @@ import com.mygdx.tanks2d.Units.Tanks.Tank;
 
 public class CameraGame {
 
-    OpponentsTanks targetCamera;
+    private OpponentsTanks targetCamera; // вроде это за кем следит __
 
 
     OrthographicCamera camera;
@@ -40,6 +40,7 @@ public class CameraGame {
     }
 
     public void moveFloatCameraToPoint(float x, float y, float speed) {
+
         this.targetPoint.set(x, y);
         //// System.out.println("moveFloatCameraToPoint");
         this.camera.position.sub(this.camera.position.cpy().sub(targetPoint.x, targetPoint.y, 0).scl(Gdx.graphics.getDeltaTime() * speed));
@@ -85,8 +86,11 @@ public class CameraGame {
 
     }
 
+    public void setTargetCamera(OpponentsTanks targetCamera) { // то та кем нужно следить
+        this.targetCamera = targetCamera;
+    }
 
-//    public void jampCameraToPoint(Vector2 toPoint, speed){
+    //    public void jampCameraToPoint(Vector2 toPoint, speed){
 //        //this.camera.position.set(x,y,0);
 //        this.camera.position.set(x,y,0);
 //        fixBounds();

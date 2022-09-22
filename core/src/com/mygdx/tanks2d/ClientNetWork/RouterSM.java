@@ -52,7 +52,7 @@ public class RouterSM {
             mainGame.getGamePlayScreen().setScore_blue_command((int) sm.p1);
             mainGame.getGamePlayScreen().setScore_red_command((int) sm.p2);
 
-            mainGame.getGamePlayScreen().getController().setTime_in_game(sm.p3);  // переделать на время матча
+            mainGame.getGamePlayScreen().getController().setTime_in_game(sm.p3 / 1000);  // переделать на время матча
 //            mainGame.getGamePlayScreen().setLive_red_command((int) sm.p4);
             return;
         }
@@ -75,8 +75,10 @@ public class RouterSM {
             /// ока сделаем что бы клиент сам определял место респауна, если что - поменяем на то что бы сервер определял ,
             mainGame.getGamePlayScreen().getTank().setHp(100);
             mainGame.getGamePlayScreen().getTank().respownTank();
+            mainGame.getGamePlayScreen().getController().setTime_in_game(0);
 
             mainGame.getGamePlayScreen().getGameSpace().clear_map_particel();
+
             //mainGame.getGamePlayScreen().getPc().
 
 
@@ -98,6 +100,10 @@ public class RouterSM {
                 //System.out.println(sm.p3 + "-------------");
                 Vector2 v = mainGame.getGamePlayScreen().getBullets().removeBullet((int) sm.p3);
                 v.rotateDeg(180);
+
+                if (mainGame.getGamePlayScreen().getTank().isLive())
+                mainGame.getGamePlayScreen().getCameraGame().setTargetCamera(mainGame.getGamePlayScreen().getTanksOther().getTankForID((int) sm.p4));
+
 
                 for (int i = 0; i < MathUtils.random(10, 30); i++) {
                     v.rotateDeg(MathUtils.random(-20, 20));

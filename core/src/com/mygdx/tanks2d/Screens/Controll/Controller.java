@@ -82,7 +82,7 @@ public class Controller {
 
     public Controller(GamePlayScreen gsp) {
         // gsp.getAssetManager().get("de.pack", TextureAtlas.class);
-        time_in_game = 500000;
+        time_in_game = 0;
 
         distance = new Vector2();
         inTuchMove = false;
@@ -373,9 +373,12 @@ public class Controller {
 
 
         time_in_game+=Gdx.graphics.getDeltaTime();
-        setBlueCommand((int)time_in_game);
+       // setBlueCommand(45 - (int) time_in_game);
+        score_blue.setText("TIME_MATH "+(45 - (int) time_in_game));
+   //     setBlueCommand((int) time_in_game);
+    //    System.out.println((time_in_game) + "  --");
 
-        System.out.println(time_in_game);
+
 
 
         pointStick.setVisible(contollerOn);
@@ -396,6 +399,10 @@ public class Controller {
 
     public void setButtonChangingOpponent(boolean buttonChangingOpponent) {
         this.buttonChangingOpponent = buttonChangingOpponent;
+    }
+
+    public float getTime_in_game() {
+        return time_in_game;
     }
 
     public void setHPHeroTank(int hp) {
