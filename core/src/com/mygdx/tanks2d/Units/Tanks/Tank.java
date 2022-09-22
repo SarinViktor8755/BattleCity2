@@ -146,10 +146,15 @@ public class Tank {
 
 ////////////////////////////////////
         // gsp.getGameSpace().getLighting().setLasetOn(false);
-        if (this.tr.getNomTarget() != null) {
-            targetCoordinat = gsp.getTanksOther().getTankForID(this.tr.getNomTarget()).getPosition();
-            gsp.getGameSpace().getLighting().setLasetOn(true);
+        try {
+            if (this.tr.getNomTarget() != null) {
+                targetCoordinat = gsp.getTanksOther().getTankForID(this.tr.getNomTarget()).getPosition();
+                gsp.getGameSpace().getLighting().setLasetOn(true);
+            }
+        }catch (NullPointerException e){
+            e.printStackTrace();
         }
+
 
 
 ///////////////////////////////////////
