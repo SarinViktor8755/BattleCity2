@@ -84,12 +84,17 @@ public class IndexMath {
     }
 
     private void restartMath(float mathTime) {
-
         if (mathTime < 3000) return;
-        if (mathTime > MATH_LENGHT) respon_math();
-        if ((listPlayers.getLive_blue_size() < 1)) respon_math();
-        if ((listPlayers.getLive_red_size() < 1)) respon_math();
-
+        if (mathTime > MATH_LENGHT) {
+            System.out.println("respown TIME");
+            respon_math();}
+        if ((listPlayers.getLive_blue_size() < 1))
+        {
+            System.out.println("respown blue");
+            respon_math();}
+        if ((listPlayers.getLive_red_size() < 1)){
+            System.out.println("respown red");
+            respon_math();}
 
     }
 

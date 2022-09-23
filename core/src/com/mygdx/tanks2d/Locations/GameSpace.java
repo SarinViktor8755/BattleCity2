@@ -41,7 +41,7 @@ public class GameSpace {
 
     ShapeRenderer shapeRenderer;
 
-     static String MAP_DESETRT;
+    public static String MAP_DESETRT;
     private TiledMapTileLayer decorations;
     private TiledMapTileLayer ground;
 
@@ -61,12 +61,11 @@ public class GameSpace {
     public void loadMap(String mapName) {
         radspurens = new Radspurens(gps.getAssetsManagerGame().get("sled.png", Texture.class), gps.getAssetsManagerGame().get("crater.png", Texture.class));
 
-
         float unitScale = 1f;
 
-
         //map = new TmxMapLoader().load(MAP_DESETRT);
-        map = gps.getAssetsManagerGame().get("map/" + mapName + "/index.tmx");
+        System.out.println(MAP_DESETRT + " ::::::::!!!");
+        map = gps.getAssetsManagerGame().get("map/" + MAP_DESETRT + "/index.tmx");
 
         rendererMap = new OrthogonalTiledMapRenderer(map, 1.0f, getGps().getBatch());
 

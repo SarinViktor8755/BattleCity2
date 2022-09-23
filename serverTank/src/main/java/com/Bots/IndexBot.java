@@ -189,6 +189,7 @@ public class IndexBot extends Thread {
                 // System.out.println("222");
             }
         } catch (NullPointerException e) {
+
             e.printStackTrace();
         }
     }

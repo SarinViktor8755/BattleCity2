@@ -218,6 +218,7 @@ public class GameServer {
         try {
             return Integer.valueOf(args[0]);
         } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
             return ListPlayers.DEFULT_COUNT_BOT;
         }
     }
@@ -263,6 +264,7 @@ public class GameServer {
         try {
             res = Integer.parseInt(par[0]);
         } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
         return res;
     }

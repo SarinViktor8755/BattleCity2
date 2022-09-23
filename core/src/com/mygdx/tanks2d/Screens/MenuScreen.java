@@ -20,12 +20,12 @@ import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
+import com.mygdx.tanks2d.Locations.GameSpace;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Units.NikName;
 import com.mygdx.tanks2d.Units.Tanks.Tank;
 
 import java.io.IOException;
-
 
 
 public class MenuScreen implements Screen {
@@ -55,7 +55,7 @@ public class MenuScreen implements Screen {
     private Skin skinMenu;
 
     TextButton textButton;
-  //  TextButton singelGame;
+    //  TextButton singelGame;
 
     private boolean button_start_click;
 
@@ -94,12 +94,12 @@ public class MenuScreen implements Screen {
         final TextField textField = new TextField(limit, skinMenu);
 
         textField.setMaxLength(20);
-        textField.setPosition(20,250);
+        textField.setPosition(20, 250);
         textField.setText(NikName.getNikName());
 
-        statusConnetct = new Label("",skinMenu);
-        statusConnetct.setPosition(350,170);
-       // statusConnetct.setColor(Color.DARK_GRAY);
+        statusConnetct = new Label("", skinMenu);
+        statusConnetct.setPosition(350, 170);
+        // statusConnetct.setColor(Color.DARK_GRAY);
         statusConnetct.setFontScale(.6f);
 
 //        singelGame = new Label("single player",skinMenu);
@@ -107,13 +107,13 @@ public class MenuScreen implements Screen {
 //        singelGame.setColor(Color.DARK_GRAY);
 //        singelGame.setFontScale(.6f);
 
-      //  textField.setFillParent(true);
+        //  textField.setFillParent(true);
 
 
-    //    System.out.println(viewport.getRightGutterX());
+        //    System.out.println(viewport.getRightGutterX());
 
         textButton = new TextButton("Play Game", skinMenu);
-      //  singelGame = new TextButton("Singel game", skinMenu);
+        //  singelGame = new TextButton("Singel game", skinMenu);
         ///System.out.println(textField.getText());
 
         textButton.setX(350);
@@ -130,14 +130,13 @@ public class MenuScreen implements Screen {
 //                    }
 //                }
 
-                if(!button_start_click) {
-                    if(!mainClient.getClient().isConnected()){
+                if (!button_start_click) {
+                    if (!mainClient.getClient().isConnected()) {
                         try {
                             mainClient.getClient().reconnect();
                         } catch (IOException e) {
                             e.printStackTrace();
-                        }
-                        finally {
+                        } finally {
                             return false;
                         }
                     }
@@ -145,7 +144,7 @@ public class MenuScreen implements Screen {
                     MainGame.nik_name = textField.getText();
 
 
-                 //   mainClient.getNetworkPacketStock().toSendButtonStartClick();
+                    //   mainClient.getNetworkPacketStock().toSendButtonStartClick();
                     button_start_click = true;
 
                     //mainGame.getMainClient().getNetworkPacketStock().toSendMyNik();
@@ -154,13 +153,14 @@ public class MenuScreen implements Screen {
                 startgameMP = true;
 
                 //System.out.println(textField.getText());
-                if(!mainClient.getClient().isConnected()) {
+                if (!mainClient.getClient().isConnected()) {
                     try {
                         mainClient.getClient().reconnect();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    return false;}
+                    return false;
+                }
                 mainGame.assetsManagerGame.loadAllAsseGame();
 
 
@@ -169,15 +169,15 @@ public class MenuScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(!mainGame.getMainClient().getClient().isConnected()) return;
+                if (!mainGame.getMainClient().getClient().isConnected()) return;
 
                 //System.out.println("StartGameDown");
-                if(!mainClient.getClient().isConnected()) return;
-                if(!button_start_click) {
-                  //  mainClient.getNetworkPacketStock().toSendButtonStartClick();
+                if (!mainClient.getClient().isConnected()) return;
+                if (!button_start_click) {
+                    //  mainClient.getNetworkPacketStock().toSendButtonStartClick();
                     button_start_click = true;
                 }
-                if(!mainClient.getClient().isConnected()) return;
+                if (!mainClient.getClient().isConnected()) return;
                 startgameMP = true;
 
 
@@ -208,7 +208,7 @@ public class MenuScreen implements Screen {
 
         stageMenu.addActor(textButton);
         stageMenu.addActor(textField);
-      //  stageMenu.addActor(singelGame);
+        //  stageMenu.addActor(singelGame);
         stageMenu.addActor(statusConnetct);
 
         Gdx.input.setInputProcessor(stageMenu);
@@ -235,9 +235,9 @@ public class MenuScreen implements Screen {
         //batch.draw(wallpaper1,0,0,camera.viewportWidth, camera.viewportHeight,1,2,(int)camera.viewportWidth,(int) camera.viewportHeight,false,false);
         //System.out.println((MathUtils.sin(timeInScreen) + 1)/2);
 
-            batch.setColor(1 - timerStartGame, 1 - timerStartGame, 1,1);
-            batch.draw(wallpaper1, viewport.getScreenX(), viewport.getScreenY() + ((MathUtils.sin(timeInScreen) + 1) / 2) * 20);
-            batch.setColor(1 - timerStartGame, 1 - timerStartGame, 1,1);
+        batch.setColor(1 - timerStartGame, 1 - timerStartGame, 1, 1);
+        batch.draw(wallpaper1, viewport.getScreenX(), viewport.getScreenY() + ((MathUtils.sin(timeInScreen) + 1) / 2) * 20);
+        batch.setColor(1 - timerStartGame, 1 - timerStartGame, 1, 1);
 
         batch.draw(wallpaper, viewport.getScreenX(), viewport.getScreenY() - ((Interpolation.bounce.apply((MathUtils.sin(timeInScreen) + 1) / 2) * 10)));
 
@@ -254,17 +254,17 @@ public class MenuScreen implements Screen {
     }
 
     private void upDateScreen() {
-       mainClient.checkConnect(Heading_type.IN_MENU); // проверяет на коннект переподключется
+        mainClient.checkConnect(Heading_type.IN_MENU); // проверяет на коннект переподключется
 
-       // System.out.println("!!!" + mainClient.getClient().isConnected() + " ___ isOnLine" + mainGame.getMainClient().isOnLine());
-       // mainGame.getMainClient().updateAlphaW();
+        // System.out.println("!!!" + mainClient.getClient().isConnected() + " ___ isOnLine" + mainGame.getMainClient().isOnLine());
+        // mainGame.getMainClient().updateAlphaW();
         mainGame.updateClien();
-       // statusConnetct.setText(mainClient.getClient().isConnected() +"");
+        // statusConnetct.setText(mainClient.getClient().isConnected() +"");
         this.timeInScreen = Gdx.graphics.getDeltaTime() + this.timeInScreen;
-        if(mainClient.getClient().isConnected()){
-         //   System.out.println(MathUtils.sin(Gdx.graphics.getDeltaTime()));
-           // statusConnetct.setText("Ping :" + mainClient.getPing());
-            statusConnetct.setColor(0,0,0,1);
+        if (mainClient.getClient().isConnected()) {
+            //   System.out.println(MathUtils.sin(Gdx.graphics.getDeltaTime()));
+            // statusConnetct.setText("Ping :" + mainClient.getPing());
+            statusConnetct.setColor(0, 0, 0, 1);
             textButton.setText("Play Game");
 
             MainGame.nik_name = NikName.getNikName();
@@ -273,7 +273,7 @@ public class MenuScreen implements Screen {
         } else {
             statusConnetct.setText("Server:disconnect");
             statusConnetct.setColor(Color.RED);
-           // textButton.setText("Connect");
+            // textButton.setText("Connect");
         }
 
         if (startgameMP || startgameSP) {
@@ -281,13 +281,19 @@ public class MenuScreen implements Screen {
         }
 
         if (timerStartGame > 1) {
-            if(startgameMP) mainGame.startGameMPley();
-            if(startgameSP) mainGame.startGameSPley();
+            if (GameSpace.MAP_DESETRT == null) {
+                mainGame.getMainClient().getNetworkPacketStock().toSendButtonStartClick();
+                timerStartGame = 0;
+                return;
+            }
+            if (startgameMP) mainGame.startGameMPley();
+            if (startgameSP) mainGame.startGameSPley();
+
 
         }
-       // System.out.println(timerStartGame);
+        // System.out.println(timerStartGame);
         // if (timeInScreen > 3.2f) mainGame.startGamePley();
-       // kefMashtab = Interpolation.bounceOut.apply(MathUtils.sin(timeInScreen) + 1);
+        // kefMashtab = Interpolation.bounceOut.apply(MathUtils.sin(timeInScreen) + 1);
         //    System.out.println(kefMashtab);
         //System.out.println(mainClient.getClient().isConnected());
     }
@@ -326,7 +332,6 @@ public class MenuScreen implements Screen {
     public void setStartgameSP(boolean startgame) {
         this.startgameSP = startgame;
     }
-
 
 
 }

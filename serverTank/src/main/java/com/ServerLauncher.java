@@ -43,7 +43,7 @@ public class ServerLauncher {
                 try {
                     Thread.sleep(10L);
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
             }
         }).start();

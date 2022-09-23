@@ -42,7 +42,12 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
 //
             ckeck_target(dbBot,p,lp);
         }
-        }catch (NullPointerException e){}
+        }catch (NullPointerException e){
+
+
+            e.printStackTrace();
+        }
+
        // System.out.println(dbBot.getNomTarget() + "@@" + p.getId());
 
     }
@@ -83,8 +88,12 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
     }
 
     private static boolean ckeck_target(DBBot dbBot, Player p, ListPlayers lp) { // проверка цели
+        try {
         if(!lp.getPlayerForId(dbBot.getNomTarget()).isLive())dbBot.setNomTarget(null);
         if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) dbBot.setNomTarget(null);
+        }catch (NullPointerException e){
+            System.out.println("NullPointerException  ckeck_target");
+        }
         return true;
     }
 

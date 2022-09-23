@@ -35,7 +35,7 @@ public class ListPlayers {
     private int blue_size;
     private int red_size;
     //живы игроки
-    private int size_live_player;
+    private int size_live_player; // оличество живых играков
     private int size_bot_player;
 
     private int team_difference;
@@ -175,7 +175,9 @@ public class ListPlayers {
             sm.tip = Heading_type.PARAMETERS_PLAYER;
             gameServer.getServer().sendToAllExceptTCP(aboutPlayerID, sm);
             gameServer.send_PARAMETERS_MATH();
+
         } catch (NullPointerException e) {
+            e.printStackTrace();
         }
     }
 
@@ -431,6 +433,7 @@ public class ListPlayers {
         try {
             return players.get(id).getCommand();
         } catch (NullPointerException e) {
+            e.printStackTrace();
             return 0;
         }
 
@@ -514,7 +517,7 @@ public class ListPlayers {
             if (p.id > -99) {
                 if (!p.in_game_player()) continue;
                 update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
-                size_live_player++; // количество жиых играков ___ реальных играков
+                if(p.getPosi().x != -10_000) size_live_player++; // количество жиых играков ___ реальных играков
 
 
             } else {
@@ -527,11 +530,11 @@ public class ListPlayers {
 
         }
 
-        System.out.println("_____________________________________________________");
-        System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
-        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
-        System.out.println("BLUE_LIVE " + live_blue_size_player + "  |      RED_LIVE " + live_red_size_player);
-        System.out.println("_____________________________________________________");
+//        System.out.println("_____________________________________________________");
+//        System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
+//        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
+//        System.out.println("BLUE_LIVE " + live_blue_size_player + "  |      RED_LIVE " + live_red_size_player);
+//        System.out.println("_____________________________________________________");
 
         this.team_difference = getRed_size() - getBlue_size();
         System.out.println(get_activ_player_bots() + "   " + getRed_size() + " " + getBlue_size());
