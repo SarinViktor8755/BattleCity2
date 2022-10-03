@@ -21,7 +21,7 @@ public class ListPlayers {
     private int size_list_player_in_game = 0;
 
     ConcurrentHashMap<Integer, Player> players;
-    ConcurrentHashMap<String, Integer> playersTokken; // tooken/ id
+    // ConcurrentHashMap<String, Integer> playersTokken; // tooken/ id
 
     GameServer gameServer;
     Network.PleyerPositionNom pn = new Network.PleyerPositionNom();
@@ -52,7 +52,7 @@ public class ListPlayers {
 
     public ListPlayers(GameServer gameServer) {
         this.players = new ConcurrentHashMap<>();
-        this.playersTokken = new ConcurrentHashMap<>();
+       // this.playersTokken = new ConcurrentHashMap<>();
         this.gameServer = gameServer;
 
         //  System.out.println("install_ListPlayers : " + GameServer.getDate());
@@ -73,24 +73,24 @@ public class ListPlayers {
 
     }
 
-    public ConcurrentHashMap<String, Integer> getPlayersTokken() {
-        return playersTokken;
-    }
-
-    public ConcurrentHashMap<Integer, Player> getPlayers() {
-        return players;
-    }
-
-    private boolean checkTokken(String tokken, int connct_id) { // проверяет был литакой токкен
-        playersTokken.put(tokken, connct_id);
-        Integer p = playersTokken.get(tokken);
-        if (p == null) {
-            playersTokken.put(tokken, connct_id);
-            return false;
-        } else {
-            return true;
-        }
-    }
+//    public ConcurrentHashMap<String, Integer> getPlayersTokken() {
+//        return playersTokken;
+//    }
+//
+//    public ConcurrentHashMap<Integer, Player> getPlayers() {
+//        return players;
+//    }
+//
+//    private boolean checkTokken(String tokken, int connct_id) { // проверяет был литакой токкен
+//        playersTokken.put(tokken, connct_id);
+//        Integer p = playersTokken.get(tokken);
+//        if (p == null) {
+//            playersTokken.put(tokken, connct_id);
+//            return false;
+//        } else {
+//            return true;
+//        }
+//    }
 
     public void addPlayer(int con) {
         update_the_average_coordinates_of_the_commands();
