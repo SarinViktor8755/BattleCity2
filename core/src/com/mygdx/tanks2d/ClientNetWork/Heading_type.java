@@ -40,6 +40,10 @@ public class Heading_type {
     public static final float SHOT_LIFETIME = 1.5f;
     public static final String DEFULT_NAME = "no_name3812";
 
+    public static final float PAUSE_GAME = 1f;
+    public static final float PLAY_GAME = 0f;
+
+
 
 
 }

@@ -4,7 +4,6 @@ ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
-MERGED from [com.android.support:multidex:1.0.2] C:\Users\viktor\.gradle\caches\transforms-3\5a4e8175b5c0b730e27760b847c93745\transformed\multidex-1.0.2\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:17:1-28:12
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:17:1-36:12
@@ -128,8 +127,6 @@ uses-sdk
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
-MERGED from [com.android.support:multidex:1.0.2] C:\Users\viktor\.gradle\caches\transforms-3\5a4e8175b5c0b730e27760b847c93745\transformed\multidex-1.0.2\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:multidex:1.0.2] C:\Users\viktor\.gradle\caches\transforms-3\5a4e8175b5c0b730e27760b847c93745\transformed\multidex-1.0.2\AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
 MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:20:5-44

@@ -21,10 +21,11 @@ public class IndexMath {
     private static int blue_team_score;
 
 
-    public void updateMath(float dt, ListPlayers listPlayers) {
+    public void updateMath(float dt, ListPlayers listPlayers, boolean pause_game) {
         this.realTimeMath += dt;
         this.listPlayers = listPlayers;
         this.restartMath(this.realTimeMath);
+        if(pause_game) System.out.println("PAUSE game");
     }
 
     public float getTimeMath() { // время оставшегося матча

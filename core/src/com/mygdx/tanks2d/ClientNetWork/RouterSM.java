@@ -59,10 +59,10 @@ public class RouterSM {
 
         if (Heading_type.PARAMETERS_MAP == sm.tip) { // сервер прислал карту матча ))
             System.out.println("MAP_!!! " + sm.textM);
+            System.out.println("pause_game ::" + sm.p1);
             GameSpace.setMapDesetrt(sm.textM);
             mainGame.getGamePlayScreen().getGameSpace().MAP_DESETRT = sm.textM;
             mainGame.getGamePlayScreen().getGameSpace().loadMap(sm.textM);
-
 
             return;
         }

@@ -15,6 +15,8 @@ public class MainGame {
     IndexMath indexMath;
     // IndexBot bot;
 
+    public boolean pause_game;
+
 
     public final long timer_tread_50 = 25; //ms поток таймер циклов , рассылвает координаты ботов ))
     public final long timer_tread_25 = 15; // таймер поведения ботов - 25
@@ -29,7 +31,7 @@ public class MainGame {
         this.mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
         startSecondaryThread_50();
         startSecondaryThread_25();
-
+        pause_game = true;
         indexMath = new IndexMath();
 
 
@@ -56,6 +58,7 @@ public class MainGame {
                     while (true) {
                         if (gameServer.isServerLivePlayer()) Thread.sleep(timer_tread_50);
                         else Thread.sleep(450);
+                        System.out.println("50");
 
 
 //                        поток 50 можно остоновить при отсутвии игрков
@@ -86,12 +89,13 @@ public class MainGame {
                         if (gameServer.isServerLivePlayer()) Thread.sleep(timer_tread_25);
                         else Thread.sleep(timer_tread_50);
 
+                        System.out.println("25");
 
                         long deltaTime = GameServer.getDeltaTime();
-                        indexMath.updateMath(deltaTime, gameServer.lp); // время матча
+                        indexMath.updateMath(deltaTime, gameServer.lp,pause_game); // время матча
 
                         //     System.out.print("+");
-
+                        if(pause_game) continue;
                         float time = (float) (deltaTime * .001);
                         bullets.updateBulets(deltaTime);
                         gameServer.indexBot.updaeteBot(time);
