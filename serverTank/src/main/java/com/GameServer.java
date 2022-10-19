@@ -45,11 +45,10 @@ public class GameServer {
         server.addListener(new Listener() {
 
 
-
                                @Override
                                public void disconnected(Connection connection) {
                                    lp.getPlayerForId(connection.getID()).setStatus(Heading_type.DISCONECT_PLAYER);
-                                   lp.getPlayerForId(connection.getID()).setPosition(-10000,-10000);
+                                   lp.getPlayerForId(connection.getID()).setPosition(-10000, -10000);
                                    send_DISCONECT_PLAYER(connection.getID());
                                }
 
@@ -150,7 +149,7 @@ public class GameServer {
         stockMessOut.p3 = getMainGame().getTimeMath(); // осталось времени в матче
         //stockMessOut.p4 = lp.getLive_blue_size_player(); // ОСТАЛОСЬ ЖИВЫХ КРАСНЫХ
         //ПЕРЕНЕСТИ В ПАКЕТ МАТЧА
-       // stockMessOut.p3 = IndexMath.getRealTimeMath(); // вернуьт ревльное время матча
+        // stockMessOut.p3 = IndexMath.getRealTimeMath(); // вернуьт ревльное время матча
 
 //        stockMessOut.p4 = IndexMath.getRealTimeMath(); // ОСТАЛОСЬ ЖИВЫХ СИНИХ
 //        stockMessOut.p3 = IndexMath.getRealTimeMath(); // ОСТАЛОСЬ ЖИВЫХ КРАСНЫХ
@@ -164,7 +163,7 @@ public class GameServer {
 
     public void send_PARAMETERS_PLAYER(Player p) { // для всех рассылк апараметров
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
-        if(p.getStatus()== Heading_type.DISCONECT_PLAYER){
+        if (p.getStatus() == Heading_type.DISCONECT_PLAYER) {
             send_DISCONECT_PLAYER(p.getId());
             return;
         }
@@ -187,8 +186,10 @@ public class GameServer {
     public void send_MAP_PARAMETOR(int id) { // сообщить название карты для одного
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
+        if (mainGame.pause_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
+        else stockMessOut.p1 = Heading_type.PLAY_GAME;
         stockMessOut.textM = mainGame.mapSpace.getMap_math();
-        if(mainGame.pause_game) stockMessOut.p1 = Heading_type.PAUSE_GAME; else stockMessOut.p1 = Heading_type.PLAY_GAME;
+
         this.server.sendToTCP(id, stockMessOut);
         System.out.println("!!!!!!!!!!MAP:::");
     }
@@ -232,7 +233,7 @@ public class GameServer {
     }
 
     public boolean isServerLivePlayer() {
-       // System.out.println(server.getConnections().length > 0);
+        // System.out.println(server.getConnections().length > 0);
 
         if (server.getConnections().length > 0) return true;
         else return false;
@@ -242,7 +243,7 @@ public class GameServer {
 
 
         return 1;
-       // return server.getConnections().length;
+        // return server.getConnections().length;
     }
 
     public IndexBot getIndexBot() {
