@@ -79,6 +79,9 @@ public class MenuScreen implements Screen {
         viewport.apply();
         camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
         camera.update();
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
+        camera.update();
+
         mainClient = mainGame.getMainClient();
         stageMenu = new Stage(viewport);
 

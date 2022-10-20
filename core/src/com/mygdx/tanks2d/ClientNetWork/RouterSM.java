@@ -64,6 +64,7 @@ public class RouterSM {
 
             if(sm.p1 == Heading_type.PAUSE_GAME){
                 System.out.println("_____PAUSE_GAME______");
+                mainGame.startPauseScreen();
             }
 
             mainGame.getGamePlayScreen().getGameSpace().MAP_DESETRT = sm.textM;
