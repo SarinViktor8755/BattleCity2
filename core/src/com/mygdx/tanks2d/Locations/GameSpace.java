@@ -192,6 +192,8 @@ public class GameSpace {
     }
 
     public boolean inPointLocation(float x, float y) {
+        System.out.println(WITH_LOCATION);
+        System.out.println(HEIHT_LOCATION);
         if ((x < 0) || (y < 0)) return false;
         if ((x > WITH_LOCATION) || (y > HEIHT_LOCATION)) return false;
         return true;
@@ -202,7 +204,6 @@ public class GameSpace {
         if(MathUtils.randomBoolean()) return;
         this.radspurens.clearRadspurens();
         this.radspurens.clearCrater();
-
     }
 
 

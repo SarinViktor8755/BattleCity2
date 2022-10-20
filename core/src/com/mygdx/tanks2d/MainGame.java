@@ -86,9 +86,18 @@ public class MainGame extends Game {
 
     public void startPauseScreen() {
        // assetsManagerGame.loadAllAsseGame();
+        this.setScreen(null);
         this.pauseScreen = new PauseScreen(this);
         this.setScreen(pauseScreen);
         MainGame.status = STATUS_GAME_PAUSE;
+
+    }
+
+    public void goGameForPause() { // выход из паузы в игру 
+        // assetsManagerGame.loadAllAsseGame();
+//        this.pauseScreen = new PauseScreen(this);
+//        this.setScreen(pauseScreen);
+//        MainGame.status = STATUS_GAME_PAUSE;
 
     }
 
