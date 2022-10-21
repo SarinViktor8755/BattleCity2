@@ -180,14 +180,22 @@ public class GameServer {
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
         //stockMessOut.p1 = IndexMath.;
+
+        if (mainGame.pause_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
+        else stockMessOut.p1 = Heading_type.PLAY_GAME;
+
         this.server.sendToAllTCP(stockMessOut);
+
+
     }
 
     public void send_MAP_PARAMETOR(int id) { // сообщить название карты для одного
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
+
         if (mainGame.pause_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
         else stockMessOut.p1 = Heading_type.PLAY_GAME;
+
         stockMessOut.textM = mainGame.mapSpace.getMap_math();
 
         this.server.sendToTCP(id, stockMessOut);

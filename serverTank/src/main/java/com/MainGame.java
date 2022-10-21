@@ -99,7 +99,10 @@ public class MainGame {
                       //  pause_game = Service.invertBooleanRandom(pause_game,.005f);
                       //  System.out.println("-------------");
                         System.out.println(pause_game);
-                         if(MathUtils.randomBoolean(.01f)) pause_game = Service.invertBoolean(pause_game);
+                         if(MathUtils.randomBoolean(.01f)) {
+                             pause_game = Service.invertBoolean(pause_game);
+                             gameServer.send_MAP_PARAMETOR();
+                         }
                       //  System.out.println(pause_game);
 
                         if(pause_game) continue;

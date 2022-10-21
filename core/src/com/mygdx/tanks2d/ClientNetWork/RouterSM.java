@@ -61,12 +61,15 @@ public class RouterSM {
             System.out.println("MAP_!!! " + sm.textM + "    pause_game ::" + sm.p1);
 
             GameSpace.setMapDesetrt(sm.textM);
-
-            if(sm.p1 == Heading_type.PAUSE_GAME){
-                System.out.println("_____PAUSE_GAME______");
+////////////////////////////////////////////
+            if (sm.p1 == Heading_type.PAUSE_GAME) {
                 mainGame.startPauseScreen();
+            } else {
+                if (sm.p1 == Heading_type.PLAY_GAME) mainGame.startPauseScreen();
+                mainGame.goGameForPause();
             }
 
+///////////////////////////////////////////
             mainGame.getGamePlayScreen().getGameSpace().MAP_DESETRT = sm.textM;
             mainGame.getGamePlayScreen().getGameSpace().loadMap(sm.textM);
 
@@ -89,8 +92,6 @@ public class RouterSM {
             //mainGame.getGamePlayScreen().getPc().
 
 
-
-
             // mainGame.getGamePlayScreen().getTank().getPosition().set(sm.p1,sm.p2);
 
 
@@ -109,7 +110,7 @@ public class RouterSM {
                 v.rotateDeg(180);
 
                 if (mainGame.getGamePlayScreen().getTank().isLive())
-                mainGame.getGamePlayScreen().getCameraGame().setTargetCamera(mainGame.getGamePlayScreen().getTanksOther().getTankForID((int) sm.p4));
+                    mainGame.getGamePlayScreen().getCameraGame().setTargetCamera(mainGame.getGamePlayScreen().getTanksOther().getTankForID((int) sm.p4));
 
 
                 for (int i = 0; i < MathUtils.random(10, 30); i++) {
@@ -174,5 +175,5 @@ public class RouterSM {
             mainGame.getGamePlayScreen().getAudioEngine().pley_lose_ad_sound();
             mainGame.getGamePlayScreen().getPc().addAnimationDeath(mainGame.getGamePlayScreen().getTank().getPosition().x, mainGame.getGamePlayScreen().getTank().getPosition().y);
         }
-        }
+    }
 }

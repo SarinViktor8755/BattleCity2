@@ -27,7 +27,7 @@ public class PauseScreen implements Screen {
 
     public PauseScreen(MainGame mainGame) {
         System.out.println("PAUSE ");
-        this.batch = new SpriteBatch();
+      //  this.batch = new SpriteBatch();
         this.mainGame = mainGame;
 
         viewport = new StretchViewport(MainGame.WHIDE_SCREEN, MainGame.HIDE_SCREEN, camera);
@@ -39,7 +39,7 @@ public class PauseScreen implements Screen {
       //  Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
         //puseTextLabel = new Label("PAUSE_GAME",style);
 
-        font = new BitmapFont(); //or use alex answer to use custom font
+        //font = new BitmapFont(); //or use alex answer to use custom font
     }
 
 
@@ -53,12 +53,12 @@ public class PauseScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 1, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.begin();
-
-        font.draw(batch, "Hello World!", 10, 10);
-        batch.end();
+//        batch.begin();
+//
+//        font.draw(batch, "Hello World!", 10, 10);
+//        batch.end();
 
       //  puseTextLabel.draw(this.batch,1);
 
