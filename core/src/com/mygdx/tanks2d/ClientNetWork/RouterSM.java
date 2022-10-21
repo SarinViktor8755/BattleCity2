@@ -62,11 +62,16 @@ public class RouterSM {
 
             GameSpace.setMapDesetrt(sm.textM);
 ////////////////////////////////////////////
-            if (sm.p1 == Heading_type.PAUSE_GAME) {
+            if (sm.p1 == Heading_type.PAUSE_GAME && MainGame.status!= MainGame.STATUS_GAME_MENU) {
                 mainGame.startPauseScreen();
+                MainGame.status = MainGame.STATUS_GAME_PAUSE;
+
             } else {
                 if (sm.p1 == Heading_type.PLAY_GAME) mainGame.startPauseScreen();
-                mainGame.goGameForPause();
+                {
+                    mainGame.goGameForPause();
+                    MainGame.status = MainGame.STATUS_GAME_GAMEPLAY;
+                }
             }
 
 ///////////////////////////////////////////
