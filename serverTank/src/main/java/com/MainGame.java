@@ -31,7 +31,7 @@ public class MainGame {
         this.mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
         startSecondaryThread_50();
         startSecondaryThread_25();
-        pause_game = true;
+        pause_game = false;
         indexMath = new IndexMath();
 
 
@@ -89,13 +89,23 @@ public class MainGame {
                         if (gameServer.isServerLivePlayer()) Thread.sleep(timer_tread_25);
                         else Thread.sleep(timer_tread_50);
 
-                        System.out.println("25");
+                      //  System.out.println("25");
 
                         long deltaTime = GameServer.getDeltaTime();
                         indexMath.updateMath(deltaTime, gameServer.lp,pause_game); // время матча
 
                         //     System.out.print("+");
+
+                      //  pause_game = Service.invertBooleanRandom(pause_game,.005f);
+                      //  System.out.println("-------------");
+                        System.out.println(pause_game);
+                         if(MathUtils.randomBoolean(.01f)) pause_game = Service.invertBoolean(pause_game);
+                      //  System.out.println(pause_game);
+
                         if(pause_game) continue;
+                       // System.out.println("-----");
+
+
                         float time = (float) (deltaTime * .001);
                         bullets.updateBulets(deltaTime);
                         gameServer.indexBot.updaeteBot(time);

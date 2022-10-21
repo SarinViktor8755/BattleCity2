@@ -25,7 +25,7 @@ public class IndexMath {
         this.realTimeMath += dt;
         this.listPlayers = listPlayers;
         this.restartMath(this.realTimeMath);
-        if(pause_game) System.out.println("PAUSE game");
+     //   if(pause_game) System.out.println("PAUSE game");
     }
 
     public float getTimeMath() { // время оставшегося матча
