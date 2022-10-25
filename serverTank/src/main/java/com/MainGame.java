@@ -58,12 +58,10 @@ public class MainGame {
                     while (true) {
                         if (gameServer.isServerLivePlayer()) Thread.sleep(timer_tread_50);
                         else Thread.sleep(450);
-                        System.out.println("50");
-
+                       // System.out.println("50");
 
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
-
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
                         //           System.out.println("is_end_math : " + is_end_math());
                         gameServer.lp.counting_games();
@@ -94,18 +92,21 @@ public class MainGame {
                         long deltaTime = GameServer.getDeltaTime();
                         indexMath.updateMath(deltaTime, gameServer.lp,pause_game); // время матча
 
-                        //     System.out.print("+");
 
-                      //  pause_game = Service.invertBooleanRandom(pause_game,.005f);
+                       // pause_game = Service.invertBooleanRandom(pause_game,.005f);
                       //  System.out.println("-------------");
-                        System.out.println(pause_game);
+
+                   //     System.out.println(pause_game);
                          if(MathUtils.randomBoolean(.01f)) {
                              pause_game = Service.invertBoolean(pause_game);
                              gameServer.send_MAP_PARAMETOR();
+                           //  System.out.println(pause_game);
                          }
-                      //  System.out.println(pause_game);
+//                      //  System.out.println(pause_game);
+//
+//                        if(pause_game) continue;
 
-                        if(pause_game) continue;
+
                        // System.out.println("-----");
 
 
