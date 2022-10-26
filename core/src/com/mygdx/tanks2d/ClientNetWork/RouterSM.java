@@ -66,10 +66,17 @@ public class RouterSM {
             RouterSM.map_math = sm.textM;
             mainGame.getGamePlayScreen().getGameSpace().loadMap();
 
-            mainMenuParametors(sm.p1);
-            MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
+            //mainMenuParametors(sm.p1);
+           // MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
             return;
         }
+
+        if (Heading_type.CHANGE_THE_SCREEN == sm.tip){
+            System.out.println("=+++++++++++++  " + sm.p1);
+            if(sm.p1 == Heading_type.PAUSE_GAME) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
+            if(sm.p1 == Heading_type.PLAY_GAME) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_GAMEPLAY);
+        }
+
 
         if (Heading_type.RESPOWN_TANK_PLAYER == sm.tip) { // сервер прислал оманду на респун
 //            System.out.println("RESPOWN_TANK_PLAYER!!! " + sm.p1);

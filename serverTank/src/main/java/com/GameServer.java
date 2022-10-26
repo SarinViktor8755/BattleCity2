@@ -141,6 +141,13 @@ public class GameServer {
         this.server.sendToTCP(id, stockMessOut);
     }
 
+    public void send_Chang_screen(boolean pause) {
+        Network.StockMessOut stockMessOut = new Network.StockMessOut();
+        stockMessOut.tip = Heading_type.CHANGE_THE_SCREEN;
+        if(pause)stockMessOut.p1 = Heading_type.PAUSE_GAME; else stockMessOut.p1 = Heading_type.PLAY_GAME;
+        this.server.sendToAllTCP(stockMessOut);
+    }
+
     public void send_PARAMETERS_PLAYER(Player p, int forIdPlayer, int abautPlayer) {
         send_PARAMETERS_PLAYER(p.getHp(), p.getCommand(), p.getNikName(), forIdPlayer, abautPlayer);
     }

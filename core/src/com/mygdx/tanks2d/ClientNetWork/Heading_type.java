@@ -43,6 +43,8 @@ public class Heading_type {
     public static final float PAUSE_GAME = 1f;
     public static final float PLAY_GAME = 2f;
 
+    public static final int CHANGE_THE_SCREEN = 49;
+
 
 
 

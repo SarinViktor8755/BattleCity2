@@ -68,9 +68,9 @@ public class MainGame {
                         //           System.out.println("is_end_math : " + is_end_math());
                         gameServer.lp.counting_games();
 
-                        if(MathUtils.randomBoolean(.005f)){
-                    //        GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
-                            gameServer.send_MAP_PARAMETOR();
+                        if(MathUtils.randomBoolean(.05f)){
+                           GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
+                            gameServer.send_Chang_screen(GameServer.break_in_the_game);
                             System.out.println("--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@");
 
                         }
