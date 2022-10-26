@@ -15,7 +15,7 @@ public class MainGame {
     IndexMath indexMath;
     // IndexBot bot;
 
-    public boolean pause_game;
+   ///public boolean pause_game;
 
 
     public final long timer_tread_50 = 25; //ms поток таймер циклов , рассылвает координаты ботов ))
@@ -31,7 +31,7 @@ public class MainGame {
         this.mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
         startSecondaryThread_50();
         startSecondaryThread_25();
-        pause_game = false;
+    //    pause_game = false;
         indexMath = new IndexMath();
 
 
@@ -58,13 +58,22 @@ public class MainGame {
                     while (true) {
                         if (gameServer.isServerLivePlayer()) Thread.sleep(timer_tread_50);
                         else Thread.sleep(450);
-                       // System.out.println("50");
+                        System.out.println("50");
+
 
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
+
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
                         //           System.out.println("is_end_math : " + is_end_math());
                         gameServer.lp.counting_games();
+
+//                        if(MathUtils.randomBoolean(.005f)){
+//                            GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
+//                            gameServer.send_MAP_PARAMETOR();
+//
+//                        }
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -90,24 +99,8 @@ public class MainGame {
                       //  System.out.println("25");
 
                         long deltaTime = GameServer.getDeltaTime();
-                        indexMath.updateMath(deltaTime, gameServer.lp,pause_game); // время матча
+                        indexMath.updateMath(deltaTime, gameServer.lp,false); // время матча
 
-
-                       // pause_game = Service.invertBooleanRandom(pause_game,.005f);
-                      //  System.out.println("-------------");
-
-                   //     System.out.println(pause_game);
-                         if(MathUtils.randomBoolean(.01f)) {
-                             pause_game = Service.invertBoolean(pause_game);
-                             gameServer.send_MAP_PARAMETOR();
-                           //  System.out.println(pause_game);
-                         }
-//                      //  System.out.println(pause_game);
-//
-//                        if(pause_game) continue;
-
-
-                       // System.out.println("-----");
 
 
                         float time = (float) (deltaTime * .001);

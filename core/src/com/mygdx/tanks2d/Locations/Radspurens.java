@@ -25,10 +25,12 @@ public class Radspurens { //следы кратеры
             listCrater.addFirst(new Crater(0, 0, 0, false));
         }
         this.sled = sled;
-        this.sled.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
+
 
         this.crater = crater;
-        this.crater.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
+
+//        this.sled.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
+//        this.crater.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Linear);
     }
 
     public void addRadspurenTank(float x, float y, float align) {

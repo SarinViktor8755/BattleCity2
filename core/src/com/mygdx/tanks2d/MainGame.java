@@ -24,6 +24,12 @@ public class MainGame extends Game {
 
     private Screen mainMenu;
 
+    private static byte flagChangeScreen = 0; // фоаг смены экрана - 0 не менять далее по показателям
+
+    public static final int STATUS_GAME_MENU = 1;
+    public static final int STATUS_GAME_GAMEPLAY = 2;
+    public static final int STATUS_GAME_PAUSE = 3;
+
 
     public static String nik_name;
 
@@ -37,9 +43,7 @@ public class MainGame extends Game {
     static public final int HIDE_SCREEN = 315;
 
 
-    public static final int STATUS_GAME_MENU = 1;
-    public static final int STATUS_GAME_GAMEPLAY = 2;
-    public static final int STATUS_GAME_PAUSE = 3;
+
 
     static public int status = STATUS_GAME_MENU;
 
@@ -85,8 +89,11 @@ public class MainGame extends Game {
     }
 
     public void startPauseScreen() {
-       // assetsManagerGame.loadAllAsseGame();
-        this.setScreen(null);
+        if(MainGame.flagChangeScreen != MainGame.STATUS_GAME_PAUSE) return;
+        MainGame.flagChangeScreen = 0;
+        this.screen.dispose();
+        assetsManagerGame.loadAllAsseGame();
+       // this.setScreen(null);
         this.pauseScreen = new PauseScreen(this);
         this.setScreen(pauseScreen);
         MainGame.status = STATUS_GAME_PAUSE;
@@ -94,6 +101,11 @@ public class MainGame extends Game {
     }
 
     public void goGameForPause() { // выход из паузы в игру
+        if(MainGame.flagChangeScreen != MainGame.STATUS_GAME_GAMEPLAY) return;
+        MainGame.flagChangeScreen = 0;
+        this.screen.dispose();
+
+
         // assetsManagerGame.loadAllAsseGame();
 //        this.pauseScreen = new PauseScreen(this);
 //        this.setScreen(pauseScreen);
@@ -112,6 +124,10 @@ public class MainGame extends Game {
         this.mainMenu = new MenuScreen(this);
         this.setScreen(this.mainMenu);
         this.gamePlayScreen.dispose();
+    }
+
+    public static void setFlagChangeScreen(byte flagChangeScreen) { // флаг смены экрана
+        MainGame.flagChangeScreen = flagChangeScreen;
     }
 
     public void switchingFromGameMenu() {

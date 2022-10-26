@@ -251,7 +251,8 @@ public class GamePlayScreen implements Screen {
             this.batch.end();
         }
 
-
+        mainGame.startPauseScreen();
+     //  if(MathUtils.randomBoolean(.005f)) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
     }
 
     public TanksOther getTanksOther() {

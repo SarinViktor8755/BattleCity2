@@ -54,11 +54,11 @@ public class GameSpace {
         lighting = new LightingBox2D(mainGame);
         //  System.out.println(mainCollision);
         Object mapName;
-        loadMap(MAP_DESETRT);
+        loadMap();
     }
 
 
-    public void loadMap(String mapName) {
+    public void loadMap() {
         radspurens = new Radspurens(gps.getAssetsManagerGame().get("sled.png", Texture.class), gps.getAssetsManagerGame().get("crater.png", Texture.class));
 
         float unitScale = 1f;

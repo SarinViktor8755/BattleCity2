@@ -58,25 +58,11 @@ public class RouterSM {
         }
 
         if (Heading_type.PARAMETERS_MAP == sm.tip) { // сервер прислал карту матча ))
-            System.out.println("MAP_!!! " + sm.textM + "    pause_game ::" + sm.p1);
+        //    System.out.println("MAP_!!! " + sm.textM + "    pause_game ::" + sm.p1);
             System.out.println("-------------@@@@@@@@@@");
             GameSpace.setMapDesetrt(sm.textM);
-////////////////////////////////////////////
-//            if (sm.p1 == Heading_type.PAUSE_GAME && !mainGame.isMainMenuScreen()) {
-//                mainGame.startPauseScreen();
-//                MainGame.status = MainGame.STATUS_GAME_PAUSE;
-//
-//            } else {
-//                if (sm.p1 == Heading_type.PLAY_GAME) mainGame.startPauseScreen();
-//                {
-//                    mainGame.goGameForPause();
-//                    MainGame.status = MainGame.STATUS_GAME_GAMEPLAY;
-//                }
-//            }
-
-///////////////////////////////////////////
             mainGame.getGamePlayScreen().getGameSpace().MAP_DESETRT = sm.textM;
-            mainGame.getGamePlayScreen().getGameSpace().loadMap(sm.textM);
+            mainGame.getGamePlayScreen().getGameSpace().loadMap();
 
             mainMenuParametors(sm.p1);
             return;
@@ -176,17 +162,16 @@ public class RouterSM {
 
     private void mainMenuParametors(float p){
         System.out.println("--@@@@------   " + p);
-            if(mainGame.isMainMenuScreen()) return;
+           // if(mainGame.isMainMenuScreen()) return;
             if (p == Heading_type.PAUSE_GAME) {
-                mainGame.startPauseScreen();
-                MainGame.status = MainGame.STATUS_GAME_PAUSE;
+                  MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
+                  MainGame.status = MainGame.STATUS_GAME_PAUSE;
             } else {
-                if (p == Heading_type.PLAY_GAME) mainGame.startPauseScreen();
-                {
+                    mainGame.startPauseScreen();
                     mainGame.goGameForPause();
-                    MainGame.status = MainGame.STATUS_GAME_GAMEPLAY;
+                    MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_MENU);
                 }
-            }
+
     }
 
 

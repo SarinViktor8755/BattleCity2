@@ -28,10 +28,15 @@ public class GameServer {
     IndexBot indexBot; // количество играков - по нему боты орентируюься сколько их нужно = для автобаласа
     private VoiceChatServer relay;
 
+    public static boolean break_in_the_game;
+
     static long previousStepTime; // шаг для дельты
     public ListPlayers lp = new ListPlayers(this);
 
+
     public GameServer(String[] args, ServerLauncher serverLauncher) throws IOException {
+        GameServer.break_in_the_game = false;
+
         int bufferSize = 22050; // Recommened value.
         server = new Server(bufferSize, bufferSize);
         register(server);
@@ -181,9 +186,10 @@ public class GameServer {
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
         //stockMessOut.p1 = IndexMath.;
 
-        if (mainGame.pause_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
+//        if (mainGame.pause_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
+//        else stockMessOut.p1 = Heading_type.PLAY_GAME;
+        if (GameServer.break_in_the_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
         else stockMessOut.p1 = Heading_type.PLAY_GAME;
-
         this.server.sendToAllTCP(stockMessOut);
 
 
@@ -193,7 +199,7 @@ public class GameServer {
         Network.StockMessOut stockMessOut = new Network.StockMessOut();
         stockMessOut.tip = Heading_type.PARAMETERS_MAP;
 
-        if (mainGame.pause_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
+        if (GameServer.break_in_the_game) stockMessOut.p1 = Heading_type.PAUSE_GAME;
         else stockMessOut.p1 = Heading_type.PLAY_GAME;
 
         stockMessOut.textM = mainGame.mapSpace.getMap_math();
