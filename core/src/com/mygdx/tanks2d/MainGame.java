@@ -92,7 +92,7 @@ public class MainGame extends Game {
         if(MainGame.flagChangeScreen != MainGame.STATUS_GAME_PAUSE) return;
         MainGame.flagChangeScreen = 0;
         this.screen.dispose();
-        assetsManagerGame.loadAllAsseGame();
+      //  assetsManagerGame.loadAllAsseGame();
        // this.setScreen(null);
         this.pauseScreen = new PauseScreen(this);
         this.setScreen(pauseScreen);

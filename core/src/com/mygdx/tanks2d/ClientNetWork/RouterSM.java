@@ -67,6 +67,7 @@ public class RouterSM {
             mainGame.getGamePlayScreen().getGameSpace().loadMap();
 
             mainMenuParametors(sm.p1);
+            MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
             return;
         }
 

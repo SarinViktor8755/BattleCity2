@@ -58,7 +58,7 @@ public class MainGame {
                     while (true) {
                         if (gameServer.isServerLivePlayer()) Thread.sleep(timer_tread_50);
                         else Thread.sleep(450);
-                        System.out.println("50");
+                       // System.out.println("50");
 
 
 //                        поток 50 можно остоновить при отсутвии игрков
@@ -68,11 +68,12 @@ public class MainGame {
                         //           System.out.println("is_end_math : " + is_end_math());
                         gameServer.lp.counting_games();
 
-//                        if(MathUtils.randomBoolean(.005f)){
-//                            GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
-//                            gameServer.send_MAP_PARAMETOR();
-//
-//                        }
+                        if(MathUtils.randomBoolean(.005f)){
+                    //        GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
+                            gameServer.send_MAP_PARAMETOR();
+                            System.out.println("--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@");
+
+                        }
 
                     }
                 } catch (Exception e) {
