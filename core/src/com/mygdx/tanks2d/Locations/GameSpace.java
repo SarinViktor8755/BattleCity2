@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.tanks2d.ClientNetWork.RouterSM;
 import com.mygdx.tanks2d.Locations.Collision.MainCollision;
 import com.mygdx.tanks2d.Locations.UtilsLighting.b2d.BodyBuilder;
 import com.mygdx.tanks2d.MainGame;
@@ -41,7 +42,7 @@ public class GameSpace {
 
     ShapeRenderer shapeRenderer;
 
-    public static String MAP_DESETRT;
+    //public static String MAP_DESETRT;
     private TiledMapTileLayer decorations;
     private TiledMapTileLayer ground;
 
@@ -64,8 +65,8 @@ public class GameSpace {
         float unitScale = 1f;
 
         //map = new TmxMapLoader().load(MAP_DESETRT);
-        System.out.println(MAP_DESETRT + " ::::::::!!!");
-        map = gps.getAssetsManagerGame().get("map/" + MAP_DESETRT + "/index.tmx");
+        System.out.println(RouterSM.map_math + " ::::::::!!!");
+        map = gps.getAssetsManagerGame().get("map/" + RouterSM.map_math + "/index.tmx");
 
         rendererMap = new OrthogonalTiledMapRenderer(map, 1.0f, getGps().getBatch());
 
@@ -147,11 +148,11 @@ public class GameSpace {
     }
 
     public static String getMapDesetrt() {
-        return MAP_DESETRT;
+        return RouterSM.map_math;
     }
 
     public static void setMapDesetrt(String mapDesetrt) {
-        MAP_DESETRT = mapDesetrt;
+        RouterSM.map_math = mapDesetrt;
     }
 
     public MapLayer getObstacles() {

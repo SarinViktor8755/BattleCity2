@@ -16,8 +16,10 @@ public class RouterSM {
     static Vector2 velocity;
     static Vector2 position;
 
-
     static Vector2 positionTemp;
+
+    public static String map_math;
+
 
 
     public RouterSM(MainGame mainGame) {
@@ -61,7 +63,7 @@ public class RouterSM {
         //    System.out.println("MAP_!!! " + sm.textM + "    pause_game ::" + sm.p1);
             System.out.println("-------------@@@@@@@@@@");
             GameSpace.setMapDesetrt(sm.textM);
-            mainGame.getGamePlayScreen().getGameSpace().MAP_DESETRT = sm.textM;
+            RouterSM.map_math = sm.textM;
             mainGame.getGamePlayScreen().getGameSpace().loadMap();
 
             mainMenuParametors(sm.p1);

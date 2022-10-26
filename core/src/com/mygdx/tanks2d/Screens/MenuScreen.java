@@ -20,6 +20,7 @@ import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
+import com.mygdx.tanks2d.ClientNetWork.RouterSM;
 import com.mygdx.tanks2d.Locations.GameSpace;
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Units.NikName;
@@ -284,7 +285,7 @@ public class MenuScreen implements Screen {
         }
 
         if (timerStartGame > 1) {
-            if (GameSpace.MAP_DESETRT == null) {
+            if (RouterSM.map_math == null) {
                 mainGame.getMainClient().getNetworkPacketStock().toSendButtonStartClick();
                 timerStartGame = 0;
                 return;
