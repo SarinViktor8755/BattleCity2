@@ -24,6 +24,7 @@ public class PauseScreen implements Screen {
     /////////////////////////////////////
     private float timeInScreen;
     Texture f;
+    Texture f_bw;
 
 
     public PauseScreen(MainGame mainGame) {
@@ -43,7 +44,9 @@ public class PauseScreen implements Screen {
 
         this.mainClient = mainGame.getMainClient();
 
+
         f =  mainGame.assetManager.get("pause_screen/bg.png", Texture.class);
+        f_bw =  mainGame.assetManager.get("pause_screen/bg_bw.png", Texture.class);
 
         timeInScreen = 15;
 //
@@ -74,8 +77,9 @@ public class PauseScreen implements Screen {
             batch.begin();
 
             batch.setColor(1,1,1,getAlpha());
-            batch.draw(f, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 
+            batch.draw(f, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        batch.draw(f_bw, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),1,1,200,200,false,false);
             batch.end();
 
 

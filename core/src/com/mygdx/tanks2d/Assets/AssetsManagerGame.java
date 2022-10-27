@@ -31,6 +31,7 @@ public class AssetsManagerGame {
         /////////menu
 
         assets.put("pause_screen/bg.png", Texture.class);
+        assets.put("pause_screen/bg_bw.png", Texture.class);
         assets.put("menuAsset/wallpaper.png", Texture.class);
         assets.put("menuAsset/wallpaper1.png", Texture.class);
         assets.put("menuAsset/pley.png", Texture.class);
