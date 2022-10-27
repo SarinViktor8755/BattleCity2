@@ -74,7 +74,7 @@ public class GameSpace {
         WITH_LOCATION = tiledLayer.getWidth() * tiledLayer.getTileWidth();
         HEIHT_LOCATION = tiledLayer.getWidth() * tiledLayer.getTileHeight();
         //System.out.println(HEIHT_LOCATION + "!!!!!!!!!!!!!!!!!!");
-        shapeRenderer = new ShapeRenderer();
+        //shapeRenderer = new ShapeRenderer();
         //  mapRenderer = new OrthogonalTiledMapRenderer(map, 1 / 32f);
         decorations = (TiledMapTileLayer) map.getLayers().get("decorations");
         ground = (TiledMapTileLayer) map.getLayers().get("ground");

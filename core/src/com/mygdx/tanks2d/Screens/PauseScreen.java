@@ -28,19 +28,20 @@ public class PauseScreen implements Screen {
 
     public PauseScreen(MainGame mainGame) {
         System.out.println("PAUSE ");
-      //  this.batch = new SpriteBatch();
+        this.batch = new SpriteBatch();
         this.mainGame = mainGame;
 
         viewport = new StretchViewport(MainGame.WHIDE_SCREEN, MainGame.HIDE_SCREEN, camera);
         //viewport.apply();
         camera = new OrthographicCamera();
         this.mainClient = mainGame.getMainClient();
+//
+//        BitmapFont font = mainGame.getAssetManager().get("fonts/font.fnt", BitmapFont.class);
+//        Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
+//        puseTextLabel = new Label("PAUSE_GAME",style);
+//        font = new BitmapFont(); //or use alex answer to use custom font
+        ///////////////////////////////
 
-        //BitmapFont font = mainGame.getAssetManager().get("fonts/font.fnt", BitmapFont.class);
-      //  Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
-        //puseTextLabel = new Label("PAUSE_GAME",style);
-
-        //font = new BitmapFont(); //or use alex answer to use custom font
     }
 
 
@@ -56,14 +57,18 @@ public class PauseScreen implements Screen {
 
         mainGame.goGameForPause();
         //if(MathUtils.randomBoolean(.005f)) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_GAMEPLAY);
-        Gdx.gl.glClearColor(0, 1, 0, 1);
+        Gdx.gl.glClearColor(MathUtils.random(.3f,.1f), MathUtils.random(.8f,1f), 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//        batch.begin();
+
+
+//            batch.begin();
 //
-//        font.draw(batch, "Hello World!", 10, 10);
-//        batch.end();
+//            font.draw(batch, "Hello World!", 250, 250);
+//            batch.end();
 
       //  puseTextLabel.draw(this.batch,1);
+
+        System.out.println("pause");
 
 
     }
@@ -90,6 +95,7 @@ public class PauseScreen implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
 
     }
 }

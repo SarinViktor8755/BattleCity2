@@ -60,19 +60,21 @@ public class MainGame {
                         else Thread.sleep(450);
                        // System.out.println("50");
 
-
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
-
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
                         //           System.out.println("is_end_math : " + is_end_math());
                         gameServer.lp.counting_games();
 
-                        if(MathUtils.randomBoolean(.05f)){
+                        if(MathUtils.randomBoolean(.01f)){
                            GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
                             gameServer.send_Chang_screen(GameServer.break_in_the_game);
-                            System.out.println("--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@--------------------------- @@@@@@@@@@");
 
+                            System.out.println(">>>>>>>>>_____________>>>>>>>>>");
+///////////////////////////////////////////////
+                            mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
+                            gameServer.send_MAP_PARAMETOR();
+///////////////////////////////////////////////
                         }
 
                     }

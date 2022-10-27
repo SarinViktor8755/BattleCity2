@@ -61,7 +61,11 @@ public class Tank {
         this.gsp = gsp;
         position = new Vector2(MathUtils.random(0, gsp.getGameSpace().WITH_LOCATION), MathUtils.random(0, gsp.getGameSpace().HEIHT_LOCATION));
         direction = new Vector2(0, 1);
+        direction.setToRandomDirection();
+
+
         direction_tower = new Vector2(0, 1);
+        direction_tower.setAngleDeg(direction.angleDeg());
         //targetCoordinat = new Vector2()
         this.sb = gsp.getBatch();
 
