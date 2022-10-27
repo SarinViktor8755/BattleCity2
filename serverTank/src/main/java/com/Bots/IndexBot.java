@@ -59,7 +59,9 @@ public class IndexBot extends Thread {
     private void addBot() {
 
         System.out.println("Add_bot");
-        Player p = new Player(NOM_ID_BOT, gs.getMainGame().getIndexMath().getCommand());
+        int command = gs.getMainGame().getIndexMath().getCommand();
+        Player p = new Player(NOM_ID_BOT, command);
+        System.out.println(command);
 
 
 

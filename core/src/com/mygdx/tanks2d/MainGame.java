@@ -4,13 +4,11 @@ package com.mygdx.tanks2d;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
-import com.esotericsoftware.kryonet.Client;
 import com.mygdx.tanks2d.Assets.AssetsManagerGame;
-import com.mygdx.tanks2d.ClientNetWork.Client_new_Thred;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
 import com.mygdx.tanks2d.Screens.GamePlayScreen;
 import com.mygdx.tanks2d.Screens.MenuScreen;
-import com.mygdx.tanks2d.Screens.PauseScreen;
+import com.mygdx.tanks2d.Screens.PauseScreen.PauseScreen;
 import com.mygdx.tanks2d.adMod.AdAds;
 
 

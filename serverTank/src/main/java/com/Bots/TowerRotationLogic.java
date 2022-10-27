@@ -40,7 +40,7 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
 //            if(!lp.getPlayerForId(dbBot.getNomTarget()).isLive())dbBot.setNomTarget(null);
 //            if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) dbBot.setNomTarget(null);
 //
-            ckeck_target(dbBot,p,lp);
+          if(MathUtils.randomBoolean(.08f))  ckeck_target(dbBot,p,lp);
         }
         }catch (NullPointerException e){
 
@@ -91,8 +91,10 @@ public class TowerRotationLogic { /// поворот любой башни ЛО�
         try {
         if(!lp.getPlayerForId(dbBot.getNomTarget()).isLive())dbBot.setNomTarget(null);
         if(lp.getPlayerForId(dbBot.getNomTarget()).getPosi().dst2(p.getPosi()) > rast_to_target) dbBot.setNomTarget(null);
+            System.out.println("ckeck_target");
         }catch (NullPointerException e){
-            System.out.println("NullPointerException  ckeck_target");
+         //   System.out.println("NullPointerException  ckeck_target");
+            e.printStackTrace();
         }
         return true;
     }

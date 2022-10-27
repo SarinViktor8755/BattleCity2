@@ -39,6 +39,8 @@ public class IndexMath {
 
 
     public int getCommand() { // определить команду
+        System.out.println();
+        System.out.print("vibor comdnd : red  " + listPlayers.getRed_size() + " blue :: " + listPlayers.getBlue_size() + "   --  ");
         listPlayers.counting_games();
         if (listPlayers.getRed_size() < listPlayers.getBlue_size()) {
             // System.out.println("RED_COMMAND");
