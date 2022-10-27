@@ -107,11 +107,8 @@ public class PauseScreen implements Screen {
 
     private float getWith(){
         float result = 15 - timeInScreen;
-
         result = result / 15f;
-
-
-        return Interpolation.exp10Out.apply( result);
+        return Interpolation.fade.apply( result);
 
     }
 
