@@ -79,7 +79,7 @@ public class PauseScreen implements Screen {
             batch.setColor(1,1,1,getAlpha());
 
             batch.draw(f, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-        batch.draw(f_bw, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth(),Gdx.graphics.getHeight(),1,1,200,200,false,false);
+            batch.draw(f_bw, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth()  * getWith() ,Gdx.graphics.getHeight());
             batch.end();
 
 
@@ -104,6 +104,17 @@ public class PauseScreen implements Screen {
         return result;
 
     }
+
+    private float getWith(){
+        float result = 15 - timeInScreen;
+
+        result = result / 15f;
+
+
+        return Interpolation.exp10Out.apply( result);
+
+    }
+
 
     @Override
     public void resize(int width, int height) {
