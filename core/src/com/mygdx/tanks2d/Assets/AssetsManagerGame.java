@@ -32,6 +32,10 @@ public class AssetsManagerGame {
 
         assets.put("pause_screen/bg.png", Texture.class);
         assets.put("pause_screen/bg_bw.png", Texture.class);
+        assets.put("pause_screen/treck_bar.png", Texture.class);
+        assets.put("pause_screen/pm.ogg", Sound.class);
+
+
         assets.put("menuAsset/wallpaper.png", Texture.class);
         assets.put("menuAsset/wallpaper1.png", Texture.class);
         assets.put("menuAsset/pley.png", Texture.class);
@@ -47,6 +51,12 @@ public class AssetsManagerGame {
 
     public final AssetManager loadAllAsseGame() {
         //GdxNativesLoader.load();
+        assets.put("pause_screen/bg.png", Texture.class);
+        assets.put("pause_screen/bg_bw.png", Texture.class);
+        assets.put("pause_screen/treck_bar.png", Texture.class);
+        assets.put("pause_screen/pm.ogg", Sound.class);
+
+
         assets.put("de.pack", TextureAtlas.class);
         assets.put("button.pack", TextureAtlas.class);
 
@@ -55,6 +65,7 @@ public class AssetsManagerGame {
         assets.put("sound/f.ogg", Sound.class);
         assets.put("sound/loose.ogg", Sound.class);
         assets.put("sound/bash.ogg", Sound.class);
+        assets.put("pause_screen/pm.ogg", Sound.class);
 
         //  assets.put("badlogic.png", Texture.class);
         assets.put("target.png", Texture.class);

@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.mygdx.tanks2d.AudioEngine.AudioEngine;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
 import com.mygdx.tanks2d.MainGame;
 
@@ -21,34 +22,44 @@ public class PauseScreen implements Screen {
     private OrthographicCamera camera;
     private MainClient mainClient;
 
+    private AudioEngine audioEngine;// игравой движок
+
     /////////////////////////////////////
     private float timeInScreen;
     Texture f;
     Texture f_bw;
+    Texture tb;
 
 
     public PauseScreen(MainGame mainGame) {
         System.out.println("PAUSE ");
+
+
+        audioEngine = new AudioEngine();
         this.batch = new SpriteBatch();
         this.mainGame = mainGame;
 
         viewport = new StretchViewport(MainGame.WHIDE_SCREEN, MainGame.HIDE_SCREEN, camera);
         //viewport.apply();
         camera = new OrthographicCamera();
-        viewport = new StretchViewport(MainGame.WHIDE_SCREEN/2, MainGame.HIDE_SCREEN/2, camera);
+        viewport = new StretchViewport(MainGame.WHIDE_SCREEN / 2, MainGame.HIDE_SCREEN / 2, camera);
         viewport.apply();
         camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
         camera.update();
 
 
 
+
         this.mainClient = mainGame.getMainClient();
 
 
-        f =  mainGame.assetManager.get("pause_screen/bg.png", Texture.class);
-        f_bw =  mainGame.assetManager.get("pause_screen/bg_bw.png", Texture.class);
+        f = mainGame.assetManager.get("pause_screen/bg.png", Texture.class);
+        f_bw = mainGame.assetManager.get("pause_screen/bg_bw.png", Texture.class);
+        tb = mainGame.assetManager.get("pause_screen/treck_bar.png", Texture.class);
 
         timeInScreen = 15;
+
+        audioEngine.playMusicPaseMenu();
 //
 //        BitmapFont font = mainGame.getAssetManager().get("fonts/font.fnt", BitmapFont.class);
 //        Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
@@ -57,7 +68,6 @@ public class PauseScreen implements Screen {
         ///////////////////////////////
 
     }
-
 
 
     @Override
@@ -74,14 +84,16 @@ public class PauseScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-            batch.begin();
+        batch.begin();
 
-            batch.setColor(1,1,1,getAlpha());
+        batch.setColor(1, 1, 1, getAlpha());
 
-            batch.draw(f, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-            batch.draw(f_bw, viewport.getScreenX(), viewport.getScreenY(),Gdx.graphics.getWidth()  * getWith() ,Gdx.graphics.getHeight());
-            batch.end();
-
+        batch.draw(f, viewport.getScreenX(), viewport.getScreenY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.setColor(1, 1, 1, 1 - getWith());
+        batch.draw(f_bw, viewport.getScreenX(), viewport.getScreenY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.setColor(1, 1, 1, 1);
+        batch.draw(tb, viewport.getScreenX(), viewport.getScreenY(), Gdx.graphics.getWidth() * getWith(), Gdx.graphics.getHeight() / 80);
+        batch.end();
 
 
         System.out.println(timeInScreen);
@@ -89,26 +101,26 @@ public class PauseScreen implements Screen {
 
     }
 
-    private void update(){
+    private void update() {
         this.timeInScreen -= Gdx.graphics.getDeltaTime();
     }
 
-    private float getAlpha(){
+    private float getAlpha() {
         float result = 1;
-        if(timeInScreen> 13){
+        if (timeInScreen > 13) {
             result = Interpolation.exp10Out.apply(14 - timeInScreen);
-        }else if(timeInScreen <1.3f){
-            result = Interpolation.exp10Out.apply(timeInScreen -1);
+        } else if (timeInScreen < 1.3f) {
+            result = Interpolation.exp10Out.apply(timeInScreen - 1);
         }
 
         return result;
 
     }
 
-    private float getWith(){
+    private float getWith() {
         float result = 15 - timeInScreen;
         result = result / 15f;
-        return Interpolation.fade.apply( result);
+        return Interpolation.fade.apply(result);
 
     }
 
