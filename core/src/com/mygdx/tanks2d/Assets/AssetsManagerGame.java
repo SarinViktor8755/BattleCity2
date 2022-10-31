@@ -142,18 +142,19 @@ public class AssetsManagerGame {
             //  System.out.println(entry.getValue());
             if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
             assetManager.load(entry.getKey(), entry.getValue());
-     //       assetManager.finishLoadingAsset(entry.getKey());
+          //  assetManager.finishLoadingAsset(entry.getKey());
 
         }
 
-        for (Map.Entry<String, Class> entry : assets.entrySet()) {
-            //  System.out.println(entry.getValue());
-        //    if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
-            assetManager.finishLoadingAsset(entry.getKey());
 
-        }
+//        for (Map.Entry<String, Class> entry : assets.entrySet()) {
+//            //  System.out.println(entry.getValue());
+//        //    if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
+//            assetManager.finishLoadingAsset(entry.getKey());
+//
+//        }
         assetManager.finishLoading();
-        assetManager.update();
+     //   assetManager.update();
     }
 
     public final AssetManager unloadAllAsset(AssetManager assetManager) {
