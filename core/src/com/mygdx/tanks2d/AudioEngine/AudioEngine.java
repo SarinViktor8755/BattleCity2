@@ -27,6 +27,7 @@ public class AudioEngine {
     private Long idTower;
     private float timer_towr_ratation;
     private boolean timerTower;
+    private static long pause_music_id;
 
     private static Vector2 tempV = new Vector2(0, 0);
 
@@ -128,17 +129,22 @@ public class AudioEngine {
 
 
     }
-
+///////////////
     public void playMusicPaseMenu() {
-        music_pause.loop();
-        music_pause.play();
+        pause_music_id = music_pause.loop(1);
+       // pause_music_id = music_pause.play();
+
     }
 
     public void stopMusicPaseMenu() {
+       // music_pause.stop(pause_music_id);
         music_pause.stop();
-
     }
 
+    public void update_volme_pause(float vol) {
+        music_pause.setVolume(pause_music_id,vol);
+    }
+////////
     public void stopSoundOfTracks() {
         if (idTrack != null)
             sound.pause(idTrack);

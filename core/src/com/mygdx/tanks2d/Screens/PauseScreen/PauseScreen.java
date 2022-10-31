@@ -60,7 +60,7 @@ public class PauseScreen implements Screen {
 
         timeInScreen = 15;
 
-        audioEngine.playMusicPaseMenu();
+       // audioEngine.playMusicPaseMenu();
 //
 //        BitmapFont font = mainGame.getAssetManager().get("fonts/font.fnt", BitmapFont.class);
 //        Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);

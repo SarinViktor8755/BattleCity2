@@ -223,7 +223,7 @@ public class MenuScreen implements Screen {
 
     @Override
     public void show() {
-
+        mainGame.audioEngine.playMusicPaseMenu();
     }
 
     @Override
@@ -284,7 +284,11 @@ public class MenuScreen implements Screen {
         }
 
         if (startgameMP || startgameSP) {
-            timerStartGame = timerStartGame + Gdx.graphics.getDeltaTime(); // задержка во воремени для анимации
+            System.out.println(1-timerStartGame);
+            mainGame.audioEngine.update_volme_pause(timerStartGame);
+
+
+            timerStartGame += Gdx.graphics.getDeltaTime(); // задержка во воремени для анимации
         }
 
         if (timerStartGame > 1) {
@@ -293,6 +297,8 @@ public class MenuScreen implements Screen {
                 timerStartGame = 0;
                 return;
             }
+
+            mainGame.audioEngine.stopMusicPaseMenu();
             if (startgameMP) mainGame.startGameMPley();
             if (startgameSP) mainGame.startGameSPley();
 
