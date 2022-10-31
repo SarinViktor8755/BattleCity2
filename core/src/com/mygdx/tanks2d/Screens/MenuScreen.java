@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.FloatArray;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.mygdx.tanks2d.AudioEngine.AudioEngine;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
 import com.mygdx.tanks2d.ClientNetWork.RouterSM;
@@ -66,6 +67,8 @@ public class MenuScreen implements Screen {
 
 
     public MenuScreen(final MainGame mainGame) {
+        mainGame.getAMG().loadedAseets();
+        mainGame.audioEngine = new AudioEngine(mainGame);
 
         button_start_click = false;
 

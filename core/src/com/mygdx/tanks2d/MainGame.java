@@ -59,7 +59,7 @@ public class MainGame extends Game {
        // assetsManagerGame.loadAllAssetMenu();
         assetsManagerGame.loadAllAsseGame();
 
-        audioEngine = new AudioEngine(this);
+       // audioEngine = new AudioEngine(this);
 
         if (tip == 1) ANDROID = false;
         else ANDROID = true;

@@ -114,6 +114,7 @@ public class PauseScreen implements Screen {
             result = Interpolation.exp10Out.apply(14 - timeInScreen);
         } else if (timeInScreen < 1.3f) {
             result = Interpolation.exp10Out.apply(timeInScreen - 1);
+            audioEngine.stopMusicPaseMenu();
         }
 
         return result;

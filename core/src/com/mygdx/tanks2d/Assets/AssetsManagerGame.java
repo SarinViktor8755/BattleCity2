@@ -133,54 +133,27 @@ public class AssetsManagerGame {
 //        assetManager.load("map/field/index.tmx", TiledMap.class);
 //        assetManager.load("map/desert/index.tmx", TiledMap.class);
 
-        loadedAseets();
+
+
+        //loadedAseets();
         return assetManager;
     }
 
-    private void loadedAseets() {
-        System.out.println("--------" + assets.size() + " !!");
-        int i  = 0;
+    public void loadedAseets() {
+       // assetManager.isLoaded("menuAsset/wallpaper.png", Texture.class);
+//        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        System.out.println("--------" + assets.size() + " !!");
 
         for (Map.Entry<String, Class> entry : assets.entrySet()) {
-            i++;
-
-              System.out.println(i);
             if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
             assetManager.load(entry.getKey(), entry.getValue());
-            assetManager.finishLoadingAsset(entry.getKey());
-
-            System.out.println(entry.getKey() + "    " + assetManager.contains(entry.getKey()));
-            System.out.println("QueuedAssets::  " + assetManager.getQueuedAssets());
-            System.out.println("isLoaded::" + entry.getKey() +"   "+ assetManager.isLoaded(entry.getKey()));
-
-            System.out.println(); System.out.println();
-
+            assetManager.update();
 
         }
-        System.out.println(i+"   -------------@@@@@@@@@!!!!!!!!!!!!!!!!!!!@@@@@@@@----------------");
+//        System.out.println(i+"   -------------@@@@@@@@@!!!!!!!!!!!!!!!!!!!@@@@@@@@----------------");
 
         assetManager.finishLoading();
-        for (Map.Entry<String, Class> entry : assets.entrySet()) {
-//            //  System.out.println(entry.getValue());
-//            if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
-//            assetManager.load(entry.getKey(), entry.getValue());
-//            // assetManager.finishLoadingAsset(entry.getKey());
-//            assetManager.update();
-            System.out.println(entry.getKey() + "    " + assetManager.contains(entry.getKey()));
-            System.out.println("QueuedAssets::  " + assetManager.getQueuedAssets());
-            System.out.println("isLoaded::" + entry.getKey() +"   "+ assetManager.isLoaded(entry.getKey()));
 
-            System.out.println(); System.out.println();
-        }
-//        for (Map.Entry<String, Class> entry : assets.entrySet()) {
-//            //  System.out.println(entry.getValue());
-//        //    if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
-//            assetManager.finishLoadingAsset(entry.getKey());
-//
-//        }
-
-       // assetManager.finishLoading();
-        //   assetManager.update();
     }
 
     public final AssetManager unloadAllAsset(AssetManager assetManager) {
