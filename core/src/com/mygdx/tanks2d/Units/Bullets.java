@@ -22,7 +22,7 @@ public class Bullets {
 
     public Bullets(GamePlayScreen gpl) {
         this.gpl = gpl;
-        img = gpl.getAssetsManagerGame().get("bullet.png", Texture.class);
+        img = gpl.getAMG().get("bullet.png", Texture.class);
     }
 
     public void addBullet(Vector2 pos, Vector2 vel, int nomer) {

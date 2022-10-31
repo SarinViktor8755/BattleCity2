@@ -72,18 +72,18 @@ public class Tank {
 ///////////////////////////////////////
 
 
-        img = gsp.getMainGame().getAssetManager().get("trb1.png");
-        img2 = gsp.getMainGame().getAssetManager().get("trb2.png");
+        img = gsp.getAMG().get("trb1.png");
+        img2 = gsp.getAMG().get("trb2.png");
 
-        img_1 = gsp.getMainGame().getAssetManager().get("tr.png");
+        img_1 = gsp.getAMG().get("tr.png");
 //////////////
-        imgB = gsp.getMainGame().getAssetManager().get("tbb1.png");
-        imgB2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
+        imgB = gsp.getAMG().get("tbb1.png");
+        imgB2 = gsp.getAMG().get("tbb2.png");
 
-        img_1B = gsp.getMainGame().getAssetManager().get("tb.png");
+        img_1B = gsp.getAMG().get("tb.png");
 
         //target = new Texture(Gdx.files.internal("target.png"));
-        target = gsp.getMainGame().assetManager.get("target.png", Texture.class);
+        target = gsp.getAMG().get("target.png", Texture.class);
         //////////////////
         replace_textures();
 
@@ -130,9 +130,10 @@ public class Tank {
         return tr;
     }
 
-    private void flashing_tank(){
+    private void flashing_tank() {
         time_life += Gdx.graphics.getDeltaTime();
-        if(time_life < 3) g = MathUtils.sin(time_life * 28); else  g = 1;
+        if (time_life < 3) g = MathUtils.sin(time_life * 28);
+        else g = 1;
 
 
     }
@@ -155,10 +156,9 @@ public class Tank {
                 targetCoordinat = gsp.getTanksOther().getTankForID(this.tr.getNomTarget()).getPosition();
                 gsp.getGameSpace().getLighting().setLasetOn(true);
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
 
 
 ///////////////////////////////////////

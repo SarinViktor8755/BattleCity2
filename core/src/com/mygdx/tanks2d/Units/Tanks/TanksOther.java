@@ -50,15 +50,15 @@ public class TanksOther { /// много танков )))
     public TanksOther(GamePlayScreen gsp) {
         this.gsp = gsp;
 
-        img = gsp.getMainGame().getAssetManager().get("trb1.png");
-        img2 = gsp.getMainGame().getAssetManager().get("trb2.png");
+        img = gsp.getAMG().get("trb1.png");
+        img2 = gsp.getAMG().get("trb2.png");
 
-        img_1 = gsp.getMainGame().getAssetManager().get("tr.png");
+        img_1 = gsp.getAMG().get("tr.png");
 //////////////
-        imgB = gsp.getMainGame().getAssetManager().get("tbb1.png");
-        imgB2 = gsp.getMainGame().getAssetManager().get("tbb2.png");
+        imgB = gsp.getAMG().get("tbb1.png");
+        imgB2 = gsp.getAMG().get("tbb2.png");
 
-        img_1B = gsp.getMainGame().getAssetManager().get("tb.png");
+        img_1B = gsp.getAMG().get("tb.png");
 
 
         textFont = new BitmapFont();

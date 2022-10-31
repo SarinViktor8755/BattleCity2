@@ -86,14 +86,14 @@ public class MenuScreen implements Screen {
         mainClient = mainGame.getMainClient();
         stageMenu = new Stage(viewport);
 
-        wallpaper = mainGame.assetManager.get("menuAsset/wallpaper.png", Texture.class);
-        wallpaper1 = mainGame.assetManager.get("menuAsset/wallpaper1.png", Texture.class);
-        logo = mainGame.assetManager.get("menuAsset/logo.png", Texture.class);
-        disconnect = mainGame.assetManager.get("menuAsset/disconct.png", Texture.class);
+        wallpaper = mainGame.getAMG().get("menuAsset/wallpaper.png", Texture.class);
+        wallpaper1 = mainGame.getAMG().get("menuAsset/wallpaper1.png", Texture.class);
+        logo = mainGame.getAMG().get("menuAsset/logo.png", Texture.class);
+        disconnect = mainGame.getAMG().get("menuAsset/disconct.png", Texture.class);
 
         stageMenu = new Stage(viewport);
 
-        skinMenu = mainGame.assetManager.get("skin/uiskin.json");
+        skinMenu = mainGame.getAMG().get("skin/uiskin.json");
 
         final TextField textField = new TextField(limit, skinMenu);
 
@@ -165,7 +165,7 @@ public class MenuScreen implements Screen {
                     }
                     return false;
                 }
-                mainGame.assetsManagerGame.loadAllAsseGame();
+              //  mainGame.assetsManagerGame.loadAllAsseGame();
 
 
                 return true;

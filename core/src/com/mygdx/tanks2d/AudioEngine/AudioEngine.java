@@ -5,13 +5,14 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Screens.GamePlayScreen;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 
 public class AudioEngine {
-    GamePlayScreen mainGaming;
+    MainGame mainGaming;
     ConcurrentHashMap<Integer, Float> stepCounter;
     Sound sound;
     Sound track;
@@ -29,44 +30,41 @@ public class AudioEngine {
 
     private static Vector2 tempV = new Vector2(0, 0);
 
-    public AudioEngine(GamePlayScreen mainGaming) {
+    public AudioEngine(MainGame mainGaming) {
         timer_towr_ratation = 0;
         this.mainGaming = mainGaming;
         timerTower = false;
 
-//        Sound sound = Gdx.audio.newSound(Gdx.files.internal("sound/BSB.ogg"));
-//        Sound track = Gdx.audio.newSound(Gdx.files.internal("sound/00708.ogg"));
-//        Sound tower = Gdx.audio.newSound(Gdx.files.internal("sound/bash.ogg"));
 
-        sound = mainGaming.getAssetsManagerGame().get("sound/BSB.ogg", Sound.class);
-        track = mainGaming.getAssetsManagerGame().get("sound/00708.ogg", Sound.class);
-        tower = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
-        fight = mainGaming.getAssetsManagerGame().get("sound/f.ogg", Sound.class);
-        loose = mainGaming.getAssetsManagerGame().get("sound/loose.ogg", Sound.class);
+        sound = mainGaming.getAMG().get("sound/BSB.ogg", Sound.class);
+        track = mainGaming.getAMG().get("sound/00708.ogg", Sound.class);
+        tower = mainGaming.getAMG().get("sound/bash.ogg", Sound.class);
+        fight = mainGaming.getAMG().get("sound/f.ogg", Sound.class);
+        loose = mainGaming.getAMG().get("sound/loose.ogg", Sound.class);
 
-        music_pause = mainGaming.getAssetsManagerGame().get("pause_screen/pm.ogg", Sound.class);
+        music_pause = mainGaming.getAMG().get("pause_screen/pm.ogg", Sound.class);
 
-        explosion = mainGaming.getAssetsManagerGame().get("sound/explode4.ogg", Sound.class);
+        explosion = mainGaming.getAMG().get("sound/explode4.ogg", Sound.class);
 
 
     }
 
-    public AudioEngine() {
-        timer_towr_ratation = 0;
-        this.mainGaming = mainGaming;
-        timerTower = false;
-        sound = mainGaming.getAssetsManagerGame().get("sound/BSB.ogg", Sound.class);
-        track = mainGaming.getAssetsManagerGame().get("sound/00708.ogg", Sound.class);
-        tower = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
-        fight = mainGaming.getAssetsManagerGame().get("sound/f.ogg", Sound.class);
-        loose = mainGaming.getAssetsManagerGame().get("sound/loose.ogg", Sound.class);
-
-        music_pause = mainGaming.getAssetsManagerGame().get("pause_screen/pm.ogg", Sound.class);
-
-        explosion = mainGaming.getAssetsManagerGame().get("sound/explode4.ogg", Sound.class);
-
-
-    }
+//    public AudioEngine(MainGame mainGame) {
+//        timer_towr_ratation = 0;
+//        this.mainGaming = mainGaming;
+//        timerTower = false;
+//        sound = mainGaming.getAssetsManagerGame().get("sound/BSB.ogg", Sound.class);
+//        track = mainGaming.getAssetsManagerGame().get("sound/00708.ogg", Sound.class);
+//        tower = mainGaming.getAssetsManagerGame().get("sound/bash.ogg", Sound.class);
+//        fight = mainGaming.getAssetsManagerGame().get("sound/f.ogg", Sound.class);
+//        loose = mainGaming.getAssetsManagerGame().get("sound/loose.ogg", Sound.class);
+//
+//        music_pause = mainGaming.getAssetsManagerGame().get("pause_screen/pm.ogg", Sound.class);
+//
+//        explosion = mainGaming.getAssetsManagerGame().get("sound/explode4.ogg", Sound.class);
+//
+//
+//    }
 
     public void pleySoundKickStick() {
         float distanc = 1;

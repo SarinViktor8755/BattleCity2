@@ -35,7 +35,7 @@ public class PauseScreen implements Screen {
         System.out.println("PAUSE ");
 
 
-        audioEngine = new AudioEngine();
+        audioEngine = mainGame.audioEngine;
         this.batch = new SpriteBatch();
         this.mainGame = mainGame;
 
@@ -52,10 +52,10 @@ public class PauseScreen implements Screen {
         this.mainClient = mainGame.getMainClient();
 
 
-        f = mainGame.assetManager.get("pause_screen/bg.png", Texture.class);
-        f_bw = mainGame.assetManager.get("pause_screen/bg_bw.png", Texture.class);
+        f = mainGame.getAMG().get("pause_screen/bg.png", Texture.class);
+        f_bw = mainGame.getAMG().get("pause_screen/bg_bw.png", Texture.class);
 
-        tb = mainGame.assetManager.get("pause_screen/treck_bar.png", Texture.class);
+        tb = mainGame.getAMG().get("pause_screen/treck_bar.png", Texture.class);
 
 
         timeInScreen = 15;

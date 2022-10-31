@@ -5,6 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.mygdx.tanks2d.Assets.AssetsManagerGame;
+import com.mygdx.tanks2d.AudioEngine.AudioEngine;
 import com.mygdx.tanks2d.ClientNetWork.MainClient;
 import com.mygdx.tanks2d.Screens.GamePlayScreen;
 import com.mygdx.tanks2d.Screens.MenuScreen;
@@ -14,13 +15,17 @@ import com.mygdx.tanks2d.adMod.AdAds;
 
 public class MainGame extends Game {
 
-    public AssetManager assetManager;
+  //  public AssetManager assetManager;
+    public AudioEngine audioEngine;
+
     public AssetsManagerGame assetsManagerGame;
     private MainClient mainClient;
     private GamePlayScreen gamePlayScreen;
     private PauseScreen pauseScreen;
 
     private Screen mainMenu;
+
+
 
     private static byte flagChangeScreen = 0; // фоаг смены экрана - 0 не менять далее по показателям
 
@@ -47,11 +52,14 @@ public class MainGame extends Game {
 
     public MainGame(int tip) {
         mainClient = new MainClient(this);
-        assetManager = new AssetManager();
-        assetsManagerGame = new AssetsManagerGame(assetManager);
+       // assetManager = new AssetManager();
 
 
+        assetsManagerGame = new AssetsManagerGame(new AssetManager());
+       // assetsManagerGame.loadAllAssetMenu();
+        assetsManagerGame.loadAllAsseGame();
 
+        audioEngine = new AudioEngine(this);
 
         if (tip == 1) ANDROID = false;
         else ANDROID = true;
@@ -71,7 +79,7 @@ public class MainGame extends Game {
     public void startGameMPley() {
         mainMenu.dispose();
         // getMainClient().setOnLine(true);
-        assetsManagerGame.loadAllAsseGame();
+        //assetsManagerGame.loadAllAsseGame();
         this.gamePlayScreen = new GamePlayScreen(this);
         this.setScreen(this.gamePlayScreen);
     }
@@ -79,7 +87,7 @@ public class MainGame extends Game {
     public void startGameSPley() {
         mainMenu.dispose();
         //  getMainClient().setOnLine(false);
-        assetsManagerGame.loadAllAsseGame();
+      //  assetsManagerGame.loadAllAsseGame();
         this.gamePlayScreen = new GamePlayScreen(this);
         this.setScreen(this.gamePlayScreen);
         MainGame.status = STATUS_GAME_GAMEPLAY;
@@ -88,12 +96,12 @@ public class MainGame extends Game {
 
     public void startPauseScreen() {
         if(MainGame.flagChangeScreen != MainGame.STATUS_GAME_PAUSE) return;
-        assetsManagerGame.loadAllAsseGame();
+       // assetsManagerGame.loadAllAsseGame();
         MainGame.flagChangeScreen = 0;
         this.screen.dispose();
       //  assetsManagerGame.loadAllAsseGame();
        // this.setScreen(null);
-        assetsManagerGame.loadAllAsseGame();
+       // assetsManagerGame.loadAllAsseGame();
         this.pauseScreen = new PauseScreen(this);
         this.setScreen(pauseScreen);
         MainGame.status = STATUS_GAME_PAUSE;
@@ -116,7 +124,7 @@ public class MainGame extends Game {
 
     }
 
-    public AssetsManagerGame getAssetsManagerGame() {
+    public AssetsManagerGame getAMG() {
         return assetsManagerGame;
     }
 
@@ -148,15 +156,15 @@ public class MainGame extends Game {
     }
 
 
-    public void getAllAssets() {
-        this.assetManager = new AssetManager();
-        this.assetManager.update();
-        this.assetManager.finishLoading();
-    }
+//    public void getAllAssets() {
+//        this.assetManager = new AssetManager();
+//        this.assetManager.update();
+//        this.assetManager.finishLoading();
+//    }
 
-    public AssetManager getAssetManager() {
-        return assetManager;
-    }
+  //  public AssetManager getAssetManager() {
+//        return assetManager;
+//    }
 
     public void updateClien() {
         this.getMainClient().upDateClient();

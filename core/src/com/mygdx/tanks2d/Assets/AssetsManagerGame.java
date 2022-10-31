@@ -21,7 +21,6 @@ public class AssetsManagerGame {
 
     public AssetsManagerGame(AssetManager as) {
         this.assets = new HashMap<String, Class>();
-        ;
         this.assetManager = as;
     }
 
@@ -34,7 +33,6 @@ public class AssetsManagerGame {
         assets.put("pause_screen/bg_bw.png", Texture.class);
         assets.put("pause_screen/treck_bar.png", Texture.class);
         assets.put("pause_screen/pm.ogg", Sound.class);
-
 
         assets.put("menuAsset/wallpaper.png", Texture.class);
         assets.put("menuAsset/wallpaper1.png", Texture.class);
@@ -50,6 +48,19 @@ public class AssetsManagerGame {
 
 
     public final AssetManager loadAllAsseGame() {
+
+        assets.put("pause_screen/bg.png", Texture.class);
+        assets.put("pause_screen/bg_bw.png", Texture.class);
+        assets.put("pause_screen/treck_bar.png", Texture.class);
+        assets.put("pause_screen/pm.ogg", Sound.class);
+
+        assets.put("menuAsset/wallpaper.png", Texture.class);
+        assets.put("menuAsset/wallpaper1.png", Texture.class);
+        assets.put("menuAsset/pley.png", Texture.class);
+        assets.put("menuAsset/logo.png", Texture.class);
+        assets.put("menuAsset/disconct.png", Texture.class);
+
+        assets.put("skin/uiskin.json", Skin.class);
         //GdxNativesLoader.load();
         assets.put("pause_screen/bg.png", Texture.class);
         assets.put("pause_screen/bg_bw.png", Texture.class);
@@ -112,22 +123,33 @@ public class AssetsManagerGame {
 
         assets.put("iron.png", Texture.class);
 
-
 //        assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
 //        assets.put("C:\\tank2d\\android\\assets\\map\\desert.tmx", Texture.class);
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
-        assetManager.load("map/field/index.tmx", TiledMap.class);
-        assetManager.load("map/desert/index.tmx", TiledMap.class);
+
+        assets.put("map/field/index.tmx", TiledMap.class);
+        assets.put("map/desert/index.tmx", TiledMap.class);
+//        assetManager.load("map/field/index.tmx", TiledMap.class);
+//        assetManager.load("map/desert/index.tmx", TiledMap.class);
 
         loadedAseets();
         return assetManager;
     }
 
     private void loadedAseets() {
+        System.out.println("--------" + assets.size() + " !!");
         for (Map.Entry<String, Class> entry : assets.entrySet()) {
             //  System.out.println(entry.getValue());
             if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
             assetManager.load(entry.getKey(), entry.getValue());
+     //       assetManager.finishLoadingAsset(entry.getKey());
+
+        }
+
+        for (Map.Entry<String, Class> entry : assets.entrySet()) {
+            //  System.out.println(entry.getValue());
+        //    if (assetManager.isLoaded(entry.getKey(), entry.getValue())) continue;
+            assetManager.finishLoadingAsset(entry.getKey());
 
         }
         assetManager.finishLoading();
@@ -145,5 +167,13 @@ public class AssetsManagerGame {
 
     public AssetManager getAssetManager() {
         return assetManager;
+    }
+
+    public <T> T get (String fileName, Class<T> type) {
+        return this.assetManager.get(fileName,type);
+    }
+
+    public <T> T get (String fileName) {
+        return this.assetManager.get(fileName);
     }
 }

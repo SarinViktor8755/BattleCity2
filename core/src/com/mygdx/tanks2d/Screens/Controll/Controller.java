@@ -102,7 +102,7 @@ public class Controller {
         temp_Point = new Vector2(0, 0);
         buttonChangingOpponent = false;
 
-        font = gsp.getAssetsManagerGame().get("fonts/font.fnt", BitmapFont.class);
+        font = gsp.getAMG().get("fonts/font.fnt", BitmapFont.class);
         Label.LabelStyle style = new Label.LabelStyle(font, Color.WHITE);
         font.getData().setScale(.8f);
         font.getColor().set(.5f, .5f, .5f, 1);
@@ -114,8 +114,8 @@ public class Controller {
         //System.out.println(Gdx.graphics.ge);
 
 /////////////////
-        stick = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("b"));
-        pointStick = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("stick"));
+        stick = new Image(gsp.getAMG().get("button.pack", TextureAtlas.class).findRegion("b"));
+        pointStick = new Image(gsp.getAMG().get("button.pack", TextureAtlas.class).findRegion("stick"));
 ////////////////
         // System.out.println(pointStick.getImageHeight()+ "  ==== ___ ");
 
@@ -146,7 +146,7 @@ public class Controller {
         });
 
 
-        attacButton = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("ba"));
+        attacButton = new Image(gsp.getAMG().get("button.pack", TextureAtlas.class).findRegion("ba"));
         attacButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -166,7 +166,7 @@ public class Controller {
             }
         });
 ////////////////////////////////////////// changingGoal
-        changingGoal = new Image(gsp.getAssetsManagerGame().get("button.pack", TextureAtlas.class).findRegion("br"));
+        changingGoal = new Image(gsp.getAMG().get("button.pack", TextureAtlas.class).findRegion("br"));
         changingGoal.setSize(90, 90);
         changingGoal.addListener(new InputListener() {
             @Override
@@ -185,7 +185,7 @@ public class Controller {
             }
         });
 
-        voiceButtonImg =  new Image((Texture) gsp.getMainGame().getAssetManager().get("microphone.png"));
+        voiceButtonImg =  new Image((Texture) gsp.getMainGame().getAMG().get("microphone.png"));
         voiceButtonImg.setSize(90, 90);
         voiceButtonImg.addListener(new InputListener() {
             @Override

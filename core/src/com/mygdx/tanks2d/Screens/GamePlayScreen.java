@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.tanks2d.Assets.AssetsManagerGame;
 import com.mygdx.tanks2d.AudioEngine.AudioEngine;
 import com.mygdx.tanks2d.CameraGame;
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
@@ -65,7 +66,8 @@ public class GamePlayScreen implements Screen {
 
         this.timeInGame = 0;
         this.gameSpace = new GameSpace(this, mainGame);
-        this.audioEngine = new AudioEngine(this);
+        //this.audioEngine = new AudioEngine(this);
+        this.audioEngine = mainGame.audioEngine;
 
         this.tanksOther = new TanksOther(this);
 
@@ -81,7 +83,8 @@ public class GamePlayScreen implements Screen {
         tank = new Tank(this);
 
         bullets = new Bullets(this);
-        pc = new ParticleCustum(this, mainGame.getAssetManager().get("particle1.png", Texture.class), mainGame.getAssetManager().get("fire.png", Texture.class), mainGame.getAssetManager().get("iron.png", Texture.class), mainGame.getAssetManager().get("de.pack", TextureAtlas.class), mainGame.getAssetManager().get("garnd.png", Texture.class));
+
+        pc = new ParticleCustum(this, mainGame.getAMG().get("particle1.png", Texture.class), mainGame.getAMG().get("fire.png", Texture.class), mainGame.getAMG().get("iron.png", Texture.class), mainGame.getAMG().get("de.pack", TextureAtlas.class), mainGame.getAMG().get("garnd.png", Texture.class));
 
 
 //        if(!MainGame.ANDROID){
@@ -255,6 +258,10 @@ public class GamePlayScreen implements Screen {
      //  if(MathUtils.randomBoolean(.005f)) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
     }
 
+    public AssetsManagerGame getAMG(){
+        return mainGame.getAMG();
+    }
+
     public TanksOther getTanksOther() {
         return tanksOther;
     }
@@ -357,9 +364,9 @@ public class GamePlayScreen implements Screen {
     }
 
 
-    public AssetManager getAssetsManagerGame() {
-        return this.mainGame.getAssetManager();
-    }
+//   // public AssetManager getAssetsManagerGame() {
+//        return this.mainGame.getAssetManager();
+//    }
 
     public int getScore_blue_command() {
         return score_blue_command;

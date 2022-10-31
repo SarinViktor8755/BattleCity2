@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.mygdx.tanks2d.Assets.AssetsManagerGame;
 import com.mygdx.tanks2d.ClientNetWork.RouterSM;
 import com.mygdx.tanks2d.Locations.Collision.MainCollision;
 import com.mygdx.tanks2d.Locations.UtilsLighting.b2d.BodyBuilder;
@@ -60,13 +61,13 @@ public class GameSpace {
 
 
     public void loadMap() {
-        radspurens = new Radspurens(gps.getAssetsManagerGame().get("sled.png", Texture.class), gps.getAssetsManagerGame().get("crater.png", Texture.class));
+        radspurens = new Radspurens(gps.getAMG().get("sled.png", Texture.class), gps.getAMG().get("crater.png", Texture.class));
 
         float unitScale = 1f;
 
         //map = new TmxMapLoader().load(MAP_DESETRT);
         System.out.println(RouterSM.map_math + " ::::::::!!!");
-        map = gps.getAssetsManagerGame().get("map/" + RouterSM.map_math + "/index.tmx");
+        map = gps.getAMG().get("map/" + RouterSM.map_math + "/index.tmx");
 
         rendererMap = new OrthogonalTiledMapRenderer(map, 1.0f, getGps().getBatch());
 
@@ -206,6 +207,10 @@ public class GameSpace {
         this.radspurens.clearRadspurens();
         this.radspurens.clearCrater();
     }
+
+//    private AssetsManagerGame getAMG(){
+//        gps
+//    }
 
 
 
