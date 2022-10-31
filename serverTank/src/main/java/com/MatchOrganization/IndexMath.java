@@ -12,7 +12,7 @@ import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
 
 public class IndexMath {
-    private static final float SECONDS_MATH = 45;
+    private static final float SECONDS_MATH = 120;
     private static final float MATH_LENGHT = 1000 * SECONDS_MATH; // время матча
     private static float realTimeMath; // время матча
     private ListPlayers listPlayers; // копия листа
@@ -39,8 +39,8 @@ public class IndexMath {
 
 
     public int getCommand() { // определить команду
-        System.out.println();
-        System.out.print("vibor comdnd : red  " + listPlayers.getRed_size() + " blue :: " + listPlayers.getBlue_size() + "   --  ");
+        //System.out.println();
+      //  System.out.print("vibor comdnd : red  " + listPlayers.getRed_size() + " blue :: " + listPlayers.getBlue_size() + "   --  ");
         listPlayers.counting_games();
         if (listPlayers.getRed_size() < listPlayers.getBlue_size()) {
             // System.out.println("RED_COMMAND");
@@ -94,10 +94,12 @@ public class IndexMath {
         if ((listPlayers.getLive_blue_size() < 1))
         {
             System.out.println("respown blue");
-            respon_math();}
-        if ((listPlayers.getLive_red_size() < 1)){
-            System.out.println("respown red");
-            respon_math();}
+            respon_math();
+        }
+       if ((listPlayers.getLive_red_size() < 1)){
+           System.out.println("respown red");
+           respon_math();
+       }
 
     }
 

@@ -69,7 +69,7 @@ public class IndexBot extends Thread {
         p.setNikName(getNikNameGen());
 
         NOM_ID_BOT--;
-        System.out.println("add_bot+ : " + NOM_ID_BOT + "  " + p.getCommand());
+    //    System.out.println("add_bot+ : " + NOM_ID_BOT + "  " + p.getCommand());
 
         gs.getLp().addPlayer(p); // добавляем в базу играков
 
