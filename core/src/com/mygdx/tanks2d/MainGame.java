@@ -15,7 +15,7 @@ import com.mygdx.tanks2d.adMod.AdAds;
 
 public class MainGame extends Game {
 
-  //  public AssetManager assetManager;
+    //  public AssetManager assetManager;
     public AudioEngine audioEngine;
 
     public AssetsManagerGame assetsManagerGame;
@@ -24,7 +24,6 @@ public class MainGame extends Game {
     private PauseScreen pauseScreen;
 
     private Screen mainMenu;
-
 
 
     private static byte flagChangeScreen = 0; // фоаг смены экрана - 0 не менять далее по показателям
@@ -46,20 +45,18 @@ public class MainGame extends Game {
     static public final int HIDE_SCREEN = 315;
 
 
-
-
     static public int status = STATUS_GAME_MENU;
 
     public MainGame(int tip) {
         mainClient = new MainClient(this);
-       // assetManager = new AssetManager();
+        // assetManager = new AssetManager();
 
 
         assetsManagerGame = new AssetsManagerGame(new AssetManager());
-       // assetsManagerGame.loadAllAssetMenu();
+        // assetsManagerGame.loadAllAssetMenu();
         assetsManagerGame.loadAllAsseGame();
 
-       // audioEngine = new AudioEngine(this);
+        // audioEngine = new AudioEngine(this);
 
         if (tip == 1) ANDROID = false;
         else ANDROID = true;
@@ -87,7 +84,7 @@ public class MainGame extends Game {
     public void startGameSPley() {
         mainMenu.dispose();
         //  getMainClient().setOnLine(false);
-      //  assetsManagerGame.loadAllAsseGame();
+        //  assetsManagerGame.loadAllAsseGame();
         this.gamePlayScreen = new GamePlayScreen(this);
         this.setScreen(this.gamePlayScreen);
         MainGame.status = STATUS_GAME_GAMEPLAY;
@@ -95,13 +92,13 @@ public class MainGame extends Game {
     }
 
     public void startPauseScreen() {
-        if(MainGame.flagChangeScreen != MainGame.STATUS_GAME_PAUSE) return;
-       // assetsManagerGame.loadAllAsseGame();
+        if (MainGame.flagChangeScreen != MainGame.STATUS_GAME_PAUSE) return;
+        // assetsManagerGame.loadAllAsseGame();
         MainGame.flagChangeScreen = 0;
         this.screen.dispose();
-      //  assetsManagerGame.loadAllAsseGame();
-       // this.setScreen(null);
-       // assetsManagerGame.loadAllAsseGame();
+        //  assetsManagerGame.loadAllAsseGame();
+        // this.setScreen(null);
+        // assetsManagerGame.loadAllAsseGame();
         this.pauseScreen = new PauseScreen(this);
         this.setScreen(pauseScreen);
         MainGame.status = STATUS_GAME_PAUSE;
@@ -109,8 +106,8 @@ public class MainGame extends Game {
     }
 
     public void goGameForPause() { // выход из паузы в игру
-        System.out.println("goGameForPause");
-        if(MainGame.flagChangeScreen != MainGame.STATUS_GAME_GAMEPLAY) return;
+     //   System.out.println("goGameForPause");
+        if (MainGame.flagChangeScreen != MainGame.STATUS_GAME_GAMEPLAY) return;
         MainGame.flagChangeScreen = 0;
         this.screen.dispose();
 
@@ -163,7 +160,7 @@ public class MainGame extends Game {
 //        this.assetManager.finishLoading();
 //    }
 
-  //  public AssetManager getAssetManager() {
+    //  public AssetManager getAssetManager() {
 //        return assetManager;
 //    }
 
@@ -175,8 +172,16 @@ public class MainGame extends Game {
         return gamePlayScreen;
     }
 
-    public boolean isMainMenuScreen(){
+    public boolean isMainMenuScreen() {
         System.out.println("---------  " + this.screen.equals(this.mainMenu));
         return this.screen.equals(this.mainMenu);
+    }
+
+    public boolean isPause() {
+   //     System.out.println(this.screen);
+//        System.out.println(flagChangeScreen + "  111111111");
+        if(screen.getClass().equals(PauseScreen.class))return true;
+   //     if (MainGame.flagChangeScreen == MainGame.STATUS_GAME_PAUSE) return true;
+        return false;
     }
 }

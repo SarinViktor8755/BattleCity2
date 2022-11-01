@@ -203,6 +203,8 @@ public class GamePlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
+
+        System.out.println(mainGame.getScreen());
        // System.out.println(mainGame.isMainMenuScreen() + " @@@@@@");
         //  System.out.println(MapsList.getMapForServer());
 

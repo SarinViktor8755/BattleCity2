@@ -73,7 +73,7 @@ public class PauseScreen implements Screen {
 
     @Override
     public void show() {
-
+        mainGame.audioEngine.playMusicPaseMenu();
 
     }
 
@@ -81,6 +81,7 @@ public class PauseScreen implements Screen {
     public void render(float delta) {
         update();
         //mainGame.goGameForPause();
+
         //if(MathUtils.randomBoolean(.005f)) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_GAMEPLAY);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -89,7 +90,7 @@ public class PauseScreen implements Screen {
 
         batch.setColor(1, 1, 1, getAlpha());
 
-
+        System.out.println(mainGame.getScreen());
         batch.draw(f, viewport.getScreenX(), viewport.getScreenY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.setColor(1, 1, 1, 1 - getWith());
         batch.draw(f_bw, viewport.getScreenX(), viewport.getScreenY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -99,16 +100,16 @@ public class PauseScreen implements Screen {
         batch.end();
 
 
-        System.out.println(timeInScreen);
-        if(timeInScreen < 0) mainGame.goGameForPause();
+       // System.out.println(timeInScreen);
+        //if(timeInScreen < 0) mainGame.goGameForPause();
 
 
     }
 
     private void update() {
-
         this.timeInScreen -= Gdx.graphics.getDeltaTime();
-
+        if(timeInScreen < 0 ) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_GAMEPLAY);
+        mainGame.goGameForPause();
     }
 
     private float getAlpha() {
@@ -157,6 +158,7 @@ public class PauseScreen implements Screen {
     @Override
     public void dispose() {
         batch.dispose();
+        mainGame.audioEngine.stopMusicPaseMenu();
 
     }
 }

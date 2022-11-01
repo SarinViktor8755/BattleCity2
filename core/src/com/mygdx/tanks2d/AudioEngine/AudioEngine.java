@@ -68,6 +68,7 @@ public class AudioEngine {
 //    }
 
     public void pleySoundKickStick() {
+        stopSoundOfTracks();
         float distanc = 1;
         long id = sound.play();
         sound.setPitch(id, MathUtils.random(.95f, 1.1f));
@@ -82,19 +83,22 @@ public class AudioEngine {
     }
 
     public void pley_fight_ad_sound() {
+        if(isPause()) return;
         this.fight.play();
     }
 
     public void pley_lose_ad_sound() {
+        if(isPause()) return;
         this.loose.play();
     }
 
-    private static float countVolmeDistantion(Vector2 a,Vector2 b) {
-       return countVolmeDistantion(a.x,a.y,b.x,b.y);
+    private static float countVolmeDistantion(Vector2 a, Vector2 b) {
+        return countVolmeDistantion(a.x, a.y, b.x, b.y);
     }
 
 
     public void pleySoundKickExplosion(float x, float y, float x1, float y1) {
+        if(isPause()) return;
         float distanc = countVolmeDistantion(x, y, x1, y1);
         if (distanc <= 0) return;
         long id = explosion.play();
@@ -103,6 +107,7 @@ public class AudioEngine {
     }
 
     public void pleySoundKickStick(float x, float y, float x1, float y1) {
+        if(isPause()) return;
 
         float distanc = countVolmeDistantion(x, y, x1, y1);
         if (distanc <= 0) return;
@@ -112,6 +117,7 @@ public class AudioEngine {
     }
 
     public void pleySoundKickStick(float vol) {
+        if(isPause()) return;
         if (vol < 0) return;
         float distanc = 1;
         long id = sound.play();
@@ -120,6 +126,7 @@ public class AudioEngine {
     }
 
     public void pleySoundOfTracks() {
+        if(isPause()) return;
         //  System.out.println(idTrack);
 
         if (idTrack == null) {
@@ -129,22 +136,25 @@ public class AudioEngine {
 
 
     }
-///////////////
+
+    ///////////////
     public void playMusicPaseMenu() {
         pause_music_id = music_pause.loop(1);
-       // pause_music_id = music_pause.play();
+        stopSoundOfTracks();
+        // pause_music_id = music_pause.play();
 
     }
 
     public void stopMusicPaseMenu() {
-       // music_pause.stop(pause_music_id);
+        // music_pause.stop(pause_music_id);
         music_pause.stop();
     }
 
     public void update_volme_pause(float vol) {
-        music_pause.setVolume(pause_music_id,vol);
+        music_pause.setVolume(pause_music_id, vol);
     }
-////////
+
+    ////////
     public void stopSoundOfTracks() {
         if (idTrack != null)
             sound.pause(idTrack);
@@ -176,6 +186,12 @@ public class AudioEngine {
         } catch (NullPointerException e) {
             //   System.out.println("11");
         }
+    }
+
+
+    public boolean isPause() {
+        if (mainGaming.isPause()) return true;
+        return false;
     }
 
 }
