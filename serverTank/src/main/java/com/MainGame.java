@@ -64,7 +64,7 @@ public class MainGame {
 //                                нужно будет обнулить игру результаты
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
                         //           System.out.println("is_end_math : " + is_end_math());
-                        gameServer.lp.counting_games();
+                     //   gameServer.lp.counting_games();
 
                         if(MathUtils.randomBoolean(.001f)){
                            GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);

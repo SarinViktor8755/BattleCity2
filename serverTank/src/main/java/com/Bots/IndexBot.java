@@ -279,10 +279,10 @@ public class IndexBot extends Thread {
 
     public void updateCountBot(int lPlayers, int target_plaers) {
         //if (gs.lp.get_activ_player_bots() == target_plaers) return;
-        if (gs.lp.get_activ_player_bots() < target_plaers) addBot();
+   //     if (gs.lp.get_activ_player_bots() < target_plaers) addBot();
        // else delBot();
 
-        if(gs.lp.get_activ_player_bots() > target_plaers) delateBot();
+    //    if(gs.lp.get_activ_player_bots() > target_plaers) delateBot();
     }
 
 

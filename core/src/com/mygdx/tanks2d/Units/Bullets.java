@@ -82,7 +82,7 @@ public class Bullets {
                     width / 2, height / 2,
                     width, height,
                     1, 1,
-                    b.direction.angleDeg() - 90,
+                    b.direction.angleDeg() + 90,
                     1, 1,
                     (int) width, (int) height,
                     false, false
