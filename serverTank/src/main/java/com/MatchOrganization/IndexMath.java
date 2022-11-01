@@ -41,7 +41,7 @@ public class IndexMath {
     public int getCommand() { // определить команду
         //System.out.println();
       //  System.out.print("vibor comdnd : red  " + listPlayers.getRed_size() + " blue :: " + listPlayers.getBlue_size() + "   --  ");
-        listPlayers.counting_games();
+       // listPlayers.counting_games();
         if (listPlayers.getRed_size() < listPlayers.getBlue_size()) {
             // System.out.println("RED_COMMAND");
             return Heading_type.RED_COMMAND;
@@ -91,12 +91,13 @@ public class IndexMath {
         if (mathTime > MATH_LENGHT) {
             System.out.println("respown TIME");
             respon_math();}
-        if ((listPlayers.getLive_blue_size() < 1))
+        //if ((listPlayers.getLive_blue_size() < 1))
         {
             System.out.println("respown blue");
             respon_math();
         }
-       if ((listPlayers.getLive_red_size() < 1)){
+      // if ((listPlayers.getLive_red_size() < 1))
+        {
            System.out.println("respown red");
            respon_math();
        }

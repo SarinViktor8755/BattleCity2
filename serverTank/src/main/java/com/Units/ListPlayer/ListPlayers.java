@@ -35,16 +35,16 @@ public class ListPlayers {
     private int blue_size;
     private int red_size;
     //живы игроки
-    private int size_live_player; // оличество живых играков
-    private int size_bot_player;
-
-    private int team_difference;
-
-    private int live_blue_size;
-    private int live_red_size;
+//    private int size_live_player; // оличество живых играков
+//    private int size_bot_player;
+//
+//    private int team_difference;
+//
+//    private int live_blue_size;
+//    private int live_red_size;
     ////////////// дублирую переменные _ НО так надо - используются  двух разных методов
-    private int live_blue_size_player;  // Это среднии живые игроки
-    private int live_red_size_player;
+//    private int live_blue_size_player;  // Это среднии живые игроки
+//    private int live_red_size_player;
 
     private static Vector2 blue_average = new Vector2(0, 0);
     private static Vector2 red_average = new Vector2(0, 0);
@@ -112,13 +112,13 @@ public class ListPlayers {
         return this.players.size();
     }
 
-    public int getLive_blue_size_player() {
-        return live_blue_size_player;
-    }
-
-    public int getLive_red_size_player() {
-        return live_red_size_player;
-    }
+//    public int getLive_blue_size_player() {
+//        return live_blue_size_player;
+//    }
+//
+//    public int getLive_red_size_player() {
+//        return live_red_size_player;
+//    }
 
     public Player updatePosition(int id, Network.PleyerPosition pp) { // записать парметры Игрока
         Player p = players.get(id);
@@ -291,13 +291,13 @@ public class ListPlayers {
     private void update_number_of_clicks(int coomand, boolean live) {
         if (coomand == Heading_type.BLUE_COMMAND) {
             blue_size++;
-            if (live) live_blue_size_player++;
+        //    if (live) live_blue_size_player++;
         }
 
 
         if (coomand == Heading_type.RED_COMMAND) {
             red_size++;
-            if (live) live_red_size_player++;
+    //        if (live) live_red_size_player++;
         }
     }
 
@@ -325,29 +325,29 @@ public class ListPlayers {
             }
 
         }
-        ListPlayers.blue_average.set(xb / b, yb / b);
-        ListPlayers.red_average.set(xr / r, yr / r);
-
+        ListPlayers.blue_average.set(xb / b, yb / b); /// среднее голубая команда  - ккординаты
+        ListPlayers.red_average.set(xr / r, yr / r);/// среднее голубая команда  - ккординаты
+        ///среднее по двум командам
         ListPlayers.average_cord.set(((ListPlayers.blue_average.x + ListPlayers.red_average.x) / 2), ((ListPlayers.blue_average.y + ListPlayers.red_average.y) / 2));
         //  System.out.println(blue_average + "  " + r + "   " + b + "  " + red_average + "    -- Общая средняя " + average_cord);
 
-        live_blue_size = b;
-        live_red_size = r;
+//        live_blue_size = b;
+//        live_red_size = r;
 
 
     }
 
-    public int getLive_blue_size() {
-        return live_blue_size_player;
-    }
+//    public int getLive_blue_size() {
+//        return live_blue_size_player;
+//    }
+//
+//    public int getLive_red_size() {
+//        return live_red_size_player;
+//    }
 
-    public int getLive_red_size() {
-        return live_red_size_player;
-    }
-
-    public void setLive_blue_size(int live_blue_size) {
-        this.live_blue_size = live_blue_size;
-    }
+//    public void setLive_blue_size(int live_blue_size) {
+//        this.live_blue_size = live_blue_size;
+//    }
 
     public static Vector2 getBlue_average() {
         return blue_average;
@@ -498,49 +498,49 @@ public class ListPlayers {
 //
 //
 //    }
-    public void counting_games() { // подсчет всех видов играков;
-        //if(MathUtils.randomBoolean(.8f)) return;
-        size_live_player = 0;
-        size_bot_player = 0;
-        blue_size = 0;
-        red_size = 0;
+//    public void counting_games() { // подсчет всех видов играков;
+////        //if(MathUtils.randomBoolean(.8f)) return;
+////        size_live_player = 0;
+////        size_bot_player = 0;
+////        blue_size = 0;
+////        red_size = 0;
+//
+////        live_blue_size_player = 0;
+////        live_red_size_player = 0;
+//        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+//        while (entries.hasNext()) {
+//            Map.Entry<Integer, Player> entry = entries.next();
+//            Player p = entry.getValue();
+//            checking_empty_players(p); // проверка пустых игроков
+//            //  System.out.println("ID: " +p.getId()+"  "+p.getNikName() + "pos " + p.pos + "Status"+ p.status);
+//
+//            if (p.id > -99) {
+//                if (!p.in_game_player()) continue;
+//                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
+//                if(p.getPosi().x != -10_000) size_live_player++; // количество жиых играков ___ реальных играков
+//
+//
+//            } else {
+//                // if(p.getNikName().equals("tokken_123")) this.players.remove(p);
+//                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
+//                size_bot_player++;// количество БОТОВ играков ___ НЕ РЕАЛЬНЫХ играков
+//
+//            }
+//
+//
+//        }
+//
+////        System.out.println("_____________________________________________________");
+////        System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
+////        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
+////        System.out.println("BLUE_LIVE " + live_blue_size_player + "  |      RED_LIVE " + live_red_size_player);
+////        System.out.println("_____________________________________________________");
+//
+//        this.team_difference = getRed_size() - getBlue_size();
+//     //   System.out.println(get_activ_player_bots() + "   " + getRed_size() + " " + getBlue_size());
+//    }
 
-        live_blue_size_player = 0;
-        live_red_size_player = 0;
-        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
-        while (entries.hasNext()) {
-            Map.Entry<Integer, Player> entry = entries.next();
-            Player p = entry.getValue();
-            checking_empty_players(p); // проверка пустых игроков
-            //  System.out.println("ID: " +p.getId()+"  "+p.getNikName() + "pos " + p.pos + "Status"+ p.status);
-
-            if (p.id > -99) {
-                if (!p.in_game_player()) continue;
-                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
-                if(p.getPosi().x != -10_000) size_live_player++; // количество жиых играков ___ реальных играков
-
-
-            } else {
-                // if(p.getNikName().equals("tokken_123")) this.players.remove(p);
-                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
-                size_bot_player++;// количество БОТОВ играков ___ НЕ РЕАЛЬНЫХ играков
-
-            }
-
-
-        }
-
-//        System.out.println("_____________________________________________________");
-//        System.out.println("size_live_player " + size_live_player + " || size_bot_player " + size_bot_player);
-//        System.out.println("blue_size " + blue_size + "  |      red_size " + red_size);
-//        System.out.println("BLUE_LIVE " + live_blue_size_player + "  |      RED_LIVE " + live_red_size_player);
-//        System.out.println("_____________________________________________________");
-
-        this.team_difference = getRed_size() - getBlue_size();
-     //   System.out.println(get_activ_player_bots() + "   " + getRed_size() + " " + getBlue_size());
-    }
-
-    private void checking_empty_players(Player p) {
+    public void checking_empty_players(Player p) {
         if (p.getId() > -99) return;
         if (p.nikName.equals(Heading_type.DEFULT_NAME)) {
             gameServer.send_DISCONECT_PLAYER(p.getId());
@@ -560,20 +560,22 @@ public class ListPlayers {
         return red_size;
     }
 
-    public int getTeam_difference() {
-        return team_difference;
-    }
+//    public int getTeam_difference() {
+//        return team_difference;
+//    }
+//
+//    public int getSize_live_player() {
+//        return size_live_player;
+//    }
+//
+//    public int getSize_bot_player() {
+//        return size_bot_player;
+//    }
 
-    public int getSize_live_player() {
-        return size_live_player;
-    }
+//    public int get_activ_player_bots() {
+//        return getSize_bot_player() + getSize_live_player();
+//    }
 
-    public int getSize_bot_player() {
-        return size_bot_player;
-    }
 
-    public int get_activ_player_bots() {
-        return getSize_bot_player() + getSize_live_player();
-    }
 
 }
