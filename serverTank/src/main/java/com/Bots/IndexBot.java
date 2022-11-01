@@ -52,16 +52,16 @@ public class IndexBot extends Thread {
         // this.botBehavior = new BotBehavior(botList); // поведение бота - тут вся логика  )))
         // this.allPlayers = new HashMap<Integer, TowerRotation>();
 
-        System.out.println("install_Bot : " + GameServer.getDate() + "  " + countBot);
+  //      System.out.println("install_Bot : " + GameServer.getDate() + "  " + countBot);
     }
 
 
     private void addBot() {
 
-        System.out.println("Add_bot");
+      //  System.out.println("Add_bot");
         int command = gs.getMainGame().getIndexMath().getCommand();
         Player p = new Player(NOM_ID_BOT, command);
-        System.out.println(command);
+   //     System.out.println(command);
 
 
 
@@ -317,7 +317,7 @@ public class IndexBot extends Thread {
 //        dbBots.remove(firstKey);
 //        gs.send_DISCONECT_PLAYER(firstKey);
         if (gs.lp.getBlue_size() <1) return;
-        System.out.println("DELETA BOT");
+    //    System.out.println("DELETA BOT");
         int target_conmand;
        // if()
         if (gs.lp.getRed_size() < gs.lp.getBlue_size()) {

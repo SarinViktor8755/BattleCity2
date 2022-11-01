@@ -58,7 +58,7 @@ public class IndexMap {
             ceateObjectmap((JSONObject) arr.get(i));
         }
         //     System.out.println("rasp1 "+rasp1 +"  rasp2 "+  rasp2);
-        System.out.println("install_map : " + GameServer.getDate());
+       // System.out.println("install_map : " + GameServer.getDate());
     }
 
     ////////////////

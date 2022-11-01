@@ -80,7 +80,7 @@ public class PauseScreen implements Screen {
     @Override
     public void render(float delta) {
         update();
-        mainGame.goGameForPause();
+        //mainGame.goGameForPause();
         //if(MathUtils.randomBoolean(.005f)) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_GAMEPLAY);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -100,12 +100,15 @@ public class PauseScreen implements Screen {
 
 
         System.out.println(timeInScreen);
+        if(timeInScreen < 0) mainGame.goGameForPause();
 
 
     }
 
     private void update() {
+
         this.timeInScreen -= Gdx.graphics.getDeltaTime();
+
     }
 
     private float getAlpha() {

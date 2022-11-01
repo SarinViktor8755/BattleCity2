@@ -537,7 +537,7 @@ public class ListPlayers {
 //        System.out.println("_____________________________________________________");
 
         this.team_difference = getRed_size() - getBlue_size();
-        System.out.println(get_activ_player_bots() + "   " + getRed_size() + " " + getBlue_size());
+     //   System.out.println(get_activ_player_bots() + "   " + getRed_size() + " " + getBlue_size());
     }
 
     private void checking_empty_players(Player p) {

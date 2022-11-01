@@ -66,7 +66,7 @@ public class MainGame {
                         //           System.out.println("is_end_math : " + is_end_math());
                         gameServer.lp.counting_games();
 
-                        if(MathUtils.randomBoolean(.0001f)){
+                        if(MathUtils.randomBoolean(.001f)){
                            GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
                             gameServer.send_Chang_screen(GameServer.break_in_the_game);
 
@@ -115,7 +115,7 @@ public class MainGame {
                         // gameServer.lp.re
 
 
-                        // System.out.println("---");
+                       // System.out.println("---");
 
 //     не останавливать поток все функции должны быть конечными )))
 

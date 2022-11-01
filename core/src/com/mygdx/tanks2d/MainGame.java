@@ -109,6 +109,7 @@ public class MainGame extends Game {
     }
 
     public void goGameForPause() { // выход из паузы в игру
+        System.out.println("goGameForPause");
         if(MainGame.flagChangeScreen != MainGame.STATUS_GAME_GAMEPLAY) return;
         MainGame.flagChangeScreen = 0;
         this.screen.dispose();
