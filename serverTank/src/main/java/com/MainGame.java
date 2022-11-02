@@ -32,6 +32,7 @@ public class MainGame {
         this.mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
         startSecondaryThread_50();
         startSecondaryThread_25();
+        startSecondaryThread_600();
     //    pause_game = false;
         indexMath = new IndexMath();
 
@@ -62,12 +63,12 @@ public class MainGame {
                        // System.out.println("50");
 
                         StatisticMath.key_recalculate_statistics = true;
-                        gameServer.lp.getStatisticMath().counting_p(); /// пересчет игры
-                        StatisticMath.printSttisticMath();
+
+                     //   StatisticMath.printSttisticMath();
 
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
-                        gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
+
                         //           System.out.println("is_end_math : " + is_end_math());
                      //   gameServer.lp.counting_games();
 
@@ -89,6 +90,7 @@ public class MainGame {
             }
         }).start();
     }
+
 
 
     public IndexMap getMapSpace() {
@@ -124,6 +126,31 @@ public class MainGame {
                        // System.out.println("---");
 
 //     не останавливать поток все функции должны быть конечными )))
+
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+
+    private void startSecondaryThread_600() { // выполняется каждые 50 мс
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (true) {
+                        Thread.sleep(600);
+                        System.out.println("600");
+                        gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
+                        gameServer.lp.getStatisticMath().counting_p(); /// пересчет игры
+
+
+                        System.out.println("Tokkens :: " + gameServer.lp.getPlayersTokken());
+
 
 
                     }

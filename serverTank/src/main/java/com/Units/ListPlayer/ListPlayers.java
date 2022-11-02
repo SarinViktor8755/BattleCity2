@@ -559,7 +559,7 @@ public class ListPlayers {
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
-            if(p.getId()<-99) return p.id;
+            if(isBot(p)) return p.id;
 
         }
 
@@ -568,6 +568,19 @@ public class ListPlayers {
 
     public int getSize_list_player_in_game() {
         return size_list_player_in_game;
+    }
+
+    public void clearAllBots(){ // не тестировал
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+            Player p = entry.getValue();
+            if(isBot(p)) remove_player(p.getId());
+        }
+    }
+
+    private boolean isBot(Player p){
+        if(p.getId()<-99) return true; return false;
     }
 
 
