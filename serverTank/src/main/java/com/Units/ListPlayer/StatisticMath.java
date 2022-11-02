@@ -57,7 +57,7 @@ public class StatisticMath {   // класс дял подчета количе�
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
-            System.out.println(p);
+           // System.out.println(p);
             if(p.status == Heading_type.DISCONECT_PLAYER) continue;
             lp.checking_empty_players(p); // ???
             ///////////////////////////
@@ -119,7 +119,7 @@ public class StatisticMath {   // класс дял подчета количе�
     ////////////////////////////////////
 
 
-    private boolean isBot(Player p) {
+    private static boolean isBot(Player p) {
         if (p.id < -99) return true;
         else return false;
     }

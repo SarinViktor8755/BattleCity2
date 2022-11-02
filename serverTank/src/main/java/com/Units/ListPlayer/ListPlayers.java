@@ -554,6 +554,18 @@ public class ListPlayers {
         }
     }
 
+    public int getIdRandomBot(){
+        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<Integer, Player> entry = entries.next();
+            Player p = entry.getValue();
+            if(p.getId()<-99) return p.id;
+
+        }
+
+        return  99;
+    }
+
     public int getSize_list_player_in_game() {
         return size_list_player_in_game;
     }

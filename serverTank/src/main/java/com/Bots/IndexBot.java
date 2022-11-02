@@ -277,9 +277,9 @@ public class IndexBot extends Thread {
 
 
     public void updateCountBot(int lPlayers, int target_plaers) {
-      //  addBot();
 
         if (StatisticMath.getPlayersSize() < target_plaers) addBot();
+        if (StatisticMath.getPlayersSize() > target_plaers + 1) remove_extra_bot();
 
         //if (gs.lp.get_activ_player_bots() == target_plaers) return;
         //     if (gs.lp.get_activ_player_bots() < target_plaers) addBot();
@@ -313,7 +313,34 @@ public class IndexBot extends Thread {
     }
 
 
-    private void delateBot() { // дописать нужно с какой команды удалять ))
+    private void remove_extra_bot(){
+      //  if(MathUtils.randomBoolean(.99f)) return;
+        System.out.println("delete");
+        int random_id = gs.lp.getIdRandomBot();
+        if(random_id == 99) return;
+        delateBot(random_id);
+        System.out.println(random_id+"   del");
+
+        ///////////////////////
+
+
+        int target_comand = 0;
+        if(StatisticMath.getBlueSize() > StatisticMath.getRedSize()) target_comand = Heading_type.BLUE_COMMAND;
+        if(StatisticMath.getBlueSize() < StatisticMath.getRedSize()) target_comand = Heading_type.RED_COMMAND;
+        if(target_comand == 0) return;
+
+
+
+
+    }
+
+    private void delateBot(int id) { // дописать нужно с какой команды удалять ))
+
+        gs.send_DISCONECT_PLAYER(id);
+        gs.lp.remove_player(id);
+        dbBots.remove(id);
+        //System.out.println();
+
 ////        Integer firstKey = dbBots.keySet().iterator().next();
 ////        System.out.println("delete");
 ////        gs.lp.remove_player(firstKey);
