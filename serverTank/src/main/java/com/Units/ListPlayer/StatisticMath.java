@@ -7,14 +7,16 @@ import java.util.Map;
 
 public class StatisticMath {   // класс дял подчета количетва играков )))))
 
-
+    public static boolean key_recalculate_statistics = true;
     private ListPlayers lp;
 
-    private int size_live_player; // оличество живых играков
-    private int size_bot_player; // количество ботов
+    private static int sttistic[] = new int[6];
 
-    private int blue_size; // всех в команде
-    private int red_size;
+//    private int size_live_player; // rоличество живых играков
+//    private int size_bot_player; // количество ботов
+//
+//    private int blue_size; // всех в команде
+//    private int red_size;
 
 
     // разница команд в коичестве
@@ -29,103 +31,127 @@ public class StatisticMath {   // класс дял подчета количе�
     public StatisticMath(ListPlayers lp) {
         this.lp = lp;
         access_key = true; // ключ домтупа
+        key_recalculate_statistics = true; // ключ начать пересчет
     }
 
 //    public int[] getArrayStatic(){
 //        return int
 //    }
 
+    public static void setTrue() {
+        key_recalculate_statistics = true;
+    }
+
     public synchronized StatisticMath counting_p() { // посчитать статичтику
-        if(!access_key) return null;
+        if (!key_recalculate_statistics) return this;
+        System.out.println("counting_p  " + lp.getSize());
+        if (!access_key) return null;
         access_key = false;
 
-        size_live_player = 0;
-        size_bot_player = 0;
-        blue_size = 0;
-        red_size = 0;
+        int size_live_player = 0;
+        int size_bot_player = 0;
+
+
+        int live_blue_size_player = 0;
+        int live_red_size_player = 0;
+
+        int blue_size = 0;
+        int red_size = 0;
 
         Iterator<Map.Entry<Integer, Player>> entries = lp.getPlayers().entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
+            System.out.println(p);
+            if(p.status == Heading_type.DISCONECT_PLAYER) continue;
             lp.checking_empty_players(p); // ???
-            if(!isBot(p)){
+            ///////////////////////////
+            if (p.command == Heading_type.BLUE_COMMAND) {
+                blue_size++;
+                if (isLive(p)) live_blue_size_player++;
+            }
+
+
+            if (p.command == Heading_type.RED_COMMAND) {
+                red_size++;
+                if (isLive(p)) live_red_size_player++;
+            }
+            ///////////////////////////
+            if (!isBot(p)) {
                 if (!p.in_game_player()) continue;
-                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
-                if(p.getPosi().x != -10_000) size_live_player++; // количество жиых играков ___ реальных играков
-            }else{
-                // if(p.getNikName().equals("tokken_123")) this.players.remove(p);
-                update_number_of_clicks(p.getCommand(), p.isLive()); // добавить в команду
+                    size_live_player++; // количество жиых играков ___ реальных играков
+            } else {
                 size_bot_player++;// количество БОТОВ играков ___ НЕ РЕАЛЬНЫХ играков
             }
         }
+        StatisticMath.sttistic[0] = size_live_player;
+        StatisticMath.sttistic[1] = size_bot_player;
+        StatisticMath.sttistic[2] = blue_size;
+        StatisticMath.sttistic[3] = red_size;
+        StatisticMath.sttistic[4] = live_blue_size_player;
+        StatisticMath.sttistic[5] = live_red_size_player;
+        key_recalculate_statistics = false;
         access_key = true;
         return this;
     }
 
-
-    private void update_number_of_clicks(int coomand, boolean live) {
-        if (coomand == Heading_type.BLUE_COMMAND) {
-            blue_size++;
-            //    if (live) live_blue_size_player++;
-        }
-
-
-        if (coomand == Heading_type.RED_COMMAND) {
-            red_size++;
-            //        if (live) live_red_size_player++;
-        }
+    ////////////////////////////////////
+    public synchronized static int getLivePlayer() {
+        return StatisticMath.sttistic[0];
     }
+
+    public synchronized static int getSizeBot() {
+        return StatisticMath.sttistic[1];
+    }
+
+    public synchronized static int getBlueSize() {
+        return StatisticMath.sttistic[2];
+    }
+
+    public synchronized static int getRedSize() {
+        return StatisticMath.sttistic[3];
+    }
+
+    public synchronized static int getLiveBlueSize() {
+        return StatisticMath.sttistic[4];
+    }
+
+    public synchronized static int getLiveRedSize() {
+        return StatisticMath.sttistic[5];
+    }
+
+    public synchronized static int getPlayersSize() {
+        return getBlueSize() + getRedSize();
+    }
+    ////////////////////////////////////
 
 
     private boolean isBot(Player p) {
-        if (p.id > -99) return false;
-        else return true;
+        if (p.id < -99) return true;
+        else return false;
     }
 
+    private boolean isLive(Player p) {
+        if (isBot(p)) {
+          //  if (p.id > -99) return false;
+            if (p.pos.x == -100000) return false;
+        } else {
+            if (p.hp < 1) return false;
+        }
+        return true;
+    }
+
+    public static int[] getSttisticMath() {
+        return sttistic;
+    }
+
+    public static void printSttisticMath() {
+        for (int i = 0; i < sttistic.length; i++) {
+            System.out.print(sttistic[i] + "  ");
+        }
+        System.out.println();
+    }
 
     ///////////
-    public int getSize_live_player() {
-        return size_live_player;
-    }
 
-    public void setSize_live_player(int size_live_player) {
-        this.size_live_player = size_live_player;
-    }
-
-    public int getSize_bot_player() {
-        return size_bot_player;
-    }
-
-    public void setSize_bot_player(int size_bot_player) {
-        this.size_bot_player = size_bot_player;
-    }
-
-    public int getTeam_difference() {
-        return team_difference;
-    }
-
-    public void setTeam_difference(int team_difference) {
-        this.team_difference = team_difference;
-    }
-
-    public int getLive_blue_size() {
-        return live_blue_size;
-    }
-
-    public void setLive_blue_size(int live_blue_size) {
-        this.live_blue_size = live_blue_size;
-    }
-
-    public int getLive_red_size() {
-        return live_red_size;
-    }
-
-    public void setLive_red_size(int live_red_size) {
-        this.live_red_size = live_red_size;
-    }
-
-    public boolean isAccess_key() {
-        return access_key;
-    }
 }

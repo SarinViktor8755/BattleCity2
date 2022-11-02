@@ -10,6 +10,7 @@ import java.util.Map;
 import main.java.com.MainGame;
 import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
+import main.java.com.Units.ListPlayer.StatisticMath;
 
 public class IndexMath {
     private static final float SECONDS_MATH = 120;
@@ -42,14 +43,18 @@ public class IndexMath {
         //System.out.println();
       //  System.out.print("vibor comdnd : red  " + listPlayers.getRed_size() + " blue :: " + listPlayers.getBlue_size() + "   --  ");
        // listPlayers.counting_games();
-        if (listPlayers.getRed_size() < listPlayers.getBlue_size()) {
+
+
+        if (StatisticMath.getRedSize() < StatisticMath.getBlueSize()) {
             // System.out.println("RED_COMMAND");
             return Heading_type.RED_COMMAND;
         }
-        if (listPlayers.getBlue_size() < listPlayers.getRed_size()) {
+        if (StatisticMath.getBlueSize() < StatisticMath.getRedSize()) {
             //System.out.println("BLUE COMAND");
             return Heading_type.BLUE_COMMAND;
         }
+
+
         // System.out.println("____________________________");
         if (MathUtils.randomBoolean()) return Heading_type.RED_COMMAND;
         else return Heading_type.BLUE_COMMAND;
@@ -91,12 +96,12 @@ public class IndexMath {
         if (mathTime > MATH_LENGHT) {
             System.out.println("respown TIME");
             respon_math();}
-        //if ((listPlayers.getLive_blue_size() < 1))
+        if (StatisticMath.getLiveBlueSize() < 1)
         {
             System.out.println("respown blue");
             respon_math();
         }
-      // if ((listPlayers.getLive_red_size() < 1))
+       if (StatisticMath.getLiveRedSize() < 1 )
         {
            System.out.println("respown red");
            respon_math();

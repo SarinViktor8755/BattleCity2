@@ -6,6 +6,7 @@ import com.mygdx.tanks2d.Locations.MapsList;
 
 import main.java.com.MatchOrganization.IndexMath;
 import main.java.com.Units.Bullet.IndexBullets;
+import main.java.com.Units.ListPlayer.StatisticMath;
 import main.java.com.Units.SpaceMap.IndexMap;
 
 public class MainGame {
@@ -60,22 +61,26 @@ public class MainGame {
                         else Thread.sleep(450);
                        // System.out.println("50");
 
+                        StatisticMath.key_recalculate_statistics = true;
+                        gameServer.lp.getStatisticMath().counting_p(); /// пересчет игры
+                        StatisticMath.printSttisticMath();
+
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
                         //           System.out.println("is_end_math : " + is_end_math());
                      //   gameServer.lp.counting_games();
 
-                        if(MathUtils.randomBoolean(.001f)){
-                           GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
-                            gameServer.send_Chang_screen(GameServer.break_in_the_game);
-
-                            System.out.println(">>>>>>>>>_____________>>>>>>>>>");
-///////////////////////////////////////////////
-                            mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
-                            gameServer.send_MAP_PARAMETOR();
-///////////////////////////////////////////////
-                        }
+//                        if(MathUtils.randomBoolean(.001f)){
+//                           GameServer.break_in_the_game = Service.invertBoolean(GameServer.break_in_the_game);
+//                            gameServer.send_Chang_screen(GameServer.break_in_the_game);
+//
+//                            System.out.println(">>>>>>>>>_____________>>>>>>>>>");
+/////////////////////////////////////////////////
+//                            mapSpace = new IndexMap(MapsList.getMapForServer()); // создание карты
+//                            gameServer.send_MAP_PARAMETOR();
+/////////////////////////////////////////////////
+//                        }
 
                     }
                 } catch (Exception e) {
@@ -100,6 +105,7 @@ public class MainGame {
                         else Thread.sleep(timer_tread_50);
 
                       //  System.out.println("25");
+
 
                         long deltaTime = GameServer.getDeltaTime();
                         indexMath.updateMath(deltaTime, gameServer.lp,false); // время матча

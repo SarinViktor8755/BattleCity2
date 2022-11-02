@@ -15,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import main.java.com.GameServer;
 import main.java.com.Units.ListPlayer.ListPlayers;
 import main.java.com.Units.ListPlayer.Player;
+import main.java.com.Units.ListPlayer.StatisticMath;
 
 public class IndexBot extends Thread {
     public static GameServer gs;
@@ -52,36 +53,34 @@ public class IndexBot extends Thread {
         // this.botBehavior = new BotBehavior(botList); // поведение бота - тут вся логика  )))
         // this.allPlayers = new HashMap<Integer, TowerRotation>();
 
-  //      System.out.println("install_Bot : " + GameServer.getDate() + "  " + countBot);
+        //      System.out.println("install_Bot : " + GameServer.getDate() + "  " + countBot);
     }
 
 
     private void addBot() {
 
-      //  System.out.println("Add_bot");
+        System.out.println("Add_bot");
         int command = gs.getMainGame().getIndexMath().getCommand();
         Player p = new Player(NOM_ID_BOT, command);
-   //     System.out.println(command);
-
-
+        //     System.out.println(command);
 
         p.setHp(100);
         p.setNikName(getNikNameGen());
 
         NOM_ID_BOT--;
-    //    System.out.println("add_bot+ : " + NOM_ID_BOT + "  " + p.getCommand());
+        //    System.out.println("add_bot+ : " + NOM_ID_BOT + "  " + p.getCommand());
 
         gs.getLp().addPlayer(p); // добавляем в базу играков
 
         DBBot bot = new DBBot(p.getId());
         dbBots.put(p.getId(), bot);
-      //  p.setCommand(gs.getMainGame().getIndexMath().getCommand());
+        //  p.setCommand(gs.getMainGame().getIndexMath().getCommand());
 
         if (p.getCommand() == Heading_type.RED_COMMAND)
             p.setPosition(gs.getMainGame().getMapSpace().getRasp2());
         else p.setPosition(gs.getMainGame().getMapSpace().getRasp1());
         //  p.setPosition(MathUtils.random(200, 1100), MathUtils.random(200, 1100));
-
+        StatisticMath.setTrue();
     }
 
     public void updaeteBot(float deltaTime) {
@@ -278,11 +277,15 @@ public class IndexBot extends Thread {
 
 
     public void updateCountBot(int lPlayers, int target_plaers) {
-        //if (gs.lp.get_activ_player_bots() == target_plaers) return;
-   //     if (gs.lp.get_activ_player_bots() < target_plaers) addBot();
-       // else delBot();
+      //  addBot();
 
-    //    if(gs.lp.get_activ_player_bots() > target_plaers) delateBot();
+        if (StatisticMath.getPlayersSize() < target_plaers) addBot();
+
+        //if (gs.lp.get_activ_player_bots() == target_plaers) return;
+        //     if (gs.lp.get_activ_player_bots() < target_plaers) addBot();
+        // else delBot();
+
+        //    if(gs.lp.get_activ_player_bots() > target_plaers) delateBot();
     }
 
 
@@ -311,42 +314,42 @@ public class IndexBot extends Thread {
 
 
     private void delateBot() { // дописать нужно с какой команды удалять ))
-//        Integer firstKey = dbBots.keySet().iterator().next();
-//        System.out.println("delete");
-//        gs.lp.remove_player(firstKey);
-//        dbBots.remove(firstKey);
-//        gs.send_DISCONECT_PLAYER(firstKey);
-        if (gs.lp.getBlue_size() <1) return;
-    //    System.out.println("DELETA BOT");
-        int target_conmand;
-       // if()
-        if (gs.lp.getRed_size() < gs.lp.getBlue_size()) {
-            // System.out.println("RED_COMMAND");
-            target_conmand = Heading_type.BLUE_COMMAND;
-        }else
-        if (gs.lp.getBlue_size() < gs.lp.getRed_size()) {
-            //System.out.println("BLUE COMAND");
-            target_conmand = Heading_type.RED_COMMAND;
-        }else
-        if (MathUtils.randomBoolean()) target_conmand = Heading_type.RED_COMMAND;
-        else target_conmand = Heading_type.BLUE_COMMAND;
-
-        Iterator<Map.Entry<Integer, DBBot>> inter_bot = dbBots.entrySet().iterator();
-        Player p;
-        while (inter_bot.hasNext()) {
-            Map.Entry<Integer, DBBot> bot = inter_bot.next();
-            p = gs.lp.getPlayerForId(bot.getKey());
-            if(p.getCommand()== target_conmand);
-            {
-                int id = bot.getKey();
-                System.out.println("DELATE: " + id);
-                gs.send_DISCONECT_PLAYER(id);
-                gs.lp.remove_player(id);
-                dbBots.remove(id);
-
-            }
-
-        }
+////        Integer firstKey = dbBots.keySet().iterator().next();
+////        System.out.println("delete");
+////        gs.lp.remove_player(firstKey);
+////        dbBots.remove(firstKey);
+////        gs.send_DISCONECT_PLAYER(firstKey);
+//        if (gs.lp.getBlue_size() <1) return;
+//    //    System.out.println("DELETA BOT");
+//        int target_conmand;
+//       // if()
+//        if (gs.lp.getRed_size() < gs.lp.getBlue_size()) {
+//            // System.out.println("RED_COMMAND");
+//            target_conmand = Heading_type.BLUE_COMMAND;
+//        }else
+//        if (gs.lp.getBlue_size() < gs.lp.getRed_size()) {
+//            //System.out.println("BLUE COMAND");
+//            target_conmand = Heading_type.RED_COMMAND;
+//        }else
+//        if (MathUtils.randomBoolean()) target_conmand = Heading_type.RED_COMMAND;
+//        else target_conmand = Heading_type.BLUE_COMMAND;
+//
+//        Iterator<Map.Entry<Integer, DBBot>> inter_bot = dbBots.entrySet().iterator();
+//        Player p;
+//        while (inter_bot.hasNext()) {
+//            Map.Entry<Integer, DBBot> bot = inter_bot.next();
+//            p = gs.lp.getPlayerForId(bot.getKey());
+//            if(p.getCommand()== target_conmand);
+//            {
+//                int id = bot.getKey();
+//                System.out.println("DELATE: " + id);
+//                gs.send_DISCONECT_PLAYER(id);
+//                gs.lp.remove_player(id);
+//                dbBots.remove(id);
+//
+//            }
+//
+//        }
 
     }
 

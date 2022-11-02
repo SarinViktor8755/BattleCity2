@@ -32,8 +32,10 @@ public class ListPlayers {
     static final float MAX_DIST = 150 * 150;
 
     //размеры команд
-    private int blue_size;
-    private int red_size;
+//    private int blue_size;
+//    private int red_size;
+
+    private StatisticMath statisticMath;
     //живы игроки
 //    private int size_live_player; // оличество живых играков
 //    private int size_bot_player;
@@ -57,8 +59,9 @@ public class ListPlayers {
 
         //  System.out.println("install_ListPlayers : " + GameServer.getDate());
 
-        red_size = 0;
-        blue_size = 0;
+//        red_size = 0;
+//        blue_size = 0;
+        statisticMath = new StatisticMath(this);
     }
 
     public Player getPlayerForId(int id) { // почему то вызывается  иногда
@@ -252,6 +255,9 @@ public class ListPlayers {
         return i;
     }
 
+    public StatisticMath getStatisticMath() {
+        return statisticMath;
+    }
 
     public void send_bot_coordinates() {
         if (MathUtils.randomBoolean(.05f)) update_the_average_coordinates_of_the_commands();
@@ -282,24 +288,24 @@ public class ListPlayers {
         }
     }
 
-
-    private void update_number_of_clicks(int coomand) {
-        if (coomand == Heading_type.BLUE_COMMAND) blue_size++;
-        if (coomand == Heading_type.RED_COMMAND) red_size++;
-    }
-
-    private void update_number_of_clicks(int coomand, boolean live) {
-        if (coomand == Heading_type.BLUE_COMMAND) {
-            blue_size++;
-        //    if (live) live_blue_size_player++;
-        }
-
-
-        if (coomand == Heading_type.RED_COMMAND) {
-            red_size++;
-    //        if (live) live_red_size_player++;
-        }
-    }
+//
+//    private void update_number_of_clicks(int coomand) {
+//        if (coomand == Heading_type.BLUE_COMMAND) blue_size++;
+//        if (coomand == Heading_type.RED_COMMAND) red_size++;
+//    }
+//
+//    private void update_number_of_clicks(int coomand, boolean live) {
+//        if (coomand == Heading_type.BLUE_COMMAND) {
+//            blue_size++;
+//        //    if (live) live_blue_size_player++;
+//        }
+//
+//
+//        if (coomand == Heading_type.RED_COMMAND) {
+//            red_size++;
+//    //        if (live) live_red_size_player++;
+//        }
+//    }
 
 
     public void update_the_average_coordinates_of_the_commands() { // обновить средние координаты команд
@@ -441,11 +447,11 @@ public class ListPlayers {
 
 
     public int blue_players_size() {
-        return this.blue_size;
+        return StatisticMath.getSttisticMath()[2];
     }
 
     public int red_players_size() {
-        return this.red_size;
+        return StatisticMath.getSttisticMath()[3];
     }
 
     public void respownAllPlaers() { //рестарт игкраков -
@@ -552,29 +558,8 @@ public class ListPlayers {
         return size_list_player_in_game;
     }
 
-    public int getBlue_size() {
-        return blue_size;
-    }
 
-    public int getRed_size() {
-        return red_size;
-    }
 
-//    public int getTeam_difference() {
-//        return team_difference;
-//    }
-//
-//    public int getSize_live_player() {
-//        return size_live_player;
-//    }
-//
-//    public int getSize_bot_player() {
-//        return size_bot_player;
-//    }
-
-//    public int get_activ_player_bots() {
-//        return getSize_bot_player() + getSize_live_player();
-//    }
 
 
 
