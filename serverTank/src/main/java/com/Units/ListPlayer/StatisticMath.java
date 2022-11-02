@@ -12,8 +12,8 @@ public class StatisticMath {   // класс дял подчета количе�
 
     private static int sttistic[] = new int[6];
 
-//    private int size_live_player; // rоличество живых играков
-//    private int size_bot_player; // количество ботов
+//    private int size_live_player;
+//    private int size_bot_player;
 //
 //    private int blue_size; // всех в команде
 //    private int red_size;
@@ -44,20 +44,15 @@ public class StatisticMath {   // класс дял подчета количе�
 
     public synchronized StatisticMath counting_p() { // посчитать статичтику
         if (!key_recalculate_statistics) return this;
-        System.out.println("counting_p  " + lp.getSize());
+        //System.out.println("counting_p  " + lp.getSize());
         if (!access_key) return null;
         access_key = false;
-
-        int size_live_player = 0;
-        int size_bot_player = 0;
-
-
-        int live_blue_size_player = 0;
-        int live_red_size_player = 0;
-
-        int blue_size = 0;
-        int red_size = 0;
-
+        int size_live_player = 0; // rоличество живых играков
+        int size_bot_player = 0; // количество ботов
+        int live_blue_size_player = 0; // живых в команде
+        int live_red_size_player = 0;  // живых в команде
+        int blue_size = 0; // размер команды
+        int red_size = 0; // размер команды
         Iterator<Map.Entry<Integer, Player>> entries = lp.getPlayers().entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
@@ -71,12 +66,10 @@ public class StatisticMath {   // класс дял подчета количе�
                 if (isLive(p)) live_blue_size_player++;
             }
 
-
             if (p.command == Heading_type.RED_COMMAND) {
                 red_size++;
                 if (isLive(p)) live_red_size_player++;
             }
-            ///////////////////////////
             if (!isBot(p)) {
                 if (!p.in_game_player()) continue;
                     size_live_player++; // количество жиых играков ___ реальных играков
