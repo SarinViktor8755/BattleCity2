@@ -64,7 +64,9 @@ public class MainGame {
 
                         StatisticMath.key_recalculate_statistics = true;
 
-                     //   StatisticMath.printSttisticMath();
+                        StatisticMath.printSttisticMath();
+
+                       if(MathUtils.randomBoolean(.05f)) System.out.println(gameServer.lp.getPlayers());
 
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты

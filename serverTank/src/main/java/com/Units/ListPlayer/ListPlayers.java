@@ -142,6 +142,8 @@ public class ListPlayers {
     }
 
     public void sendToAllPlayerPosition(int id, Network.PleyerPosition pp) {
+
+        /// тут надо подумать )))) както не отппавлять если нет ТОкккена !!!!!!
         pn.nom = id;
         pn.xp = pp.xp;
         pn.yp = pp.yp;
