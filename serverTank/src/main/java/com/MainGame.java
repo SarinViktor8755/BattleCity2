@@ -64,9 +64,9 @@ public class MainGame {
 
                         StatisticMath.key_recalculate_statistics = true;
 
-                        StatisticMath.printSttisticMath();
+                        //StatisticMath.printSttisticMath();
 
-                       if(MathUtils.randomBoolean(.05f)) System.out.println(gameServer.lp.getPlayers());
+                      // if(MathUtils.randomBoolean(.05f)) System.out.println(gameServer.lp.getPlayers());
 
 //                        поток 50 можно остоновить при отсутвии игрков
 //                                нужно будет обнулить игру результаты
@@ -151,7 +151,7 @@ public class MainGame {
                         gameServer.lp.getStatisticMath().counting_p(); /// пересчет игры
 
 
-                        System.out.println("Tokkens :: " + gameServer.lp.getPlayersTokken());
+                      //  System.out.println("Tokkens :: " + gameServer.lp.getPlayersTokken());
 
 
 

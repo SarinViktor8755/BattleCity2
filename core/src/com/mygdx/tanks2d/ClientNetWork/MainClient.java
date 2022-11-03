@@ -1,5 +1,6 @@
 package com.mygdx.tanks2d.ClientNetWork;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 
 import com.esotericsoftware.kryo.Kryo;
@@ -25,7 +26,8 @@ public class MainClient {
     private int myIdConnect;
     private RouterSM routerSM;
 
-
+    private static float coonection = -1; // происходит ли в реале конект или нет
+    private static boolean key_coonection = false; // ключ на подключение
 
     private VoiceChatClient voiceChatClient;
     private NetworkPacketStock networkPacketStock;
@@ -41,7 +43,7 @@ public class MainClient {
 
         int bufferSize = 22050; // Recommened value.
 
-        client = new Client(bufferSize,bufferSize);
+        client = new Client(bufferSize, bufferSize);
         client.start();
 
         // FrameworkMessage.Ping ping = new FrameworkMessage.Ping();
@@ -55,10 +57,8 @@ public class MainClient {
 //        voiceChatClient.addReceiver(client);
 
 
-
         clientThread = new ClientThread(client);
 //////////////////
-
 
         frameUpdates = new HashMap<Integer, Boolean>();
         try {
@@ -71,10 +71,8 @@ public class MainClient {
             System.out.println("An error occurred please try again!");
         }
 
-
         otherPlayer = new TreeMap<>();
         onLine = true;
-
 
         this.networkPacketStock = new NetworkPacketStock(client);
         // this.startClient();
@@ -119,7 +117,7 @@ public class MainClient {
         if (object instanceof Network.PleyerPositionNom) { // полученеи позиции играков
             Network.PleyerPositionNom pp = (Network.PleyerPositionNom) object;
             frameUpdates.put(pp.nom, true);
-          //   System.out.println(pp.nom + "x y " + pp.xp + " " + pp.yp );
+            //   System.out.println(pp.nom + "x y " + pp.xp + " " + pp.yp );
             if (pp.nom == client.getID()) return;
             // System.out.println("PleyerPositionNom");
             try {
@@ -133,7 +131,7 @@ public class MainClient {
 
                 //mg.getMainClient().frameUpdates.put(pp.nom, false); /// закрывает флаг о рендере __
             } catch (NullPointerException e) {
-             //   e.printStackTrace();
+                //   e.printStackTrace();
             }
 
             return;
@@ -144,7 +142,7 @@ public class MainClient {
             try {
                 routerSM.routeSM((Network.StockMessOut) object);
             } catch (NullPointerException e) {
-               // e.printStackTrace();
+                // e.printStackTrace();
             }
 
         }
@@ -170,19 +168,8 @@ public class MainClient {
         //     System.out.println(NetworkPacketStock.required_to_send_tooken);
         getNetworkPacketStock().toSendMyTokken(status_game); // отправка ника и токкена
         //   if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
+        reconectClienNewThred();
 
-        if (!getClient().isConnected()) {
-            result = false;
-            if (MathUtils.randomBoolean(.05f)) {
-                try {
-                    System.out.println("reconect");
-                    getClient().reconnect(5000);
-                    NetworkPacketStock.required_to_send_tooken = false;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
         return result;
     }
 
@@ -190,4 +177,50 @@ public class MainClient {
     public VoiceChatClient getVoiceChatClient() {
         return this.clientThread.getVoiceChatClient();
     }
+
+    private synchronized void  reconectClienNewThred() { // выполняется каждые 50 мс
+        System.out.println(">>> " + coonection + "  " + key_coonection);
+        coonection-= Gdx.graphics.getDeltaTime();
+
+//        if((!client.isConnected())&&(coonection < 0)){
+//            coonection = 8;
+//        }
+
+
+        if (coonection > 0) return;
+        if (key_coonection) return;
+        if(client.isConnected()) return;
+        key_coonection = true;
+        coonection = 8;
+        System.out.println(">->->->->->-");
+
+
+        //coonection = 8000;
+       // System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+       // if(!MathUtils.randomBoolean(.07f))return;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    try {
+                        System.out.println(">->->->->->-  reconect ///////////");
+
+                        getClient().reconnect(5000);
+                        NetworkPacketStock.required_to_send_tooken = false;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        coonection = 0;
+                    }finally {
+                        key_coonection = false;
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+
 }
