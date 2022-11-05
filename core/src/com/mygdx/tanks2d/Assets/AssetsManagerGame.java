@@ -113,6 +113,8 @@ public class AssetsManagerGame {
         assets.put("sound/bash.ogg", Sound.class);
         assets.put("sound/explode4.ogg", Sound.class);
 
+        assets.put("sound/READY2A.ogg", Sound.class);
+
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
         assets.put("map/field/index.tmx", TiledMap.class);
 

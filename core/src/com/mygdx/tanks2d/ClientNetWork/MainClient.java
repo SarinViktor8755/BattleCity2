@@ -179,7 +179,7 @@ public class MainClient {
     }
 
     private synchronized void  reconectClienNewThred() { // выполняется каждые 50 мс
-        System.out.println(">>> " + coonection + "  " + key_coonection);
+     //   System.out.println(">>> " + coonection + "  " + key_coonection);
         coonection-= Gdx.graphics.getDeltaTime();
 
 //        if((!client.isConnected())&&(coonection < 0)){
@@ -192,7 +192,7 @@ public class MainClient {
         if(client.isConnected()) return;
         key_coonection = true;
         coonection = 8;
-        System.out.println(">->->->->->-");
+     //   System.out.println(">->->->->->-");
 
 
         //coonection = 8000;
@@ -204,7 +204,7 @@ public class MainClient {
             public void run() {
                 try {
                     try {
-                        System.out.println(">->->->->->-  reconect ///////////");
+                     //   System.out.println(">->->->->->-  reconect ///////////");
 
                         getClient().reconnect(5000);
                         NetworkPacketStock.required_to_send_tooken = false;
@@ -216,7 +216,8 @@ public class MainClient {
                     }
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+                //    e.printStackTrace();
+                    System.out.println("not connect");
                 }
             }
         }).start();

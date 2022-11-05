@@ -68,7 +68,7 @@ public class ListPlayers {
         Player result = players.get(id);
         if (result == null) {
             if (id < -99) return null;
-            players.put(id, new Player(id, gameServer.getMainGame().getIndexMath().getCommand()));
+
 
 
         }
@@ -127,7 +127,6 @@ public class ListPlayers {
         Player p = players.get(id);
         if (p == null)
             players.put(id, new Player(id, gameServer.getMainGame().getIndexMath().getCommand()));
-
         p.setPosition(pp.xp, pp.yp);
         p.setRotTower(pp.roy_tower);
         return p;
@@ -144,12 +143,15 @@ public class ListPlayers {
     public void sendToAllPlayerPosition(int id, Network.PleyerPosition pp) {
 
         /// тут надо подумать )))) както не отппавлять если нет ТОкккена !!!!!!
+
         pn.nom = id;
         pn.xp = pp.xp;
         pn.yp = pp.yp;
         pn.roy_tower = pp.roy_tower;
         gameServer.getServer().sendToAllExceptTCP(id, pn);
     }
+
+
 
 //    public void accept_bot(DBBot dbBot) {
 //        Player p_bot = getPlayerForId(dbBot.getId());

@@ -82,7 +82,7 @@ public class PauseScreen implements Screen {
 
         batch.setColor(1, 1, 1, getAlpha());
 
-        System.out.println(mainGame.getScreen());
+      //  System.out.println(mainGame.getScreen());
         batch.draw(f, viewport.getScreenX(), viewport.getScreenY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.setColor(1, 1, 1, 1 - getWith());
         batch.draw(f_bw, viewport.getScreenX(), viewport.getScreenY(), Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

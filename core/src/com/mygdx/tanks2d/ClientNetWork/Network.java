@@ -10,8 +10,8 @@ public class Network {
     //final public static Strin`g ip = "176.62.66.63";
     //final public static String ip = "185.231.68.81";
     //final public static String ip = "omskSarin2020.online";
-    final  public static String host = "127.0.0.1";
-  //   final public static String host = "92.124.144.204";
+     final  public static String host = "127.0.0.1";
+    //final public static String host = "92.124.144.204";
 
     static public void register(EndPoint endPoint) {
         Kryo kryo = endPoint.getKryo();
@@ -59,7 +59,7 @@ public class Network {
         @Override
         public String toString() {
             return "StockMessOut{" +
-                    "tip=" + tip +
+                    "tip=" + Heading_type.getDomenTip(tip) +
                     ", p1=" + p1 +
                     ", p2=" + p2 +
                     ", p3=" + p3 +

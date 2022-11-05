@@ -22,6 +22,8 @@ public class AudioEngine {
     Sound fight, loose;
     Sound music_pause;
 
+    Sound redy_for_action;
+
 
     private Long idTrack;
     private Long idTower;
@@ -36,7 +38,7 @@ public class AudioEngine {
         this.mainGaming = mainGaming;
         timerTower = false;
 
-
+        redy_for_action = mainGaming.getAMG().get("sound/READY2A.ogg", Sound.class);
         sound = mainGaming.getAMG().get("sound/BSB.ogg", Sound.class);
         track = mainGaming.getAMG().get("sound/00708.ogg", Sound.class);
         tower = mainGaming.getAMG().get("sound/bash.ogg", Sound.class);
@@ -91,6 +93,11 @@ public class AudioEngine {
         if(isPause()) return;
         this.loose.play();
     }
+
+    public void rady_for_action() {
+        this.redy_for_action.play();
+    }
+
 
     private static float countVolmeDistantion(Vector2 a, Vector2 b) {
         return countVolmeDistantion(a.x, a.y, b.x, b.y);

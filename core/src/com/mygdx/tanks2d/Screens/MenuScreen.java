@@ -149,6 +149,7 @@ public class MenuScreen implements Screen {
                     }
                     NikName.setNikName(textField.getText());
                     MainGame.nik_name = textField.getText();
+                    mainGame.audioEngine.rady_for_action();
 
 
                     //   mainClient.getNetworkPacketStock().toSendButtonStartClick();
@@ -183,6 +184,7 @@ public class MenuScreen implements Screen {
                 if (!button_start_click) {
                     //  mainClient.getNetworkPacketStock().toSendButtonStartClick();
                     button_start_click = true;
+
                 }
                 if (!mainClient.getClient().isConnected()) return;
                 startgameMP = true;
@@ -284,10 +286,8 @@ public class MenuScreen implements Screen {
         }
 
         if (startgameMP || startgameSP) {
-            System.out.println(1-timerStartGame);
-            mainGame.audioEngine.update_volme_pause(timerStartGame);
-
-
+           // System.out.println(1-timerStartGame);
+            mainGame.audioEngine.update_volme_pause(1-timerStartGame);
             timerStartGame += Gdx.graphics.getDeltaTime(); // задержка во воремени для анимации
         }
 

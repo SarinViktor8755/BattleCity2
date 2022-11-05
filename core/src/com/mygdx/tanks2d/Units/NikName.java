@@ -11,7 +11,7 @@ public class NikName {
         String nik = MainGame.nik_name;
         if (MainGame.nik_name == null) {
             Preferences prefs = Gdx.app.getPreferences("NikName");
-            return prefs.getString("nik", "UserName_" + random(1024));
+            return prefs.getString("nik", "UserName_" + random(512));
         } else return MainGame.nik_name;
 
     }
@@ -26,7 +26,7 @@ public class NikName {
     public static String getTokken() {
         String token;
         String tokken = "tokken";
-        Preferences prefs = Gdx.app.getPreferences("NikName");
+        Preferences prefs = Gdx.app.getPreferences("Tanks2dPreferences");
         if (!prefs.contains(tokken)) token = genirateTokk();
         else token = prefs.getString(tokken);
         prefs.putString(tokken, token);

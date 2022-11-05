@@ -1,6 +1,10 @@
 package com.mygdx.tanks2d.ClientNetWork;
 
+import java.util.HashMap;
+
 public class Heading_type {
+    public static final HashMap<Integer, String> domen = new HashMap<>();
+
     public static final int MY_TOKKEN = 1;
     public static final int MY_NIK = 2;
 
@@ -40,12 +44,43 @@ public class Heading_type {
     public static final float SHOT_LIFETIME = 1.5f;
     public static final String DEFULT_NAME = "no_name3812";
 
-    public static final float PAUSE_GAME = 1f;
-    public static final float PLAY_GAME = 2f;
+    public static final int PAUSE_GAME = 1;
+    public static final int PLAY_GAME = 2;
 
     public static final int CHANGE_THE_SCREEN = 49;
 
 
+    static public String getDomenTip(int tip) {
+        domen.put(1, "MY_TOKKEN");
+
+        domen.put(2, "MY_NIK");
+        domen.put(3, "STATUS_GAME");
+        domen.put(4, "MY_SHOT");
+        domen.put(5, "BUTTON_STARTGAME");
+        domen.put(6, "EXIT_IN_MATH_GAME_PLAYER");
+        domen.put(7, "PARAMETERS_PLAYER");
+        domen.put(8, "PARAMETERS_COMMAND");
+        domen.put(15, "PARAMETERS_MATH");
+        domen.put(16, "PARAMETERS_MAP");
+        domen.put(9, "MY_PARAMETERS");
+        domen.put(14, "MY_COMMAND");
+        domen.put(10, "HP_PLAYER");
+        domen.put(12, "SHELL_RUPTURE");
+        domen.put(44, "BLUE_COMMAND");
+        domen.put(45, "RED_COMMAND");
+        domen.put(11, "DISCONECT_PLAYER");
+        domen.put(47, "LIFE_TANK");
+        domen.put(48, "DEATH_TANK");
+
+        domen.put(49, "RESPOWN_TANK_PLAYER");
+        domen.put(11, "DISCONECT_PLAYER");
+
+        domen.put(49, "CHANGE_THE_SCREEN");
+
+        String r = domen.get(tip);
+        if (r == null) return String.valueOf(tip);
+        else return r;
 
 
+    }
 }
