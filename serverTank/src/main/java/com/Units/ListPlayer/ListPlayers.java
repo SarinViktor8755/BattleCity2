@@ -68,9 +68,6 @@ public class ListPlayers {
         Player result = players.get(id);
         if (result == null) {
             if (id < -99) return null;
-
-
-
         }
         return players.get(id);
 
@@ -585,6 +582,16 @@ public class ListPlayers {
 
     private boolean isBot(Player p){
         if(p.getId()<-99) return true; return false;
+    }
+
+    public void print_list_player(){
+        System.out.println("^^^^^^^^^^^^^^^^^LP^^^^^^^^^^^^^^^^^^^^^");
+        for (Map.Entry<Integer, Player> entry : getPlayers().entrySet()) {
+          //  System.out.println("ID =  " + entry.getKey() + " День недели = " + entry.getValue());
+            if(isBot(entry.getValue())) continue;
+            System.out.println(entry.getValue());
+        }
+        System.out.println("----------LP-------------");
     }
 
 

@@ -63,6 +63,7 @@ public class MainGame {
                        // System.out.println("50");
 
                         StatisticMath.key_recalculate_statistics = true;
+                  //      System.out.println();
 
                         //StatisticMath.printSttisticMath();
 
@@ -149,7 +150,7 @@ public class MainGame {
                         System.out.println("600");
                         gameServer.indexBot.updateCountBot(gameServer.countLivePlayer(), targetPlayer); // контроль количество ботов
                         gameServer.lp.getStatisticMath().counting_p(); /// пересчет игры
-
+                        gameServer.lp.print_list_player();
 
                       //  System.out.println("Tokkens :: " + gameServer.lp.getPlayersTokken());
 
