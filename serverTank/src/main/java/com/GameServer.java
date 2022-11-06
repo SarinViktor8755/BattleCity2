@@ -60,8 +60,9 @@ public class GameServer {
                                @Override
                                public void connected(Connection connection) {
                                    lp.addPlayer(connection.getID());
-                                   send_MAP_PARAMETOR(connection.getID());
                                    lp.getPlayerForId(connection.getID()).setStatus(Heading_type.IN_MENU);
+                                   send_MAP_PARAMETOR(connection.getID());
+
                                }
 
 
@@ -70,6 +71,8 @@ public class GameServer {
                                    relay.relayVoice(connection, object, server);
                                    ///      System.out.println(server.getConnections().length +"    -------------");
                                    if (object instanceof Network.PleyerPosition) {
+                                       if(getLp().getPlayerForId(connection.getID()) == null) return;
+                                       //надо проверить - есть литакой игрок
                                        lp.updatePosition(connection.getID(), (Network.PleyerPosition) object);
                                        lp.sendToAllPlayerPosition(connection.getID(), (Network.PleyerPosition) object);
                                        lp.getPlayerForId(connection.getID()).setStatus(Heading_type.IN_GAME);

@@ -591,6 +591,13 @@ public class ListPlayers {
             if(isBot(entry.getValue())) continue;
             System.out.println(entry.getValue());
         }
+
+        System.out.println("^^^^^^^^^^^^^^^^^BOTS^^^^^^^^^^^^^^^^^^^^^");
+        for (Map.Entry<Integer, Player> entry : getPlayers().entrySet()) {
+            //  System.out.println("ID =  " + entry.getKey() + " День недели = " + entry.getValue());
+            if(!isBot(entry.getValue())) continue;
+            System.out.println(entry.getValue());
+        }
         System.out.println("----------LP-------------");
     }
 

@@ -146,7 +146,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "{" +
                 "status=" + status +
                 ", pos=" + pos +
                 ", body_rotation=" + body_rotation +
