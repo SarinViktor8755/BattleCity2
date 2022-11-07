@@ -337,6 +337,25 @@ public class IndexBot extends Thread {
 
     }
 
+    public void clearAllBot(){ /// чистить всех ботов - это для меню 
+        System.out.println("clearAllBot");
+        for (Map.Entry<Integer, Player> entry : gs.lp.getPlayers().entrySet()) {
+            //  System.out.println("ID =  " + entry.getKey() + " День недели = " + entry.getValue());
+            if(!isBot(entry.getValue())) continue;
+            System.out.println(entry.getValue().getId());
+
+            int id = entry.getValue().getId();
+            gs.lp.remove_player(id);
+            dbBots.remove(id);
+          //  gs.send_DISCONECT_PLAYER(id);
+        }
+
+    }
+
+    private boolean isBot(Player p){
+        if(p.getId()<-99) return true; return false;
+    }
+
     private void delateBot(int id) { // дописать нужно с какой команды удалять ))
 
         gs.send_DISCONECT_PLAYER(id);

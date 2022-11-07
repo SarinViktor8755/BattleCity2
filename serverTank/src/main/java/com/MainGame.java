@@ -152,6 +152,8 @@ public class MainGame {
                         gameServer.lp.getStatisticMath().counting_p(); /// пересчет игры
                         gameServer.lp.print_list_player();
 
+                        if(MathUtils.randomBoolean(0.5f))gameServer.indexBot.clearAllBot();
+
                       //  System.out.println("Tokkens :: " + gameServer.lp.getPlayersTokken());
 
 
