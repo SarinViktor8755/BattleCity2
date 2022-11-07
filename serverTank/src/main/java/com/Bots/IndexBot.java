@@ -337,7 +337,7 @@ public class IndexBot extends Thread {
 
     }
 
-    public void clearAllBot(){ /// чистить всех ботов - это для меню 
+    public void clearAllBot(){ /// чистить всех ботов - это для меню
         System.out.println("clearAllBot");
         for (Map.Entry<Integer, Player> entry : gs.lp.getPlayers().entrySet()) {
             //  System.out.println("ID =  " + entry.getKey() + " День недели = " + entry.getValue());

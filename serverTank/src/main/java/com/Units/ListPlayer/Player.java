@@ -13,15 +13,13 @@ public class Player {
     Vector2 body_rotation;
 
     float rotTower; // коодинаты
-    int hp, frags, death, command, id; //ХП
+    int hp, command, id; //ХП
 
     String tokken, nikName;
 
     public Player(int id, int command) {
-
         this.id = id;
         hp = -1;
-        death = 1;
         this.command = command;
         nikName = Heading_type.DEFULT_NAME; // от куда он берется - это не понятно
         pos = new Vector2(StatusPlayer.IN_MENU, StatusPlayer.IN_MENU); // если -999 - знаит ненажал кнопчку старт 998 нажал -y это счетчик на время смерти ))
@@ -87,21 +85,6 @@ public class Player {
         this.hp = hp;
     }
 
-    public int getFrags() {
-        return frags;
-    }
-
-    public void setFrags(int frags) {
-        this.frags = frags;
-    }
-
-    public int getDeath() {
-        return death;
-    }
-
-    public void setDeath(int death) {
-        this.death = death;
-    }
 
     public int getId() {
         return id;
@@ -146,19 +129,17 @@ public class Player {
 
     @Override
     public String toString() {
-        return "{" +
-                "status=" + status +
-                ", pos=" + pos +
-                ", body_rotation=" + body_rotation +
-                ", rotTower=" + rotTower +
-                ", hp=" + hp +
-                ", frags=" + frags +
-                ", death=" + death +
-                ", command=" + command +
-                ", id=" + id +
-                ", tokken='" + tokken + '\'' +
-                ", nikName='" + nikName + '\'' +
-                '}';
+        return
+                "st=" + status +
+                "p=" + pos +
+                "br=" + body_rotation +
+                "rt=" + rotTower +
+                "hp=" + hp +
+                "c" + command +
+                "id=" + id +
+                "to'" + tokken + '\'' +
+                "nik" + nikName + '\'' +
+                '|';
     }
 
     public boolean isCollisionsTanks(Vector2 posTank) {

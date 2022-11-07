@@ -2,6 +2,7 @@ package main.java.com.Units.ListPlayer;
 
 import com.mygdx.tanks2d.ClientNetWork.Heading_type;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -11,6 +12,9 @@ public class StatisticMath {   // класс дял подчета количе�
     private ListPlayers lp;
 
     private static int sttistic[] = new int[6];
+    private static HashMap<String,PlayerStatic> table = new HashMap();
+
+
 
 //    private int size_live_player;
 //    private int size_bot_player;
