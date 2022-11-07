@@ -1,4 +1,4 @@
-#Tue Oct 18 16:41:10 ALMT 2022
+#Mon Nov 07 08:30:01 ALMT 2022
 path.4=15/classes.dex
 path.3=14/classes.dex
 path.2=12/classes.dex
@@ -20,6 +20,7 @@ base.7=C\:\\Games\\BattleCity2\\android\\build\\intermediates\\dex\\debug\\merge
 base.6=C\:\\Games\\BattleCity2\\android\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\2\\classes.dex
 base.5=C\:\\Games\\BattleCity2\\android\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\1\\classes.dex
 renamed.9=classes10.dex
+renamed.16=classes17.dex
 renamed.8=classes9.dex
 renamed.15=classes16.dex
 renamed.14=classes15.dex
@@ -27,6 +28,7 @@ renamed.13=classes14.dex
 renamed.12=classes13.dex
 renamed.11=classes12.dex
 renamed.10=classes11.dex
+base.16=C\:\\Games\\BattleCity2\\android\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\13\\classes.dex
 base.15=C\:\\Games\\BattleCity2\\android\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 base.14=C\:\\Games\\BattleCity2\\android\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
 renamed.3=classes4.dex
@@ -38,6 +40,7 @@ path.10=6/classes.dex
 renamed.0=classes.dex
 path.11=7/classes.dex
 renamed.7=classes8.dex
+path.16=13/classes.dex
 renamed.6=classes7.dex
 renamed.5=classes6.dex
 path.14=10/classes.dex

@@ -84,6 +84,8 @@ public class IndexBot extends Thread {
     }
 
     public void updaeteBot(float deltaTime) {
+        if(!gs.isServerLivePlayer()) return;
+
         actionBot(deltaTime);
         send_bot_coordinates();
 
@@ -91,6 +93,7 @@ public class IndexBot extends Thread {
 
 
     private void attackBot(DBBot dbtank, float deltaTime, Player tank) {
+
         dbtank.updateTackAttack(deltaTime);
         if (MathUtils.randomBoolean(0.7f)) return;
         if (!tank.isLive()) return;
