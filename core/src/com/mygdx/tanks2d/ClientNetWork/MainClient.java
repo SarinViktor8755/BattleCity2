@@ -165,10 +165,11 @@ public class MainClient {
 
     public boolean checkConnect(int status_game) {
         boolean result = true;
+        reconectClienNewThred();
         //     System.out.println(NetworkPacketStock.required_to_send_tooken);
         getNetworkPacketStock().toSendMyTokken(status_game); // отправка ника и токкена
         //   if (!getClient().isConnected()) NetworkPacketStock.required_to_send_tooken = true;
-        reconectClienNewThred();
+
 
         return result;
     }
@@ -178,26 +179,16 @@ public class MainClient {
         return this.clientThread.getVoiceChatClient();
     }
 
-    private synchronized void  reconectClienNewThred() { // выполняется каждые 50 мс
+     synchronized void  reconectClienNewThred() { // выполняется каждые 50 мс
      //   System.out.println(">>> " + coonection + "  " + key_coonection);
         coonection-= Gdx.graphics.getDeltaTime();
-
-//        if((!client.isConnected())&&(coonection < 0)){
-//            coonection = 8;
-//        }
-
 
         if (coonection > 0) return;
         if (key_coonection) return;
         if(client.isConnected()) return;
         key_coonection = true;
         coonection = 8;
-     //   System.out.println(">->->->->->-");
 
-
-        //coonection = 8000;
-       // System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-       // if(!MathUtils.randomBoolean(.07f))return;
 
         new Thread(new Runnable() {
             @Override
