@@ -149,8 +149,8 @@ public class Player {
     }
 
     public boolean isLive() {
-        if (hp < 1) return false;
-        return true;
+        if (hp > 0) return true;
+        return false;
     }
 
     public boolean isClickButtonStart() {

@@ -33,7 +33,7 @@ public class RouterSM {
     }
 
     public void routeSM(Network.StockMessOut sm) throws NullPointerException {
-        System.out.println("-->>> in :: " + sm);
+       // System.out.println("-->>> in :: " + sm);
         if (Heading_type.MY_SHOT == sm.tip) {
             try {
                 //   System.out.println(mainGame.getGamePlayScreen() + "!!!!!!!!!!!!!!!!!!!!!");
@@ -61,7 +61,7 @@ public class RouterSM {
 
         if (Heading_type.PARAMETERS_MAP == sm.tip) { // сервер прислал карту матча ))
         //    System.out.println("MAP_!!! " + sm.textM + "    pause_game ::" + sm.p1);
-            System.out.println("-------------@@@@@@@@@@");
+           // System.out.println("-------------@@@@@@@@@@");
             GameSpace.setMapDesetrt(sm.textM);
             RouterSM.map_math = sm.textM;
             mainGame.getGamePlayScreen().getGameSpace().loadMap();
@@ -72,7 +72,7 @@ public class RouterSM {
         }
 
         if (Heading_type.CHANGE_THE_SCREEN == sm.tip){
-            System.out.println("=+++++++++++++  " + sm.p1);
+         //   System.out.println("=+++++++++++++  " + sm.p1);
             if(sm.p1 == Heading_type.PAUSE_GAME) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_PAUSE);
             //if(sm.p1 == Heading_type.PLAY_GAME) MainGame.setFlagChangeScreen((byte) MainGame.STATUS_GAME_GAMEPLAY);
         }

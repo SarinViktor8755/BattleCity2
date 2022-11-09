@@ -11,6 +11,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.esotericsoftware.kryonet.Connection;
 
+import javax.swing.text.Position;
+
 import main.java.com.Bots.TowerRotationLogic;
 import main.java.com.GameServer;
 import main.java.com.MatchOrganization.IndexMath;
@@ -138,16 +140,21 @@ public class ListPlayers {
     }
 
     public void sendToAllPlayerPosition(int id, Network.PleyerPosition pp) {
-
         /// тут надо подумать )))) както не отппавлять если нет ТОкккена !!!!!!
-
         pn.nom = id;
         pn.xp = pp.xp;
         pn.yp = pp.yp;
         pn.roy_tower = pp.roy_tower;
-        gameServer.getServer().sendToAllExceptTCP(id, pn);
-    }
+        gameServer.getServer().sendToAllExceptUDP(id, pn);
+        //  System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!------------");
 
+
+//        Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
+//        while (entries.hasNext()) {
+//            Map.Entry<Integer, Player> entry = entries.next();
+
+
+    }
 
 
 //    public void accept_bot(DBBot dbBot) {
@@ -263,28 +270,29 @@ public class ListPlayers {
     public void send_bot_coordinates() {
         if (MathUtils.randomBoolean(.05f)) update_the_average_coordinates_of_the_commands();
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
-
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             checkPlayerForDisconect(entry.getValue()); // проверка на дисконект игрока
-            //   System.out.println(entry.getValue().nikName + "  @@@@BAG" + " tokk  " + entry.getValue().getTokken() );
-
-            if (entry.getKey() > -99) continue;
+            if (!isBot(entry.getValue())) continue;
             Player p = entry.getValue();
-
-            //  if (p.getPosi().x == StatusPlayer.IN_MENU) continue;
             pn.nom = entry.getKey();
             pn.xp = p.getPosi().x;
             pn.yp = p.getPosi().y;
             pn.roy_tower = p.getRotTower();
-            //gameServer.getServer().sendToAllUDP(pn);
-            //  Object object;
+
             Connection[] connections = this.gameServer.getServer().getConnections();
             for (int i = 0, n = connections.length; i < n; i++) {
                 Connection connection = connections[i];
                 //  System.out.println(getPlayerForId(connection.getID()).isClickButtonStart());
                 if (!getPlayerForId(connection.getID()).isClickButtonStart()) continue;
-                connection.sendUDP(pn);
+
+                Player ppp =players.get(connections[i].getID());
+                float dst = Vector2.dst2(pn.xp, pn.yp, ppp.getPosi().x, ppp.getPosi().y);
+                if(!ppp.isLive()){
+                    connection.sendUDP(pn);
+                }else
+                if ((((dst > 230400) && !MathUtils.randomBoolean(.12f)))) continue;
+                     connection.sendUDP(pn);
             }
         }
     }
@@ -555,55 +563,52 @@ public class ListPlayers {
         }
     }
 
-    public int getIdRandomBot(){
+    public int getIdRandomBot() {
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
-            if(isBot(p)) return p.id;
+            if (isBot(p)) return p.id;
 
         }
 
-        return  99;
+        return 99;
     }
 
     public int getSize_list_player_in_game() {
         return size_list_player_in_game;
     }
 
-    public void clearAllBots(){ // не тестировал
+    public void clearAllBots() { // не тестировал
         Iterator<Map.Entry<Integer, Player>> entries = players.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<Integer, Player> entry = entries.next();
             Player p = entry.getValue();
-            if(isBot(p)) remove_player(p.getId());
+            if (isBot(p)) remove_player(p.getId());
         }
     }
 
-    private boolean isBot(Player p){
-        if(p.getId()<-99) return true; return false;
+    private boolean isBot(Player p) {
+        if (p.getId() < -99) return true;
+        return false;
     }
 
-    public void print_list_player(){
+    public void print_list_player() {
         System.out.println("^^^^^^^^^^^^^^^^^LP^^^^^^^^^^^^^^^^^^^^^");
         for (Map.Entry<Integer, Player> entry : getPlayers().entrySet()) {
-          //  System.out.println("ID =  " + entry.getKey() + " День недели = " + entry.getValue());
-            if(isBot(entry.getValue())) continue;
+            //  System.out.println("ID =  " + entry.getKey() + " День недели = " + entry.getValue());
+            if (isBot(entry.getValue())) continue;
             System.out.println(entry.getValue());
         }
 
         System.out.println("^^^^^^^^^^^^^^^^^BOTS^^^^^^^^^^^^^^^^^^^^^");
         for (Map.Entry<Integer, Player> entry : getPlayers().entrySet()) {
             //  System.out.println("ID =  " + entry.getKey() + " День недели = " + entry.getValue());
-            if(!isBot(entry.getValue())) continue;
+            if (!isBot(entry.getValue())) continue;
             System.out.println(entry.getValue());
         }
         System.out.println("----------LP-------------");
     }
-
-
-
-
 
 
 }

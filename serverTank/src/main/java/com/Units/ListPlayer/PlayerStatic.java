@@ -15,6 +15,12 @@ public class PlayerStatic {
     }
 
 
+
+    public void getPlayer(){
+
+
+    }
+
     @Override
     public String toString() {
         return

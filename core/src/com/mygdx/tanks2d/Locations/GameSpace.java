@@ -66,7 +66,7 @@ public class GameSpace {
         float unitScale = 1f;
 
         //map = new TmxMapLoader().load(MAP_DESETRT);
-        System.out.println(RouterSM.map_math + " ::::::::!!!");
+     //   System.out.println(RouterSM.map_math + " ::::::::!!!");
         map = gps.getAMG().get("map/" + RouterSM.map_math + "/index.tmx");
 
         rendererMap = new OrthogonalTiledMapRenderer(map, 1.0f, getGps().getBatch());
@@ -84,7 +84,7 @@ public class GameSpace {
         mainCollision = new MainCollision(gps);
 
         for (int i = 0; i < obstacles.getObjects().getCount(); i++) {
-            System.out.println(obstacles.getObjects().get(i).getName() + " NameObjMap");
+          //  System.out.println(obstacles.getObjects().get(i).getName() + " NameObjMap");
             if (obstacles.getObjects().get(i).getName() != null) {
                 RectangleMapObject r = (RectangleMapObject) obstacles.getObjects().get(i);
                 if (obstacles.getObjects().get(i).getName().equals("resp_1"))
@@ -194,8 +194,8 @@ public class GameSpace {
     }
 
     public boolean inPointLocation(float x, float y) {
-        System.out.println(WITH_LOCATION);
-        System.out.println(HEIHT_LOCATION);
+//        System.out.println(WITH_LOCATION);
+//        System.out.println(HEIHT_LOCATION);
         if ((x < 0) || (y < 0)) return false;
         if ((x > WITH_LOCATION) || (y > HEIHT_LOCATION)) return false;
         return true;

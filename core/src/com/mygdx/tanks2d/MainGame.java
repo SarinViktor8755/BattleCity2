@@ -173,7 +173,7 @@ public class MainGame extends Game {
     }
 
     public boolean isMainMenuScreen() {
-        System.out.println("---------  " + this.screen.equals(this.mainMenu));
+       // System.out.println("---------  " + this.screen.equals(this.mainMenu));
         return this.screen.equals(this.mainMenu);
     }
 

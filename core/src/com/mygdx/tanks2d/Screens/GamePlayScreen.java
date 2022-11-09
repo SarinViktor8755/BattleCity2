@@ -146,9 +146,9 @@ public class GamePlayScreen implements Screen {
         //System.out.println(controller.isVoiceButton());
 
         if(controller.isVoiceButton()){
-            System.out.println("-------------");
-            System.out.println(mainGame.getMainClient().getClient());
-            System.out.println(mainGame.getMainClient().getVoiceChatClient());
+//            System.out.println("-------------");
+//            System.out.println(mainGame.getMainClient().getClient());
+//            System.out.println(mainGame.getMainClient().getVoiceChatClient());
             mainGame.getMainClient().getVoiceChatClient().sendVoice(mainGame.getMainClient().getClient(),Gdx.graphics.getDeltaTime());
         }
 
@@ -205,7 +205,7 @@ public class GamePlayScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        System.out.println(mainGame.getScreen());
+      //  System.out.println(mainGame.getScreen());
        // System.out.println(mainGame.isMainMenuScreen() + " @@@@@@");
         //  System.out.println(MapsList.getMapForServer());
 
