@@ -286,13 +286,17 @@ public class ListPlayers {
                 //  System.out.println(getPlayerForId(connection.getID()).isClickButtonStart());
                 if (!getPlayerForId(connection.getID()).isClickButtonStart()) continue;
 
-                Player ppp =players.get(connections[i].getID());
-                float dst = Vector2.dst2(pn.xp, pn.yp, ppp.getPosi().x, ppp.getPosi().y);
-                if(!ppp.isLive()){
+                Player ppp = players.get(connections[i].getID());
+                //float dst = Vector2.dst2(pn.xp, pn.yp, ppp.getPosi().x, ppp.getPosi().y);
+
+                boolean bx = !MathUtils.isEqual(pn.xp, ppp.getPosi().x, 90);
+                boolean by = !MathUtils.isEqual(pn.yp, ppp.getPosi().y, 60);
+                boolean res = bx || by;
+
+                if (!ppp.isLive()) {
                     connection.sendUDP(pn);
-                }else
-                if ((((dst > 230400) && !MathUtils.randomBoolean(.12f)))) continue;
-                     connection.sendUDP(pn);
+                } else if ((((res) && !MathUtils.randomBoolean(.12f)))) continue;
+                connection.sendUDP(pn);
             }
         }
     }
