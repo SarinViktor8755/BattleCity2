@@ -4,7 +4,24 @@
             "outputFile": "com.mygdx.tanks2d.android-mergeReleaseResources-3:/values-km/values-km.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\e6e7898fce60b6628efaab0b5a8c1a73\\transformed\\play-services-ads-15.0.0\\res\\values-km\\values.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\0809ef0982d24076cfd029827d55d8cb\\transformed\\support-compat-26.1.0\\res\\values-km\\values-km.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "965",
+                        "endColumns": "100",
+                        "endOffsets": "1061"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\8682cc8fb04dbaef7a3da5056123cf85\\transformed\\play-services-ads-15.0.0\\res\\values-km\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10",
                         "startColumns": "0,0,0,0,0,0,0",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\a423a1ecae54e023153ae31479a096c3\\transformed\\play-services-basement-15.0.1\\res\\values-km\\values.xml",
+                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\3b426a6b821b99b94b5a303a52554740\\transformed\\play-services-basement-15.0.1\\res\\values-km\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -35,23 +52,6 @@
                         "startOffsets": "105",
                         "endColumns": "207",
                         "endOffsets": "308"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\viktor\\.gradle\\caches\\transforms-3\\377ddba20e3bacd79dcb3c7ab37cd56b\\transformed\\support-compat-26.1.0\\res\\values-km\\values-km.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "965",
-                        "endColumns": "100",
-                        "endOffsets": "1061"
                     }
                 }
             ]

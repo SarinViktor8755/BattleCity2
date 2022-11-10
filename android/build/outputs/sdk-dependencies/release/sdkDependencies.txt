@@ -51,18 +51,6 @@ library {
 }
 library {
   maven_library {
-    groupId: "com.badlogicgames.gdx"
-    artifactId: "gdx-box2d"
-    version: "1.10.0"
-  }
-  digests {
-    sha256: "\272\223\240\206\366\211G%0t\306QA8\020\214\316\250\326<\203\257(\307\003\020\256)\367\030Z\t"
-  }
-  repo_index {
-  }
-}
-library {
-  maven_library {
     groupId: "com.esotericsoftware"
     artifactId: "kryonet"
     version: "2.22.0-RC1"
@@ -117,18 +105,6 @@ library {
   }
   digests {
     sha256: "\341\330\343p\206\005\243\363\003\020\026 9V\312q\032\n\003\034\233+J\2337\301\v\001..\340\275"
-  }
-  repo_index {
-  }
-}
-library {
-  maven_library {
-    groupId: "com.badlogicgames.box2dlights"
-    artifactId: "box2dlights"
-    version: "1.5"
-  }
-  digests {
-    sha256: "\027Z\215\256!Ce\024\205`\0033\254<?\275-n\3451\343\n\373x\323l\226\362)K^\027"
   }
   repo_index {
   }
@@ -380,35 +356,32 @@ library_dependencies {
 }
 library_dependencies {
   library_index: 4
-  library_dep_index: 1
+  library_dep_index: 5
+  library_dep_index: 8
 }
 library_dependencies {
   library_index: 5
   library_dep_index: 6
-  library_dep_index: 9
+  library_dep_index: 7
 }
 library_dependencies {
-  library_index: 6
-  library_dep_index: 7
-  library_dep_index: 8
+  library_index: 9
+  library_dep_index: 10
+  library_dep_index: 16
+  library_dep_index: 17
+  library_dep_index: 24
+  library_dep_index: 18
+  library_dep_index: 25
 }
 library_dependencies {
   library_index: 10
-  library_dep_index: 4
+  library_dep_index: 11
+  library_dep_index: 12
 }
 library_dependencies {
   library_index: 11
   library_dep_index: 12
-  library_dep_index: 18
-  library_dep_index: 19
-  library_dep_index: 26
-  library_dep_index: 20
-  library_dep_index: 27
-}
-library_dependencies {
-  library_index: 12
   library_dep_index: 13
-  library_dep_index: 14
 }
 library_dependencies {
   library_index: 13
@@ -416,68 +389,61 @@ library_dependencies {
   library_dep_index: 15
 }
 library_dependencies {
-  library_index: 15
-  library_dep_index: 16
-  library_dep_index: 17
+  library_index: 17
+  library_dep_index: 18
+}
+library_dependencies {
+  library_index: 18
+  library_dep_index: 19
 }
 library_dependencies {
   library_index: 19
+  library_dep_index: 11
   library_dep_index: 20
+  library_dep_index: 21
+  library_dep_index: 22
+  library_dep_index: 23
 }
 library_dependencies {
   library_index: 20
-  library_dep_index: 21
+  library_dep_index: 12
+  library_dep_index: 11
 }
 library_dependencies {
   library_index: 21
-  library_dep_index: 13
-  library_dep_index: 22
-  library_dep_index: 23
-  library_dep_index: 24
-  library_dep_index: 25
+  library_dep_index: 12
+  library_dep_index: 11
 }
 library_dependencies {
   library_index: 22
-  library_dep_index: 14
-  library_dep_index: 13
+  library_dep_index: 12
+  library_dep_index: 11
 }
 library_dependencies {
   library_index: 23
-  library_dep_index: 14
-  library_dep_index: 13
+  library_dep_index: 11
+  library_dep_index: 22
+  library_dep_index: 21
 }
 library_dependencies {
   library_index: 24
-  library_dep_index: 14
-  library_dep_index: 13
+  library_dep_index: 16
+  library_dep_index: 18
 }
 library_dependencies {
   library_index: 25
-  library_dep_index: 13
-  library_dep_index: 24
-  library_dep_index: 23
-}
-library_dependencies {
-  library_index: 26
+  library_dep_index: 16
   library_dep_index: 18
-  library_dep_index: 20
-}
-library_dependencies {
-  library_index: 27
-  library_dep_index: 18
-  library_dep_index: 20
 }
 module_dependencies {
   module_name: "base"
   dependency_index: 0
   dependency_index: 2
   dependency_index: 3
-  dependency_index: 4
-  dependency_index: 28
+  dependency_index: 26
   dependency_index: 1
-  dependency_index: 5
-  dependency_index: 10
-  dependency_index: 11
+  dependency_index: 4
+  dependency_index: 9
 }
 repositories {
   maven_repo {

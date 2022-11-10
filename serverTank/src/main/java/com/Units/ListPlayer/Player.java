@@ -131,7 +131,7 @@ public class Player {
     public String toString() {
         return
                 "st=" + status +
-                "p=" + pos +
+                "p=" +  getPositionForPrint() +
                 "br=" + body_rotation +
                 "rt=" + rotTower +
                 "hp=" + hp +
@@ -140,6 +140,10 @@ public class Player {
                 "to'" + tokken + '\'' +
                 "nik" + nikName + '\'' +
                 '|';
+    }
+
+    private String getPositionForPrint(){
+        if(pos.x == -100000) return "DEATH"; else return pos.toString();
     }
 
     public boolean isCollisionsTanks(Vector2 posTank) {

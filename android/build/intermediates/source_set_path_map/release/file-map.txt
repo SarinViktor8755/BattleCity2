@@ -1,0 +1,13 @@
+com.mygdx.tanks2d.android-pngs-0 C:\Games\BattleCity2\android\build\generated\res\pngs\release
+com.mygdx.tanks2d.android-resValues-1 C:\Games\BattleCity2\android\build\generated\res\resValues\release
+com.mygdx.tanks2d.android-rs-2 C:\Games\BattleCity2\android\build\generated\res\rs\release
+com.mygdx.tanks2d.android-mergeReleaseResources-3 C:\Games\BattleCity2\android\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.mygdx.tanks2d.android-mergeReleaseResources-4 C:\Games\BattleCity2\android\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.mygdx.tanks2d.android-merged_res-5 C:\Games\BattleCity2\android\build\intermediates\merged_res\release
+com.mygdx.tanks2d.android-android-6 C:\Games\BattleCity2\android\res
+com.mygdx.tanks2d.android-release-7 C:\Games\BattleCity2\android\src\release\res
+com.mygdx.tanks2d.android-support-compat-26.1.0-8 C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\res
+com.mygdx.tanks2d.android-play-services-basement-15.0.1-9 C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\res
+com.mygdx.tanks2d.android-play-services-ads-15.0.0-10 C:\Users\viktor\.gradle\caches\transforms-3\8682cc8fb04dbaef7a3da5056123cf85\transformed\play-services-ads-15.0.0\res
+com.mygdx.tanks2d.android-play-services-ads-lite-15.0.0-11 C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\res
+com.mygdx.tanks2d.android-support-media-compat-26.1.0-12 C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\res
