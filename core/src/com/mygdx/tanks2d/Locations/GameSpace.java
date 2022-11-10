@@ -15,7 +15,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.tanks2d.Assets.AssetsManagerGame;
 import com.mygdx.tanks2d.ClientNetWork.RouterSM;
 import com.mygdx.tanks2d.Locations.Collision.MainCollision;
-import com.mygdx.tanks2d.Locations.UtilsLighting.b2d.BodyBuilder;
+
 import com.mygdx.tanks2d.MainGame;
 import com.mygdx.tanks2d.Screens.GamePlayScreen;
 
@@ -31,7 +31,7 @@ public class GameSpace {
 
     private TiledMap map;
     private OrthogonalTiledMapRenderer rendererMap;
-    private LightingBox2D lighting;
+  //  private LightingBox2D lighting;
     private OrthographicCamera camera;
     private Radspurens radspurens;
 
@@ -53,7 +53,7 @@ public class GameSpace {
         //MAP_DESETRT = MapsList.getMapForServer();
         this.gps = gps;
         mapsList = new MapsList();
-        lighting = new LightingBox2D(mainGame);
+      //  lighting = new LightingBox2D(mainGame);
         //  System.out.println(mainCollision);
         Object mapName;
         loadMap();
@@ -101,12 +101,12 @@ public class GameSpace {
                 Vector2 ru = new Vector2(a.getRectangle().x + a.getRectangle().getWidth(), a.getRectangle().y + a.getRectangle().getHeight());
                 mainCollision.addRectangleMapObject(ln, ru);
 
-                BodyBuilder.createBox(getLighting().getWorld(),
-                        a.getRectangle().x + a.getRectangle().getWidth() / 2,
-                        a.getRectangle().y + a.getRectangle().getHeight() / 2,
-                        (int) a.getRectangle().getWidth() / 2,
-                        (int) a.getRectangle().getHeight() / 2,
-                        true, true);
+              //  BodyBuilder.createBox(getLighting().getWorld(),
+//                        a.getRectangle().x + a.getRectangle().getWidth() / 2,
+//                        a.getRectangle().y + a.getRectangle().getHeight() / 2,
+//                        (int) a.getRectangle().getWidth() / 2,
+//                        (int) a.getRectangle().getHeight() / 2,
+//                        true, true);
             }
             if (obstacles.getObjects().get(i) instanceof EllipseMapObject) { /// круги создание
 
@@ -118,7 +118,7 @@ public class GameSpace {
                 float y = ellipse.getEllipse().y + r;
 
                 mainCollision.addCircleeMapObject(new Vector2(x, ((HEIHT_LOCATION - ellipse.getEllipse().y) - (ellipse.getEllipse().height))), r);
-                BodyBuilder.createCircle(getLighting().getWorld(), x, y, r);
+              //  BodyBuilder.createCircle(getLighting().getWorld(), x, y, r);
             }
         }
     }
@@ -160,9 +160,9 @@ public class GameSpace {
         return obstacles;
     }
 
-    public LightingBox2D getLighting() {
-        return lighting;
-    }
+//    public LightingBox2D getLighting() {
+//        return lighting;
+//    }
 
     public void renderSpace(OrthographicCamera camera) {
         rendererMap.setView(camera);

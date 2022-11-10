@@ -32,7 +32,7 @@ public class RouterMassege {
         if (Heading_type.MY_TOKKEN == sm.tip) {
 
             if(gameServer.lp.getPlayersTokken().get(sm.textM)!= null){
-                Player p = gameServer.lp.getPlayerForId(gameServer.lp.getPlayersTokken().get(sm.textM));
+               // Player p = gameServer.lp.getPlayerForId(gameServer.lp.getPlayersTokken().get(sm.textM));
                 gameServer.lp.remove_player(gameServer.lp.getPlayersTokken().get(sm.textM));
                 gameServer.lp.getPlayerForId(id_coonect).setTokken(sm.textM);
                 gameServer.lp.getPlayersTokken().put(sm.textM, id_coonect);

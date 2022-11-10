@@ -154,7 +154,7 @@ public class Tank {
         try {
             if (this.tr.getNomTarget() != null) {
                 targetCoordinat = gsp.getTanksOther().getTankForID(this.tr.getNomTarget()).getPosition();
-                gsp.getGameSpace().getLighting().setLasetOn(true);
+               // gsp.getGameSpace().getLighting().setLasetOn(true);
             }
         } catch (NullPointerException e) {
             e.printStackTrace();
@@ -349,7 +349,7 @@ public class Tank {
 
 //        gsp.getGameSpace().getLighting().setPointL(position.x, position.y); //освещение перемещение
 //        gsp.getGameSpace().getLighting().setCone(position.x, position.y, direction.angleDeg());
-        gsp.getGameSpace().getLighting().setConeTower(position.x, position.y, direction_tower.angleDeg());
+     //   gsp.getGameSpace().getLighting().setConeTower(position.x, position.y, direction_tower.angleDeg());
     }
 
     public void getTargetCamera(Vector2 t) {
@@ -358,7 +358,7 @@ public class Tank {
         //  gsp.getCameraGame().moveFloatCameraToPoint(temp.x, temp.y, (int) 3.5); //камера перемещение
 //        gsp.getGameSpace().getLighting().setPointL(position.x, position.y); //освещение перемещение
 //        gsp.getGameSpace().getLighting().setCone(position.x, position.y, direction.angleDeg());
-        gsp.getGameSpace().getLighting().setConeTower(position.x, position.y, direction_tower.angleDeg());
+     //   gsp.getGameSpace().getLighting().setConeTower(position.x, position.y, direction_tower.angleDeg());
     }
 
     public boolean redyToAttack() {
