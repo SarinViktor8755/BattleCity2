@@ -289,10 +289,11 @@ public class ListPlayers {
                 Player ppp = players.get(connections[i].getID());
                 //float dst = Vector2.dst2(pn.xp, pn.yp, ppp.getPosi().x, ppp.getPosi().y);
 
-                boolean bx = !MathUtils.isEqual(pn.xp, ppp.getPosi().x, 90);
-                boolean by = !MathUtils.isEqual(pn.yp, ppp.getPosi().y, 60);
-                boolean res = bx || by;
+                boolean bx = !MathUtils.isEqual(pn.xp, ppp.getPosi().x, 50);
+                boolean by = !MathUtils.isEqual(pn.yp, ppp.getPosi().y, 25);
 
+                boolean res = bx && by;
+//                (dst > 230400)
                 if (!ppp.isLive()) {
                     connection.sendUDP(pn);
                 } else if ((((res) && !MathUtils.randomBoolean(.12f)))) continue;
