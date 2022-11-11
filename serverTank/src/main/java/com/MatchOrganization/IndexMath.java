@@ -22,11 +22,17 @@ public class IndexMath {
     private static int blue_team_score;
 
 
+    private final static int DEFOULT_SCORE_RESPOWN = 80;
+    private static int SCORE_RESPOWN = 80;
+
+
     public void updateMath(float dt, ListPlayers listPlayers, boolean pause_game) {
         this.realTimeMath += dt;
         this.listPlayers = listPlayers;
         this.restartMath(this.realTimeMath);
      //   if(pause_game) System.out.println("PAUSE game");
+
+
     }
 
     public float getTimeMath() { // время оставшегося матча
@@ -110,9 +116,16 @@ public class IndexMath {
     }
 
     public void respon_math() {
+
+        SCORE_RESPOWN--;
+        System.out.println(SCORE_RESPOWN);
+        if(SCORE_RESPOWN > 0) return;
+
+
         listPlayers.respownAllPlaers();
         realTimeMath = 0;
         System.out.println("RESTART MATH");
+        SCORE_RESPOWN = DEFOULT_SCORE_RESPOWN;
     }
 
 

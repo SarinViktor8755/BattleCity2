@@ -289,8 +289,8 @@ public class ListPlayers {
                 Player ppp = players.get(connections[i].getID());
                 //float dst = Vector2.dst2(pn.xp, pn.yp, ppp.getPosi().x, ppp.getPosi().y);
 
-                boolean bx = !MathUtils.isEqual(pn.xp, ppp.getPosi().x, 50);
-                boolean by = !MathUtils.isEqual(pn.yp, ppp.getPosi().y, 25);
+                boolean bx = !MathUtils.isEqual(pn.xp, ppp.getPosi().x, 500);
+                boolean by = !MathUtils.isEqual(pn.yp, ppp.getPosi().y, 350);
 
                 boolean res = bx && by;
 //                (dst > 230400)
