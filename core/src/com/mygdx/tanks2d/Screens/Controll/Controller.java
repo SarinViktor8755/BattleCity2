@@ -114,7 +114,7 @@ public class Controller {
         final float sw = MainGame.WHIDE_SCREEN;
         final float sh = MainGame.HIDE_SCREEN;
 
-        banner = new Banner();
+        banner = new Banner(gsp.getBatch());
 
         //System.out.println(Gdx.graphics.ge);
 
