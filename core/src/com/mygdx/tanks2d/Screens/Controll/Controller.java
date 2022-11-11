@@ -31,6 +31,8 @@ import com.mygdx.tanks2d.Screens.GamePlayScreen;
 public class Controller {
     // Skin skinGame;
 
+    private Banner banner;
+
     final private Viewport viewport;
     final private Stage stage;
 
@@ -81,6 +83,7 @@ public class Controller {
     }
 
     public Controller(GamePlayScreen gsp) {
+
         // gsp.getAssetManager().get("de.pack", TextureAtlas.class);
         time_in_game = 0;
 
@@ -110,6 +113,8 @@ public class Controller {
 
         final float sw = MainGame.WHIDE_SCREEN;
         final float sh = MainGame.HIDE_SCREEN;
+
+        banner = new Banner();
 
         //System.out.println(Gdx.graphics.ge);
 
@@ -366,6 +371,8 @@ public class Controller {
 
     private void update() {
 
+        banner.update();
+
         // labelHP = MathUtils.random(5,50);
         //labelHP.setText("HP: " + hp);
         //System.out.println(buttonChangingOpponent);
@@ -379,13 +386,9 @@ public class Controller {
     //    System.out.println((time_in_game) + "  --");
 
 
-
-
         pointStick.setVisible(contollerOn);
         attacButton.setVisible(contollerOn);
         stick.setVisible(contollerOn);
-
-
 
 
         if (buttonChangingOpponent) changingGoal.setColor(1, 1, 1, .3f);
