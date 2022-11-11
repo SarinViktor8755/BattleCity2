@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\viktor\.gradle\caches\transforms-3\02b4e3ba8c4815ee7586524428ee1a21\transformed\multidex-1.0.2\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\8682cc8fb04dbaef7a3da5056123cf85\transformed\play-services-ads-15.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:17:1-28:12
@@ -19,22 +19,22 @@ MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gra
 MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
 	package
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:4:5-32
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-34:12
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:11-69
@@ -54,14 +54,18 @@ MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\vikt
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:7:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:9:22-78
 uses-feature#0x00020000
-ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:9:5-78
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:11:5-78
 	android:glEsVersion
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:9:19-51
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:11:19-51
 	android:required
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:9:52-75
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:11:52-75
 application
-ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:11:5-30:19
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:13:5-32:19
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
@@ -89,41 +93,41 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 	android:label
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:17:9-41
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:19:9-41
 	android:fullBackupContent
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:13:9-41
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:15:9-41
 	android:appCategory
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:16:9-35
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:18:9-35
 	tools:ignore
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:18:9-39
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:20:9-39
 	android:icon
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:14:9-45
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:16:9-45
 	android:allowBackup
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:12:9-35
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:14:9-35
 	android:isGame
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:15:9-30
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:17:9-30
 activity#com.mygdx.tanks2d.AndroidLauncher
-ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:19:9-29:20
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:21:9-31:20
 	android:screenOrientation
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:22:13-50
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:24:13-50
 	android:label
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:21:13-45
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:23:13-45
 	android:exported
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:24:13-36
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:26:13-36
 	android:configChanges
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:23:13-107
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:25:13-107
 	android:name
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:20:13-61
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:22:13-61
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:25:13-28:29
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:27:13-30:29
 action#android.intent.action.MAIN
-ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:26:17-69
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:26:25-66
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:27:17-77
+ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:29:17-77
 	android:name
-		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:27:27-74
+		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:29:27-74
 uses-sdk
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml

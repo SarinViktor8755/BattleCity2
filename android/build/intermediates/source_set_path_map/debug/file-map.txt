@@ -6,8 +6,8 @@ com.mygdx.tanks2d.android-mergeDebugResources-4 C:\Games\BattleCity2\android\bui
 com.mygdx.tanks2d.android-merged_res-5 C:\Games\BattleCity2\android\build\intermediates\merged_res\debug
 com.mygdx.tanks2d.android-android-6 C:\Games\BattleCity2\android\res
 com.mygdx.tanks2d.android-debug-7 C:\Games\BattleCity2\android\src\debug\res
-com.mygdx.tanks2d.android-support-compat-26.1.0-8 C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\res
-com.mygdx.tanks2d.android-play-services-basement-15.0.1-9 C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\res
-com.mygdx.tanks2d.android-play-services-ads-15.0.0-10 C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\res
-com.mygdx.tanks2d.android-support-media-compat-26.1.0-11 C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\res
-com.mygdx.tanks2d.android-play-services-ads-lite-15.0.0-12 C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\res
+com.mygdx.tanks2d.android-support-compat-26.1.0-8 C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\res
+com.mygdx.tanks2d.android-play-services-basement-15.0.1-9 C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\res
+com.mygdx.tanks2d.android-play-services-ads-15.0.0-10 C:\Users\viktor\.gradle\caches\transforms-3\8682cc8fb04dbaef7a3da5056123cf85\transformed\play-services-ads-15.0.0\res
+com.mygdx.tanks2d.android-play-services-ads-lite-15.0.0-11 C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\res
+com.mygdx.tanks2d.android-support-media-compat-26.1.0-12 C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\res

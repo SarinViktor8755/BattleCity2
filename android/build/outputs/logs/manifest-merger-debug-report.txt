@@ -4,20 +4,20 @@ ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
-MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:17:1-28:12
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:17:1-36:12
-MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\7223cda1c79d4d5ef3426e22e5aba8e8\transformed\play-services-gass-15.0.0\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\f924c93a3ac44b2b7f2df376c0153e59\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\bd7974d168b9b31a91e1b6ca27faa8f1\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\5d2d0c259d5bfb0e21d9b63252a824e8\transformed\support-v4-26.1.0\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\38d5ad4ac803616c9b6501de6ede04e1\transformed\support-fragment-26.1.0\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\2b3fa19c6f3d28e4531630741ef794b2\transformed\support-core-utils-26.1.0\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\6f8bdd3d07870c423ae7b19d54bc8126\transformed\support-core-ui-26.1.0\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\AndroidManifest.xml:17:1-31:12
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:17:1-30:12
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\8682cc8fb04dbaef7a3da5056123cf85\transformed\play-services-ads-15.0.0\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\61390ff637436cbed3a25f7132f735eb\transformed\play-services-gass-15.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\4935aa524a7a955e3924e497d1670169\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\12b3c41ea288f9cf81a57621d3daf9e7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\34a3406c578436e70ddaa0e715e00e81\transformed\support-v4-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\fa8cc5fa7cf2b5b536964261698a1cb4\transformed\support-fragment-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\a12c2558dceaacd2f856f37864edd70f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:17:1-30:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
@@ -39,8 +39,8 @@ INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:1-32:12
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
 ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:5:5-66
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:23:5-67
 	android:name
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_WIFI_STATE
@@ -49,8 +49,8 @@ ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:6:5-75
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:6:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:7:22-76
 uses-feature#0x00020000
@@ -61,32 +61,32 @@ ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:9:5-78
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:9:52-75
 application
 ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:11:5-30:19
-MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
-MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\7223cda1c79d4d5ef3426e22e5aba8e8\transformed\play-services-gass-15.0.0\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\7223cda1c79d4d5ef3426e22e5aba8e8\transformed\play-services-gass-15.0.0\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\f924c93a3ac44b2b7f2df376c0153e59\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\f924c93a3ac44b2b7f2df376c0153e59\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\bd7974d168b9b31a91e1b6ca27faa8f1\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\bd7974d168b9b31a91e1b6ca27faa8f1\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\5d2d0c259d5bfb0e21d9b63252a824e8\transformed\support-v4-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\5d2d0c259d5bfb0e21d9b63252a824e8\transformed\support-v4-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\38d5ad4ac803616c9b6501de6ede04e1\transformed\support-fragment-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\38d5ad4ac803616c9b6501de6ede04e1\transformed\support-fragment-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\2b3fa19c6f3d28e4531630741ef794b2\transformed\support-core-utils-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\2b3fa19c6f3d28e4531630741ef794b2\transformed\support-core-utils-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\6f8bdd3d07870c423ae7b19d54bc8126\transformed\support-core-ui-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\6f8bdd3d07870c423ae7b19d54bc8126\transformed\support-core-ui-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\AndroidManifest.xml:25:5-29:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\61390ff637436cbed3a25f7132f735eb\transformed\play-services-gass-15.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\61390ff637436cbed3a25f7132f735eb\transformed\play-services-gass-15.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\4935aa524a7a955e3924e497d1670169\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\4935aa524a7a955e3924e497d1670169\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\12b3c41ea288f9cf81a57621d3daf9e7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\12b3c41ea288f9cf81a57621d3daf9e7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\34a3406c578436e70ddaa0e715e00e81\transformed\support-v4-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\34a3406c578436e70ddaa0e715e00e81\transformed\support-v4-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\fa8cc5fa7cf2b5b536964261698a1cb4\transformed\support-fragment-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\fa8cc5fa7cf2b5b536964261698a1cb4\transformed\support-fragment-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\a12c2558dceaacd2f856f37864edd70f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\a12c2558dceaacd2f856f37864edd70f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:24:5-28:19
 	android:label
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml:17:9-41
 	android:fullBackupContent
@@ -127,38 +127,38 @@ uses-sdk
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
-MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
-MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\7223cda1c79d4d5ef3426e22e5aba8e8\transformed\play-services-gass-15.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\7223cda1c79d4d5ef3426e22e5aba8e8\transformed\play-services-gass-15.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\f924c93a3ac44b2b7f2df376c0153e59\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\f924c93a3ac44b2b7f2df376c0153e59\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\bd7974d168b9b31a91e1b6ca27faa8f1\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\bd7974d168b9b31a91e1b6ca27faa8f1\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\5d2d0c259d5bfb0e21d9b63252a824e8\transformed\support-v4-26.1.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\5d2d0c259d5bfb0e21d9b63252a824e8\transformed\support-v4-26.1.0\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\38d5ad4ac803616c9b6501de6ede04e1\transformed\support-fragment-26.1.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\38d5ad4ac803616c9b6501de6ede04e1\transformed\support-fragment-26.1.0\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\2b3fa19c6f3d28e4531630741ef794b2\transformed\support-core-utils-26.1.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\2b3fa19c6f3d28e4531630741ef794b2\transformed\support-core-utils-26.1.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\6f8bdd3d07870c423ae7b19d54bc8126\transformed\support-core-ui-26.1.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\6f8bdd3d07870c423ae7b19d54bc8126\transformed\support-core-ui-26.1.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\AndroidManifest.xml:21:5-23:58
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\8682cc8fb04dbaef7a3da5056123cf85\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
+MERGED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\8682cc8fb04dbaef7a3da5056123cf85\transformed\play-services-ads-15.0.0\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\61390ff637436cbed3a25f7132f735eb\transformed\play-services-gass-15.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-gass:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\61390ff637436cbed3a25f7132f735eb\transformed\play-services-gass-15.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\4935aa524a7a955e3924e497d1670169\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-base:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\4935aa524a7a955e3924e497d1670169\transformed\play-services-ads-base-15.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\12b3c41ea288f9cf81a57621d3daf9e7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\12b3c41ea288f9cf81a57621d3daf9e7\transformed\play-services-ads-identifier-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\34a3406c578436e70ddaa0e715e00e81\transformed\support-v4-26.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\34a3406c578436e70ddaa0e715e00e81\transformed\support-v4-26.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\fa8cc5fa7cf2b5b536964261698a1cb4\transformed\support-fragment-26.1.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\fa8cc5fa7cf2b5b536964261698a1cb4\transformed\support-fragment-26.1.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\a12c2558dceaacd2f856f37864edd70f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\a12c2558dceaacd2f856f37864edd70f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\e6e7898fce60b6628efaab0b5a8c1a73\transformed\play-services-ads-15.0.0\AndroidManifest.xml:23:9-59
+		ADDED from [com.google.android.gms:play-services-ads:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\8682cc8fb04dbaef7a3da5056123cf85\transformed\play-services-ads-15.0.0\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml
@@ -168,42 +168,42 @@ INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 		ADDED from C:\Games\BattleCity2\android\AndroidManifest.xml
 		INJECTED from C:\Games\BattleCity2\android\AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\5d2d0c259d5bfb0e21d9b63252a824e8\transformed\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\5d2d0c259d5bfb0e21d9b63252a824e8\transformed\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\ee2c8d48db651dc5bbafd502be92afcb\transformed\support-media-compat-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\38d5ad4ac803616c9b6501de6ede04e1\transformed\support-fragment-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\38d5ad4ac803616c9b6501de6ede04e1\transformed\support-fragment-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\2b3fa19c6f3d28e4531630741ef794b2\transformed\support-core-utils-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\2b3fa19c6f3d28e4531630741ef794b2\transformed\support-core-utils-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\6f8bdd3d07870c423ae7b19d54bc8126\transformed\support-core-ui-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\6f8bdd3d07870c423ae7b19d54bc8126\transformed\support-core-ui-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\377ddba20e3bacd79dcb3c7ab37cd56b\transformed\support-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\34a3406c578436e70ddaa0e715e00e81\transformed\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\34a3406c578436e70ddaa0e715e00e81\transformed\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\c61d2bb5c7293f9aaf4c49499716a82c\transformed\support-media-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\fa8cc5fa7cf2b5b536964261698a1cb4\transformed\support-fragment-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\fa8cc5fa7cf2b5b536964261698a1cb4\transformed\support-fragment-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\a12c2558dceaacd2f856f37864edd70f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\a12c2558dceaacd2f856f37864edd70f\transformed\support-core-utils-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\57766fad310ab4817ccbf3ccded56641\transformed\support-core-ui-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\0809ef0982d24076cfd029827d55d8cb\transformed\support-compat-26.1.0\AndroidManifest.xml:26:9-28:38
 	android:value
-		ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:25:13-35
+		ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:25:13-35
 	android:name
-		ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\b160de045df9e4785321cc54f24ebbbf\transformed\customtabs-26.1.0\AndroidManifest.xml:24:13-51
+		ADDED from [com.android.support:customtabs:26.1.0] C:\Users\viktor\.gradle\caches\transforms-3\1af2d9665051724ecfea308538ef5e7e\transformed\customtabs-26.1.0\AndroidManifest.xml:24:13-51
 activity#com.google.android.gms.ads.AdActivity
-ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:29:9-33:64
+ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:29:9-33:64
 	android:exported
-		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:32:13-37
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:32:13-37
 	android:configChanges
-		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:31:13-122
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:31:13-122
 	android:theme
-		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:33:13-61
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:33:13-61
 	android:name
-		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\fe64923d245ea5804162eb55932d11d0\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:30:13-65
+		ADDED from [com.google.android.gms:play-services-ads-lite:15.0.0] C:\Users\viktor\.gradle\caches\transforms-3\9d869dca69c7abd60d0c929c251075da\transformed\play-services-ads-lite-15.0.0\AndroidManifest.xml:30:13-65
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\a423a1ecae54e023153ae31479a096c3\transformed\play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\viktor\.gradle\caches\transforms-3\3b426a6b821b99b94b5a303a52554740\transformed\play-services-basement-15.0.1\AndroidManifest.xml:24:13-58
 meta-data#android.arch.lifecycle.VERSION
-ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:25:9-27:47
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:25:9-27:47
 	android:value
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:27:13-44
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:27:13-44
 	android:name
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\bef66428aa1e39a65ee0c2a25ee37c4d\transformed\runtime-1.0.0\AndroidManifest.xml:26:13-58
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\viktor\.gradle\caches\transforms-3\be42db663806c80c3e606baf0c1fb9c9\transformed\runtime-1.0.0\AndroidManifest.xml:26:13-58
