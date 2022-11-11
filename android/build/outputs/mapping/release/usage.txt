@@ -340,20 +340,7 @@ android.support.v4.app.ActivityCompat$RequestPermissionsRequestCodeValidator
 android.support.v4.app.ActivityCompat$SharedElementCallback21Impl
 android.support.v4.app.ActivityCompat$SharedElementCallback23Impl$1
 android.support.v4.app.ActivityCompat$SharedElementCallback23Impl
-android.support.v4.app.ActivityCompat:
-    protected void <init>()
-    public static void finishAffinity(android.app.Activity)
-    public static void finishAfterTransition(android.app.Activity)
-    public static android.net.Uri getReferrer(android.app.Activity)
-    public static boolean invalidateOptionsMenu(android.app.Activity)
-    public static void postponeEnterTransition(android.app.Activity)
-    public static void requestPermissions(android.app.Activity,java.lang.String[],int)
-    public static void setEnterSharedElementCallback(android.app.Activity,android.support.v4.app.SharedElementCallback)
-    public static void setExitSharedElementCallback(android.app.Activity,android.support.v4.app.SharedElementCallback)
-    public static boolean shouldShowRequestPermissionRationale(android.app.Activity,java.lang.String)
-    public static void startActivityForResult(android.app.Activity,android.content.Intent,int,android.os.Bundle)
-    public static void startIntentSenderForResult(android.app.Activity,android.content.IntentSender,int,android.content.Intent,int,int,int,android.os.Bundle)
-    public static void startPostponedEnterTransition(android.app.Activity)
+android.support.v4.app.ActivityCompat
 android.support.v4.app.ActivityManagerCompat
 android.support.v4.app.ActivityOptionsCompat$ActivityOptionsCompatApi16Impl
 android.support.v4.app.ActivityOptionsCompat$ActivityOptionsCompatApi23Impl
@@ -555,27 +542,7 @@ android.support.v4.app.TaskStackBuilder
 android.support.v4.content.AsyncTaskLoader$LoadTask
 android.support.v4.content.AsyncTaskLoader
 android.support.v4.content.ContentResolverCompat
-android.support.v4.content.ContextCompat:
-    private static final java.lang.String TAG
-    private static android.util.TypedValue sTempValue
-    protected void <init>()
-    private static varargs java.io.File buildPath(java.io.File,java.lang.String[])
-    public static android.content.Context createDeviceProtectedStorageContext(android.content.Context)
-    private static synchronized java.io.File createFilesDir(java.io.File)
-    public static java.io.File getCodeCacheDir(android.content.Context)
-    public static final int getColor(android.content.Context,int)
-    public static final android.content.res.ColorStateList getColorStateList(android.content.Context,int)
-    public static java.io.File getDataDir(android.content.Context)
-    public static final android.graphics.drawable.Drawable getDrawable(android.content.Context,int)
-    public static java.io.File[] getExternalCacheDirs(android.content.Context)
-    public static java.io.File[] getExternalFilesDirs(android.content.Context,java.lang.String)
-    public static final java.io.File getNoBackupFilesDir(android.content.Context)
-    public static java.io.File[] getObbDirs(android.content.Context)
-    public static boolean isDeviceProtectedStorage(android.content.Context)
-    public static boolean startActivities(android.content.Context,android.content.Intent[])
-    public static boolean startActivities(android.content.Context,android.content.Intent[],android.os.Bundle)
-    public static void startActivity(android.content.Context,android.content.Intent,android.os.Bundle)
-    public static void startForegroundService(android.content.Context,android.content.Intent)
+android.support.v4.content.ContextCompat
 android.support.v4.content.CursorLoader
 android.support.v4.content.FileProvider$PathStrategy
 android.support.v4.content.FileProvider$SimplePathStrategy
@@ -11655,7 +11622,6 @@ android.support.customtabs.CustomTabsClient$2$4
 android.support.customtabs.CustomTabsClient$2:
     final synthetic android.support.customtabs.CustomTabsCallback val$callback
 android.support.multidex.MultiDex$V4
-android.support.v4.app.ActivityCompat
 android.support.v4.media.MediaBrowserCompat$CustomActionCallback
 android.support.v4.media.MediaBrowserCompat$CustomActionResultReceiver:
     private final java.lang.String mAction

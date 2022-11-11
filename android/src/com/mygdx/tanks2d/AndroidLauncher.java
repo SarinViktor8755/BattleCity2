@@ -21,13 +21,13 @@ public class AndroidLauncher extends AndroidApplication {
 	protected void onCreate (Bundle savedInstanceState) {
 
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            // The app has the camera permission.
-            Log.v("ERROR", "CAMERA YESSS !!!!!!");
-        } else {
-            // Apply for the camera permission.
-            Log.v("ERROR", "CAMERA NOOO !!!!!!!!!!!!!! ");
-        }
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+//            // The app has the camera permission.
+//            Log.v("ERROR", "CAMERA YESSS !!!!!!");
+//        } else {
+//            // Apply for the camera permission.
+//            Log.v("ERROR", "CAMERA NOOO !!!!!!!!!!!!!! ");
+//        }
 
 
 

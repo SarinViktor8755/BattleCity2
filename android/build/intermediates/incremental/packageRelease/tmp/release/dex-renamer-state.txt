@@ -1,4 +1,4 @@
-#Thu Nov 10 16:08:51 ALMT 2022
+#Fri Nov 11 09:14:39 ALMT 2022
 base.0=C\:\\Games\\BattleCity2\\android\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
